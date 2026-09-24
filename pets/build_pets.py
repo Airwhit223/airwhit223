@@ -479,8 +479,9 @@ def add_eyes(eye):
         parts.append(add_sphere("pupil", center + Vector((0, r * 0.42, 0)), r * 0.5,
                                 srgb(0.04, 0.04, 0.06), scale=(eye["pupil_w"], 0.5, 1.15)))
         if eye.get("rim"):
-            parts.append(add_sphere("rim", center + Vector((0, -0.0015, 0)), r * 1.14, srgb(0.1, 0.07, 0.06),
-                                    scale=(1, 0.55, eye["tall"])))
+            # Flatter than the iris and set behind it, so only its edge shows.
+            parts.append(add_sphere("rim", center + Vector((0, -0.004, 0)), r * 1.14, srgb(0.1, 0.07, 0.06),
+                                    scale=(1, 0.3, eye["tall"])))
         else:
             parts.append(add_sphere("liner", center + Vector((0, r * 0.2, r * 1.0 * eye["tall"])),
                                     r * 1.02, srgb(0.06, 0.05, 0.06), scale=(1.05, 0.35, 0.1)))
