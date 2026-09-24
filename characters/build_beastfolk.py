@@ -127,6 +127,12 @@ def inner_ear(lc, base, tip, width):
     return abs(abs(lc.x) - cx) < width * 0.28 * (1 - t) and lc.y > cy
 
 
+# Neck shared by every head: a slim column tucked under the skull, so the profile runs in one
+# smooth curve from the back of the head down to the collar instead of a second bump.
+NECK = [("c", (0, 0.1, -0.3), (0, 0.35, -1.0), 0.58, 0.52),
+        ("e", (0, 0.35, -1.05), (0.62, 0.52, 0.35))]
+
+
 HEADS = {
     # blobs, cones, mask(local, normal) -> 0..1, eye (x, y, z), nose (x, y, z, size), ears for inner mask
     "wolf": dict(
@@ -134,7 +140,7 @@ HEADS = {
                *[("e", c, (0.5, 0.45, 0.45)) for c in mirror(0.55, 0.25, -0.35)],
                ("c", (0, 0.45, -0.18), (0, 1.45, -0.34), 0.42, 0.25),
                ("e", (0, 0.85, -0.55), (0.3, 0.55, 0.17)),
-               ("e", (0, -0.25, -0.95), (0.9, 0.85, 0.6))],
+               *NECK],
         cones=ear_cones((0.45, -0.15, 0.72), (0.62, -0.25, 1.62), 0.62, 0.26)
         + [((0.7, 0.05, -0.45), (1.12, -0.1, -0.7), 0.42, 0.3), ((-0.7, 0.05, -0.45), (-1.12, -0.1, -0.7), 0.42, 0.3)],
         ear=((0.45, -0.15, 0.72), (0.62, -0.25, 1.62), 0.62),
@@ -144,7 +150,7 @@ HEADS = {
         blobs=[("e", (0, -0.05, 0.1), (0.9, 0.95, 0.85)),
                *[("e", c, (0.55, 0.45, 0.45)) for c in mirror(0.55, 0.2, -0.35)],
                ("c", (0, 0.45, -0.2), (0, 1.5, -0.36), 0.36, 0.18),
-               ("e", (0, -0.25, -0.95), (0.85, 0.8, 0.6))],
+               *NECK],
         cones=ear_cones((0.42, -0.1, 0.65), (0.68, -0.2, 1.95), 0.8, 0.26)
         + [((0.7, 0.1, -0.4), (1.2, -0.05, -0.62), 0.45, 0.3), ((-0.7, 0.1, -0.4), (-1.2, -0.05, -0.62), 0.45, 0.3)],
         ear=((0.42, -0.1, 0.65), (0.68, -0.2, 1.95), 0.8),
@@ -155,7 +161,7 @@ HEADS = {
                *[("e", c, (0.3, 0.28, 0.25)) for c in mirror(0.2, 0.78, -0.33)],
                ("e", (0, 0.72, -0.5), (0.22, 0.2, 0.15)),
                *[("e", c, (0.45, 0.4, 0.4)) for c in mirror(0.6, 0.15, -0.35)],
-               ("e", (0, -0.25, -0.95), (0.85, 0.8, 0.6))],
+               *NECK],
         cones=ear_cones((0.48, -0.05, 0.68), (0.66, -0.1, 1.45), 0.78, 0.26),
         ear=((0.48, -0.05, 0.68), (0.66, -0.1, 1.45), 0.78),
         light=lambda lc, n: lc.z < -0.2 and lc.y > 0.4,
@@ -165,7 +171,7 @@ HEADS = {
                *[("e", c, (0.32, 0.22, 0.32)) for c in mirror(0.68, -0.1, 0.82)],
                ("c", (0, 0.45, -0.3), (0, 1.15, -0.35), 0.44, 0.36),
                *[("e", c, (0.5, 0.45, 0.5)) for c in mirror(0.55, 0.2, -0.3)],
-               ("e", (0, -0.25, -0.95), (0.95, 0.9, 0.65))],
+               *NECK],
         cones=[],
         ear=None,
         light=lambda lc, n: lc.y > 0.75 and lc.z < 0.0,
@@ -175,23 +181,23 @@ HEADS = {
                ("c", (0, 0.45, -0.2), (0, 1.35, -0.3), 0.5, 0.3),
                ("e", (0, 0.8, -0.52), (0.42, 0.6, 0.16)),
                *[("e", c, (0.26, 0.3, 0.13)) for c in mirror(0.36, 0.55, 0.33)],
-               ("e", (0, -0.25, -0.95), (0.8, 0.85, 0.6))],
+               *NECK],
         cones=ear_cones((0.35, -0.35, 0.5), (0.52, -1.15, 0.95), 0.32, 0.26)
         + [((0, y, 0.72), (0, y - 0.35, 1.25), 0.32, 0.18) for y in (0.25, -0.15, -0.55)],
         ear=None, spots=36.0,
         light=lambda lc, n: lc.z < -0.4 and lc.y > -0.3,
         eye=(0.42, 0.55, 0.22), nose=None, iris=srgb(0.95, 0.72, 0.2)),
     "octopus": dict(
-        blobs=[("e", (0, -0.35, 0.55), (1.15, 1.25, 1.35)),
+        blobs=[("e", (0, -0.3, 0.45), (1.02, 1.1, 1.15)),
                ("e", (0, 0.3, -0.2), (0.85, 0.8, 0.78)),
-               ("e", (0, -0.2, -0.95), (0.8, 0.8, 0.6))],
+               *NECK],
         cones=[], ear=None, spots=30.0,
         light=lambda lc, n: False,
         eye=(0.36, 0.8, 0.0), nose=None, iris=srgb(0.3, 0.2, 0.4)),
     "manta": dict(
         blobs=[("e", (0, 0.0, 0.0), (0.95, 1.0, 0.72)),
                ("e", (0, 0.55, -0.25), (0.75, 0.6, 0.45)),
-               ("e", (0, -0.2, -0.95), (0.85, 0.85, 0.6))],
+               *NECK],
         cones=[((0.5, 0.35, 0.25), (1.75, 0.1, 0.75), 0.95, 0.22), ((-0.5, 0.35, 0.25), (-1.75, 0.1, 0.75), 0.95, 0.22)],
         ear=None,
         light=lambda lc, n: n.z < -0.3,
@@ -199,7 +205,7 @@ HEADS = {
     "eel": dict(
         blobs=[("e", (0, 0.0, 0.05), (0.8, 1.05, 0.85)),
                ("c", (0, 0.55, -0.2), (0, 1.15, -0.3), 0.45, 0.3),
-               ("e", (0, -0.2, -0.95), (0.8, 0.85, 0.6))],
+               *NECK],
         cones=[((0.7, -0.1, 0.1), (1.35, -0.45, 0.55), 0.55, 0.12), ((-0.7, -0.1, 0.1), (-1.35, -0.45, 0.55), 0.55, 0.12)],
         ear=None, spots=24.0,
         light=lambda lc, n: lc.z < -0.4 and lc.y > 0.0,
@@ -207,12 +213,30 @@ HEADS = {
     "shark": dict(
         blobs=[("e", (0, 0.05, 0.0), (0.92, 1.15, 0.95)),
                ("c", (0, 0.55, -0.05), (0, 1.55, -0.2), 0.78, 0.36),
-               ("e", (0, -0.15, -0.9), (1.05, 0.95, 0.75))],
+               *NECK],
         cones=[],
         ear=None,
         light=lambda lc, n: lc.z < -0.3 or (lc.y > 0.4 and n.z < -0.2),
         eye=(0.55, 0.75, 0.15), nose=None, iris=srgb(0.9, 0.15, 0.12)),
 }
+
+
+def surface_hit(obj, origin, direction):
+    """First hit on obj alone (world space) -> (location, normal), or (None, None)."""
+    inv = obj.matrix_world.inverted()
+    d = (inv.to_3x3() @ Vector(direction)).normalized()
+    hit, loc, nrm, _ = obj.ray_cast(inv @ Vector(origin), d)
+    if not hit:
+        return None, None
+    return obj.matrix_world @ loc, (obj.matrix_world.to_3x3() @ nrm).normalized()
+
+
+def eye_frame(nrm, side):
+    """Rotation whose +Y faces out of the head (biased forward so eyes look ahead), +Z up."""
+    fwd = (nrm + Vector((0, 1.2, 0))).normalized()
+    right = Vector((0, 0, 1)).cross(fwd).normalized()
+    up = fwd.cross(right).normalized()
+    return Matrix((right, fwd, up)).transposed().to_4x4()
 
 
 def build_head(species, H, eye_style, iris=None):
@@ -231,47 +255,64 @@ def build_head(species, H, eye_style, iris=None):
 
     face = []
     ex, ey, ez = spec["eye"]
+    k = H.s
     for s in (1, -1):
-        # Cast from in front of the eye position straight back onto the head.
-        start = H.p(ex * s, ey + 2.0, ez)
-        dep = bpy.context.evaluated_depsgraph_get()
-        hit, loc, *_ = bpy.context.scene.ray_cast(dep, start, Vector((0, -1, 0)))
-        p = loc if hit else H.p(ex * s, ey, ez)
-        k = H.s
+        # Aim at this head only (the other species' heads share the same spot), from outside
+        # the eye position toward a point inside the skull, so the eye sits on the surface.
+        target = H.p(ex * s * 0.3, ey - 0.8, ez)
+        outside = H.p(ex * s, ey, ez) + (H.p(ex * s, ey, ez) - target).normalized() * 3 * k
+        p, nrm = surface_hit(head, outside, target - outside)
+        if p is None:
+            p, nrm = H.p(ex * s, ey, ez), Vector((0, 1, 0))
+        R = eye_frame(nrm, s)
+
+        def put(name, off, size, color, tilt=None):
+            rot = R if tilt is None else R @ tilt
+            face.append(blob(name, p + R.to_3x3() @ Vector(off), size, color, rot=rot))
         if species == "shark":
-            face.append(blob("eye", p + Vector((0, -0.01, 0)), (0.11 * k, 0.07 * k, 0.1 * k), spec["iris"]))
-            face.append(blob("pupil", p + Vector((0, 0.01, 0)), (0.05 * k, 0.05 * k, 0.07 * k), DARK))
-            face.append(blob("brow", p + Vector((-0.02 * s, 0.0, 0.1 * k)), (0.15 * k, 0.05 * k, 0.03 * k), DARK,
-                             rot=Matrix.Rotation(0.4 * s, 4, "Y")))
+            put("eye", (0, -0.02 * k, 0), (0.11 * k, 0.06 * k, 0.1 * k), spec["iris"])
+            put("pupil", (0, 0.0, 0), (0.05 * k, 0.05 * k, 0.07 * k), DARK)
+            put("brow", (-0.02 * s * k, -0.01 * k, 0.12 * k), (0.15 * k, 0.04 * k, 0.03 * k), DARK,
+                Matrix.Rotation(0.35 * s, 4, "Y"))
             continue
-        face.append(blob("sclera", p + Vector((0, -0.006, 0)), (0.2 * k, 0.07 * k, 0.17 * k), WHITE))
-        face.append(blob("iris", p + Vector((-0.02 * s * k, 0.0, 0)), (0.13 * k, 0.06 * k, 0.15 * k), spec["iris"]))
-        face.append(blob("pupil", p + Vector((-0.02 * s * k, 0.01, 0)), (0.06 * k, 0.04 * k, 0.1 * k), DARK))
-        face.append(blob("shine", p + Vector((0.02 * s * k, 0.015, 0.06 * k)), (0.035 * k, 0.02 * k, 0.035 * k),
-                         WHITE))
-        face.append(blob("lash", p + Vector((0, 0.004, 0.15 * k)), (0.23 * k, 0.05 * k, 0.04 * k), DARK,
-                         rot=Matrix.Rotation(-0.15 * s, 4, "Y")))
+        # Flattened discs set into the surface: only a sliver stands proud, so they read as
+        # painted anime eyes and never float in profile.
+        put("sclera", (0, -0.022 * k, 0), (0.26 * k, 0.06 * k, 0.22 * k), WHITE)
+        put("iris", (-0.025 * s * k, -0.006 * k, -0.01 * k), (0.17 * k, 0.05 * k, 0.2 * k), spec["iris"])
+        put("pupil", (-0.025 * s * k, 0.004 * k, -0.01 * k), (0.08 * k, 0.045 * k, 0.13 * k), DARK)
+        put("shine", (0.03 * s * k, 0.02 * k, 0.08 * k), (0.05 * k, 0.03 * k, 0.05 * k), WHITE)
+        put("lash", (0, -0.01 * k, 0.21 * k), (0.29 * k, 0.05 * k, 0.045 * k), DARK,
+            Matrix.Rotation(-0.15 * s, 4, "Y"))
     if spec["nose"]:
         nx, ny, nz, ns = spec["nose"]
         face.append(blob("nose", H.p(nx, ny, nz), (ns * H.s * 1.2, ns * H.s, ns * H.s * 0.8), DARK))
     if species == "shark":
         # Wide toothy grin along the snout, and gill slits.
-        mouth = [H.p(0.62 * math.cos(a), 0.55 + 0.9 * math.sin(a) ** 2, -0.62) for a in
-                 [math.radians(d) for d in range(15, 166, 10)]]
-        face.append(tube("mouth", mouth, 0.03 * H.s, DARK))
+        def snout(a, lift, z=-0.42):
+            """Point on the snout surface at angle a around the jaw line, lifted off it."""
+            centre = H.p(0, 0.55, z)
+            out = H.p(1.6 * math.cos(a), 0.55 + 1.6 * math.sin(a), z)
+            loc, nrm = surface_hit(head, out, centre - out)
+            if loc is None:
+                return H.p(0.62 * math.cos(a), 0.55 + 0.9 * math.sin(a) ** 2, -0.62)
+            return loc + nrm * lift * H.s
+        angles = [math.radians(d) for d in range(20, 161, 8)]
+        face.append(tube("mouth", [snout(a, 0.0) for a in angles], 0.028 * H.s, DARK))
         bm = bmesh.new()
-        for i, a in enumerate([math.radians(d) for d in range(25, 156, 13)]):
-            base = H.p(0.6 * math.cos(a), 0.55 + 0.9 * math.sin(a) ** 2 + 0.03, -0.62)
-            add_ear(bm, base + Vector((0, 0, 0.012)), base + Vector((0, 0.005, 0.07 * H.s * 1.6)), 0.09 * H.s,
-                    0.05 * H.s)
-            add_ear(bm, base - Vector((0, 0, 0.012)), base - Vector((0, -0.005, 0.07 * H.s * 1.6)), 0.09 * H.s,
-                    0.05 * H.s)
+        for a in [math.radians(d) for d in range(30, 151, 12)]:
+            base = snout(a, 0.02)
+            add_ear(bm, base + Vector((0, 0, 0.004)), base + Vector((0, 0, 0.1 * H.s)), 0.08 * H.s, 0.04 * H.s)
+            add_ear(bm, base - Vector((0, 0, 0.004)), base - Vector((0, 0, 0.1 * H.s)), 0.08 * H.s, 0.04 * H.s)
         teeth = new_object("teeth", bm)
         paint(teeth, lambda co, n: WHITE)
         face.append(teeth)
         for s in (1, -1):
             for g in range(3):
-                pts = [H.p(s * 0.95, -0.2 - g * 0.18, z) for z in (-0.35, -0.55, -0.75)]
+                pts = []
+                for z in (-0.3, -0.45, -0.6):
+                    out = H.p(s * 2.0, -0.15 - g * 0.17, z)
+                    loc, nrm = surface_hit(head, out, Vector((-s, 0, 0)))
+                    pts.append(loc + nrm * 0.01 * H.s if loc is not None else H.p(s * 0.95, -0.15 - g * 0.17, z))
                 face.append(tube("gill", pts, 0.02 * H.s, srgb(0.2, 0.22, 0.26)))
     face_obj = face[0]
     if len(face) > 1:
@@ -282,10 +323,16 @@ def build_head(species, H, eye_style, iris=None):
     return head, face_obj
 
 
+SKULL = [None]  # the bare human head mesh, so ears never land on another species' ears
+
+
 def skull_point(H, x, y):
     """Top of the real head surface above head-space point (x, y)."""
-    dep = bpy.context.evaluated_depsgraph_get()
     start = H.p(x, y, 4.0)
+    if SKULL[0] is not None:
+        loc, _ = surface_hit(SKULL[0], start, Vector((0, 0, -1)))
+        return loc if loc is not None else H.p(x, y, 1.0)
+    dep = bpy.context.evaluated_depsgraph_get()
     hit, loc, *_ = bpy.context.scene.ray_cast(dep, start, Vector((0, 0, -1)))
     return loc if hit else H.p(x, y, 1.0)
 
@@ -299,6 +346,9 @@ EAR_SPECS = {  # (head-space x, y) on the skull, length, width, outward lean, in
 
 def side_point(H, y, z, side):
     """The real head surface at the side of the head, at head-space (y, z)."""
+    if SKULL[0] is not None:
+        loc, _ = surface_hit(SKULL[0], H.p(4.0 * side, y, z), Vector((-side, 0, 0)))
+        return loc if loc is not None else H.p(side, y, z)
     dep = bpy.context.evaluated_depsgraph_get()
     hit, loc, *_ = bpy.context.scene.ray_cast(dep, H.p(4.0 * side, y, z), Vector((-side, 0, 0)))
     return loc if hit else H.p(side, y, z)
@@ -609,6 +659,7 @@ def body_mask(L, co, n):
 def base_setup(sex):
     path, height = BASES[sex]
     reset_scene()
+    SKULL[0] = None
     body = load_base(path, height)
     L = Landmarks(body, height)
     paint(body, lambda co, n: body_mask(L, co, n))
@@ -637,6 +688,7 @@ def build_customizable(sex):
     hands_obj.name = "hands"
     clothes = shirt_and_pants(body, L)
     head = split_head(body, L)
+    SKULL[0] = head
     roots = back_points(L)
     parts = [head, face, hands_obj, *clothes]
     for sp in EAR_SPECIES:  # ears first: they are planted by casting rays at the bare skull
