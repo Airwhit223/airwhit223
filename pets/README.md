@@ -6,6 +6,26 @@ working skeleton, meant to get the pets into the game now and be refined (or
 replaced by sculpted models) later.
 
 ![preview](preview.png)
+
+All eight coats from the pet sheet (top: huskies, bottom: Maine Coons):
+
+![coats](preview_coats.png)
+
+| File | Coat |
+|------|------|
+| `husky.glb` | H1 classic black and white, blue eyes |
+| `husky_copper.glb` | H2 copper red and white, amber eyes |
+| `husky_silver.glb` | H3 silver and white, blue eyes |
+| `husky_white.glb` | H4 all-white (rare), blue eyes |
+| `maine_coon.glb` | M1 classic brown tabby, amber eyes |
+| `maine_coon_silver.glb` | M2 silver smoke, green eyes |
+| `maine_coon_ginger.glb` | M3 ginger orange, green-gold eyes |
+| `maine_coon_cream.glb` | M4 cream cameo (rare), copper eyes |
+
+Every coat shares the same mesh, skeleton and `idle` animation, so a pet
+scene can swap coats just by loading a different file. Coats are palettes in
+`HUSKY_COATS` / `COON_COATS` in `build_pets.py`; add an entry to make a new one
+(`python pets/build_pets.py <name>` rebuilds just that coat).
 ![posed](preview_posed.png)
 
 | File | What it is |
@@ -15,7 +35,7 @@ replaced by sculpted models) later.
 | `pet_toon.tres` | Godot toon material with a dark cartoon outline |
 | `build_pets.py` | The script that generates everything |
 
-About 12.7k triangles and 27 bones each. Heights: husky about 1.1 m to the
+About 17k triangles and 27 bones each, with sculpted noses, mouths, toe bumps and (cats) whiskers. Heights: husky about 1.1 m to the
 ear tips (thigh/waist height on the player), Maine coon about 0.65 m.
 
 ## Using them in Godot
