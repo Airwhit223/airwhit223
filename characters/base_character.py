@@ -166,7 +166,7 @@ class Landmarks:
                 return line[-1].copy()
             self.arm[side] = dict(shoulder=shoulder, elbow=at(0.33), wrist=at(0.62),
                                   hand_end=at(0.82), tip=bottom,
-                                  line=line, lengths=lengths)
+                                  line=line, lengths=lengths, at=at)
         bm.free()
 
         self.leg = {}
@@ -497,6 +497,120 @@ def replace_hands(body, L, skin):
     return hands
 
 
+def arm_band(body, L, name, t0, t1, offset, color):
+    """A band wrapping both arms between t0 and t1 along the arm, with clean
+    edges square to the arm."""
+    cuts = []
+    for side in (1, -1):
+        at = L.arm[side]["at"]
+        a, b = at(t0), at(t1)
+        d = (b - a).normalized()
+        on_side = lambda co, side=side: co.x * side > 0  # noqa: E731
+        cuts += [(a, d, on_side), (b, -d, on_side)]
+
+    def region(co):
+        side = 1 if co.x > 0 else -1
+        t, dist = L.arm_param(co, side)
+        return dist < 0.12 and abs(co.x) > L.H * 0.06 and t0 - 0.06 < t < t1 + 0.06
+    band = garment(body, name, region, lambda co: offset, cuts=cuts)
+    paint(band, lambda co, n: color)
+    return band
+
+
+def sandal_straps(L, color, top=0.3, turns=2.3, radius=0.0045):
+    """Straps criss-crossing up each calf, fitted by casting rays at the leg.
+    Call while the body is the only thing near the legs."""
+    objs = []
+    depsgraph = bpy.context.evaluated_depsgraph_get()
+    for side in (1, -1):
+        ankle = L.leg[side]["ankle"]
+        knee = L.leg[side]["knee"]
+        for turn in (1, -1):
+            pts = []
+            for k in range(81):
+                t = k / 80
+                z = ankle.z - 0.01 + t * (top - ankle.z)
+                axis = ankle.lerp(knee, (z - ankle.z) / (knee.z - ankle.z))
+                a = turn * t * turns * math.tau + (0.0 if turn > 0 else math.pi)
+                d = Vector((math.cos(a), math.sin(a), 0.0))
+                origin = Vector((axis.x, axis.y, z)) + d * 0.075
+                hit, loc, *_ = bpy.context.scene.ray_cast(depsgraph, origin, -d)
+                if hit:
+                    pts.append(loc + d * 0.002)
+            objs.append(tube("strap", pts, radius, color))
+        toe = []
+        for k in range(21):
+            a = math.pi * (0.12 + 0.76 * k / 20)
+            d = Vector((math.cos(a), 0.0, math.sin(a)))
+            center = Vector((ankle.x, L.leg[side]["ball"].y, 0.0))
+            hit, loc, *_ = bpy.context.scene.ray_cast(depsgraph, center + d * 0.075, -d)
+            if hit:
+                toe.append(loc + d * 0.002)
+        objs.append(tube("toe_strap", toe, radius * 1.2, color))
+    return objs
+
+
+def ring_skirt(center, top_z, top_r, hem_z, hem_r, color_fn, pleats=0, pleat_depth=0.0,
+               segs=96, rings=14, gaps=(), thickness=0.007, keep=None, rows=None):
+    """A skirt as a flared tube. top_r / hem_r are (x, y) radii. hem_z may be
+    a function of angle (0 = her right, pi/2 = front) for pointed hems.
+    gaps: (angle, half_width) slits that open toward the hem."""
+    hem = hem_z if callable(hem_z) else (lambda th: hem_z)
+    bm = bmesh.new()
+    ts = sorted(rows) if rows else [i / rings for i in range(rings + 1)]
+    rings = len(ts) - 1
+    grid = []
+    for t in ts:
+        row = []
+        for j in range(segs):
+            th = j / segs * math.tau
+            rx = top_r[0] + (hem_r[0] - top_r[0]) * t
+            ry = top_r[1] + (hem_r[1] - top_r[1]) * t
+            wave = 1.0 + pleat_depth * t * (0.5 + 0.5 * math.cos(th * pleats)) if pleats else 1.0
+            z = top_z + (hem(th) - top_z) * t
+            row.append(bm.verts.new((center.x + rx * wave * math.cos(th),
+                                     center.y + ry * wave * math.sin(th), z)))
+        grid.append(row)
+    for i in range(rings):
+        for j in range(segs):
+            th = (j + 0.5) / segs * math.tau
+            tt = (ts[i] + ts[i + 1]) / 2
+            if any(abs((th - g + math.pi) % math.tau - math.pi) < w * min(1.0, 0.25 + tt * 1.2)
+                   for g, w in gaps):
+                continue
+            if keep is not None and not keep(th, tt):
+                continue
+            j2 = (j + 1) % segs
+            bm.faces.new((grid[i][j], grid[i][j2], grid[i + 1][j2], grid[i + 1][j]))
+    bmesh.ops.delete(bm, geom=[v for v in bm.verts if not v.link_faces], context="VERTS")
+    skirt = new_object("skirt", bm)
+    select_only(skirt)
+    sol = skirt.modifiers.new("Solidify", "SOLIDIFY")
+    sol.thickness = thickness
+    apply_modifiers(skirt)
+    bpy.ops.object.shade_smooth()
+
+    def color(co, n):
+        th = math.atan2(co.y - center.y, co.x - center.x) % math.tau
+        t = (top_z - co.z) / max(1e-6, top_z - hem(th))
+        return color_fn(th, t, co)
+    paint(skirt, color)
+    return skirt
+
+
+def skirt_weights(L, top_z):
+    """Blend a skirt from the hips to each thigh as it goes down."""
+    H = L.H
+
+    def fn(co):
+        down = max(0.0, min(1.0, (top_z - co.z) / (H * 0.35)))
+        side = max(0.0, min(1.0, abs(co.x) / (H * 0.07)))
+        leg = down * side * 0.8
+        bone = "RightUpperLeg" if co.x > 0 else "LeftUpperLeg"
+        return {"Hips": 1.0 - leg, bone: leg}
+    return fn
+
+
 def export(name, body, rig, out_dir):
     body.data.validate()
     body.data.materials.clear()
@@ -509,3 +623,29 @@ def export(name, body, rig, out_dir):
     )
     tris = sum(len(p.vertices) - 2 for p in body.data.polygons)
     print(f"{name}: {tris} triangles, {len(rig.data.bones)} bones")
+
+
+def sneakers(body, L, shoe, accent, sole, top=0.12):
+    """Sneakers with colored heel counters and toe caps."""
+    legs = lambda co: not L.is_arm(co) and abs(co.x) < L.H * 0.2  # noqa: E731
+    shoes = garment(body, "shoes", lambda co: co.z < top + 0.04 and legs(co), lambda co: 0.013,
+                    cuts=[((0, 0, top), (0, 0, -1), None)], subdivide=1)
+    paint(shoes, lambda co, n: shoe)
+    soles = garment(body, "soles", lambda co: co.z < 0.05 and legs(co), lambda co: 0.02,
+                    cuts=[((0, 0, 0.022), (0, 0, -1), None)])
+    paint(soles, lambda co, n: sole)
+    parts = [shoes, soles]
+    for side in (1, -1):
+        ay = L.leg[side]["ankle"].y
+        foot = lambda co, side=side: legs(co) and co.x * side > 0 and co.z < top + 0.01  # noqa: E731
+        heel = garment(body, "heel", lambda co, f=foot, ay=ay: f(co) and co.y < ay, lambda co: 0.017,
+                       cuts=[((0, ay - 0.025, 0), (0, -1, 0), None), ((0, 0, top - 0.02), (0, 0, -1), None),
+                             ((0, 0, 0.02), (0, 0, 1), None)])
+        cap_y = ay + (L.leg[side]["toe"].y - ay) * 0.5
+        toe = garment(body, "toe", lambda co, f=foot, cy=cap_y: f(co) and co.y > cy - 0.03, lambda co: 0.017,
+                      cuts=[((0, cap_y, 0), (0, 1, 0), None), ((0, 0, 0.05), (0, 0, -1), None),
+                            ((0, 0, 0.02), (0, 0, 1), None)])
+        for g in (heel, toe):
+            paint(g, lambda co, n: accent)
+        parts += [heel, toe]
+    return parts

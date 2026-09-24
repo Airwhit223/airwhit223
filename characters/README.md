@@ -3,7 +3,9 @@
 | Character | Built on | Script |
 |-----------|----------|--------|
 | Hoodie guy (green, and a black variant) | Meshy male base (`bases/`) | `build_hoodie_guy.py` |
-| Egyptian queen | Blob-sculpted body | `build_egyptian_queen.py` |
+| Egyptian queen (Meshy body) | Meshy female base | `build_queen_meshy.py` |
+| Casual girl | Meshy female base | `build_casual_girl.py` |
+| Egyptian queen (original) | Blob-sculpted body | `build_egyptian_queen.py` |
 
 All of them share the same 22 humanoid bone names, so one set of
 retargeted animations works for every character.
@@ -30,6 +32,32 @@ How it's made (`base_character.py`, reusable for any new character):
   under clothes is deleted.
 - New outfits are a color table (`OUTFITS` in `build_hoodie_guy.py`): add an
   entry and re-run to get another variant.
+
+## Egyptian queen on the Meshy female base
+
+![queen](preview_queen_meshy.png)
+![posed](preview_queen_meshy_posed.png)
+
+`egyptian_queen_meshy.glb`: the same outfit as the original queen, rebuilt
+to fit the female base: fitted bandeau top with gold trim, belt that stays on
+the hips, split skirt with a finely detailed front panel, usekh collar
+following the shoulders, arm bands and bracers, cobra headband, sandal
+straps and long hair with gold streaks. About 58k triangles.
+
+## Casual girl
+
+![casual girl](preview_casual_girl.png)
+![posed](preview_casual_girl_posed.png)
+
+`casual_girl.glb`: high ponytail with side-swept bangs, cropped light-denim
+jacket open over a white tank top, pleated wine-red mini skirt, striped knee
+socks and sneakers. About 60k triangles. Add color schemes to `OUTFITS` in
+`build_casual_girl.py` for variants.
+
+Shared building blocks live in `base_character.py`: `garment` (clothes
+lifted from the body with clean cut edges), `arm_band`, `ring_skirt`
+(straight, flared, pleated or split skirts), `sandal_straps`, `sneakers`,
+`curly_hair`, `anime_eyes` and `replace_hands`.
 
 # Egyptian queen (blockout)
 
