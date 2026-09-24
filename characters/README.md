@@ -1,3 +1,36 @@
+# Characters
+
+| Character | Built on | Script |
+|-----------|----------|--------|
+| Hoodie guy (green, and a black variant) | Meshy male base (`bases/`) | `build_hoodie_guy.py` |
+| Egyptian queen | Blob-sculpted body | `build_egyptian_queen.py` |
+
+All of them share the same 22 humanoid bone names, so one set of
+retargeted animations works for every character.
+
+## Hoodie guy
+
+![hoodie guy](preview_hoodie_guy.png)
+![black variant](preview_hoodie_guy_black.png)
+![posed](preview_hoodie_guy_posed.png)
+
+Curly-haired guy in an oversized hoodie (hood down, drawstrings, kangaroo
+pocket, ribbed hem and cuffs), baggy jeans with rolled cuffs and sneakers
+with colored heels and toe caps. `hoodie_guy_black.glb` is the black
+hoodie / grey pants / dark shoes version. About 45k triangles each.
+
+How it's made (`base_character.py`, reusable for any new character):
+
+- The Meshy base is scaled to 1.78 m, centered, turned to face -Z in Godot
+  and smoothed. Its mitten hands are replaced with anime hands.
+- Joint positions come from the mesh itself (the arms are traced from the
+  fingertips), and the body is skinned automatically.
+- Clothing is the body's own surface lifted outward, trimmed with clean
+  cuts, so it always fits; it copies the body's skin weights. Skin hidden
+  under clothes is deleted.
+- New outfits are a color table (`OUTFITS` in `build_hoodie_guy.py`): add an
+  entry and re-run to get another variant.
+
 # Egyptian queen (blockout)
 
 Stylized, rigged blockout of the Egyptian queen character, built from the

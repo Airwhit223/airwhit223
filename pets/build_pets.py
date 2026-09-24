@@ -391,7 +391,11 @@ def join(parts, target):
 
 def paint(obj, color_fn):
     mesh = obj.data
-    attr = mesh.color_attributes.new("Col", "BYTE_COLOR", "POINT")
+    attr = mesh.color_attributes.get("Col")
+    if attr is None or attr.domain != "POINT":
+        if attr is not None:
+            mesh.color_attributes.remove(attr)
+        attr = mesh.color_attributes.new("Col", "BYTE_COLOR", "POINT")
     for v in mesh.vertices:
         attr.data[v.index].color = color_fn(v.co, v.normal)
     mesh.color_attributes.active_color = attr
