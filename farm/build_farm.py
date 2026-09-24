@@ -120,6 +120,9 @@ def cow_face(c):
 # Sheep: a woolly cloud on thin dark legs, about 0.85 m tall.
 # --------------------------------------------------------------------------
 
+SHEEP_FACE, SHEEP_FACE_R = (0, 0.6, 0.75), (0.1, 0.14, 0.12)
+
+
 def wool_balls():
     out = [ellipsoid((0, 0, 0.6), (0.27, 0.42, 0.25))]
     for i in range(7):
@@ -133,26 +136,26 @@ def wool_balls():
 
 SHEEP_SHAPES = [
     *wool_balls(),
-    ellipsoid((0, 0.5, 0.72), (0.1, 0.14, 0.12)),        # face
-    ball((0, 0.44, 0.84), 0.1),                           # wool cap
-    ball((0.06, 0.42, 0.8), 0.08, mirror=True),
+    ellipsoid(SHEEP_FACE, SHEEP_FACE_R),                  # face
+    ball((0, 0.52, 0.87), 0.09),                          # wool cap
+    ball((0.06, 0.5, 0.83), 0.07, mirror=True),
     capsule((0.13, 0.26, 0.42), (0.13, 0.28, 0.06), 0.038, 0.033, mirror=True),
     hoof((0.13, 0.29, 0.03), (0.04, 0.05, 0.03)),
     capsule((0.13, -0.28, 0.42), (0.13, -0.3, 0.06), 0.04, 0.033, mirror=True),
     hoof((0.13, -0.29, 0.03), (0.04, 0.05, 0.03)),
     *chain([(0, -0.42, 0.68), (0, -0.49, 0.64), (0, -0.53, 0.58), (0, -0.55, 0.54), (0, -0.56, 0.5)],
            [0.06, 0.06, 0.055, 0.05, 0.04]),              # stubby tail
-    ear((0.08, 0.47, 0.76), (0.2, 0.45, 0.71), 0.075, 0.03),
+    ear((0.08, 0.57, 0.79), (0.23, 0.56, 0.74), 0.075, 0.03),
 ]
 
 SHEEP_SKELETON = [
     ("pelvis", None, (0, -0.28, 0.62)),
     ("spine", "pelvis", (0, 0.0, 0.63)),
     ("chest", "spine", (0, 0.26, 0.63)),
-    ("neck", "chest", (0, 0.42, 0.72)),
-    ("head", "neck", (0, 0.52, 0.78)),
-    ("jaw", "head", (0, 0.62, 0.68)),
-    ("ear.{s}", "head", (0.2, 0.45, 0.71)),
+    ("neck", "chest", (0, 0.5, 0.75)),
+    ("head", "neck", (0, 0.6, 0.8)),
+    ("jaw", "head", (0, 0.7, 0.7)),
+    ("ear.{s}", "head", (0.23, 0.56, 0.74)),
     ("upper_arm.{s}", "chest", (0.13, 0.27, 0.25)),
     ("forearm.{s}", "upper_arm.{s}", (0.13, 0.28, 0.05)),
     ("front_paw.{s}", "forearm.{s}", (0.13, 0.33, 0.02)),
@@ -179,14 +182,14 @@ def make_sheep_color(c):
         x, y, z = co
         if z < 0.045:
             return c["hoof"]
-        if z < 0.4 and abs(x) > 0.08:
+        if z < 0.38 and abs(x) > 0.08:
             return c["face"]  # legs
-        if near(co, (0, 0.44, 0.84), 0.11) or near(co, (0.06, 0.42, 0.8), 0.085) \
-                or near(co, (-0.06, 0.42, 0.8), 0.085):
-            return c["wool"]  # woolly cap
-        if y > 0.4 and z < 0.85:
-            if abs(x) > 0.1 and n.y > 0.3 and z > 0.69:
-                return c["inner"]
+        if abs(x) > 0.09 and y > 0.5 and 0.7 < z < 0.82:  # ears
+            return c["inner"] if n.y > 0.3 and abs(x) < 0.21 else c["face"]
+        f = sum(((co[i] - SHEEP_FACE[i]) / SHEEP_FACE_R[i]) ** 2 for i in range(3))
+        cap = any(near(co, p, r + 0.012) for p, r in (((0, 0.52, 0.87), 0.09), ((0.06, 0.5, 0.83), 0.07),
+                                                        ((-0.06, 0.5, 0.83), 0.07)))
+        if f < 1.25 and not cap:
             return c["face"]
         return c["wool"]
     return color
@@ -275,7 +278,7 @@ for coat, c in COW_COATS.items():
                     0.25, (lambda: cow_face(None)), coat == "cow"))
 for coat, c in SHEEP_COATS.items():
     ANIMALS.append((coat, SHEEP_SHAPES, SHEEP_SKELETON, make_sheep_color(c),
-                    dict(x=0.05, z=0.76, radius=0.024, sink=0.006, tall=0.8, pupil_w=1.4, iris=c["iris"]),
+                    dict(x=0.05, z=0.78, radius=0.024, sink=0.006, tall=0.8, pupil_w=1.4, iris=c["iris"]),
                     0.3, None, coat == "sheep"))
 for coat, c in CHICKEN_COATS.items():
     ANIMALS.append((coat, CHICKEN_SHAPES, CHICKEN_SKELETON, make_chicken_color(c),
