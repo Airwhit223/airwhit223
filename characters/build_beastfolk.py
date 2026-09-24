@@ -33,13 +33,25 @@ BASES = {
     "male": (os.path.join(HERE, "..", "bases", "male_base_meshy.glb"), 1.8),
     "female": (os.path.join(HERE, "..", "bases", "female_base_meshy.glb"), 1.7),
 }
+# Tinted parts store masks in their vertex colors: red = markings (secondary
+# color: muzzles, bellies, inner ears), green = spots (tertiary color).
 MASK0 = (0.0, 0.0, 0.0, 1.0)   # primary color
-MASK1 = (1.0, 1.0, 1.0, 1.0)   # secondary color (markings)
-SPECIES = ("cat", "wolf", "fox", "bear", "shark")
+MASK1 = (1.0, 0.0, 0.0, 1.0)   # secondary color (markings)
+HEAD_SPECIES = ("cat", "wolf", "fox", "bear", "shark", "lizard", "octopus", "manta", "eel")
+EAR_SPECIES = ("cat", "wolf", "fox", "bear", "fish", "coral")
+TAIL_SPECIES = ("cat", "wolf", "fox", "bear", "shark", "lizard", "eel")
+SPECIES = HEAD_SPECIES
 
 
-def mask(m):
-    return (m, m, m, 1.0)
+def mask(m, spot=0.0):
+    return (m, spot, 0.0, 1.0)
+
+
+def spots(co, scale=38.0, amount=0.35):
+    """1 on scattered round spots, 0 elsewhere."""
+    v = (math.sin(co[0] * scale + 1.3) * math.sin(co[1] * scale * 1.27 + 0.4)
+         * math.sin(co[2] * scale * 0.93 + 2.1))
+    return 1.0 if v > amount else 0.0
 
 
 # --------------------------------------------------------------------------
@@ -158,6 +170,40 @@ HEADS = {
         ear=None,
         light=lambda lc, n: lc.y > 0.75 and lc.z < 0.0,
         eye=(0.4, 0.72, 0.2), nose=(0, 1.5, -0.2, 0.2), iris=srgb(0.3, 0.2, 0.12)),
+    "lizard": dict(
+        blobs=[("e", (0, -0.05, 0.05), (0.85, 0.95, 0.8)),
+               ("c", (0, 0.45, -0.2), (0, 1.35, -0.3), 0.5, 0.3),
+               ("e", (0, 0.8, -0.52), (0.42, 0.6, 0.16)),
+               *[("e", c, (0.26, 0.3, 0.13)) for c in mirror(0.36, 0.55, 0.33)],
+               ("e", (0, -0.25, -0.95), (0.8, 0.85, 0.6))],
+        cones=ear_cones((0.35, -0.35, 0.5), (0.52, -1.15, 0.95), 0.32, 0.26)
+        + [((0, y, 0.72), (0, y - 0.35, 1.25), 0.32, 0.18) for y in (0.25, -0.15, -0.55)],
+        ear=None, spots=36.0,
+        light=lambda lc, n: lc.z < -0.4 and lc.y > -0.3,
+        eye=(0.42, 0.55, 0.22), nose=None, iris=srgb(0.95, 0.72, 0.2)),
+    "octopus": dict(
+        blobs=[("e", (0, -0.35, 0.55), (1.15, 1.25, 1.35)),
+               ("e", (0, 0.3, -0.2), (0.85, 0.8, 0.78)),
+               ("e", (0, -0.2, -0.95), (0.8, 0.8, 0.6))],
+        cones=[], ear=None, spots=30.0,
+        light=lambda lc, n: False,
+        eye=(0.36, 0.8, 0.0), nose=None, iris=srgb(0.3, 0.2, 0.4)),
+    "manta": dict(
+        blobs=[("e", (0, 0.0, 0.0), (0.95, 1.0, 0.72)),
+               ("e", (0, 0.55, -0.25), (0.75, 0.6, 0.45)),
+               ("e", (0, -0.2, -0.95), (0.85, 0.85, 0.6))],
+        cones=[((0.5, 0.35, 0.25), (1.75, 0.1, 0.75), 0.95, 0.22), ((-0.5, 0.35, 0.25), (-1.75, 0.1, 0.75), 0.95, 0.22)],
+        ear=None,
+        light=lambda lc, n: n.z < -0.3,
+        eye=(0.38, 0.72, 0.15), nose=None, iris=srgb(0.4, 0.6, 0.7)),
+    "eel": dict(
+        blobs=[("e", (0, 0.0, 0.05), (0.8, 1.05, 0.85)),
+               ("c", (0, 0.55, -0.2), (0, 1.15, -0.3), 0.45, 0.3),
+               ("e", (0, -0.2, -0.95), (0.8, 0.85, 0.6))],
+        cones=[((0.7, -0.1, 0.1), (1.35, -0.45, 0.55), 0.55, 0.12), ((-0.7, -0.1, 0.1), (-1.35, -0.45, 0.55), 0.55, 0.12)],
+        ear=None, spots=24.0,
+        light=lambda lc, n: lc.z < -0.4 and lc.y > 0.0,
+        eye=(0.38, 0.72, 0.18), nose=None, iris=srgb(0.3, 0.95, 0.85)),
     "shark": dict(
         blobs=[("e", (0, 0.05, 0.0), (0.92, 1.15, 0.95)),
                ("c", (0, 0.55, -0.05), (0, 1.55, -0.2), 0.78, 0.36),
@@ -177,9 +223,10 @@ def build_head(species, H, eye_style, iris=None):
 
     def m(co, n):
         lc = H.local(co)
+        spot = spots(co, spec["spots"]) if spec.get("spots") else 0.0
         if spec["ear"] and lc.z > 0.6 and inner_ear(lc, *spec["ear"]):
-            return MASK1
-        return MASK1 if spec["light"](lc, n) else MASK0
+            return mask(1.0, spot)
+        return mask(1.0 if spec["light"](lc, n) else 0.0, spot)
     paint(head, m)
 
     face = []
@@ -250,10 +297,60 @@ EAR_SPECS = {  # (head-space x, y) on the skull, length, width, outward lean, in
 }
 
 
+def side_point(H, y, z, side):
+    """The real head surface at the side of the head, at head-space (y, z)."""
+    dep = bpy.context.evaluated_depsgraph_get()
+    hit, loc, *_ = bpy.context.scene.ray_cast(dep, H.p(4.0 * side, y, z), Vector((-side, 0, 0)))
+    return loc if hit else H.p(side, y, z)
+
+
+def add_fin(bm, base, out, up, length, height, thick):
+    """A thin webbed fin: a vertical root that sweeps out to two points."""
+    side = out.cross(up).normalized()
+    pts2d = [(0.0, -0.5), (0.0, 0.5), (0.8, 0.75), (0.55, 0.15), (1.0, 0.1), (0.65, -0.35)]
+    rings = []
+    for off in (-thick / 2, thick / 2):
+        rings.append([bm.verts.new(base + out * (a * length) + up * (b * height) + side * off) for a, b in pts2d])
+    bm.faces.new(rings[0])
+    bm.faces.new(list(reversed(rings[1])))
+    for i in range(len(pts2d)):
+        j = (i + 1) % len(pts2d)
+        bm.faces.new((rings[0][i], rings[0][j], rings[1][j], rings[1][i]))
+
+
 def build_ears(species, H):
     """Animal ears for the hybrid (human head) form, planted on the skull."""
-    if species == "shark":
+    if species not in EAR_SPECIES:
         return None
+    if species == "fish":
+        bm = bmesh.new()
+        for s in (1, -1):
+            base = side_point(H, -0.1, -0.05, s) - Vector((0.01 * s, 0, 0))
+            add_fin(bm, base, Vector((s, -0.55, 0.2)).normalized(), Vector((0, 0.1, 1)).normalized(),
+                    0.95 * H.s, 0.75 * H.s, 0.02)
+        ears = new_object("ears_fish", bm)
+        paint(ears, lambda co, n: MASK1 if abs(co.x - H.c.x) > H.s * 1.25 else MASK0)
+        set_weights(ears, lambda co: {"Head": 1.0})
+        return ears
+    if species == "coral":
+        bm = bmesh.new()
+        for s in (1, -1):
+            base = skull_point(H, 0.45 * s, -0.05) - Vector((0, 0, 0.01))
+            main = base + Vector((0.35 * s, -0.05, 0.9)) * H.s
+            add_capsule(bm, base, main, 0.1 * H.s, 0.06 * H.s)
+            for frac, d in ((0.45, Vector((0.45 * s, 0.1, 0.35))), (0.75, Vector((-0.2 * s, -0.05, 0.4))),
+                            (1.0, Vector((0.25 * s, 0.05, 0.3)))):
+                a = base.lerp(main, frac)
+                add_capsule(bm, a, a + d * H.s, 0.06 * H.s, 0.035 * H.s)
+                add_ellipsoid(bm, a + d * H.s, (0.045 * H.s,) * 3)
+        ears = new_object("ears_coral", bm)
+        remesh_and_smooth(ears, voxel=0.004, smooth_repeat=2)
+        limit(ears, 1200)
+        select_only(ears)
+        bpy.ops.object.shade_smooth()
+        paint(ears, lambda co, n: MASK1 if H.local(co).z > 1.3 else MASK0)
+        set_weights(ears, lambda co: {"Head": 1.0})
+        return ears
     bm = bmesh.new()
     inner = []
     for s in (1, -1):
@@ -326,6 +423,19 @@ def build_tail(species, L, roots):
     elif species == "bear":
         add_ellipsoid(bm, d(0, -0.04, 0), (0.07, 0.07, 0.07))
         tip_z = -10
+    elif species == "lizard":
+        pts = [d(0, 0, 0), d(0, -0.15, -0.12), d(0, -0.32, -0.35), d(0.05, -0.5, -0.55), d(0.12, -0.72, -0.72),
+               d(0.18, -0.95, -0.78)]
+        radii = [0.1, 0.09, 0.075, 0.055, 0.035, 0.012]
+        for p, q, a, b in zip(pts, pts[1:], radii, radii[1:]):
+            add_capsule(bm, p, q, a, b)
+        tip_z = -10
+    elif species == "eel":
+        pts = [d(0, 0, 0), d(0, -0.12, -0.15), d(0, -0.2, -0.4), d(0.06, -0.22, -0.65), d(0.1, -0.35, -0.8)]
+        radii = [0.06, 0.05, 0.04, 0.03, 0.015]
+        for p, q, a, b in zip(pts, pts[1:], radii, radii[1:]):
+            add_capsule(bm, p, q, a, b)
+        tip_z = -10
     else:  # shark: thick tail with a crescent fin
         pts = [d(0, 0, 0), d(0, -0.14, -0.1), d(0, -0.25, -0.24), d(0, -0.31, -0.38)]
         radii = [0.13, 0.11, 0.08, 0.045]
@@ -347,6 +457,8 @@ def build_tail(species, L, roots):
     limit(tail, 1800)
     if species == "shark":
         paint(tail, lambda co, n: MASK1 if n.z < -0.3 else MASK0)
+    elif species in ("lizard", "eel"):
+        paint(tail, lambda co, n: mask(1.0 if n.z < -0.5 else 0.0, spots(co, 36.0 if species == "lizard" else 24.0)))
     else:
         paint(tail, lambda co, n: MASK1 if co.z < tip_z else MASK0)
     tail.name = "tail_" + species
@@ -451,9 +563,19 @@ def shirt_and_pants(body, L):
     boots = garment(body, "boots", lambda co: co.z < 0.27 and legs(co), lambda co: 0.028 + (0.006 if co.z < 0.03 else 0),
                     cuts=[((0, 0, 0.23), (0, 0, -1), None)])
     paint(boots, lambda co, n: MASK1 if co.z < 0.03 else MASK0)
-    for g in (shirt, pants, boots):
+    tank = garment(body, "tank", lambda co: hem - 0.03 < co.z < L.neck.z - 0.05 and torso(co)
+                   and not (abs(co.x) > 0.1 and co.z > L.arm[1]["shoulder"].z - 0.07),
+                   lambda co: 0.022 if co.z < hem + 0.12 else 0.012,
+                   cuts=[((0, 0, hem), (0, 0, 1), None)])
+    paint(tank, lambda co, n: MASK0)
+    knee = L.leg[1]["knee"].z
+    shorts = garment(body, "shorts", lambda co: knee < co.z < H * 0.56 and legs(co),
+                     lambda co: 0.02 + 0.015 * max(0.0, (H * 0.45 - co.z) / (H * 0.45 - knee)),
+                     cuts=[((0, 0, knee + 0.03), (0, 0, 1), None), ((0, 0, H * 0.54), (0, 0, -1), None)])
+    paint(shorts, lambda co, n: MASK0)
+    for g in (shirt, pants, boots, tank, shorts):
         copy_weights(g, body)
-    return shirt, pants, boots
+    return shirt, pants, boots, tank, shorts
 
 
 def split_head(body, L):
@@ -470,9 +592,9 @@ def body_mask(L, co, n):
     """Lighter belly and chest for the beast form."""
     H = L.H
     if L.is_arm(co):
-        return MASK0
+        return mask(0.0, spots(co))
     front = n.y > 0.35 and abs(co.x) < H * 0.07
-    return MASK1 if front and H * 0.45 < co.z < L.neck.z else MASK0
+    return mask(1.0 if front and H * 0.45 < co.z < L.neck.z else 0.0, spots(co))
 
 
 def base_setup(sex):
@@ -508,13 +630,14 @@ def build_customizable(sex):
     head = split_head(body, L)
     roots = back_points(L)
     parts = [head, face, hands_obj, *clothes]
-    for sp in SPECIES:  # ears first: they are planted by casting rays at the bare skull
+    for sp in EAR_SPECIES:  # ears first: they are planted by casting rays at the bare skull
         ears = build_ears(sp, H)
         if ears:
             parts.append(ears)
     parts.append(build_hair(sex, H, head))
-    for sp in SPECIES:
+    for sp in HEAD_SPECIES:
         parts += build_head(sp, H, sex)
+    for sp in TAIL_SPECIES:
         parts += build_tail(sp, L, roots)
     attach(parts, rig)
     body.name = "body"
