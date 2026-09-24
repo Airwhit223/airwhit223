@@ -8,6 +8,12 @@ A customizable beastfolk body (male and female) plus two finished NPCs.
 Left to right: cat hybrid, wolf hybrid, then beast-form fox, wolf, bear,
 shark and cat, all from one file with different settings.
 
+Sea folk and lizards (same files): shark in a top and shorts, fish girl (fin
+ears), manta, octopus, eel (glowing spots), coral girl (antlers) and two
+spotted lizards.
+
+![new species](preview_new_species.png)
+
 ## Files
 
 | File | What it is |
@@ -24,11 +30,18 @@ shark and cat, all from one file with different settings.
 2. Make a scene with a `Node3D` root, attach `beastfolk.gd` to it, and
    instance `beastfolk_male.glb` (or female) as its child.
 3. In the Inspector pick:
-   - **Species**: Human, Cat, Wolf, Fox, Bear, Shark
+   - **Species**: Human, Cat, Wolf, Fox, Bear, Shark, Lizard, Fish, Eel,
+     Octopus, Manta, Coral
    - **Form**: Hybrid (human head, hair, animal ears and tail) or Beast
      (animal head, furred body)
-   - **Show Clothes**, and colors for fur, markings, skin, hair, shirt,
-     pants and boots. Turn off **Use Species Colors** to pick your own fur.
+   - **Outfit**: top (tee, tank, none), bottom (pants, shorts, none), boots
+   - Colors for fur, markings, spots, skin, hair, top, bottom and boots.
+     Turn off **Use Species Colors** to pick your own.
+
+Beast form only exists for species with an animal head (cat, wolf, fox,
+bear, shark, lizard, octopus, manta, eel); fish and coral are always hybrid.
+Sea folk and lizards keep their species skin color in hybrid form, and fish,
+eel, octopus, manta, shark and lizard hybrids are bald.
 
 It works in the editor too (it's a `@tool` script), so you can see changes
 live. From code: `$Beastfolk.species = Beastfolk.Species.FOX`.
@@ -38,13 +51,14 @@ with a `MultiplayerSynchronizer`) and every client builds the same look.
 
 ### Parts in each file
 
-`body`, `hands`, `head_human`, `face_human`, `hair`, `shirt`, `pants`,
-`boots`, `ears_cat/wolf/fox/bear`, `head_cat/wolf/fox/bear/shark`,
-`face_cat/wolf/fox/bear/shark`, `tail_cat/wolf/fox/bear/shark`, `fin_shark`.
+`body`, `hands`, `head_human`, `face_human`, `hair`, `shirt`, `tank`,
+`pants`, `shorts`, `boots`, `ears_cat/wolf/fox/bear/fish/coral`,
+`head_*` and `face_*` for cat, wolf, fox, bear, shark, lizard, octopus,
+manta and eel, `tail_cat/wolf/fox/bear/shark/lizard/eel`, `fin_shark`.
 
-Tinted parts store a marking mask in their vertex colors (black = main color,
-white = markings like muzzles, bellies, inner ears and tail tips), so any
-color scheme works without new models.
+Tinted parts store masks in their vertex colors: red = markings (muzzles,
+bellies, inner ears, tail tips), green = spots. Any color scheme works
+without new models.
 
 ## NPCs
 
