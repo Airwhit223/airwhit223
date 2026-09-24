@@ -475,6 +475,16 @@ def add_eyes(eye):
     r = eye["radius"]
     for sign in (1, -1):
         center = surface_point(eye["x"] * sign, eye["z"]) + Vector((0, -eye["sink"], 0))
+        if eye.get("style") == "dq":
+            # Toriyama-style eyes: white eye, big black pupil, bold black rim.
+            parts.append(add_sphere("rim", center + Vector((0, -0.004, 0)), r * 1.16, srgb(0.05, 0.04, 0.05),
+                                    scale=(1, 0.3, eye["tall"])))
+            parts.append(add_sphere("sclera", center, r, srgb(0.99, 0.99, 0.98), scale=(1, 0.5, eye["tall"])))
+            parts.append(add_sphere("pupil", center + Vector((-0.1 * r * sign, r * 0.35, -0.05 * r)), r * 0.6,
+                                    srgb(0.04, 0.04, 0.06), scale=(0.85, 0.45, eye["tall"] * 1.05)))
+            parts.append(add_sphere("shine", center + Vector((0.08 * r * sign, r * 0.55, r * 0.3)), r * 0.2,
+                                    srgb(1, 1, 1), scale=(1, 0.5, 1)))
+            continue
         parts.append(add_sphere("iris", center, r, eye["iris"], scale=(1, 0.55, eye["tall"])))
         parts.append(add_sphere("pupil", center + Vector((0, r * 0.42, 0)), r * 0.5,
                                 srgb(0.04, 0.04, 0.06), scale=(eye["pupil_w"], 0.5, 1.15)))

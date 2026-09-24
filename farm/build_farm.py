@@ -22,6 +22,29 @@ from build_pets import (  # noqa: E402
 bp.OUT_DIR = HERE
 
 
+def smoothstep(a, b, x):
+    t = max(0.0, min(1.0, (x - a) / (b - a)))
+    return t * t * (3 - 2 * t)
+
+
+def dq_remap(belly, legs, head_center, head_scale, head_from, head_to, axis=1):
+    """Dragon Quest proportions: shorter, stubbier legs and a bigger head.
+    Legs below `belly` are squashed to `legs` of their height; everything
+    past head_from..head_to along `axis` (1 = forward, 2 = up) is scaled up
+    around the head center."""
+    drop = belly * (1 - legs)
+    hc = Vector(head_center) - Vector((0, 0, drop))
+
+    def remap(co):
+        p = Vector(co)
+        p.z = p.z * legs if p.z < belly else p.z - drop
+        w = smoothstep(head_from, head_to, co[axis])
+        if w > 0:
+            p = hc + (p - hc) * (1 + (head_scale - 1) * w)
+        return p
+    return remap
+
+
 def hoof(center, size, mirror=True):
     return ellipsoid(center, size, mirror=mirror)
 
@@ -75,7 +98,7 @@ COW_SKELETON = [
 COW_COATS = {
     "cow": dict(base=srgb(0.97, 0.96, 0.94), patch=srgb(0.12, 0.12, 0.14), pink=srgb(0.95, 0.68, 0.7),
                 hoof=srgb(0.25, 0.22, 0.22), horn=srgb(0.93, 0.88, 0.76), iris=srgb(0.35, 0.22, 0.15)),
-    "cow_brown": dict(base=srgb(0.6, 0.38, 0.22), patch=srgb(0.97, 0.94, 0.9), pink=srgb(0.88, 0.62, 0.58),
+    "cow_brown": dict(base=srgb(0.78, 0.47, 0.22), patch=srgb(0.97, 0.94, 0.9), pink=srgb(0.88, 0.62, 0.58),
                       hoof=srgb(0.22, 0.18, 0.16), horn=srgb(0.93, 0.88, 0.76), iris=srgb(0.3, 0.18, 0.1)),
 }
 
@@ -84,7 +107,7 @@ def make_cow_color(c):
     def color(co, n):
         x, y, z = co
         ax = abs(x)
-        if z > 1.3 and y > 0.85 and ax > 0.08 and ax < 0.22 and z > 1.36:
+        if y > 0.85 and 0.09 < ax < 0.22 and z > 1.4:
             return c["horn"]
         if z < 0.1 and ((abs(y - 0.53) < 0.1) or abs(y + 0.52) < 0.1):
             return c["hoof"]
@@ -101,9 +124,9 @@ def make_cow_color(c):
             return c["base"] if blaze else c["patch"]
         if z < 0.64:
             return c["base"]  # legs stay plain below the belly
-        f = (math.sin(x * 8.0 + 1.3) * math.sin(y * 6.0 + 0.5)
-             + 0.7 * math.sin(z * 9.0 + y * 4.0 + x * 3.0))
-        return c["patch"] if f > 0.55 else c["base"]
+        spots = (((0.3, 0.25, 1.05), 0.2), ((-0.3, -0.15, 1.0), 0.22), ((0.25, -0.5, 0.95), 0.17),
+                 ((-0.1, 0.1, 1.28), 0.18), ((0.0, -0.6, 1.25), 0.16))
+        return c["patch"] if any(near(co, p, rad) for p, rad in spots) else c["base"]
     return color
 
 
@@ -244,7 +267,7 @@ CHICKEN_SKELETON = [
 CHICKEN_COATS = {
     "chicken": dict(body=srgb(0.98, 0.97, 0.94), wing=srgb(0.9, 0.88, 0.84), tail=srgb(0.95, 0.94, 0.9),
                     red=srgb(0.88, 0.16, 0.16), yellow=srgb(0.98, 0.72, 0.2), iris=srgb(0.95, 0.6, 0.1)),
-    "chicken_brown": dict(body=srgb(0.66, 0.36, 0.16), wing=srgb(0.5, 0.26, 0.1), tail=srgb(0.2, 0.15, 0.12),
+    "chicken_brown": dict(body=srgb(0.78, 0.44, 0.18), wing=srgb(0.6, 0.3, 0.12), tail=srgb(0.3, 0.2, 0.14),
                           red=srgb(0.88, 0.16, 0.16), yellow=srgb(0.95, 0.68, 0.22), iris=srgb(0.95, 0.6, 0.1)),
 }
 
@@ -271,23 +294,31 @@ def make_chicken_color(c):
 
 # --------------------------------------------------------------------------
 
+COW_REMAP = dq_remap(belly=0.62, legs=0.55, head_center=(0, 1.0, 1.2), head_scale=1.4, head_from=0.7, head_to=0.86)
+SHEEP_REMAP = dq_remap(belly=0.38, legs=0.55, head_center=(0, 0.6, 0.78), head_scale=1.4, head_from=0.44, head_to=0.54)
+CHICKEN_REMAP = dq_remap(belly=0.13, legs=0.7, head_center=(0, 0.13, 0.45), head_scale=1.35,
+                         head_from=0.35, head_to=0.41, axis=2)
+
 ANIMALS = []
 for coat, c in COW_COATS.items():
     ANIMALS.append((coat, COW_SHAPES, COW_SKELETON, make_cow_color(c),
-                    dict(x=0.1, z=1.28, radius=0.035, sink=0.012, tall=0.9, pupil_w=1.0, iris=c["iris"]),
-                    0.25, (lambda: cow_face(None)), coat == "cow"))
+                    dict(x=0.1, z=1.28, radius=0.045, sink=0.008, tall=1.25, pupil_w=1.0, iris=c["iris"],
+                         style="dq"),
+                    0.25, (lambda: cow_face(None)), coat == "cow", COW_REMAP))
 for coat, c in SHEEP_COATS.items():
     ANIMALS.append((coat, SHEEP_SHAPES, SHEEP_SKELETON, make_sheep_color(c),
-                    dict(x=0.05, z=0.78, radius=0.024, sink=0.006, tall=0.8, pupil_w=1.4, iris=c["iris"]),
-                    0.3, None, coat == "sheep"))
+                    dict(x=0.05, z=0.78, radius=0.033, sink=0.004, tall=1.25, pupil_w=1.0, iris=c["iris"],
+                         style="dq"),
+                    0.3, None, coat == "sheep", SHEEP_REMAP))
 for coat, c in CHICKEN_COATS.items():
     ANIMALS.append((coat, CHICKEN_SHAPES, CHICKEN_SKELETON, make_chicken_color(c),
-                    dict(x=0.04, z=0.455, radius=0.013, sink=0.002, tall=1.0, pupil_w=0.8, iris=c["iris"]),
-                    0.15, None, coat == "chicken"))
+                    dict(x=0.04, z=0.458, radius=0.019, sink=0.002, tall=1.25, pupil_w=1.0, iris=c["iris"],
+                         style="dq"),
+                    0.15, None, coat == "chicken", CHICKEN_REMAP))
 
 if __name__ == "__main__":
     only = [a for a in sys.argv[1:] if any(a == x[0] for x in ANIMALS)]
-    for name, shapes, skel, color, eye, tail, face, blend in ANIMALS:
+    for name, shapes, skel, color, eye, tail, face, blend, remap in ANIMALS:
         if only and name not in only:
             continue
-        bp.build(name, shapes, skel, color, eye, tail, face=face, save_blend=blend)
+        bp.build(name, shapes, skel, color, eye, tail, face=face, remap=remap, save_blend=blend)
