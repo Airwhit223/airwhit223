@@ -1,10 +1,11 @@
 # Farm animals
 
-Stylized, rigged farm animals in the same cartoon style as the pets, shown
-next to the hoodie guy for scale.
+Stylized, rigged farm animals in a Dragon Quest-inspired style (chunky
+bodies, big heads, stubby legs, round Toriyama-style eyes, bold outlines),
+shown next to the hoodie guy for scale.
 
 ![farm animals](preview.png)
-![chickens](preview_chickens.png)
+![close-up](preview_chickens.png)
 
 | File | Animal |
 |------|--------|
@@ -21,8 +22,8 @@ head bob), like the pets.
 
 ## Using them in Godot
 
-Same as the pets: copy the `farm/` folder into your project, set
-`pets/pet_toon.tres` as the material override for the cartoon outline, and
+Copy the `farm/` folder into your project, set `farm/dq_toon.tres` (thicker
+outline for the Dragon Quest look) as the material override, and
 set the `idle` animation to loop in the import settings. They face -Z.
 
 ## Rebuilding
