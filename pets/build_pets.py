@@ -49,6 +49,16 @@ def ear(base, tip, width, thickness, mirror=True):
     return ("ear", base, tip, width, thickness, mirror)
 
 
+def toes(paw_center, paw_size, mirror=True):
+    """Three little toe bumps along the front of a paw."""
+    x, y, z = paw_center
+    w, l, h = paw_size
+    out = []
+    for dx in (-0.55, 0.0, 0.55):
+        out.append(("toe", (x + dx * w, y + l * 0.72, z - h * 0.1), (w * 0.36, w * 0.36, h * 0.8), mirror))
+    return out
+
+
 def tuft(base, tip, width, mirror=False):
     """A pointed fur spike, like the jagged fur edges in anime art."""
     return ("ear", base, tip, width * 1.9, width * 1.6, mirror)
@@ -70,10 +80,12 @@ HUSKY_SHAPES = [
     capsule((0.082, 0.22, 0.54), (0.086, 0.25, 0.3), 0.078, 0.055, mirror=True),   # upper foreleg
     capsule((0.086, 0.25, 0.3), (0.086, 0.26, 0.06), 0.053, 0.046, mirror=True),   # lower foreleg
     ellipsoid((0.086, 0.285, 0.038), (0.055, 0.07, 0.038), mirror=True),        # front paw
+    *toes((0.086, 0.285, 0.038), (0.055, 0.07, 0.038)),
     capsule((0.085, -0.28, 0.58), (0.09, -0.22, 0.33), 0.1, 0.065, mirror=True),  # thigh
     capsule((0.09, -0.22, 0.33), (0.09, -0.35, 0.13), 0.058, 0.046, mirror=True),  # shin
     capsule((0.09, -0.35, 0.13), (0.09, -0.34, 0.05), 0.046, 0.044, mirror=True),  # hock
     ellipsoid((0.09, -0.31, 0.038), (0.055, 0.07, 0.038), mirror=True),        # back paw
+    *toes((0.09, -0.31, 0.038), (0.055, 0.07, 0.038)),
     *chain([(0, -0.38, 0.66), (0, -0.5, 0.72), (0, -0.6, 0.82), (0, -0.63, 0.94),
             (0, -0.57, 1.03), (0, -0.48, 1.04)],
            [0.05, 0.07, 0.085, 0.085, 0.07, 0.04]),       # sickle tail curled over the back
@@ -130,10 +142,12 @@ COON_SHAPES = [
     capsule((0.05, 0.14, 0.28), (0.054, 0.17, 0.15), 0.056, 0.042, mirror=True),  # upper foreleg
     capsule((0.054, 0.17, 0.15), (0.054, 0.17, 0.04), 0.041, 0.036, mirror=True),  # lower foreleg
     ellipsoid((0.054, 0.19, 0.028), (0.04, 0.05, 0.028), mirror=True),       # front paw
+    *toes((0.054, 0.19, 0.028), (0.04, 0.05, 0.028)),
     capsule((0.058, -0.17, 0.31), (0.062, -0.12, 0.17), 0.075, 0.05, mirror=True),  # thigh
     capsule((0.062, -0.12, 0.17), (0.062, -0.21, 0.07), 0.042, 0.035, mirror=True),  # shin
     capsule((0.062, -0.21, 0.07), (0.062, -0.2, 0.035), 0.035, 0.034, mirror=True),  # hock
     ellipsoid((0.062, -0.18, 0.028), (0.04, 0.05, 0.028), mirror=True),       # back paw
+    *toes((0.062, -0.18, 0.028), (0.04, 0.05, 0.028)),
     *chain([(0, -0.26, 0.36), (0, -0.36, 0.36), (0, -0.48, 0.34), (0, -0.6, 0.34),
             (0, -0.7, 0.38), (0, -0.76, 0.44)],
            [0.04, 0.06, 0.078, 0.085, 0.075, 0.042]),     # big bushy tail
@@ -200,13 +214,26 @@ def srgb(r, g, b):
     return tuple(c ** 2.2 for c in (r, g, b)) + (1.0,)
 
 
-HUSKY_DARK = srgb(0.2, 0.21, 0.25)
-HUSKY_WHITE = srgb(0.95, 0.95, 0.97)
-HUSKY_NOSE = srgb(0.07, 0.07, 0.09)
-HUSKY_INNER_EAR = srgb(0.86, 0.84, 0.86)
+HUSKY_COATS = {
+    # Sheet H1-H4.
+    "husky": dict(dark=srgb(0.2, 0.21, 0.25), white=srgb(0.95, 0.95, 0.97), nose=srgb(0.07, 0.07, 0.09),
+                  inner_ear=srgb(0.86, 0.84, 0.86), iris=srgb(0.55, 0.82, 0.97)),
+    "husky_copper": dict(dark=srgb(0.66, 0.34, 0.17), white=srgb(0.97, 0.94, 0.9), nose=srgb(0.36, 0.2, 0.14),
+                         inner_ear=srgb(0.95, 0.82, 0.76), iris=srgb(0.82, 0.58, 0.25)),
+    "husky_silver": dict(dark=srgb(0.6, 0.62, 0.67), white=srgb(0.97, 0.97, 0.98), nose=srgb(0.1, 0.1, 0.12),
+                         inner_ear=srgb(0.9, 0.88, 0.9), iris=srgb(0.55, 0.82, 0.97)),
+    "husky_white": dict(dark=srgb(0.9, 0.9, 0.9), white=srgb(0.98, 0.98, 0.98), nose=srgb(0.12, 0.1, 0.1),
+                        inner_ear=srgb(0.95, 0.83, 0.83), iris=srgb(0.45, 0.72, 0.92)),
+}
 
 
-def husky_color(co, n):
+def make_husky_color(coat):
+    HUSKY_DARK, HUSKY_WHITE = coat["dark"], coat["white"]
+    HUSKY_NOSE, HUSKY_INNER_EAR = coat["nose"], coat["inner_ear"]
+    return lambda co, n: husky_color(co, n, HUSKY_DARK, HUSKY_WHITE, HUSKY_NOSE, HUSKY_INNER_EAR)
+
+
+def husky_color(co, n, HUSKY_DARK, HUSKY_WHITE, HUSKY_NOSE, HUSKY_INNER_EAR):
     x, y, z = co
     ax = abs(x)
     if near(co, (0, 0.645, 0.865), 0.03):
@@ -242,14 +269,28 @@ def husky_color(co, n):
     return HUSKY_DARK
 
 
-COON_BASE = srgb(0.62, 0.47, 0.28)
-COON_STRIPE = srgb(0.27, 0.19, 0.11)
-COON_CREAM = srgb(0.92, 0.83, 0.64)
-COON_NOSE = srgb(0.8, 0.5, 0.48)
-COON_INNER_EAR = srgb(0.9, 0.7, 0.66)
+COON_COATS = {
+    # Sheet M1-M4.
+    "maine_coon": dict(base=srgb(0.62, 0.47, 0.28), stripe=srgb(0.27, 0.19, 0.11), cream=srgb(0.92, 0.83, 0.64),
+                       nose=srgb(0.8, 0.5, 0.48), inner_ear=srgb(0.9, 0.7, 0.66), iris=srgb(0.96, 0.7, 0.2)),
+    "maine_coon_silver": dict(base=srgb(0.6, 0.61, 0.64), stripe=srgb(0.33, 0.34, 0.38), cream=srgb(0.86, 0.87, 0.89),
+                              nose=srgb(0.62, 0.45, 0.48), inner_ear=srgb(0.88, 0.76, 0.76),
+                              iris=srgb(0.55, 0.8, 0.35)),
+    "maine_coon_ginger": dict(base=srgb(0.93, 0.6, 0.28), stripe=srgb(0.74, 0.37, 0.13), cream=srgb(0.99, 0.9, 0.72),
+                              nose=srgb(0.9, 0.55, 0.5), inner_ear=srgb(0.97, 0.76, 0.68),
+                              iris=srgb(0.75, 0.8, 0.3)),
+    "maine_coon_cream": dict(base=srgb(0.96, 0.88, 0.75), stripe=srgb(0.9, 0.72, 0.52), cream=srgb(1.0, 0.97, 0.91),
+                             nose=srgb(0.92, 0.6, 0.58), inner_ear=srgb(0.98, 0.8, 0.76),
+                             iris=srgb(0.9, 0.6, 0.25)),
+}
 
 
-def coon_color(co, n):
+def make_coon_color(coat):
+    return lambda co, n: coon_color(co, n, coat["base"], coat["stripe"], coat["cream"], coat["nose"],
+                                    coat["inner_ear"])
+
+
+def coon_color(co, n, COON_BASE, COON_STRIPE, COON_CREAM, COON_NOSE, COON_INNER_EAR):
     x, y, z = co
     ax = abs(x)
     if near(co, (0, 0.41, 0.462), 0.018):
@@ -335,6 +376,8 @@ def blobs_to_mesh(name, shapes):
                 add_capsule(body_bm, m(shape[1]), m(shape[2]), shape[3], shape[4])
             elif kind == "ear":
                 add_ear(ear_bm, m(shape[1]), m(shape[2]), shape[3], shape[4])
+            elif kind == "toe":
+                add_ellipsoid(ear_bm, m(shape[1]), shape[2])
 
     def to_obj(bm, obj_name):
         mesh = bpy.data.meshes.new(obj_name)
@@ -352,14 +395,18 @@ def blobs_to_mesh(name, shapes):
     # Ears go on after smoothing so they stay pointy.
     join([ears], body)
     remesh_and_smooth(body, voxel=0.006, smooth_repeat=3)
-
-    dec = body.modifiers.new("Decimate", "DECIMATE")
-    dec.ratio = min(1.0, 5500 / max(1, len(body.data.polygons)))
-    apply_modifiers(body)
     bpy.context.view_layer.objects.active = body
     body.select_set(True)
     bpy.ops.object.shade_smooth()
     return body
+
+
+def decimate_painted(body, faces):
+    """Simplifies after painting, so color edges come from the dense mesh."""
+    dec = body.modifiers.new("Decimate", "DECIMATE")
+    dec.ratio = min(1.0, faces / max(1, len(body.data.polygons)))
+    apply_modifiers(body)
+    bpy.ops.object.shade_smooth()
 
 
 def remesh_and_smooth(obj, voxel, smooth_repeat):
@@ -431,11 +478,84 @@ def add_eyes(eye):
         parts.append(add_sphere("iris", center, r, eye["iris"], scale=(1, 0.55, eye["tall"])))
         parts.append(add_sphere("pupil", center + Vector((0, r * 0.42, 0)), r * 0.5,
                                 srgb(0.04, 0.04, 0.06), scale=(eye["pupil_w"], 0.5, 1.15)))
-        parts.append(add_sphere("liner", center + Vector((0, r * 0.2, r * 1.0 * eye["tall"])),
-                                r * 1.02, srgb(0.06, 0.05, 0.06), scale=(1.05, 0.35, 0.1)))
+        if eye.get("rim"):
+            parts.append(add_sphere("rim", center + Vector((0, -0.0015, 0)), r * 1.14, srgb(0.1, 0.07, 0.06),
+                                    scale=(1, 0.55, eye["tall"])))
+        else:
+            parts.append(add_sphere("liner", center + Vector((0, r * 0.2, r * 1.0 * eye["tall"])),
+                                    r * 1.02, srgb(0.06, 0.05, 0.06), scale=(1.05, 0.35, 0.1)))
         parts.append(add_sphere("shine", center + Vector((r * 0.3 * sign, r * 0.58, r * 0.35)),
                                 r * 0.2, srgb(1, 1, 1), scale=(1, 0.5, 1)))
     return parts
+
+
+def tube(name, points, radius, color):
+    curve = bpy.data.curves.new(name, "CURVE")
+    curve.dimensions = "3D"
+    curve.bevel_depth = radius
+    curve.bevel_resolution = 1
+    curve.use_fill_caps = True
+    spline = curve.splines.new("POLY")
+    spline.points.add(len(points) - 1)
+    for p, pt in zip(spline.points, points):
+        p.co = (pt.x, pt.y, pt.z, 1.0)
+    obj = bpy.data.objects.new(name, curve)
+    bpy.context.collection.objects.link(obj)
+    bpy.ops.object.select_all(action="DESELECT")
+    bpy.context.view_layer.objects.active = obj
+    obj.select_set(True)
+    bpy.ops.object.convert(target="MESH")
+    obj = bpy.context.view_layer.objects.active
+    bpy.ops.object.shade_smooth()
+    paint(obj, lambda co, n: color)
+    return obj
+
+
+def mouth_line(center_z, half_width, drop, lift, radius, color, w_shape=False):
+    """Philtrum from under the nose, then two curves out to the corners
+    (a cat's "w" when w_shape is set)."""
+    parts = []
+    philtrum = [surface_point(0, center_z + drop * t) + Vector((0, 0.001, 0)) for t in (0.0, 0.5, 1.0)]
+    parts.append(tube("mouth", philtrum, radius, color))
+    bottom = center_z + drop
+    for s in (1, -1):
+        pts = []
+        for k in range(9):
+            t = k / 8
+            x = s * half_width * t
+            z = bottom + lift * (t * t if not w_shape else math.sin(t * math.pi) * 0.6 + t * t * 0.4)
+            pts.append(surface_point(x, z) + Vector((0, 0.001, 0)))
+        parts.append(tube("mouth", pts, radius, color))
+    return parts
+
+
+def husky_face(coat):
+    parts = [add_sphere("nose", surface_point(0, 0.866) + Vector((0, -0.008, 0)), 0.027, coat["nose"],
+                        scale=(1.0, 0.7, 0.72))]
+    parts += mouth_line(0.846, 0.034, -0.022, 0.014, 0.0028, srgb(0.1, 0.08, 0.09))
+    return parts
+
+
+def coon_face(coat):
+    nose = surface_point(0, 0.463)
+    parts = [add_sphere("nose", nose + Vector((0, -0.003, 0)), 0.012, coat["nose"], scale=(1.1, 0.6, 0.75))]
+    parts += mouth_line(0.455, 0.018, -0.012, 0.004, 0.0018, srgb(0.2, 0.12, 0.1), w_shape=True)
+    for s in (1, -1):
+        for k, dz in enumerate((0.003, -0.008)):
+            root = surface_point(s * 0.03, 0.448 + dz) + Vector((0, -0.004, 0))
+            tip = root + Vector((s * 0.065, -0.01 - 0.005 * k, dz * 2.5 + 0.004))
+            mid = root.lerp(tip, 0.5) + Vector((0, 0, 0.004))
+            parts.append(tube("whisker", [root, mid, tip], 0.0007, srgb(0.2, 0.16, 0.14)))
+    return parts
+
+
+def squash_legs(co):
+    """Shorter, sturdier husky legs: compress everything below the back."""
+    if co.z < 0.03:
+        return co
+    if co.z < 0.62:
+        return Vector((co.x, co.y, 0.03 + (co.z - 0.03) * 0.9))
+    return Vector((co.x, co.y, co.z - 0.059))
 
 
 def expand(skeleton):
@@ -450,8 +570,10 @@ def expand(skeleton):
     return out
 
 
-def build_rig(name, skeleton):
+def build_rig(name, skeleton, remap=None):
     bones = expand(skeleton)
+    if remap:
+        bones = [(n, p, remap(pos)) for n, p, pos in bones]
     arm_data = bpy.data.armatures.new(name + "_rig")
     rig = bpy.data.objects.new(name + "_rig", arm_data)
     bpy.context.collection.objects.link(rig)
@@ -534,17 +656,23 @@ def add_idle_animation(rig, tail_amount):
     rig.pose.bones["chest"].scale = (1, 1, 1)
 
 
-def build(name, shapes, skeleton, color_fn, eye, tail_amount):
+def build(name, shapes, skeleton, color_fn, eye, tail_amount, face=None, remap=None, save_blend=True):
     reset_scene()
     body = blobs_to_mesh(name, shapes)
     paint(body, color_fn)
-    extras = add_eyes(eye)
-    rig = build_rig(name, skeleton)
+    decimate_painted(body, 7000)
+    extras = add_eyes(eye) + (face() if face else [])
+    if remap:
+        for obj in [body] + extras:
+            for v in obj.data.vertices:
+                v.co = remap(v.co)
+    rig = build_rig(name, skeleton, remap)
     bind(body, rig, extras)
     body.data.materials.append(make_material(name + "_coat"))
     add_idle_animation(rig, tail_amount)
 
-    bpy.ops.wm.save_as_mainfile(filepath=os.path.join(OUT_DIR, name + ".blend"))
+    if save_blend:
+        bpy.ops.wm.save_as_mainfile(filepath=os.path.join(OUT_DIR, name + ".blend"))
     bpy.ops.export_scene.gltf(
         filepath=os.path.join(OUT_DIR, name + ".glb"),
         export_format="GLB",
@@ -556,11 +684,18 @@ def build(name, shapes, skeleton, color_fn, eye, tail_amount):
 
 
 if __name__ == "__main__":
-    build("husky", HUSKY_SHAPES, HUSKY_SKELETON, husky_color,
-          eye=dict(x=0.05, z=0.902, radius=0.026, sink=0.01, tall=0.8, pupil_w=1.0,
-                   iris=srgb(0.55, 0.82, 0.97)),
-          tail_amount=0.35)
-    build("maine_coon", COON_SHAPES, COON_SKELETON, coon_color,
-          eye=dict(x=0.04, z=0.49, radius=0.026, sink=0.008, tall=1.05, pupil_w=0.55,
-                   iris=srgb(0.96, 0.7, 0.2)),
-          tail_amount=0.2)
+    only = [a for a in sys.argv[1:] if a in HUSKY_COATS or a in COON_COATS]
+    for coat_name, coat in HUSKY_COATS.items():
+        if only and coat_name not in only:
+            continue
+        build(coat_name, HUSKY_SHAPES, HUSKY_SKELETON, make_husky_color(coat),
+              eye=dict(x=0.05, z=0.902, radius=0.028, sink=0.009, tall=0.85, pupil_w=1.0, iris=coat["iris"]),
+              tail_amount=0.35, face=lambda coat=coat: husky_face(coat), remap=squash_legs,
+              save_blend=coat_name == "husky")
+    for coat_name, coat in COON_COATS.items():
+        if only and coat_name not in only:
+            continue
+        build(coat_name, COON_SHAPES, COON_SKELETON, make_coon_color(coat),
+              eye=dict(x=0.041, z=0.492, radius=0.028, sink=0.004, tall=1.15, pupil_w=0.5, iris=coat["iris"],
+                       rim=True),
+              tail_amount=0.2, face=lambda coat=coat: coon_face(coat), save_blend=coat_name == "maine_coon")
