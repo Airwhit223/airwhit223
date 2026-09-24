@@ -440,7 +440,7 @@ def expand(skeleton):
         if "{s}" not in name:
             out.append((name, parent, Vector(pos)))
             continue
-        for side, sign in (("L", 1), ("R", -1)):
+        for side, sign in (("R", 1), ("L", -1)):  # +X is the animal's right
             p = parent.format(s=side) if parent else None
             out.append((name.format(s=side), p, Vector((pos[0] * sign, pos[1], pos[2]))))
     return out
