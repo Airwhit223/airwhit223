@@ -99,8 +99,8 @@ def make_cow_color(c):
         if y > 0.8 and z > 1.1:  # head: dark with a pale blaze
             blaze = ax < 0.045 and n.y > 0.3
             return c["base"] if blaze else c["patch"]
-        if z < 0.45:
-            return c["base"]  # lower legs
+        if z < 0.64:
+            return c["base"]  # legs stay plain below the belly
         f = (math.sin(x * 8.0 + 1.3) * math.sin(y * 6.0 + 0.5)
              + 0.7 * math.sin(z * 9.0 + y * 4.0 + x * 3.0))
         return c["patch"] if f > 0.55 else c["base"]
