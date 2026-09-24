@@ -563,10 +563,19 @@ def shirt_and_pants(body, L):
     boots = garment(body, "boots", lambda co: co.z < 0.27 and legs(co), lambda co: 0.028 + (0.006 if co.z < 0.03 else 0),
                     cuts=[((0, 0, 0.23), (0, 0, -1), None)])
     paint(boots, lambda co, n: MASK1 if co.z < 0.03 else MASK0)
-    tank = garment(body, "tank", lambda co: hem - 0.03 < co.z < L.neck.z - 0.05 and torso(co)
-                   and not (abs(co.x) > 0.1 and co.z > L.arm[1]["shoulder"].z - 0.07),
+    arm_top = L.arm[1]["shoulder"].z - 0.07
+    neck_line = L.neck.z - 0.12
+    tank = garment(body, "tank", lambda co: hem - 0.03 < co.z < L.neck.z - 0.02 and torso(co),
                    lambda co: 0.022 if co.z < hem + 0.12 else 0.012,
-                   cuts=[((0, 0, hem), (0, 0, 1), None)])
+                   cuts=[((0, 0, hem), (0, 0, 1), None),
+                         # Armholes: nothing above arm_top outside the straps.
+                         ((0, 0, arm_top), (0, 0, -1), lambda co: abs(co.x) > 0.1),
+                         # Scoop neck front and back between the straps.
+                         ((0, 0, neck_line), (0, 0, -1), lambda co: abs(co.x) < 0.055),
+                         ((0.1, 0, 0), (-1, 0, 0), lambda co: co.z > arm_top and co.x > 0),
+                         ((-0.1, 0, 0), (1, 0, 0), lambda co: co.z > arm_top and co.x < 0),
+                         ((0.055, 0, 0), (1, 0, 0), lambda co: co.z > neck_line and co.x > 0),
+                         ((-0.055, 0, 0), (-1, 0, 0), lambda co: co.z > neck_line and co.x < 0)])
     paint(tank, lambda co, n: MASK0)
     knee = L.leg[1]["knee"].z
     shorts = garment(body, "shorts", lambda co: knee < co.z < H * 0.56 and legs(co),
