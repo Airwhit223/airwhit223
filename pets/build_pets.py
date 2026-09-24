@@ -49,6 +49,11 @@ def ear(base, tip, width, thickness, mirror=True):
     return ("ear", base, tip, width, thickness, mirror)
 
 
+def tuft(base, tip, width, mirror=False):
+    """A pointed fur spike, like the jagged fur edges in anime art."""
+    return ("ear", base, tip, width * 1.9, width * 1.6, mirror)
+
+
 # --------------------------------------------------------------------------
 # Siberian Husky: stands to about thigh height of the player.
 # --------------------------------------------------------------------------
@@ -73,6 +78,17 @@ HUSKY_SHAPES = [
             (0, -0.57, 1.03), (0, -0.48, 1.04)],
            [0.05, 0.07, 0.085, 0.085, 0.07, 0.04]),       # sickle tail curled over the back
     ear((0.062, 0.425, 0.975), (0.08, 0.41, 1.12), 0.125, 0.05),
+    # Fur tufts: cheek ruff, throat, elbows, tail.
+    tuft((0.12, 0.43, 0.84), (0.19, 0.38, 0.8), 0.05, mirror=True),
+    tuft((0.11, 0.42, 0.8), (0.17, 0.38, 0.73), 0.05, mirror=True),
+    tuft((0.1, 0.41, 0.875), (0.17, 0.37, 0.885), 0.045, mirror=True),
+    tuft((0, 0.39, 0.64), (0, 0.44, 0.52), 0.065),
+    tuft((0.045, 0.39, 0.66), (0.06, 0.45, 0.56), 0.06, mirror=True),
+    tuft((0.086, 0.22, 0.36), (0.09, 0.15, 0.3), 0.045, mirror=True),
+    tuft((0, -0.5, 1.03), (0, -0.4, 1.02), 0.05),
+    tuft((0, -0.62, 0.8), (0, -0.71, 0.75), 0.06),
+    tuft((0, -0.64, 0.93), (0, -0.74, 0.95), 0.06),
+    tuft((0, -0.55, 0.74), (0, -0.6, 0.65), 0.06),
 ]
 
 HUSKY_SKELETON = [
@@ -122,6 +138,21 @@ COON_SHAPES = [
             (0, -0.7, 0.38), (0, -0.76, 0.44)],
            [0.04, 0.06, 0.078, 0.085, 0.075, 0.042]),     # big bushy tail
     ear((0.05, 0.28, 0.55), (0.07, 0.27, 0.67), 0.09, 0.034),
+    # Fur tufts: lynx ear tips, cheek ruff, chest mane, back legs, tail.
+    tuft((0.066, 0.27, 0.64), (0.076, 0.27, 0.71), 0.022, mirror=True),
+    tuft((0.1, 0.3, 0.44), (0.16, 0.27, 0.42), 0.045, mirror=True),
+    tuft((0.09, 0.3, 0.41), (0.14, 0.28, 0.36), 0.04, mirror=True),
+    tuft((0.1, 0.29, 0.47), (0.15, 0.26, 0.485), 0.035, mirror=True),
+    tuft((0, 0.25, 0.3), (0, 0.3, 0.21), 0.05),
+    tuft((0.05, 0.24, 0.31), (0.07, 0.29, 0.23), 0.045, mirror=True),
+    tuft((0.06, 0.24, 0.38), (0.095, 0.29, 0.34), 0.04, mirror=True),
+    tuft((0.07, -0.2, 0.25), (0.085, -0.28, 0.19), 0.05, mirror=True),
+    *[t for y in (-0.45, -0.56, -0.66) for t in (
+        tuft((0, y, 0.34), (0, y - 0.04, 0.47), 0.05),
+        tuft((0, y, 0.34), (0, y - 0.05, 0.21), 0.05),
+        tuft((0.03, y, 0.34), (0.13, y - 0.05, 0.36), 0.05, mirror=True),
+    )],
+    tuft((0, -0.74, 0.42), (0, -0.83, 0.5), 0.045),
 ]
 
 COON_SKELETON = [
@@ -196,6 +227,8 @@ def husky_color(co, n):
         if ((ax - 0.045) / 0.018) ** 2 + ((z - 0.945) / 0.012) ** 2 < 1:
             return HUSKY_WHITE
         return HUSKY_DARK
+    if y > 0.36 and z < 0.72:  # throat ruff
+        return HUSKY_WHITE
     if y < -0.4 and z > 0.62:  # tail: white underside and outer curve
         return HUSKY_WHITE if n.z < -0.15 or n.y < -0.6 else HUSKY_DARK
     if z < 0.3:  # lower legs
@@ -225,6 +258,10 @@ def coon_color(co, n):
         if in_ear(co, n, (0.05, 0.28, 0.55), (0.07, 0.27, 0.67), 0.09):
             return COON_INNER_EAR
         return COON_STRIPE if z > 0.64 else COON_BASE
+    if y > 0.22 and ax > 0.09 and z < 0.5:  # cheek ruff
+        return COON_CREAM
+    if y > 0.22 and z < 0.4:  # chest mane tufts
+        return COON_CREAM
     if y > 0.32 and z < 0.46:  # muzzle, chin, lower cheeks
         return COON_CREAM
     if y > 0.13 and n.y > 0.3 and 0.1 < z < 0.43:  # chest mane
@@ -390,6 +427,8 @@ def add_eyes(eye):
         parts.append(add_sphere("iris", center, r, eye["iris"], scale=(1, 0.55, eye["tall"])))
         parts.append(add_sphere("pupil", center + Vector((0, r * 0.42, 0)), r * 0.5,
                                 srgb(0.04, 0.04, 0.06), scale=(eye["pupil_w"], 0.5, 1.15)))
+        parts.append(add_sphere("liner", center + Vector((0, r * 0.2, r * 1.0 * eye["tall"])),
+                                r * 1.02, srgb(0.06, 0.05, 0.06), scale=(1.05, 0.35, 0.1)))
         parts.append(add_sphere("shine", center + Vector((r * 0.3 * sign, r * 0.58, r * 0.35)),
                                 r * 0.2, srgb(1, 1, 1), scale=(1, 0.5, 1)))
     return parts
