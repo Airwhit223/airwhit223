@@ -979,6 +979,356 @@ def treadmill():
     return parts
 
 
+# --------------------------------------------------------------------------
+# Bathroom
+# --------------------------------------------------------------------------
+
+def basin_box(name, size, wall, depth, color, bevel=0.03):
+    """A box with a hollow top (tub, sink basin): the top face is inset and pushed down."""
+    bm = fp.bmesh.new()
+    fp.bmesh.ops.create_cube(bm, size=1.0, matrix=Matrix.Diagonal((*size, 1)))
+    top = [f for f in bm.faces if f.normal.z > 0.9]
+    res = fp.bmesh.ops.inset_region(bm, faces=top, thickness=wall, depth=0)
+    inner = top[0]
+    fp.bmesh.ops.translate(bm, vec=(0, 0, -depth), verts=list(inner.verts))
+    obj = fp.new_object(name, bm)
+    mod = obj.modifiers.new("Bevel", "BEVEL")
+    mod.width = bevel
+    mod.segments = 3
+    mod.limit_method = "ANGLE"
+    fp.apply_modifiers(obj)
+    fp.select_only(obj)
+    bpy.ops.object.shade_smooth()
+    fp.paint(obj, color if callable(color) else solid(color))
+    return obj
+
+
+def faucet(pos, reach=0.14, height=0.2, color=CHROME):
+    x, y, z = pos
+    parts = [tube("faucet", [Vector((x, y, z)), Vector((x, y, z + height)), Vector((x, y + reach * 0.5, z + height + 0.03)),
+                             Vector((x, y + reach, z + height - 0.02))], 0.013, color)]
+    for sx in (1, -1):
+        parts.append(cyl("tap", (x + sx * 0.07, y, z + 0.03), 0.018, 0.04, color, segments=12))
+        parts.append(cyl("tap_dot", (x + sx * 0.07, y, z + 0.052), 0.008, 0.006, RED if sx < 0 else BLUE, segments=10))
+    return parts
+
+
+def toilet():
+    """Toilet, 0.4 x 0.7 m, tank against the wall at the back (-Y)."""
+    parts = []
+    bowl = [(0, 0), (0.12, 0), (0.13, 0.05), (0.12, 0.2), (0.17, 0.36), (0.18, 0.4), (0.16, 0.41), (0.1, 0.33),
+            (0, 0.3)]
+    b = lathe("bowl", bowl, solid(WHITE), segments=32)
+    parts.append(xf(b, Matrix.Translation((0, 0.08, 0)) @ Matrix.Diagonal((1.0, 1.25, 1.0, 1.0))))
+    seat = [Vector((0.165 * math.cos(a), 0.08 + 0.21 * math.sin(a), 0.42)) for a in [math.tau * k / 36 for k in range(37)]]
+    parts.append(tube("seat", seat, 0.025, WHITE))
+    parts.append(rbox("lid", (0, -0.15, 0.62), (0.36, 0.05, 0.4), OFFWHITE, bevel=0.02))
+    parts.append(rbox("tank", (0, -0.24, 0.62), (0.42, 0.18, 0.42), WHITE, bevel=0.03))
+    parts.append(rbox("tank_lid", (0, -0.24, 0.845), (0.45, 0.2, 0.04), WHITE, bevel=0.015))
+    parts.append(rbox("neck", (0, -0.12, 0.3), (0.2, 0.12, 0.3), WHITE, bevel=0.03))
+    parts.append(rod("flush", (-0.2, -0.16, 0.78), (-0.2, -0.1, 0.78), 0.008, CHROME))
+    parts.append(rbox("flush_lever", (-0.17, -0.1, 0.78), (0.06, 0.012, 0.012), CHROME, bevel=0.004))
+    return parts
+
+
+def bathtub():
+    """Built-in bathtub, 1.6 x 0.75 x 0.55 m, with a faucet at the right end."""
+    tub = basin_box("tub", (1.6, 0.75, 0.55), 0.08, 0.42, WHITE, bevel=0.04)
+    parts = [at(tub, (0, 0, 0.275))]
+    parts.append(rbox("water", (0, 0, 0.36), (1.4, 0.56, 0.01), srgb(0.62, 0.85, 0.97), bevel=0.0))
+    parts.append(rbox("apron_line", (0, 0.376, 0.08), (1.6, 0.004, 0.02), OFFWHITE, bevel=0.0))
+    parts.append(tube("spout", [Vector((0.72, 0.0, 0.6)), Vector((0.72, 0.0, 0.66)), Vector((0.64, 0.0, 0.66))], 0.018,
+                      CHROME))
+    for sy in (1, -1):
+        parts.append(cyl("tap", (0.74, sy * 0.1, 0.6), 0.02, 0.05, CHROME, segments=12))
+    duck = blobs("duck", [("e", (0, 0, 0.03), (0.04, 0.05, 0.03)), ("e", (0, 0.03, 0.07), (0.025, 0.025, 0.025))],
+                 lambda co, n: ORANGE if co[1] > 0.05 and co[2] < 0.075 else YELLOW, voxel=0.004, smooth=2)
+    parts.append(at(duck, (-0.3, 0.05, 0.36)))
+    return parts
+
+
+def bathroom_sink():
+    """Pedestal sink, basin top at 0.88 m."""
+    ped = [(0, 0), (0.14, 0), (0.15, 0.03), (0.09, 0.1), (0.07, 0.6), (0.1, 0.7), (0, 0.7)]
+    parts = [lathe("pedestal", ped, solid(WHITE), segments=28)]
+    basin = [(0, 0.66), (0.2, 0.7), (0.27, 0.8), (0.29, 0.88), (0.26, 0.89), (0.22, 0.84), (0.12, 0.78), (0, 0.76)]
+    b = lathe("basin", basin, solid(WHITE), segments=32)
+    parts.append(xf(b, Matrix.Diagonal((1.0, 0.8, 1.0, 1.0))))
+    parts.append(rbox("deck", (0, -0.19, 0.87), (0.4, 0.08, 0.04), WHITE, bevel=0.015))
+    parts += faucet((0, -0.19, 0.89), reach=0.1, height=0.1)
+    parts.append(cyl("drain", (0, 0, 0.765), 0.02, 0.004, CHROME, segments=16))
+    return parts
+
+
+def bathroom_mirror():
+    """Wall mirror, 0.6 x 0.8 m. Wall item: origin at the back-bottom, hang with the bottom at ~1.1 m."""
+    parts = [rbox("frame", (0, 0.015, 0.4), (0.6, 0.03, 0.8), WOOD_LIGHT, bevel=0.012)]
+    parts.append(rbox("glass", (0, 0.032, 0.4), (0.52, 0.006, 0.72), srgb(0.72, 0.86, 0.95), bevel=0.004))
+    parts.append(strip("glare", (-0.2, 0.15), (0.05, 0.65), 0.036, 0.002, 0.06, WHITE, bevel=0.0))
+    parts.append(strip("glare", (-0.06, 0.12), (0.1, 0.44), 0.036, 0.002, 0.03, WHITE, bevel=0.0))
+    return parts
+
+
+def towel_rack():
+    """Wall towel bar with a striped towel. Wall item, bar at the top."""
+    parts = [rod("bar", (-0.3, 0.06, 0.5), (0.3, 0.06, 0.5), 0.012, CHROME)]
+    for sx in (1, -1):
+        parts.append(rod("bracket", (sx * 0.3, 0.0, 0.5), (sx * 0.3, 0.06, 0.5), 0.012, CHROME))
+        parts.append(cyl("rose", (0, 0, 0), 0.025, 0.01, CHROME, segments=12))
+        at(parts[-1], (sx * 0.3, 0.005, 0.5), FRONT)
+
+    def towel_color(co, n):
+        return WHITE if 0.1 < co[2] < 0.14 or 0.16 < co[2] < 0.18 else TEAL
+    for y, h in ((0.075, 0.46), (0.045, 0.4)):
+        parts.append(rbox("towel", (0, y, 0.5 - h / 2), (0.44, 0.02, h), towel_color, bevel=0.008))
+    return parts
+
+
+def bath_mat():
+    parts = [rbox("mat", (0, 0, 0.006), (0.8, 0.5, 0.012), srgb(0.55, 0.78, 0.9), bevel=0.005)]
+    parts.append(rbox("border", (0, 0, 0.0065), (0.72, 0.42, 0.0125), WHITE, bevel=0.004))
+    parts.append(rbox("center", (0, 0, 0.007), (0.66, 0.36, 0.013), srgb(0.55, 0.78, 0.9), bevel=0.004))
+    return parts
+
+
+def toilet_paper():
+    """Toilet paper roll, 0.11 m wide, lying on its side."""
+    roll = lathe("roll", [(0.02, -0.05), (0.055, -0.05), (0.055, 0.05), (0.02, 0.05), (0.02, -0.05)],
+                 lambda co, n: srgb(0.7, 0.55, 0.38) if math.hypot(co[0], co[1]) < 0.024 else WHITE, segments=28)
+    return [at(roll, (0, 0, 0.055), SIDEWAYS)]
+
+
+# --------------------------------------------------------------------------
+# Kitchen counters and laundry
+# --------------------------------------------------------------------------
+
+COUNTER_TOP = srgb(0.92, 0.9, 0.85)
+CABINET = srgb(0.62, 0.8, 0.72)
+CABINET_DARK = srgb(0.5, 0.68, 0.6)
+
+
+def base_cabinet(width, top=True):
+    parts = [rbox("carcass", (0, -0.02, 0.47), (width, 0.56, 0.78), CABINET_DARK, bevel=0.01)]
+    parts.append(rbox("toe_kick", (0, -0.03, 0.04), (width - 0.02, 0.5, 0.08), CHARCOAL, bevel=0.008))
+    if top:
+        parts.append(rbox("counter", (0, 0.0, 0.88), (width, 0.62, 0.04), COUNTER_TOP, bevel=0.012))
+    return parts
+
+
+def cabinet_door(center, size, handle_side=1):
+    x, y, z = center
+    w, h = size
+    parts = [rbox("door", (x, y, z), (w, 0.02, h), CABINET, bevel=0.01)]
+    parts.append(rbox("inset", (x, y + 0.012, z), (w - 0.1, 0.006, h - 0.1), CABINET_DARK, bevel=0.004))
+    hx = x + handle_side * (w / 2 - 0.05)
+    parts.append(rod("handle", (hx, y + 0.03, z + h / 2 - 0.2), (hx, y + 0.03, z + h / 2 - 0.08), 0.007, CHROME))
+    return parts
+
+
+def counter():
+    """Base cabinet with countertop, 0.6 x 0.62 m, counter at 0.9 m (fridge/stove height)."""
+    parts = base_cabinet(0.6)
+    parts.append(rbox("drawer", (0, 0.265, 0.75), (0.58, 0.02, 0.16), CABINET, bevel=0.01))
+    parts.append(rod("pull", (-0.08, 0.29, 0.75), (0.08, 0.29, 0.75), 0.007, CHROME))
+    parts += cabinet_door((0, 0.265, 0.37), (0.58, 0.58), handle_side=1)
+    return parts
+
+
+def counter_drawers():
+    """Drawer stack cabinet, 0.6 m wide."""
+    parts = base_cabinet(0.6)
+    for k, h in enumerate((0.2, 0.25, 0.3)):
+        z = [0.75, 0.52, 0.24][k]
+        parts.append(rbox("drawer", (0, 0.265, z), (0.58, 0.02, h - 0.02), CABINET, bevel=0.01))
+        parts.append(rod("pull", (-0.1, 0.29, z + 0.03), (0.1, 0.29, z + 0.03), 0.007, CHROME))
+    return parts
+
+
+def counter_sink():
+    """1.2 m sink cabinet with a steel double basin and faucet."""
+    w = 1.2
+    parts = base_cabinet(w, top=False)
+    basin = basin_box("basin", (0.76, 0.44, 0.2), 0.03, 0.17, STEEL, bevel=0.01)
+    parts.append(at(basin, (0, 0.02, 0.8)))
+    parts.append(rbox("divider", (0, 0.02, 0.86), (0.03, 0.4, 0.06), STEEL, bevel=0.006))
+    for x0, x1, y0, y1 in ((-w / 2, -0.38, -0.31, 0.31), (0.38, w / 2, -0.31, 0.31), (-0.38, 0.38, -0.31, -0.2),
+                           (-0.38, 0.38, 0.24, 0.31)):
+        parts.append(rbox("counter", ((x0 + x1) / 2, (y0 + y1) / 2, 0.88), (x1 - x0, y1 - y0, 0.04), COUNTER_TOP,
+                          bevel=0.008))
+    parts += faucet((0, -0.25, 0.9), reach=0.2, height=0.28)
+    for sx in (1, -1):
+        parts += cabinet_door((sx * 0.3, 0.265, 0.45), (0.58, 0.74), handle_side=-sx)
+    return parts
+
+
+def upper_cabinet():
+    """Wall cabinet, 0.6 x 0.35 x 0.7 m. Wall item: origin at the back-bottom; hang the bottom at ~1.45 m."""
+    parts = [rbox("carcass", (0, 0.175, 0.35), (0.6, 0.33, 0.7), CABINET_DARK, bevel=0.01)]
+    parts += cabinet_door((0, 0.345, 0.35), (0.58, 0.68), handle_side=1)
+    parts[-1] = rod("handle", (0.24, 0.37, 0.04), (0.24, 0.37, 0.16), 0.007, CHROME)
+    return parts
+
+
+def washer_like(name, door_glass, panel_color):
+    w, d, h = 0.6, 0.6, 0.85
+    parts = [rbox("body", (0, 0, h / 2), (w, d, h), WHITE, bevel=0.025)]
+    parts.append(rbox("panel", (0, d / 2 + 0.004, h - 0.08), (w - 0.04, 0.012, 0.13), panel_color, bevel=0.008))
+    parts.append(knob((-0.2, d / 2 + 0.02, h - 0.08), 0.03, 0.03, STEEL))
+    parts.append(rbox("display", (0.1, d / 2 + 0.012, h - 0.08), (0.12, 0.004, 0.04), GLASS, bevel=0.003))
+    parts.append(rbox("digits", (0.1, d / 2 + 0.015, h - 0.08), (0.07, 0.003, 0.015), LED_GREEN, bevel=0.001))
+    for k in range(3):
+        parts.append(knob((0.22, d / 2 + 0.012, h - 0.11 + k * 0.03), 0.008, 0.01, GREY))
+    ring = lathe("door_ring", [(0.16, 0.0), (0.22, 0.0), (0.225, 0.03), (0.2, 0.05), (0.16, 0.05), (0.16, 0.0)],
+                 solid(CHROME), segments=40)
+    parts.append(at(ring, (0, d / 2, 0.4), FRONT))
+    parts.append(at(cyl("door_glass", (0, 0, 0), 0.165, 0.03, door_glass, segments=40), (0, d / 2 + 0.03, 0.4), FRONT))
+    parts.append(rbox("latch", (0.2, d / 2 + 0.05, 0.4), (0.03, 0.03, 0.08), STEEL, bevel=0.008))
+    parts.append(rbox("toe", (0, d / 2 - 0.01, 0.04), (w - 0.06, 0.02, 0.05), OFFWHITE, bevel=0.006))
+    return parts
+
+
+def washer():
+    """Front-loading washing machine, 0.6 x 0.6 x 0.85 m, with a blue sudsy window."""
+    parts = washer_like("washer", srgb(0.35, 0.6, 0.9), srgb(0.85, 0.87, 0.9))
+    suds = blobs("suds", [("e", (x, 0, z), (0.05, 0.02, 0.04)) for x, z in ((-0.06, 0.34), (0.02, 0.33), (0.08, 0.36),
+                                                                           (-0.02, 0.38))],
+                 solid(WHITE), voxel=0.008, smooth=2)
+    parts.append(at(suds, (0, 0.335, 0.0)))
+    return parts
+
+
+def dryer():
+    """Front-loading dryer, matches the washer (stackable)."""
+    parts = washer_like("dryer", srgb(0.2, 0.22, 0.3), srgb(0.9, 0.84, 0.7))
+    rng = random.Random(2)
+    clothes = blobs("clothes", [("e", (rng.uniform(-0.08, 0.08), 0, rng.uniform(0.3, 0.42)), (0.05, 0.02, 0.04))
+                                for _ in range(5)],
+                    lambda co, n: RED if co[0] < -0.02 else (YELLOW if co[0] < 0.04 else BLUE), voxel=0.008, smooth=2)
+    parts.append(at(clothes, (0, 0.335, 0.0)))
+    return parts
+
+
+def laundry_basket():
+    """Wicker laundry basket with clothes, 0.4 m tall."""
+    prof = [(0, 0), (0.2, 0), (0.24, 0.35), (0.25, 0.36), (0.23, 0.36), (0.19, 0.03), (0, 0.03)]
+    parts = [lathe("basket", prof, lambda co, n: WOOD_LIGHT if int(co[2] * 30) % 2 else WOOD, segments=32)]
+    parts.append(blobs("clothes", [("e", (-0.06, 0.02, 0.33), (0.12, 0.1, 0.06)), ("e", (0.08, -0.04, 0.34),
+                                                                                     (0.1, 0.1, 0.06))],
+                       lambda co, n: PINK if co[0] < 0.0 else BLUE, voxel=0.012, smooth=3))
+    return parts
+
+
+# --------------------------------------------------------------------------
+# Decor
+# --------------------------------------------------------------------------
+
+def rug_round():
+    """Round rug with rings, 1.6 m across."""
+    rings = [(0.8, srgb(0.85, 0.35, 0.3)), (0.7, srgb(0.98, 0.85, 0.55)), (0.55, srgb(0.3, 0.55, 0.75)),
+             (0.35, srgb(0.98, 0.85, 0.55)), (0.2, srgb(0.85, 0.35, 0.3))]
+    return [cyl("ring", (0, 0, 0.004 + k * 0.0006), r, 0.008, c, segments=48) for k, (r, c) in enumerate(rings)]
+
+
+def rug_rect():
+    """Rectangular rug with a border, 2.0 x 1.4 m."""
+    parts = [rbox("rug", (0, 0, 0.004), (2.0, 1.4, 0.008), srgb(0.62, 0.22, 0.25), bevel=0.003)]
+    parts.append(rbox("border", (0, 0, 0.0045), (1.8, 1.2, 0.009), srgb(0.95, 0.85, 0.6), bevel=0.003))
+    parts.append(rbox("field", (0, 0, 0.005), (1.7, 1.1, 0.01), srgb(0.62, 0.22, 0.25), bevel=0.003))
+    parts.append(at(cyl("medallion", (0, 0, 0), 0.3, 0.011, srgb(0.95, 0.85, 0.6), segments=6), (0, 0, 0.0055)))
+    parts.append(at(cyl("medallion_in", (0, 0, 0), 0.18, 0.012, srgb(0.3, 0.5, 0.7), segments=6), (0, 0, 0.006)))
+    for sx in (1, -1):
+        for k in range(12):
+            parts.append(rod("fringe", (sx * 1.0, -0.6 + k * 0.109, 0.004), (sx * 1.06, -0.6 + k * 0.109, 0.004), 0.004,
+                             WHITE))
+    return parts
+
+
+def framed(w, h, art_parts, frame_color=WOOD_DARK):
+    """Wall item: origin at the back-bottom center; art faces +Y."""
+    parts = [rbox("frame", (0, 0.015, h / 2), (w, 0.03, h), frame_color, bevel=0.01)]
+    parts.append(rbox("mat", (0, 0.031, h / 2), (w - 0.06, 0.004, h - 0.06), OFFWHITE, bevel=0.0))
+    return parts + art_parts
+
+
+def painting_landscape():
+    """Framed landscape painting, 0.9 x 0.6 m."""
+    art = [rbox("sky", (0, 0.034, 0.36), (0.74, 0.004, 0.36), srgb(0.55, 0.78, 0.95), bevel=0.0),
+           rbox("field", (0, 0.035, 0.14), (0.74, 0.004, 0.12), srgb(0.45, 0.75, 0.35), bevel=0.0),
+           at(cyl("sun", (0, 0, 0), 0.06, 0.004, YELLOW, segments=20), (0.22, 0.037, 0.43), FRONT),
+           prism("mountain", [(-0.37, 0.18), (-0.1, 0.42), (0.1, 0.18)], 0.037, 0.004, srgb(0.5, 0.45, 0.6)),
+           prism("mountain", [(-0.05, 0.18), (0.15, 0.34), (0.37, 0.18)], 0.038, 0.004, srgb(0.4, 0.38, 0.55))]
+    return framed(0.9, 0.6, art)
+
+
+def painting_portrait():
+    """Framed portrait of a smiling cartoon cat, 0.5 x 0.65 m, gold frame."""
+    art = [rbox("bg", (0, 0.034, 0.325), (0.4, 0.004, 0.55), srgb(0.55, 0.3, 0.4), bevel=0.0)]
+    head = at(cyl("head", (0, 0, 0), 0.12, 0.004, ORANGE, segments=24), (0, 0.037, 0.36), FRONT)
+    art.append(head)
+    for sx in (1, -1):
+        art.append(prism("ear", [(sx * 0.05, 0.44), (sx * 0.13, 0.54), (sx * 0.12, 0.4)], 0.037, 0.004, ORANGE))
+        art.append(at(cyl("eye", (0, 0, 0), 0.018, 0.004, BLACK, segments=12), (sx * 0.045, 0.04, 0.38), FRONT))
+    art.append(prism("smile", [(-0.04, 0.32), (0.04, 0.32), (0.0, 0.29)], 0.04, 0.004, BLACK))
+    art.append(prism("body", [(-0.15, 0.03), (0.15, 0.03), (0.09, 0.24), (-0.09, 0.24)], 0.037, 0.004, ORANGE))
+    return framed(0.5, 0.65, art, frame_color=GOLD_TRIM)
+
+
+def poster():
+    """Movie-style poster (no text), 0.6 x 0.9 m. Wall item."""
+    parts = [rbox("poster", (0, 0.002, 0.45), (0.6, 0.004, 0.9), srgb(0.12, 0.12, 0.25), bevel=0.0)]
+    parts.append(at(cyl("planet", (0, 0, 0), 0.18, 0.004, ORANGE, segments=28), (0.05, 0.006, 0.55), FRONT))
+    parts.append(at(cyl("ring", (0, 0, 0), 0.26, 0.003, YELLOW, segments=28), (0.05, 0.005, 0.55),
+                    FRONT @ Matrix.Diagonal((1.0, 0.25, 1.0, 1.0))))
+    parts.append(prism("rocket", [(-0.2, 0.15), (-0.12, 0.15), (-0.16, 0.35)], 0.008, 0.004, RED))
+    for k in range(3):
+        parts.append(rbox("title_bar", (0, 0.006, 0.12 - k * 0.035), (0.45 - k * 0.1, 0.004, 0.02), YELLOW, bevel=0.0))
+    return parts
+
+
+def wall_clock():
+    """Round wall clock, 0.35 m across. Wall item: origin at the back center."""
+    parts = [at(cyl("rim", (0, 0, 0), 0.175, 0.04, RED, segments=40, bevel=0.01), (0, 0.02, 0), FRONT)]
+    parts.append(at(cyl("face", (0, 0, 0), 0.15, 0.004, WHITE, segments=40), (0, 0.042, 0), FRONT))
+    for k in range(12):
+        a = k / 12 * math.tau
+        parts.append(rbox("tick", (0.13 * math.sin(a), 0.045, 0.13 * math.cos(a)),
+                          (0.012, 0.003, 0.012 if k % 3 else 0.03), BLACK, bevel=0.0))
+    parts.append(strip("hour", (0, 0), (0.05, 0.05), 0.047, 0.003, 0.012, BLACK, bevel=0.0))
+    parts.append(strip("minute", (0, 0), (0.0, 0.11), 0.048, 0.003, 0.008, BLACK, bevel=0.0))
+    parts.append(at(cyl("pin", (0, 0, 0), 0.01, 0.006, RED, segments=10), (0, 0.05, 0), FRONT))
+    return parts
+
+
+def photo_frame():
+    """Tabletop photo frame, 0.18 x 0.22 m, leaning back."""
+    art = [rbox("frame", (0, 0, 0.11), (0.18, 0.02, 0.22), WOOD_LIGHT, bevel=0.006),
+           rbox("photo", (0, 0.011, 0.11), (0.14, 0.003, 0.18), srgb(0.6, 0.8, 0.95), bevel=0.0),
+           at(cyl("face1", (0, 0, 0), 0.025, 0.003, srgb(0.98, 0.8, 0.62), segments=16), (-0.035, 0.013, 0.12), FRONT),
+           at(cyl("face2", (0, 0, 0), 0.025, 0.003, srgb(0.85, 0.62, 0.45), segments=16), (0.035, 0.013, 0.12), FRONT),
+           rbox("grass", (0, 0.012, 0.045), (0.14, 0.003, 0.05), GREEN, bevel=0.0)]
+    parts = [xf(p, Matrix.Rotation(-0.2, 4, "X")) for p in art]
+    parts.append(strip("stand", (0, 0.0), (0, 0.15), -0.05, 0.03, 0.01, WOOD_DARK))
+    return fp.lift_to_floor(parts)
+
+
+def potted_plant():
+    """Leafy house plant in a terracotta pot, 0.9 m tall."""
+    parts = [lathe("pot", [(0, 0), (0.12, 0), (0.16, 0.26), (0.17, 0.27), (0.17, 0.3), (0, 0.3)],
+                   lambda co, n: srgb(0.8, 0.42, 0.25) if co[2] < 0.26 else srgb(0.7, 0.35, 0.2), segments=28)]
+    parts.append(cyl("soil", (0, 0, 0.29), 0.15, 0.01, srgb(0.3, 0.2, 0.12), segments=28))
+    rng = random.Random(6)
+    leaves = []
+    for k in range(9):
+        a = k / 9 * math.tau + rng.uniform(-0.2, 0.2)
+        r = rng.uniform(0.15, 0.3)
+        top = Vector((r * math.cos(a), r * math.sin(a), rng.uniform(0.55, 0.9)))
+        parts.append(tube("stem", [Vector((0, 0, 0.29)), top * 0.6 + Vector((0, 0, 0.2)), top], 0.006, GREEN))
+        leaves.append(("e", tuple(top), (0.09, 0.09, 0.04)))
+    parts.append(blobs("leaves", leaves, lambda co, n: srgb(0.3, 0.7, 0.35) if n[2] > 0 else srgb(0.2, 0.55, 0.28),
+                       voxel=0.015, smooth=2, faces=2500))
+    return parts
+
+
 PROPS = {
     "fridge": fridge, "stove": stove, "microwave": microwave, "toaster": toaster, "toast": toast,
     "kettle": kettle, "coffee_maker": coffee_maker, "blender": blender,
@@ -997,6 +1347,13 @@ PROPS = {
     "baseball_bat": baseball_bat, "tennis_ball": tennis_ball, "tennis_racket": tennis_racket, "yoga_mat": yoga_mat,
     "dumbbell": dumbbell, "kettlebell": kettlebell, "weight_plate": weight_plate, "barbell": barbell,
     "bench_press": bench_press, "treadmill": treadmill,
+    "toilet": toilet, "bathtub": bathtub, "bathroom_sink": bathroom_sink, "bathroom_mirror": bathroom_mirror,
+    "towel_rack": towel_rack, "bath_mat": bath_mat, "toilet_paper": toilet_paper,
+    "counter": counter, "counter_drawers": counter_drawers, "counter_sink": counter_sink,
+    "upper_cabinet": upper_cabinet, "washer": washer, "dryer": dryer, "laundry_basket": laundry_basket,
+    "rug_round": rug_round, "rug_rect": rug_rect, "painting_landscape": painting_landscape,
+    "painting_portrait": painting_portrait, "poster": poster, "wall_clock": wall_clock, "photo_frame": photo_frame,
+    "potted_plant": potted_plant,
 }
 
 if __name__ == "__main__":

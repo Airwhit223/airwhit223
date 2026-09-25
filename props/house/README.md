@@ -10,6 +10,8 @@ meters, origin at the bottom center, front facing -Z in Godot. Built by
 ![bedroom](preview_bedroom.png)
 ![consoles, cameras, art](preview_gadgets.png)
 ![gym and sports](preview_gym.png)
+![bathroom and laundry](preview_bath.png)
+![counters and decor](preview_decor.png)
 
 ## Kitchen
 
@@ -59,6 +61,32 @@ the front), `camera_instant` (photo slot on top), `instant_photo`, `tripod`
 `weight_plate`, `barbell` (loaded, 2 m), `bench_press` (bench, rack and a
 loaded bar; lie with your head toward the rack), `treadmill` (you face the
 console at the front).
+
+## Bathroom
+
+`toilet` (tank at the back), `bathtub` (1.6 m, with water and a rubber duck),
+`bathroom_sink` (pedestal, basin at 0.88 m), `bathroom_mirror`,
+`towel_rack`, `bath_mat`, `toilet_paper`.
+
+## Kitchen counters and laundry
+
+`counter` (0.6 m base cabinet, counter at 0.9 m to match the fridge and
+stove), `counter_drawers`, `counter_sink` (1.2 m, double steel basin and
+faucet), `upper_cabinet` (hang the bottom at about 1.45 m), `washer`,
+`dryer` (front loaders, 0.6 x 0.6 x 0.85 m), `laundry_basket`.
+
+## Decor
+
+`rug_round` (1.6 m), `rug_rect` (2 x 1.4 m), `painting_landscape`,
+`painting_portrait` (a cartoon cat in a gold frame), `poster` (no text),
+`wall_clock`, `photo_frame`, `potted_plant`.
+
+Wall items (mirror, towel rack, upper cabinet, paintings, poster, clock)
+have their origin at the back, so they sit flush when placed against a
+wall with their front facing into the room.
+
+Walls, floors, roofs and doors to build the house itself are in
+`../house_kit/`.
 
 ## Screens
 
