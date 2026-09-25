@@ -1,0 +1,12 @@
+{
+ "part": "garment",
+ "name": "TR_Blazer",
+ "collapsed_keys": {
+  "TR_Blazer": 11
+ },
+ "baked": {
+  "TR_Blazer": 5.0
+ },
+ "glb_mb": 1.23,
+ "seconds": 5.1
+}

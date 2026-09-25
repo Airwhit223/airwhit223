@@ -1,0 +1,12 @@
+{
+ "part": "garment",
+ "name": "TR_Pleated_Skirt",
+ "collapsed_keys": {
+  "TR_Pleated_Skirt": 11
+ },
+ "baked": {
+  "TR_Pleated_Skirt": 6.9
+ },
+ "glb_mb": 0.78,
+ "seconds": 7.1
+}

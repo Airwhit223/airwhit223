@@ -1,0 +1,12 @@
+{
+ "part": "garment",
+ "name": "Mechanic_Work_Tank",
+ "collapsed_keys": {
+  "Mechanic_Work_Tank": 11
+ },
+ "baked": {
+  "Mechanic_Work_Tank": 6.3
+ },
+ "glb_mb": 0.41,
+ "seconds": 6.5
+}

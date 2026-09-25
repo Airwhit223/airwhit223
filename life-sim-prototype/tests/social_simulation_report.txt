@@ -1,0 +1,19 @@
+SOCIAL SIMULATION REPORT — 7 DAYS
+Technical checks: PASS
+Autonomous interactions: 74 | declined invitations: 33 | distinct directed choices: 14
+
+Maya -> Riley: Familiarity 15.8 | Friendship 8.9 | Trust 2.8 | Tension 0.0
+  Recent: D6 hung out together, D6 hung out together, D5 hung out together
+Jordan -> Alex: Familiarity 14.7 | Friendship 8.3 | Trust 2.6 | Tension 0.0
+  Recent: D6 hung out together, D5 hung out together, D4 hung out together
+Alex -> Riley: Familiarity 100.0 | Friendship 68.8 | Trust 43.9 | Tension 0.1
+  Recent: D6 played basketball together, D6 hung out together, D6 played basketball together
+Maya -> Sam: Familiarity 13.8 | Friendship 6.9 | Trust 2.3 | Tension 0.7
+  Recent: D6 hung out together, D6 declined invitation, D6 exercised together
+
+Emergent moments:
+Maya: "Jordan turned me down earlier."
+Jordan: "I want to hang out with Sam."
+Alex: "I had a good time playing basketball with Riley."
+Riley: "I had a good time playing basketball with Alex."
+Sam: "Alex turned me down earlier."

@@ -1,0 +1,101 @@
+{
+ "character": "Kira",
+ "apply": {
+  "character": "Kira",
+  "faction": "punk_skater",
+  "growth": 0.0,
+  "state": "fresh",
+  "hair": "TR_Hair",
+  "beard": null
+ },
+ "hair_states": {
+  "Hair_fresh": 9432,
+  "Hair_needs_maintenance": 9690,
+  "Hair_overgrown": 9816
+ },
+ "beard": {},
+ "collapsed_keys": {
+  "Blush": 12,
+  "Body_Base": 11,
+  "Brow_L": 68,
+  "Brow_R": 68,
+  "DQ8_Neck_Shadow": 23,
+  "Ear_Ink": 0,
+  "Emo_Belt_Chain": 11,
+  "Eye_L": 95,
+  "Eye_R": 95,
+  "Hair_fresh": 0,
+  "Hair_needs_maintenance": 0,
+  "Hair_overgrown": 0,
+  "Head_Base": 23,
+  "Mouth": 56,
+  "Nose_Bridge": 12,
+  "Nose_Tip": 12,
+  "Shoes_Sneaker_01": 11,
+  "TR_Crop_Top": 11,
+  "TR_Pleated_Skirt": 11,
+  "TR_Thigh_Highs": 11,
+  "TR_Varsity_Jacket": 11
+ },
+ "baked": {
+  "Body_Base": {
+   "texture": "textures/Body_Base.png",
+   "seconds": 25.8
+  },
+  "Ear_Ink": {
+   "texture": "textures/Ear_Ink.png",
+   "seconds": 0.6
+  },
+  "Emo_Belt_Chain": {
+   "texture": "textures/Emo_Belt_Chain.png",
+   "seconds": 18.3
+  },
+  "Head_Base": {
+   "texture": "textures/Head_Base.png",
+   "seconds": 32.6
+  },
+  "Shoes_Sneaker_01": {
+   "texture": "textures/Shoes_Sneaker_01.png",
+   "seconds": 27.2
+  },
+  "TR_Crop_Top": {
+   "texture": "textures/TR_Crop_Top.png",
+   "seconds": 34.5
+  },
+  "TR_Pleated_Skirt": {
+   "texture": "textures/TR_Pleated_Skirt.png",
+   "seconds": 31.5
+  },
+  "TR_Thigh_Highs": {
+   "texture": "textures/TR_Thigh_Highs.png",
+   "seconds": 31.0
+  },
+  "TR_Varsity_Jacket": {
+   "texture": "textures/TR_Varsity_Jacket.png",
+   "seconds": 24.7
+  },
+  "Hair_fresh": {
+   "vertex_colors": "TR_Paint",
+   "seconds": 6.5
+  },
+  "Hair_needs_maintenance": {
+   "vertex_colors": "TR_Paint",
+   "seconds": 6.6
+  },
+  "Hair_overgrown": {
+   "vertex_colors": "TR_Paint",
+   "seconds": 6.8
+  }
+ },
+ "skin_vertex_color_meshes": [
+  "Eye_L",
+  "Eye_R"
+ ],
+ "head_warp": [
+  "Hair_fresh",
+  "Hair_needs_maintenance",
+  "Hair_overgrown"
+ ],
+ "glb_mb": 14.74,
+ "seconds": 247.6
+}

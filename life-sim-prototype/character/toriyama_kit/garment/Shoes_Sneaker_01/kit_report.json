@@ -1,0 +1,12 @@
+{
+ "part": "garment",
+ "name": "Shoes_Sneaker_01",
+ "collapsed_keys": {
+  "Shoes_Sneaker_01": 11
+ },
+ "baked": {
+  "Shoes_Sneaker_01": 5.9
+ },
+ "glb_mb": 0.44,
+ "seconds": 6.0
+}

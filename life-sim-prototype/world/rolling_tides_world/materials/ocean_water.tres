@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://world/rolling_tides_world/materials/ocean_water.gdshader" id="1_qlavo"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_qlavo")
+shader_parameter/water_deep = Color(0.09, 0.31, 0.54, 0.95)
+shader_parameter/water_shallow = Color(0.18, 0.55, 0.78, 0.88)
+shader_parameter/foam_color = Color(0.92, 0.98, 1, 1)
+shader_parameter/wave_speed = 1.2
+shader_parameter/wave_scale = 0.35
+shader_parameter/wave_height = 0.12

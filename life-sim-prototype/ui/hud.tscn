@@ -1,0 +1,194 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://ui/hud.gd" id="1"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1")
+
+[node name="Root" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="ClockLabel" type="Label" parent="Root"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 340.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 20
+text = "Time"
+
+[node name="WorldBadge" type="Label" parent="Root"]
+offset_left = 16.0
+offset_top = 76.0
+offset_right = 190.0
+offset_bottom = 104.0
+theme_override_font_sizes/font_size = 13
+vertical_alignment = 1
+text = "  STORY WORLD  "
+
+[node name="JournalButton" type="Button" parent="Root"]
+offset_left = 16.0
+offset_top = 112.0
+offset_right = 175.0
+offset_bottom = 150.0
+theme_override_font_sizes/font_size = 16
+text = "MY JOURNAL"
+
+[node name="DebugLabel" type="Label" parent="Root"]
+offset_left = 16.0
+offset_top = 660.0
+offset_right = 600.0
+offset_bottom = 700.0
+theme_override_font_sizes/font_size = 16
+text = ""
+
+[node name="PromptLabel" type="Label" parent="Root"]
+anchor_right = 1.0
+offset_top = 555.0
+offset_bottom = 585.0
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 22
+text = ""
+
+[node name="InvitePromptLabel" type="Label" parent="Root"]
+anchor_right = 1.0
+offset_top = 588.0
+offset_bottom = 615.0
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 20
+text = ""
+
+[node name="ToastLabel" type="Label" parent="Root"]
+anchor_right = 1.0
+offset_top = 626.0
+offset_bottom = 656.0
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 20
+text = ""
+
+[node name="SpeedPanel" type="Panel" parent="Root"]
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -260.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 92.0
+mouse_filter = 1
+
+[node name="SpeedLabel" type="Label" parent="Root/SpeedPanel"]
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 236.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 16
+text = "Time: Normal"
+
+[node name="Buttons" type="HBoxContainer" parent="Root/SpeedPanel"]
+offset_left = 8.0
+offset_top = 30.0
+offset_right = 236.0
+offset_bottom = 68.0
+theme_override_constants/separation = 4
+
+[node name="PauseButton" type="Button" parent="Root/SpeedPanel/Buttons"]
+custom_minimum_size = Vector2(54, 32)
+theme_override_font_sizes/font_size = 12
+text = "Pause"
+
+[node name="NormalButton" type="Button" parent="Root/SpeedPanel/Buttons"]
+custom_minimum_size = Vector2(40, 32)
+theme_override_font_sizes/font_size = 12
+text = "1x"
+
+[node name="FastButton" type="Button" parent="Root/SpeedPanel/Buttons"]
+custom_minimum_size = Vector2(40, 32)
+theme_override_font_sizes/font_size = 12
+text = "4x"
+
+[node name="VeryFastButton" type="Button" parent="Root/SpeedPanel/Buttons"]
+custom_minimum_size = Vector2(40, 32)
+theme_override_font_sizes/font_size = 12
+text = "15x"
+
+[node name="DialoguePanel" type="Panel" parent="Root"]
+offset_left = 340.0
+offset_top = 420.0
+offset_right = 940.0
+offset_bottom = 530.0
+mouse_filter = 1
+
+[node name="NameLabel" type="Label" parent="Root/DialoguePanel"]
+offset_left = 16.0
+offset_top = 10.0
+offset_right = 584.0
+offset_bottom = 36.0
+theme_override_font_sizes/font_size = 20
+text = "Name"
+
+[node name="LineLabel" type="Label" parent="Root/DialoguePanel"]
+offset_left = 16.0
+offset_top = 40.0
+offset_right = 584.0
+offset_bottom = 84.0
+autowrap_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Line"
+
+[node name="CloseHintLabel" type="Label" parent="Root/DialoguePanel"]
+anchor_right = 1.0
+offset_left = -140.0
+offset_top = 84.0
+offset_right = -12.0
+offset_bottom = 106.0
+horizontal_alignment = 2
+theme_override_font_sizes/font_size = 14
+text = "[E] Close"
+
+[node name="HelpPanel" type="Panel" parent="Root"]
+offset_left = 340.0
+offset_top = 100.0
+offset_right = 940.0
+offset_bottom = 420.0
+mouse_filter = 1
+
+[node name="HelpTitle" type="Label" parent="Root/HelpPanel"]
+offset_left = 16.0
+offset_top = 10.0
+offset_right = 584.0
+offset_bottom = 36.0
+theme_override_font_sizes/font_size = 20
+text = "Controls"
+
+[node name="HelpText" type="Label" parent="Root/HelpPanel"]
+offset_left = 16.0
+offset_top = 42.0
+offset_right = 584.0
+offset_bottom = 310.0
+theme_override_font_sizes/font_size = 16
+text = "WASD — Move
+Mouse — Look
+Space — Jump
+E — Interact / Talk / Pick Up / Close Dialogue
+F — Invite (they'll come when free)
+G — Follow Me (right now, if free) / Stop Following
+Left Click — Shoot (while holding the ball)
+M — Co-op visits (host / join)
+Q — Mount / Dismount skateboard
+1 / 2 / 3 — Normal / Fast / Very Fast time
+P — Pause / Resume time
+I — Toggle wardrobe (test equipping clothes/items)
+J — Toggle social inspector (nearest resident)
+Arrow Keys — Play notes during the guitar activity
+Tab — Tool wheel: Empty Hands / Sword / Guitar
+R — Play the guitar anywhere (bonus at the concert stage)
+K or Left Click — Sword attack (sword in hand)
+Shift — Dodge (brief invulnerability)
+H — Toggle this help panel
+Esc — Release / capture mouse (needed to click HUD buttons)"
+
+[node name="FadeOverlay" type="ColorRect" parent="Root"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 1)
+mouse_filter = 2

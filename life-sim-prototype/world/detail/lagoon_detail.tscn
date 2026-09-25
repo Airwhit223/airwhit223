@@ -1,0 +1,144 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/bioluminescent_water.tres" id="1_water"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/mossy_stone.tres" id="2_moss_stone"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/stone_plain.tres" id="3_stone"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/pier_wood.tres" id="4_wood"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/dark_green.tres" id="5_dark_green"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/living_green.tres" id="6_green"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/neon_cyan.tres" id="7_cyan"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/rift_purple.tres" id="8_purple"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lagoon_water"]
+top_radius = 26.0
+bottom_radius = 26.0
+height = 0.4
+
+[sub_resource type="CylinderShape3D" id="CylinderShape_lagoon_water"]
+height = 0.4
+radius = 26.0
+
+[sub_resource type="TorusMesh" id="TorusMesh_lagoon_rim"]
+inner_radius = 25.5
+outer_radius = 28.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_cliff"]
+size = Vector3(36, 16, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape_cliff"]
+size = Vector3(36, 16, 12)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cave_opening"]
+size = Vector3(8, 7, 6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_waterfall"]
+size = Vector3(6, 12, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bridge_plank"]
+size = Vector3(5, 0.35, 14)
+
+[sub_resource type="BoxShape3D" id="BoxShape_bridge"]
+size = Vector3(5, 0.35, 14)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lilypad"]
+top_radius = 1.1
+bottom_radius = 1.1
+height = 0.05
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_shroom_stem"]
+top_radius = 0.35
+bottom_radius = 0.6
+height = 3.2
+
+[sub_resource type="SphereMesh" id="SphereMesh_shroom_cap"]
+radius = 1.8
+height = 1.2
+
+[node name="LagoonDetail" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -220)
+
+[node name="LagoonWaterBody" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0)
+
+[node name="WaterSurface" type="MeshInstance3D" parent="LagoonWaterBody"]
+mesh = SubResource("CylinderMesh_lagoon_water")
+surface_material_override/0 = ExtResource("1_water")
+
+[node name="Coll" type="CollisionShape3D" parent="LagoonWaterBody"]
+shape = SubResource("CylinderShape_lagoon_water")
+
+[node name="ShoreRim" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+mesh = SubResource("TorusMesh_lagoon_rim")
+surface_material_override/0 = ExtResource("2_moss_stone")
+
+[node name="GrottoCliff" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, -26)
+
+[node name="CliffMesh" type="MeshInstance3D" parent="GrottoCliff"]
+mesh = SubResource("BoxMesh_cliff")
+surface_material_override/0 = ExtResource("3_stone")
+
+[node name="Coll" type="CollisionShape3D" parent="GrottoCliff"]
+shape = SubResource("BoxShape_cliff")
+
+[node name="Waterfall" type="MeshInstance3D" parent="GrottoCliff"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 6.1)
+mesh = SubResource("BoxMesh_waterfall")
+surface_material_override/0 = ExtResource("1_water")
+
+[node name="CaveOpening" type="MeshInstance3D" parent="GrottoCliff"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 5.5)
+mesh = SubResource("BoxMesh_cave_opening")
+surface_material_override/0 = ExtResource("2_moss_stone")
+
+[node name="ArchedWoodenBridge" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 24)
+
+[node name="Deck" type="MeshInstance3D" parent="ArchedWoodenBridge"]
+mesh = SubResource("BoxMesh_bridge_plank")
+surface_material_override/0 = ExtResource("4_wood")
+
+[node name="Coll" type="CollisionShape3D" parent="ArchedWoodenBridge"]
+shape = SubResource("BoxShape_bridge")
+
+[node name="LilyPads" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+
+[node name="Pad1" type="MeshInstance3D" parent="LilyPads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -6)
+mesh = SubResource("CylinderMesh_lilypad")
+surface_material_override/0 = ExtResource("6_green")
+
+[node name="Pad2" type="MeshInstance3D" parent="LilyPads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 8)
+mesh = SubResource("CylinderMesh_lilypad")
+surface_material_override/0 = ExtResource("6_green")
+
+[node name="Pad3" type="MeshInstance3D" parent="LilyPads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 10)
+mesh = SubResource("CylinderMesh_lilypad")
+surface_material_override/0 = ExtResource("6_green")
+
+[node name="GlowingShrooms" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -12)
+
+[node name="Stem1" type="MeshInstance3D" parent="GlowingShrooms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+mesh = SubResource("CylinderMesh_shroom_stem")
+surface_material_override/0 = ExtResource("4_wood")
+
+[node name="Cap1" type="MeshInstance3D" parent="GlowingShrooms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4, 0)
+mesh = SubResource("SphereMesh_shroom_cap")
+surface_material_override/0 = ExtResource("7_cyan")
+
+[node name="Stem2" type="MeshInstance3D" parent="GlowingShrooms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.2, 4)
+mesh = SubResource("CylinderMesh_shroom_stem")
+surface_material_override/0 = ExtResource("4_wood")
+
+[node name="Cap2" type="MeshInstance3D" parent="GlowingShrooms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2.6, 4)
+mesh = SubResource("SphereMesh_shroom_cap")
+surface_material_override/0 = ExtResource("8_purple")

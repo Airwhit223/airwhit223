@@ -1,0 +1,12 @@
+{
+ "part": "garment",
+ "name": "TR_Glasses",
+ "collapsed_keys": {
+  "TR_Glasses": 0
+ },
+ "baked": {
+  "TR_Glasses": 3.3
+ },
+ "glb_mb": 0.08,
+ "seconds": 3.4
+}

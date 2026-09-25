@@ -1,0 +1,12 @@
+{
+ "part": "garment",
+ "name": "TR_Varsity_Jacket",
+ "collapsed_keys": {
+  "TR_Varsity_Jacket": 11
+ },
+ "baked": {
+  "TR_Varsity_Jacket": 5.3
+ },
+ "glb_mb": 1.2,
+ "seconds": 5.5
+}

@@ -1,0 +1,40 @@
+{
+ "part": "base",
+ "name": "M",
+ "game_defaults": {
+  "TR_Head_Shape": 10,
+  "TR_Jaw": 10,
+  "Pose_Rest": 12,
+  "TR_Neck": 3,
+  "TR_Ear_Detail": 2,
+  "TR_Chin": 1
+ },
+ "body_detail": {
+  "lit_texels": 41336,
+  "mask_max": 0.95,
+  "shade_min": 0.639,
+  "image_mean": 0.995,
+  "wired": true
+ },
+ "collapsed_keys": {
+  "Blush": 12,
+  "Body_Base": 11,
+  "Brow_L": 68,
+  "Brow_R": 68,
+  "DQ8_Neck_Shadow": 23,
+  "Ear_Ink": 0,
+  "Eye_L": 95,
+  "Eye_R": 95,
+  "Head_Base": 23,
+  "Mouth": 56,
+  "Nose_Bridge": 12,
+  "Nose_Tip": 12
+ },
+ "baked": {
+  "Body_Base": 14.3,
+  "Ear_Ink": 0.5,
+  "Head_Base": 25.1
+ },
+ "glb_mb": 4.01,
+ "seconds": 40.7
+}

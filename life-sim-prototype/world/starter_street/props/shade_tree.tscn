@@ -1,0 +1,190 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/starter_street/materials/bark.tres" id="1_c46tx"]
+[ext_resource type="Material" path="res://world/starter_street/materials/living_green.tres" id="2_vt116"]
+[ext_resource type="Shader" path="res://world/shaders/blob_shadow.gdshader" id="3_urljs"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_nxaii"]
+top_radius = 0.22
+bottom_radius = 0.36
+height = 2.5
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_evgkw"]
+top_radius = 0.05
+bottom_radius = 0.16
+height = 0.6
+radial_segments = 8
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pyiqx"]
+top_radius = 0.05
+bottom_radius = 0.16
+height = 0.6
+radial_segments = 8
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_s3vel"]
+top_radius = 0.05
+bottom_radius = 0.16
+height = 0.6
+radial_segments = 8
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kydxu"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 1.28841
+radial_segments = 8
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_s76i4"]
+top_radius = 0.09
+bottom_radius = 0.09
+height = 1.17047
+radial_segments = 8
+rings = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_jsbpu"]
+radius = 1.5
+height = 3.0
+radial_segments = 16
+rings = 8
+
+[sub_resource type="SphereMesh" id="SphereMesh_wpdm3"]
+radius = 1.1
+height = 2.2
+radial_segments = 16
+rings = 8
+
+[sub_resource type="SphereMesh" id="SphereMesh_fvv80"]
+radius = 1.15
+height = 2.3
+radial_segments = 16
+rings = 8
+
+[sub_resource type="SphereMesh" id="SphereMesh_qklr8"]
+radius = 1.05
+height = 2.1
+radial_segments = 16
+rings = 8
+
+[sub_resource type="SphereMesh" id="SphereMesh_1eeel"]
+radius = 1.0
+height = 2.0
+radial_segments = 16
+rings = 8
+
+[sub_resource type="SphereMesh" id="SphereMesh_wqw2o"]
+radius = 1.0
+height = 2.0
+radial_segments = 16
+rings = 8
+
+[sub_resource type="SphereMesh" id="SphereMesh_6c6av"]
+radius = 0.8
+height = 1.6
+radial_segments = 16
+rings = 8
+
+[sub_resource type="SphereMesh" id="SphereMesh_vavfo"]
+radius = 0.8
+height = 1.6
+radial_segments = 16
+rings = 8
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_kkcxt"]
+height = 2.5
+radius = 0.38
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8fjg7"]
+render_priority = 0
+shader = ExtResource("3_urljs")
+shader_parameter/color = Color(0.18, 0.12, 0.18, 1)
+shader_parameter/strength = 0.22
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7q88g"]
+size = Vector2(4.6, 4.6)
+
+[node name="ShadeTree" type="StaticBody3D" unique_id=844862671]
+
+[node name="Trunk" type="MeshInstance3D" parent="." unique_id=2127905486]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+material_override = ExtResource("1_c46tx")
+mesh = SubResource("CylinderMesh_nxaii")
+
+[node name="Root0" type="MeshInstance3D" parent="." unique_id=110889223]
+transform = Transform3D(0.5440115, 0.8390778, 0, -0.71800023, 0.46551153, -0.51746947, -0.43419713, 0.28150934, 0.8557017, 0.28082642, 0.12, 0.15341617)
+material_override = ExtResource("1_c46tx")
+mesh = SubResource("CylinderMesh_evgkw")
+
+[node name="Root1" type="MeshInstance3D" parent="." unique_id=1177641086]
+transform = Transform3D(0.56627554, -0.824216, 0, 0.6847567, 0.47046036, -0.55657464, 0.45873773, 0.3151746, 0.8307976, -0.27327552, 0.12, 0.16649473)
+material_override = ExtResource("1_c46tx")
+mesh = SubResource("CylinderMesh_pyiqx")
+
+[node name="Root2" type="MeshInstance3D" parent="." unique_id=530446419]
+transform = Transform3D(0.9996417, -0.026766282, 0, 0.011319582, 0.42275304, 0.90617424, -0.024254914, -0.9058496, 0.42290455, -0.0075509073, 0.12, -0.3199109)
+material_override = ExtResource("1_c46tx")
+mesh = SubResource("CylinderMesh_s3vel")
+
+[node name="BranchL" type="MeshInstance3D" parent="." unique_id=1134879340]
+transform = Transform3D(-0.7071068, -0.69853544, -0.109764256, -0.70710677, 0.6985355, 0.10976427, 0, 0.1552301, -0.9878783, -0.45, 2.45, 0.1)
+material_override = ExtResource("1_c46tx")
+mesh = SubResource("CylinderMesh_kydxu")
+
+[node name="BranchR" type="MeshInstance3D" parent="." unique_id=1116146881]
+transform = Transform3D(-0.7071068, 0.6834861, -0.18123664, 0.7071068, 0.6834861, -0.18123664, 0, -0.2563073, -0.9665954, 0.4, 2.6, -0.15)
+material_override = ExtResource("1_c46tx")
+mesh = SubResource("CylinderMesh_s76i4")
+
+[node name="Leaves0" type="MeshInstance3D" parent="." unique_id=978105291]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6, 0)
+material_override = ExtResource("2_vt116")
+mesh = SubResource("SphereMesh_jsbpu")
+
+[node name="Leaves1" type="MeshInstance3D" parent="." unique_id=1733067930]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15, 3.25, 0.3)
+material_override = ExtResource("2_vt116")
+mesh = SubResource("SphereMesh_wpdm3")
+
+[node name="Leaves2" type="MeshInstance3D" parent="." unique_id=133607607]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05, 3.35, -0.35)
+material_override = ExtResource("2_vt116")
+mesh = SubResource("SphereMesh_fvv80")
+
+[node name="Leaves3" type="MeshInstance3D" parent="." unique_id=360301992]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 3.15, -1.15)
+material_override = ExtResource("2_vt116")
+mesh = SubResource("SphereMesh_qklr8")
+
+[node name="Leaves4" type="MeshInstance3D" parent="." unique_id=1875513912]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 3.2, 1.05)
+material_override = ExtResource("2_vt116")
+mesh = SubResource("SphereMesh_1eeel")
+
+[node name="Leaves5" type="MeshInstance3D" parent="." unique_id=1959539435]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 4.45, 0.1)
+material_override = ExtResource("2_vt116")
+mesh = SubResource("SphereMesh_wqw2o")
+
+[node name="Leaves6" type="MeshInstance3D" parent="." unique_id=1992650900]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 4.2, 0.5)
+material_override = ExtResource("2_vt116")
+mesh = SubResource("SphereMesh_6c6av")
+
+[node name="Leaves7" type="MeshInstance3D" parent="." unique_id=1667855282]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 4.1, -0.5)
+material_override = ExtResource("2_vt116")
+mesh = SubResource("SphereMesh_vavfo")
+
+[node name="@CollisionShape3D@88" type="CollisionShape3D" parent="." unique_id=762577418]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+shape = SubResource("CylinderShape3D_kkcxt")
+
+[node name="BlobShadow" type="MeshInstance3D" parent="." unique_id=1602985589]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015, 0)
+material_override = SubResource("ShaderMaterial_8fjg7")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_7q88g")

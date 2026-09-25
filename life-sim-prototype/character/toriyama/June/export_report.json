@@ -1,0 +1,81 @@
+{
+ "character": "June",
+ "apply": {
+  "character": "June",
+  "faction": "artisan",
+  "growth": 0.0,
+  "state": "fresh",
+  "hair": "TR_Hair",
+  "beard": null
+ },
+ "hair_states": {
+  "Hair_fresh": 13404,
+  "Hair_needs_maintenance": 36822,
+  "Hair_overgrown": 58896
+ },
+ "beard": {},
+ "collapsed_keys": {
+  "Blush": 12,
+  "Body_Base": 11,
+  "Brow_L": 68,
+  "Brow_R": 68,
+  "DQ8_Neck_Shadow": 23,
+  "Eye_L": 95,
+  "Eye_R": 95,
+  "Hair_fresh": 0,
+  "Hair_needs_maintenance": 0,
+  "Hair_overgrown": 0,
+  "Head_Base": 23,
+  "Mechanic_Cargo_Pants": 11,
+  "Mechanic_Work_Boots": 0,
+  "Mechanic_Work_Tank": 11,
+  "Mouth": 56,
+  "Nose_Bridge": 12,
+  "Nose_Tip": 12
+ },
+ "baked": {
+  "Body_Base": {
+   "texture": "textures/Body_Base.png",
+   "seconds": 21.8
+  },
+  "Head_Base": {
+   "texture": "textures/Head_Base.png",
+   "seconds": 30.1
+  },
+  "Mechanic_Cargo_Pants": {
+   "texture": "textures/Mechanic_Cargo_Pants.png",
+   "seconds": 32.1
+  },
+  "Mechanic_Work_Boots": {
+   "texture": "textures/Mechanic_Work_Boots.png",
+   "seconds": 37.6
+  },
+  "Mechanic_Work_Tank": {
+   "texture": "textures/Mechanic_Work_Tank.png",
+   "seconds": 28.7
+  },
+  "Hair_fresh": {
+   "vertex_colors": "TR_Paint",
+   "seconds": 12.7
+  },
+  "Hair_needs_maintenance": {
+   "vertex_colors": "TR_Paint",
+   "seconds": 30.6
+  },
+  "Hair_overgrown": {
+   "vertex_colors": "TR_Paint",
+   "seconds": 39.2
+  }
+ },
+ "skin_vertex_color_meshes": [
+  "Eye_L",
+  "Eye_R"
+ ],
+ "head_warp": [
+  "Hair_fresh",
+  "Hair_needs_maintenance",
+  "Hair_overgrown"
+ ],
+ "glb_mb": 29.7,
+ "seconds": 234.5
+}

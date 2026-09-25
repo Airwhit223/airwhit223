@@ -1,0 +1,130 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/starter_street/materials/terracotta.tres" id="1_e6w6q"]
+[ext_resource type="Material" path="res://world/starter_street/materials/living_green.tres" id="2_ua0f4"]
+[ext_resource type="Material" path="res://world/starter_street/materials/blossom_pink.tres" id="3_ib6x0"]
+[ext_resource type="Material" path="res://world/starter_street/materials/awning_yellow.tres" id="4_p1g6t"]
+[ext_resource type="Material" path="res://world/starter_street/materials/blob_shadow.tres" id="5_52d3a"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wksue"]
+top_radius = 0.15
+bottom_radius = 0.11
+height = 0.2
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_y0mup"]
+top_radius = 0.165
+bottom_radius = 0.165
+height = 0.05
+radial_segments = 14
+rings = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_rv15y"]
+radius = 0.16
+height = 0.32
+radial_segments = 16
+rings = 8
+
+[sub_resource type="SphereMesh" id="SphereMesh_m115r"]
+radius = 0.1
+height = 0.2
+radial_segments = 16
+rings = 8
+
+[sub_resource type="SphereMesh" id="SphereMesh_jsqkc"]
+radius = 0.05
+height = 0.1
+radial_segments = 16
+rings = 8
+
+[sub_resource type="SphereMesh" id="SphereMesh_bdniu"]
+radius = 0.05
+height = 0.1
+radial_segments = 16
+rings = 8
+
+[sub_resource type="SphereMesh" id="SphereMesh_oyen0"]
+radius = 0.05
+height = 0.1
+radial_segments = 16
+rings = 8
+
+[sub_resource type="SphereMesh" id="SphereMesh_x3bdb"]
+radius = 0.05
+height = 0.1
+radial_segments = 16
+rings = 8
+
+[sub_resource type="SphereMesh" id="SphereMesh_fxr15"]
+radius = 0.05
+height = 0.1
+radial_segments = 16
+rings = 8
+
+[sub_resource type="SphereMesh" id="SphereMesh_m0yd8"]
+radius = 0.05
+height = 0.1
+radial_segments = 16
+rings = 8
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4wuaf"]
+size = Vector2(0.44, 0.44)
+
+[node name="PottedFlowers" type="Node3D" unique_id=1019626385]
+
+[node name="Pot" type="MeshInstance3D" parent="." unique_id=509605952]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+material_override = ExtResource("1_e6w6q")
+mesh = SubResource("CylinderMesh_wksue")
+
+[node name="Rim" type="MeshInstance3D" parent="." unique_id=802234556]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+material_override = ExtResource("1_e6w6q")
+mesh = SubResource("CylinderMesh_y0mup")
+
+[node name="Leaves" type="MeshInstance3D" parent="." unique_id=2077101718]
+transform = Transform3D(1, 0, 0, 0, 0.85, 0, 0, 0, 1, 0, 0.3, 0)
+material_override = ExtResource("2_ua0f4")
+mesh = SubResource("SphereMesh_rv15y")
+
+[node name="Leaves2" type="MeshInstance3D" parent="." unique_id=1130781730]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.27, 0.05)
+material_override = ExtResource("2_ua0f4")
+mesh = SubResource("SphereMesh_m115r")
+
+[node name="Flower0" type="MeshInstance3D" parent="." unique_id=173048441]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11052732, 0.36, 0.0467302)
+material_override = ExtResource("3_ib6x0")
+mesh = SubResource("SphereMesh_jsqkc")
+
+[node name="Flower1" type="MeshInstance3D" parent="." unique_id=66354992]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014794119, 0.41, 0.11908457)
+material_override = ExtResource("4_p1g6t")
+mesh = SubResource("SphereMesh_bdniu")
+
+[node name="Flower2" type="MeshInstance3D" parent="." unique_id=476976083]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0957332, 0.36, 0.07235437)
+material_override = ExtResource("3_ib6x0")
+mesh = SubResource("SphereMesh_oyen0")
+
+[node name="Flower3" type="MeshInstance3D" parent="." unique_id=1993158367]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11052732, 0.41, -0.0467302)
+material_override = ExtResource("4_p1g6t")
+mesh = SubResource("SphereMesh_x3bdb")
+
+[node name="Flower4" type="MeshInstance3D" parent="." unique_id=696272826]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014794119, 0.36, -0.11908457)
+material_override = ExtResource("3_ib6x0")
+mesh = SubResource("SphereMesh_fxr15")
+
+[node name="Flower5" type="MeshInstance3D" parent="." unique_id=419599135]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0957332, 0.41, -0.07235437)
+material_override = ExtResource("4_p1g6t")
+mesh = SubResource("SphereMesh_m0yd8")
+
+[node name="BlobShadow" type="MeshInstance3D" parent="." unique_id=1418367172]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015, 0)
+material_override = ExtResource("5_52d3a")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_4wuaf")

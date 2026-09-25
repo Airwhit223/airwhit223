@@ -1,0 +1,138 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/starter_street/materials/iron.tres" id="1_aa7aq"]
+[ext_resource type="Material" path="res://world/starter_street/materials/lamp_glow.tres" id="2_p3qu7"]
+[ext_resource type="Material" path="res://world/starter_street/materials/blob_shadow.tres" id="3_8hacs"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_k14r7"]
+top_radius = 0.12
+bottom_radius = 0.17
+height = 0.35
+radial_segments = 8
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_58dcy"]
+top_radius = 0.05
+bottom_radius = 0.06
+height = 2.55
+radial_segments = 8
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xgfs0"]
+top_radius = 0.11
+bottom_radius = 0.07
+height = 0.12
+radial_segments = 8
+rings = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_pv6v8"]
+size = Vector3(0.24, 0.32, 0.24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e37qv"]
+size = Vector3(0.035, 0.36, 0.035)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3n1u6"]
+size = Vector3(0.035, 0.36, 0.035)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bptg5"]
+size = Vector3(0.035, 0.36, 0.035)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nr0ai"]
+size = Vector3(0.035, 0.36, 0.035)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wwvok"]
+size = Vector3(0.3, 0.04, 0.3)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_g8tvc"]
+top_radius = 0.02
+bottom_radius = 0.24
+height = 0.2
+radial_segments = 4
+rings = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_n0a4h"]
+radius = 0.035
+height = 0.07
+radial_segments = 16
+rings = 8
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_afk4i"]
+height = 3.0
+radius = 0.15
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_56g13"]
+size = Vector2(0.7, 0.7)
+
+[node name="StreetLamp" type="StaticBody3D" unique_id=1349056172]
+
+[node name="Base" type="MeshInstance3D" parent="." unique_id=159338848]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.175, 0)
+material_override = ExtResource("1_aa7aq")
+mesh = SubResource("CylinderMesh_k14r7")
+
+[node name="Post" type="MeshInstance3D" parent="." unique_id=589334613]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62, 0)
+material_override = ExtResource("1_aa7aq")
+mesh = SubResource("CylinderMesh_58dcy")
+
+[node name="Collar" type="MeshInstance3D" parent="." unique_id=1966635459]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, 0)
+material_override = ExtResource("1_aa7aq")
+mesh = SubResource("CylinderMesh_xgfs0")
+
+[node name="LanternGlass" type="MeshInstance3D" parent="." unique_id=311449636]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.12, 0)
+material_override = ExtResource("2_p3qu7")
+mesh = SubResource("BoxMesh_pv6v8")
+
+[node name="LanternBar" type="MeshInstance3D" parent="." unique_id=132105639]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12, 3.12, -0.12)
+material_override = ExtResource("1_aa7aq")
+mesh = SubResource("BoxMesh_e37qv")
+
+[node name="@MeshInstance3D@3" type="MeshInstance3D" parent="." unique_id=716234619]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12, 3.12, 0.12)
+material_override = ExtResource("1_aa7aq")
+mesh = SubResource("BoxMesh_3n1u6")
+
+[node name="@MeshInstance3D@4" type="MeshInstance3D" parent="." unique_id=355446538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 3.12, -0.12)
+material_override = ExtResource("1_aa7aq")
+mesh = SubResource("BoxMesh_bptg5")
+
+[node name="@MeshInstance3D@5" type="MeshInstance3D" parent="." unique_id=902309892]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 3.12, 0.12)
+material_override = ExtResource("1_aa7aq")
+mesh = SubResource("BoxMesh_nr0ai")
+
+[node name="LanternFloor" type="MeshInstance3D" parent="." unique_id=1982475918]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.95, 0)
+material_override = ExtResource("1_aa7aq")
+mesh = SubResource("BoxMesh_wwvok")
+
+[node name="Cap" type="MeshInstance3D" parent="." unique_id=283540457]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 3.38, 0)
+material_override = ExtResource("1_aa7aq")
+mesh = SubResource("CylinderMesh_g8tvc")
+
+[node name="Finial" type="MeshInstance3D" parent="." unique_id=1060554766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+material_override = ExtResource("1_aa7aq")
+mesh = SubResource("SphereMesh_n0a4h")
+
+[node name="StreetLampLight" type="OmniLight3D" parent="." unique_id=478815063 groups=["street_lamp_light"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+visible = false
+light_color = Color(1, 0.8156863, 0.4392157, 1)
+light_energy = 2.4
+omni_range = 4.0
+
+[node name="@CollisionShape3D@6" type="CollisionShape3D" parent="." unique_id=586860834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("CylinderShape3D_afk4i")
+
+[node name="BlobShadow" type="MeshInstance3D" parent="." unique_id=325388486]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015, 0)
+material_override = ExtResource("3_8hacs")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_56g13")

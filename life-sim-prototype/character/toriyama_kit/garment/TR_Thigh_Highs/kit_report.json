@@ -1,0 +1,12 @@
+{
+ "part": "garment",
+ "name": "TR_Thigh_Highs",
+ "collapsed_keys": {
+  "TR_Thigh_Highs": 11
+ },
+ "baked": {
+  "TR_Thigh_Highs": 6.7
+ },
+ "glb_mb": 0.73,
+ "seconds": 6.9
+}

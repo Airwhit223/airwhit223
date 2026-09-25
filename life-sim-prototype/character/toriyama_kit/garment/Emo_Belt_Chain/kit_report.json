@@ -1,0 +1,12 @@
+{
+ "part": "garment",
+ "name": "Emo_Belt_Chain",
+ "collapsed_keys": {
+  "Emo_Belt_Chain": 11
+ },
+ "baked": {
+  "Emo_Belt_Chain": 3.0
+ },
+ "glb_mb": 0.32,
+ "seconds": 3.1
+}

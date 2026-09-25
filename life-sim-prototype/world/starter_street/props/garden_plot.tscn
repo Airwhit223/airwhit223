@@ -1,0 +1,83 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/starter_street/materials/warm_wood.tres" id="1_ludk2"]
+[ext_resource type="Material" path="res://world/starter_street/materials/road_dirt.tres" id="2_itfal"]
+[ext_resource type="Script" path="res://farming/farm_plot.gd" id="3_mgt5w"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_f6iaj"]
+size = Vector3(2, 0.26, 0.08)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lm7b1"]
+size = Vector3(2, 0.26, 0.08)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xxupa"]
+size = Vector3(0.08, 0.26, 1.34)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sl0n8"]
+size = Vector3(0.08, 0.26, 1.34)
+
+[sub_resource type="BoxMesh" id="BoxMesh_npn6l"]
+size = Vector3(1.84, 0.2, 1.34)
+
+[sub_resource type="BoxMesh" id="BoxMesh_enu3r"]
+size = Vector3(1.7, 0.035, 0.12)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qde3e"]
+size = Vector3(1.7, 0.035, 0.12)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4q0yl"]
+size = Vector3(1.7, 0.035, 0.12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x1bcp"]
+size = Vector3(2, 0.26, 1.5)
+
+[node name="GardenPlot" type="StaticBody3D" unique_id=970409757]
+
+[node name="BoardLong" type="MeshInstance3D" parent="." unique_id=292255101]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13, -0.71)
+material_override = ExtResource("1_ludk2")
+mesh = SubResource("BoxMesh_f6iaj")
+
+[node name="@MeshInstance3D@68" type="MeshInstance3D" parent="." unique_id=1269875119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13, 0.71)
+material_override = ExtResource("1_ludk2")
+mesh = SubResource("BoxMesh_lm7b1")
+
+[node name="BoardShort" type="MeshInstance3D" parent="." unique_id=1851173566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96, 0.13, 0)
+material_override = ExtResource("1_ludk2")
+mesh = SubResource("BoxMesh_xxupa")
+
+[node name="@MeshInstance3D@69" type="MeshInstance3D" parent="." unique_id=1682239533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.96, 0.13, 0)
+material_override = ExtResource("1_ludk2")
+mesh = SubResource("BoxMesh_sl0n8")
+
+[node name="Dirt" type="MeshInstance3D" parent="." unique_id=296528685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+material_override = ExtResource("2_itfal")
+mesh = SubResource("BoxMesh_npn6l")
+
+[node name="Furrow" type="MeshInstance3D" parent="." unique_id=1260314861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.205, -0.4)
+material_override = ExtResource("2_itfal")
+mesh = SubResource("BoxMesh_enu3r")
+
+[node name="@MeshInstance3D@70" type="MeshInstance3D" parent="." unique_id=2109762264]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.205, 0)
+material_override = ExtResource("2_itfal")
+mesh = SubResource("BoxMesh_qde3e")
+
+[node name="@MeshInstance3D@71" type="MeshInstance3D" parent="." unique_id=1060623202]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.205, 0.4)
+material_override = ExtResource("2_itfal")
+mesh = SubResource("BoxMesh_4q0yl")
+
+[node name="@CollisionShape3D@72" type="CollisionShape3D" parent="." unique_id=346346899]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13, 0)
+shape = SubResource("BoxShape3D_x1bcp")
+
+[node name="FarmPlot" type="Area3D" parent="." unique_id=1493582435]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)
+script = ExtResource("3_mgt5w")
+plot_id = "street_garden"

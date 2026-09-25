@@ -1,0 +1,54 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://player/vehicles/sandboard.gd" id="1_sandboard"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/warm_wood.tres" id="2_wood"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/tavern_gold.tres" id="3_gold"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/fire_ember.tres" id="4_ember"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_deck"]
+size = Vector3(0.42, 0.05, 1.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_inlay"]
+size = Vector3(0.36, 0.015, 0.95)
+
+[sub_resource type="PrismMesh" id="PrismMesh_nose"]
+size = Vector3(0.42, 0.09, 0.25)
+
+[sub_resource type="PrismMesh" id="PrismMesh_tail"]
+size = Vector3(0.42, 0.09, 0.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sandboard"]
+size = Vector3(0.45, 0.25, 1.3)
+
+[node name="Sandboard" type="CharacterBody3D" unique_id=987123456]
+script = ExtResource("1_sandboard")
+
+[node name="DeckMain" type="MeshInstance3D" parent="." unique_id=987123457]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)
+material_override = ExtResource("2_wood")
+mesh = SubResource("BoxMesh_deck")
+
+[node name="GoldInlayHieroglyph" type="MeshInstance3D" parent="." unique_id=987123458]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.052, 0)
+material_override = ExtResource("3_gold")
+mesh = SubResource("BoxMesh_inlay")
+
+[node name="NoseKick" type="MeshInstance3D" parent="." unique_id=987123459]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 0, 0.065, -0.62)
+material_override = ExtResource("2_wood")
+mesh = SubResource("PrismMesh_nose")
+
+[node name="TailKick" type="MeshInstance3D" parent="." unique_id=987123460]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 0.065, 0.62)
+material_override = ExtResource("2_wood")
+mesh = SubResource("PrismMesh_tail")
+
+[node name="SandGlideGlow" type="OmniLight3D" parent="." unique_id=987123461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+light_color = Color(1.0, 0.85, 0.35, 1)
+light_energy = 1.8
+omni_range = 2.2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=987123462]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+shape = SubResource("BoxShape3D_sandboard")

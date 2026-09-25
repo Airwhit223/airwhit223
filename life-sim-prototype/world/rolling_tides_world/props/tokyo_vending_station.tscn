@@ -1,0 +1,109 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/awning_red.tres" id="1_v0w57"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/neon_cyan.tres" id="2_iio1u"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/window_glow.tres" id="3_njtlx"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/iron.tres" id="4_4eqgs"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/awning_blue.tres" id="5_nxuhf"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/neon_pink.tres" id="6_wphnw"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/spectral_blue.tres" id="7_l5lbt"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/steel.tres" id="8_5yf5y"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fw4vm"]
+size = Vector3(1, 1.9, 0.9)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mpvvg"]
+size = Vector3(0.9, 0.3, 0.08)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y2n0y"]
+size = Vector3(0.85, 0.8, 0.08)
+
+[sub_resource type="BoxMesh" id="BoxMesh_j8ndv"]
+size = Vector3(0.7, 0.25, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xkd7f"]
+size = Vector3(1, 1.9, 0.9)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0xo6d"]
+size = Vector3(0.9, 0.3, 0.08)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jrw8b"]
+size = Vector3(0.85, 0.8, 0.08)
+
+[sub_resource type="BoxMesh" id="BoxMesh_futjy"]
+size = Vector3(0.7, 0.25, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bcfag"]
+size = Vector3(0.55, 0.95, 0.55)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xpsu6"]
+top_radius = 0.09
+bottom_radius = 0.09
+height = 0.05
+radial_segments = 14
+rings = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5ff26"]
+size = Vector3(2.9, 2, 1)
+
+[node name="TokyoVendingStation" type="StaticBody3D" unique_id=958945865]
+
+[node name="VendBody1" type="MeshInstance3D" parent="." unique_id=1862809760]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.95, 0)
+material_override = ExtResource("1_v0w57")
+mesh = SubResource("BoxMesh_fw4vm")
+
+[node name="VendHeader1" type="MeshInstance3D" parent="." unique_id=1798606395]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 1.7, 0.46)
+material_override = ExtResource("2_iio1u")
+mesh = SubResource("BoxMesh_mpvvg")
+
+[node name="VendDisplay1" type="MeshInstance3D" parent="." unique_id=1787006463]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 1.1, 0.46)
+material_override = ExtResource("3_njtlx")
+mesh = SubResource("BoxMesh_y2n0y")
+
+[node name="VendSlot1" type="MeshInstance3D" parent="." unique_id=1223554149]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.35, 0.46)
+material_override = ExtResource("4_4eqgs")
+mesh = SubResource("BoxMesh_j8ndv")
+
+[node name="VendBody2" type="MeshInstance3D" parent="." unique_id=1947141229]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.95, 0)
+material_override = ExtResource("5_nxuhf")
+mesh = SubResource("BoxMesh_xkd7f")
+
+[node name="VendHeader2" type="MeshInstance3D" parent="." unique_id=2000770204]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.7, 0.46)
+material_override = ExtResource("6_wphnw")
+mesh = SubResource("BoxMesh_0xo6d")
+
+[node name="VendDisplay2" type="MeshInstance3D" parent="." unique_id=1909524683]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.1, 0.46)
+material_override = ExtResource("7_l5lbt")
+mesh = SubResource("BoxMesh_jrw8b")
+
+[node name="VendSlot2" type="MeshInstance3D" parent="." unique_id=175125511]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.35, 0.46)
+material_override = ExtResource("4_4eqgs")
+mesh = SubResource("BoxMesh_futjy")
+
+[node name="RecycleBin" type="MeshInstance3D" parent="." unique_id=922750948]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.475, 0)
+material_override = ExtResource("8_5yf5y")
+mesh = SubResource("BoxMesh_bcfag")
+
+[node name="BinHole1" type="MeshInstance3D" parent="." unique_id=1251819724]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.5, 0.82, 0.28)
+material_override = ExtResource("4_4eqgs")
+mesh = SubResource("CylinderMesh_xpsu6")
+
+[node name="@CollisionShape3D@26" type="CollisionShape3D" parent="." unique_id=591437664]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 1, 0)
+shape = SubResource("BoxShape3D_5ff26")
+
+[node name="VendingGlow" type="OmniLight3D" parent="." unique_id=243319523]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0.8)
+light_color = Color(0.19607843, 0.9019608, 1, 1)
+light_energy = 1.4
+omni_range = 4.0

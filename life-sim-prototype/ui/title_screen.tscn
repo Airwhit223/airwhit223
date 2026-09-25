@@ -1,0 +1,101 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://ui/title_screen.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/ui/title_world_v1.png" id="2_background"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Backdrop" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_background")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Shade" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.08, 0.035, 0.07, 0.34)
+mouse_filter = 2
+
+[node name="Content" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 75.0
+offset_right = 600.0
+offset_bottom = 665.0
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.89, 0.64, 1)
+theme_override_colors/font_shadow_color = Color(0.1, 0.03, 0.05, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 4
+theme_override_font_sizes/font_size = 52
+text = "LANTERN\nLIFE"
+
+[node name="Subtitle" type="Label" parent="Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.94, 0.82, 1)
+theme_override_font_sizes/font_size = 18
+text = "A life of small towns and wide horizons"
+
+[node name="Spacer" type="Control" parent="Content"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+
+[node name="WorldHeading" type="Label" parent="Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.52, 1)
+theme_override_font_sizes/font_size = 16
+text = "CHOOSE THE KIND OF LIFE"
+
+[node name="Modes" type="HBoxContainer" parent="Content"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="StoryButton" type="Button" parent="Content/Modes"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 48)
+layout_mode = 2
+toggle_mode = true
+text = "STORY WORLD"
+
+[node name="SandboxButton" type="Button" parent="Content/Modes"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 48)
+layout_mode = 2
+toggle_mode = true
+text = "SANDBOX WORLD"
+
+[node name="ModeDescription" type="Label" parent="Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.94, 0.82, 1)
+autowrap_mode = 2
+
+[node name="JournalHeading" type="Label" parent="Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.52, 1)
+theme_override_font_sizes/font_size = 16
+text = "CHOOSE A JOURNAL"
+
+[node name="Slots" type="VBoxContainer" parent="Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8

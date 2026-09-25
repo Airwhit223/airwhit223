@@ -1,0 +1,497 @@
+{
+ "kind": "prop",
+ "name": "Classic",
+ "family": "katana",
+ "variant": "Classic",
+ "slot": "weapon",
+ "roles": [
+  "blade",
+  "hamon",
+  "habaki",
+  "guard",
+  "core",
+  "ito",
+  "fitting",
+  "saya",
+  "band"
+ ],
+ "sword": "TR_Katana_Classic",
+ "saya": "TR_Saya_Classic",
+ "meshes": {
+  "TR_Katana_Classic": {
+   "texture": "textures/TR_Katana_Classic.png",
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "TR_Katana_Classic_blade",
+     "role": "blade",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      196,
+      200,
+      208
+     ]
+    },
+    {
+     "index": 1,
+     "material": "TR_Katana_Classic_hamon",
+     "role": "hamon",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      240,
+      242,
+      246
+     ]
+    },
+    {
+     "index": 2,
+     "material": "TR_Katana_Classic_habaki",
+     "role": "habaki",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      196,
+      156,
+      70
+     ]
+    },
+    {
+     "index": 3,
+     "material": "TR_Katana_Classic_guard",
+     "role": "guard",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      46,
+      44,
+      48
+     ]
+    },
+    {
+     "index": 4,
+     "material": "TR_Katana_Classic_core",
+     "role": "core",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      24,
+      22,
+      26
+     ]
+    },
+    {
+     "index": 5,
+     "material": "TR_Katana_Classic_ito",
+     "role": "ito",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      236,
+      232,
+      222
+     ]
+    },
+    {
+     "index": 6,
+     "material": "TR_Katana_Classic_fitting",
+     "role": "fitting",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      196,
+      156,
+      70
+     ]
+    },
+    {
+     "index": 7,
+     "material": "TR_Katana_Classic_saya",
+     "role": "saya",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      70,
+      44,
+      32
+     ]
+    },
+    {
+     "index": 8,
+     "material": "TR_Katana_Classic_band",
+     "role": "band",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      196,
+      156,
+      70
+     ]
+    },
+    {
+     "index": 9,
+     "material": "TR_Ink",
+     "role": "ink",
+     "patterns": [],
+     "default_srgb": null
+    }
+   ],
+   "sockets": {
+    "SOCKET-hand.R": [
+     [
+      0.0,
+      1.0,
+      0.0,
+      -0.67
+     ],
+     [
+      -1.0,
+      0.0,
+      0.0,
+      -0.131
+     ],
+     [
+      0.0,
+      0.0,
+      1.0,
+      1.1
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "SOCKET-hand.L": [
+     [
+      0.0,
+      1.0,
+      0.0,
+      0.67
+     ],
+     [
+      -1.0,
+      0.0,
+      0.0,
+      -0.131
+     ],
+     [
+      0.0,
+      0.0,
+      1.0,
+      1.1
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "SOCKET-hip": [
+     [
+      0.173818,
+      0.984183,
+      -0.034214,
+      0.141331
+     ],
+     [
+      0.965654,
+      -0.177153,
+      -0.190076,
+      -0.250383
+     ],
+     [
+      -0.193131,
+      0.0,
+      -0.981173,
+      1.014077
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "SOCKET-back": [
+     [
+      -0.622244,
+      -0.782823,
+      0.0,
+      0.211563
+     ],
+     [
+      0.0,
+      0.0,
+      1.0,
+      0.165
+     ],
+     [
+      -0.782823,
+      0.622244,
+      0.0,
+      1.64616
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   },
+   "default_socket": "SOCKET-hand.R"
+  },
+  "TR_Saya_Classic": {
+   "texture": "textures/TR_Saya_Classic.png",
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "TR_Katana_Classic_blade",
+     "role": "blade",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      196,
+      200,
+      208
+     ]
+    },
+    {
+     "index": 1,
+     "material": "TR_Katana_Classic_hamon",
+     "role": "hamon",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      240,
+      242,
+      246
+     ]
+    },
+    {
+     "index": 2,
+     "material": "TR_Katana_Classic_habaki",
+     "role": "habaki",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      196,
+      156,
+      70
+     ]
+    },
+    {
+     "index": 3,
+     "material": "TR_Katana_Classic_guard",
+     "role": "guard",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      46,
+      44,
+      48
+     ]
+    },
+    {
+     "index": 4,
+     "material": "TR_Katana_Classic_core",
+     "role": "core",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      24,
+      22,
+      26
+     ]
+    },
+    {
+     "index": 5,
+     "material": "TR_Katana_Classic_ito",
+     "role": "ito",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      236,
+      232,
+      222
+     ]
+    },
+    {
+     "index": 6,
+     "material": "TR_Katana_Classic_fitting",
+     "role": "fitting",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      196,
+      156,
+      70
+     ]
+    },
+    {
+     "index": 7,
+     "material": "TR_Katana_Classic_saya",
+     "role": "saya",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      70,
+      44,
+      32
+     ]
+    },
+    {
+     "index": 8,
+     "material": "TR_Katana_Classic_band",
+     "role": "band",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      196,
+      156,
+      70
+     ]
+    },
+    {
+     "index": 9,
+     "material": "TR_Ink",
+     "role": "ink",
+     "patterns": [],
+     "default_srgb": null
+    }
+   ],
+   "sockets": {
+    "SOCKET-hand.R": [
+     [
+      0.0,
+      1.0,
+      0.0,
+      -0.67
+     ],
+     [
+      -1.0,
+      0.0,
+      0.0,
+      -0.131
+     ],
+     [
+      0.0,
+      0.0,
+      1.0,
+      1.1
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "SOCKET-hand.L": [
+     [
+      0.0,
+      1.0,
+      0.0,
+      0.67
+     ],
+     [
+      -1.0,
+      0.0,
+      0.0,
+      -0.131
+     ],
+     [
+      0.0,
+      0.0,
+      1.0,
+      1.1
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "SOCKET-hip": [
+     [
+      0.173818,
+      0.984183,
+      -0.034214,
+      0.141331
+     ],
+     [
+      0.965654,
+      -0.177153,
+      -0.190076,
+      -0.250383
+     ],
+     [
+      -0.193131,
+      0.0,
+      -0.981173,
+      1.014077
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "SOCKET-back": [
+     [
+      -0.622244,
+      -0.782823,
+      0.0,
+      0.211563
+     ],
+     [
+      0.0,
+      0.0,
+      1.0,
+      0.165
+     ],
+     [
+      -0.782823,
+      0.622244,
+      0.0,
+      1.64616
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ]
+   },
+   "default_socket": "SOCKET-hip"
+  }
+ },
+ "glb": "Classic.glb"
+}

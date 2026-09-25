@@ -1,0 +1,12 @@
+{
+ "part": "garment",
+ "name": "Pants_Casual_01",
+ "collapsed_keys": {
+  "Pants_Casual_01": 11
+ },
+ "baked": {
+  "Pants_Casual_01": 7.5
+ },
+ "glb_mb": 1.05,
+ "seconds": 7.7
+}

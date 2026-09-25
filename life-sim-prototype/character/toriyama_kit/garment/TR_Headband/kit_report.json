@@ -1,0 +1,12 @@
+{
+ "part": "garment",
+ "name": "TR_Headband",
+ "collapsed_keys": {
+  "TR_Headband": 0
+ },
+ "baked": {
+  "TR_Headband": 6.5
+ },
+ "glb_mb": 0.05,
+ "seconds": 6.5
+}

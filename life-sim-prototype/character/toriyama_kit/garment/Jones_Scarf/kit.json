@@ -1,0 +1,59 @@
+{
+ "kind": "garment",
+ "name": "Jones_Scarf",
+ "object": "Jones_Scarf",
+ "roles": [
+  "scarf"
+ ],
+ "slot": "accessory",
+ "meshes": {
+  "Jones_Scarf": {
+   "texture": "textures/Jones_Scarf.png",
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "TR_Jones_Scarf_0",
+     "role": "scarf",
+     "patterns": [
+      "canvas"
+     ],
+     "default_srgb": [
+      47,
+      127,
+      132
+     ]
+    },
+    {
+     "index": 1,
+     "material": "TR_Ink",
+     "role": "cloth",
+     "patterns": [],
+     "default_srgb": null
+    }
+   ]
+  }
+ },
+ "blend_shapes": {
+  "Jones_Scarf": [
+   "Def_Bust",
+   "Def_Hips",
+   "Def_Waist",
+   "Def_Shoulders",
+   "Def_Pecs",
+   "Def_Back",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F",
+   "TR_Chest_Width",
+   "TR_Waist_Width",
+   "TR_Hip_Width",
+   "TR_Neck"
+  ]
+ },
+ "glb": "Jones_Scarf.glb"
+}

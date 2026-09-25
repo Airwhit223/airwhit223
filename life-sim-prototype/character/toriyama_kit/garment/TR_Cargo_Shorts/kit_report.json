@@ -1,0 +1,12 @@
+{
+ "part": "garment",
+ "name": "TR_Cargo_Shorts",
+ "collapsed_keys": {
+  "TR_Cargo_Shorts": 11
+ },
+ "baked": {
+  "TR_Cargo_Shorts": 7.0
+ },
+ "glb_mb": 0.55,
+ "seconds": 7.1
+}

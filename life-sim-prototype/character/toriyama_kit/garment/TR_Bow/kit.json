@@ -1,0 +1,71 @@
+{
+ "kind": "garment",
+ "name": "TR_Bow",
+ "object": "TR_Bow",
+ "roles": [
+  "bow",
+  "bow_knot"
+ ],
+ "slot": "accessory",
+ "meshes": {
+  "TR_Bow": {
+   "texture": "textures/TR_Bow.png",
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "TR_TR_Bow_0",
+     "role": "bow",
+     "patterns": [
+      "knit"
+     ],
+     "default_srgb": [
+      47,
+      127,
+      132
+     ]
+    },
+    {
+     "index": 1,
+     "material": "TR_TR_Bow_1",
+     "role": "bow_knot",
+     "patterns": [
+      "knit"
+     ],
+     "default_srgb": [
+      200,
+      100,
+      42
+     ]
+    },
+    {
+     "index": 2,
+     "material": "TR_Ink",
+     "role": "cloth",
+     "patterns": [],
+     "default_srgb": null
+    }
+   ]
+  }
+ },
+ "blend_shapes": {
+  "TR_Bow": [
+   "Def_Bust",
+   "Def_Hips",
+   "Def_Waist",
+   "Def_Shoulders",
+   "Def_Pecs",
+   "Def_Back",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "Pose_Rest",
+   "TR_Chest_Width",
+   "TR_Waist_Width",
+   "TR_Hip_Width",
+   "TR_Neck"
+  ]
+ },
+ "glb": "TR_Bow.glb"
+}

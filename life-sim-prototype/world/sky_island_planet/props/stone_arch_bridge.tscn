@@ -1,0 +1,18 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/stargate_ancient_stone.tres" id="1_1d46u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wm7cu"]
+size = Vector3(4, 0.8, 32)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ksn05"]
+size = Vector3(4, 0.8, 32)
+
+[node name="StoneArchBridge" type="StaticBody3D" unique_id=1265761932]
+
+[node name="StoneDeck" type="MeshInstance3D" parent="." unique_id=652803561]
+material_override = ExtResource("1_1d46u")
+mesh = SubResource("BoxMesh_wm7cu")
+
+[node name="@CollisionShape3D@11" type="CollisionShape3D" parent="." unique_id=1738067507]
+shape = SubResource("BoxShape3D_ksn05")

@@ -1,0 +1,74 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/asphalt_dark.tres" id="1_h83qr"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/iron.tres" id="2_73epl"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/sand_desert.tres" id="3_j7f25"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qwy2n"]
+size = Vector3(8, 0.4, 7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i5c1q"]
+size = Vector3(8, 0.4, 7)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rlea6"]
+size = Vector3(7.5, 0.4, 6.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5cpl2"]
+size = Vector3(7.5, 0.4, 6.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_o7b3u"]
+size = Vector3(9, 0.15, 0.15)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ya2f5"]
+radius = 4.2
+height = 8.4
+radial_segments = 16
+rings = 8
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u51ky"]
+size = Vector3(6.5, 1.2, 5)
+
+[sub_resource type="SphereMesh" id="SphereMesh_wd5yw"]
+radius = 3.5
+height = 7.0
+radial_segments = 16
+rings = 8
+
+[node name="GeologicalScar" type="StaticBody3D" unique_id=500131819]
+
+[node name="BrokenAsphalt1" type="MeshInstance3D" parent="." unique_id=1843912900]
+transform = Transform3D(0.9653896, -0.04830239, 0.25630024, 0.08630754, 0.9864998, -0.1391731, -0.24611774, 0.15647691, 0.95652544, -3, 0.3, 0)
+material_override = ExtResource("1_h83qr")
+mesh = SubResource("BoxMesh_qwy2n")
+
+[node name="@CollisionShape3D@103" type="CollisionShape3D" parent="." unique_id=1030687815]
+transform = Transform3D(0.9653896, -0.04830239, 0.25630024, 0.08630754, 0.9864998, -0.1391731, -0.24611774, 0.15647691, 0.95652544, -3, 0.3, 0)
+shape = SubResource("BoxShape3D_i5c1q")
+
+[node name="BrokenAsphalt2" type="MeshInstance3D" parent="." unique_id=1006404823]
+transform = Transform3D(0.92557204, 0.16618285, -0.3401465, -0.1384107, 0.98484325, 0.104528464, 0.35236183, -0.049668707, 0.9345449, 3.5, 0.2, 2)
+material_override = ExtResource("1_h83qr")
+mesh = SubResource("BoxMesh_rlea6")
+
+[node name="@CollisionShape3D@104" type="CollisionShape3D" parent="." unique_id=1058828819]
+transform = Transform3D(0.92557204, 0.16618285, -0.3401465, -0.1384107, 0.98484325, 0.104528464, 0.35236183, -0.049668707, 0.9345449, 3.5, 0.2, 2)
+shape = SubResource("BoxShape3D_5cpl2")
+
+[node name="TwistedRail" type="MeshInstance3D" parent="." unique_id=1046500738]
+transform = Transform3D(0.94903636, 0.28425, 0.13613184, -0.25316322, 0.944818, -0.2079117, -0.18771872, 0.16285218, 0.96862835, 0, 0.9, -3.2)
+material_override = ExtResource("2_73epl")
+mesh = SubResource("BoxMesh_o7b3u")
+
+[node name="SpillingSandDune1" type="MeshInstance3D" parent="." unique_id=1022918975]
+transform = Transform3D(1.8, 0, 0, 0, 0.4, 0, 0, 0, 1.4, 1, 0.6, -1)
+material_override = ExtResource("3_j7f25")
+mesh = SubResource("SphereMesh_ya2f5")
+
+[node name="@CollisionShape3D@105" type="CollisionShape3D" parent="." unique_id=1825553981]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.6, -1)
+shape = SubResource("BoxShape3D_u51ky")
+
+[node name="SpillingSandDune2" type="MeshInstance3D" parent="." unique_id=869756211]
+transform = Transform3D(1.5, 0, 0, 0, 0.35, 0, 0, 0, 1.3, -2.5, 0.5, 2.5)
+material_override = ExtResource("3_j7f25")
+mesh = SubResource("SphereMesh_wd5yw")

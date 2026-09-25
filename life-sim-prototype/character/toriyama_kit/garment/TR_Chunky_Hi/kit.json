@@ -1,0 +1,133 @@
+{
+ "kind": "garment",
+ "name": "TR_Chunky_Hi",
+ "object": "TR_Chunky_Hi",
+ "roles": [
+  "shoe",
+  "sole",
+  "midsole",
+  "shoe_accent",
+  "lace",
+  "metal"
+ ],
+ "slot": "shoes",
+ "meshes": {
+  "TR_Chunky_Hi": {
+   "texture": "textures/TR_Chunky_Hi.png",
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "TR_TR_Chunky_Hi_0",
+     "role": "shoe",
+     "patterns": [
+      "leather"
+     ],
+     "default_srgb": [
+      110,
+      74,
+      46
+     ]
+    },
+    {
+     "index": 1,
+     "material": "TR_TR_Chunky_Hi_1",
+     "role": "sole",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      60,
+      58,
+      58
+     ]
+    },
+    {
+     "index": 2,
+     "material": "TR_TR_Chunky_Hi_2",
+     "role": "midsole",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      230,
+      220,
+      194
+     ]
+    },
+    {
+     "index": 3,
+     "material": "TR_TR_Chunky_Hi_3",
+     "role": "shoe_accent",
+     "patterns": [
+      "canvas"
+     ],
+     "default_srgb": [
+      200,
+      100,
+      42
+     ]
+    },
+    {
+     "index": 4,
+     "material": "TR_TR_Chunky_Hi_4",
+     "role": "lace",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      230,
+      220,
+      194
+     ]
+    },
+    {
+     "index": 5,
+     "material": "TR_TR_Chunky_Hi_5",
+     "role": "metal",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      201,
+      162,
+      78
+     ]
+    },
+    {
+     "index": 6,
+     "material": "TR_Ink",
+     "role": "cloth",
+     "patterns": [],
+     "default_srgb": null
+    }
+   ]
+  }
+ },
+ "blend_shapes": {
+  "TR_Chunky_Hi": [
+   "Def_Bust",
+   "Def_Hips",
+   "Def_Waist",
+   "Def_Shoulders",
+   "Def_Pecs",
+   "Def_Back",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "TR_Neck",
+   "TR_Hip_Width",
+   "TR_Waist_Width",
+   "TR_Chest_Width",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F",
+   "Body_Lean",
+   "Body_Stocky",
+   "Body_Athletic",
+   "Body_Bulk"
+  ]
+ },
+ "glb": "TR_Chunky_Hi.glb"
+}

@@ -1,0 +1,78 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://player/vehicles/hoverboard.gd" id="1_io0k7"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/iron.tres" id="2_x0qqj"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/neon_pink.tres" id="3_pd5dn"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/neon_cyan.tres" id="4_hicut"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kov2b"]
+size = Vector3(0.38, 0.05, 0.95)
+
+[sub_resource type="BoxMesh" id="BoxMesh_o8pvo"]
+size = Vector3(0.34, 0.01, 0.85)
+
+[sub_resource type="PrismMesh" id="PrismMesh_tcbmu"]
+size = Vector3(0.38, 0.08, 0.2)
+
+[sub_resource type="PrismMesh" id="PrismMesh_hm7bh"]
+size = Vector3(0.38, 0.08, 0.2)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_smasd"]
+top_radius = 0.12
+bottom_radius = 0.12
+height = 0.04
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kocy5"]
+top_radius = 0.12
+bottom_radius = 0.12
+height = 0.04
+radial_segments = 14
+rings = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6qndd"]
+size = Vector3(0.4, 0.2, 1.2)
+
+[node name="Hoverboard" type="CharacterBody3D" unique_id=625557856]
+script = ExtResource("1_io0k7")
+
+[node name="DeckMain" type="MeshInstance3D" parent="." unique_id=270996699]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)
+material_override = ExtResource("2_x0qqj")
+mesh = SubResource("BoxMesh_kov2b")
+
+[node name="GripTape" type="MeshInstance3D" parent="." unique_id=944302917]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.055, 0)
+material_override = ExtResource("3_pd5dn")
+mesh = SubResource("BoxMesh_o8pvo")
+
+[node name="NoseKick" type="MeshInstance3D" parent="." unique_id=1741204705]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 0, 0.065, -0.55)
+material_override = ExtResource("2_x0qqj")
+mesh = SubResource("PrismMesh_tcbmu")
+
+[node name="TailKick" type="MeshInstance3D" parent="." unique_id=1459489203]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 0.065, 0.55)
+material_override = ExtResource("2_x0qqj")
+mesh = SubResource("PrismMesh_hm7bh")
+
+[node name="RepulsorFront" type="MeshInstance3D" parent="." unique_id=353239223]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, -0.32)
+material_override = ExtResource("4_hicut")
+mesh = SubResource("CylinderMesh_smasd")
+
+[node name="RepulsorBack" type="MeshInstance3D" parent="." unique_id=2092590093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 0.32)
+material_override = ExtResource("4_hicut")
+mesh = SubResource("CylinderMesh_kocy5")
+
+[node name="HoverGlow" type="OmniLight3D" parent="." unique_id=1173834571]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+light_color = Color(0.1254902, 0.8784314, 1, 1)
+light_energy = 2.0
+omni_range = 2.5
+
+[node name="@CollisionShape3D@3" type="CollisionShape3D" parent="." unique_id=749756504]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+shape = SubResource("BoxShape3D_6qndd")

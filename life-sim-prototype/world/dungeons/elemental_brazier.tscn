@@ -1,0 +1,58 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://world/dungeons/elemental_brazier.gd" id="1_fq1kw"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/gothic_stone.tres" id="2_uf7vr"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/iron.tres" id="3_mfu1g"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/fire_ember.tres" id="4_r4c0e"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fuvrt"]
+top_radius = 0.45
+bottom_radius = 0.6
+height = 0.9
+radial_segments = 8
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8a3ir"]
+top_radius = 0.7
+bottom_radius = 0.45
+height = 0.3
+radial_segments = 8
+rings = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_amb5v"]
+radius = 0.32
+height = 0.64
+radial_segments = 16
+rings = 8
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_a1so8"]
+height = 1.2
+radius = 0.65
+
+[node name="ElementalBrazier" type="StaticBody3D" unique_id=1582657074]
+script = ExtResource("1_fq1kw")
+
+[node name="Pedestal" type="MeshInstance3D" parent="." unique_id=241037441]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+material_override = ExtResource("2_uf7vr")
+mesh = SubResource("CylinderMesh_fuvrt")
+
+[node name="Bowl" type="MeshInstance3D" parent="." unique_id=243466094]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = ExtResource("3_mfu1g")
+mesh = SubResource("CylinderMesh_8a3ir")
+
+[node name="FireMesh" type="MeshInstance3D" parent="." unique_id=845506090]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+material_override = ExtResource("4_r4c0e")
+mesh = SubResource("SphereMesh_amb5v")
+
+[node name="FireLight" type="OmniLight3D" parent="." unique_id=746549289]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35, 0)
+light_color = Color(1, 0.33333334, 0.06666667, 1)
+light_energy = 2.5
+omni_range = 6.0
+
+[node name="@CollisionShape3D@8" type="CollisionShape3D" parent="." unique_id=7886535]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+shape = SubResource("CylinderShape3D_a1so8")

@@ -1,0 +1,1084 @@
+{
+ "kind": "base",
+ "name": "M",
+ "body": "M",
+ "meshes": {
+  "AE_Brow_L": {
+   "texture": null,
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "AE_Brow_L",
+     "role": "cloth",
+     "patterns": [],
+     "default_srgb": null
+    }
+   ]
+  },
+  "AE_Brow_R": {
+   "texture": null,
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "AE_Brow_R",
+     "role": "cloth",
+     "patterns": [],
+     "default_srgb": null
+    }
+   ]
+  },
+  "AE_Eye_L": {
+   "texture": null,
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "AE_Eye_L",
+     "role": "cloth",
+     "patterns": [],
+     "default_srgb": null
+    }
+   ]
+  },
+  "AE_Eye_R": {
+   "texture": null,
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "AE_Eye_R",
+     "role": "cloth",
+     "patterns": [],
+     "default_srgb": null
+    }
+   ]
+  },
+  "AE_Mouth": {
+   "texture": null,
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "AE_Mouth",
+     "role": "cloth",
+     "patterns": [],
+     "default_srgb": null
+    }
+   ]
+  },
+  "Blush": {
+   "texture": null,
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "M12_Blush",
+     "role": "face",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      232,
+      92,
+      116
+     ]
+    }
+   ]
+  },
+  "Body_Base": {
+   "texture": "textures/Body_Base.png",
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "MAT_Skin",
+     "role": "skin",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      158,
+      108,
+      82
+     ]
+    },
+    {
+     "index": 1,
+     "material": "TR_Ink",
+     "role": "ink",
+     "patterns": [],
+     "default_srgb": null
+    }
+   ]
+  },
+  "Brow_L": {
+   "texture": null,
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "CA_Brow",
+     "role": "face",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      139,
+      121,
+      53
+     ]
+    }
+   ]
+  },
+  "Brow_R": {
+   "texture": null,
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "CA_Brow",
+     "role": "face",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      139,
+      121,
+      53
+     ]
+    }
+   ]
+  },
+  "DQ8_Neck_Shadow": {
+   "texture": null,
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "DQ8_Neck_Shadow",
+     "role": "face",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      144,
+      87,
+      65
+     ]
+    }
+   ]
+  },
+  "Ear_Ink": {
+   "texture": "textures/Ear_Ink.png",
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "M9_Face_Ink",
+     "role": "face",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      24,
+      16,
+      20
+     ]
+    },
+    {
+     "index": 1,
+     "material": "TR_Ink",
+     "role": "ink",
+     "patterns": [],
+     "default_srgb": null
+    }
+   ]
+  },
+  "Eye_L": {
+   "texture": null,
+   "vertex_colors": "TR_Skin",
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "MAT_Eye_White",
+     "role": "face",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      250,
+      250,
+      252
+     ]
+    },
+    {
+     "index": 1,
+     "material": "CA_Iris",
+     "role": "face",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      176,
+      104,
+      38
+     ]
+    },
+    {
+     "index": 2,
+     "material": "M9_Pupil",
+     "role": "face",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      22,
+      12,
+      18
+     ]
+    },
+    {
+     "index": 3,
+     "material": "M9_Eye_Shine",
+     "role": "face",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      255,
+      255,
+      255
+     ]
+    },
+    {
+     "index": 4,
+     "material": "MAT_Skin",
+     "role": "skin",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      158,
+      108,
+      82
+     ]
+    },
+    {
+     "index": 5,
+     "material": "M9_Face_Ink",
+     "role": "face",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      24,
+      16,
+      20
+     ]
+    },
+    {
+     "index": 6,
+     "material": "M9_Face_Shade",
+     "role": "face",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      117,
+      73,
+      54
+     ]
+    },
+    {
+     "index": 7,
+     "material": "CA_Sclera_Shade",
+     "role": "face",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      196,
+      192,
+      216
+     ]
+    }
+   ]
+  },
+  "Eye_R": {
+   "texture": null,
+   "vertex_colors": "TR_Skin",
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "MAT_Eye_White",
+     "role": "face",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      250,
+      250,
+      252
+     ]
+    },
+    {
+     "index": 1,
+     "material": "CA_Iris",
+     "role": "face",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      176,
+      104,
+      38
+     ]
+    },
+    {
+     "index": 2,
+     "material": "M9_Pupil",
+     "role": "face",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      22,
+      12,
+      18
+     ]
+    },
+    {
+     "index": 3,
+     "material": "M9_Eye_Shine",
+     "role": "face",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      255,
+      255,
+      255
+     ]
+    },
+    {
+     "index": 4,
+     "material": "MAT_Skin",
+     "role": "skin",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      158,
+      108,
+      82
+     ]
+    },
+    {
+     "index": 5,
+     "material": "M9_Face_Ink",
+     "role": "face",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      24,
+      16,
+      20
+     ]
+    },
+    {
+     "index": 6,
+     "material": "M9_Face_Shade",
+     "role": "face",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      117,
+      73,
+      54
+     ]
+    },
+    {
+     "index": 7,
+     "material": "CA_Sclera_Shade",
+     "role": "face",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      196,
+      192,
+      216
+     ]
+    }
+   ]
+  },
+  "Head_Base": {
+   "texture": "textures/Head_Base.png",
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "MAT_Skin",
+     "role": "skin",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      158,
+      108,
+      82
+     ]
+    },
+    {
+     "index": 1,
+     "material": "TR_Ink",
+     "role": "ink",
+     "patterns": [],
+     "default_srgb": null
+    }
+   ]
+  },
+  "Mouth": {
+   "texture": null,
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "M12_Mouth_Interior",
+     "role": "face",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      150,
+      62,
+      66
+     ]
+    },
+    {
+     "index": 1,
+     "material": "M12_Teeth",
+     "role": "face",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      250,
+      248,
+      240
+     ]
+    },
+    {
+     "index": 2,
+     "material": "M9_Mouth_Line",
+     "role": "face",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      111,
+      59,
+      43
+     ]
+    },
+    {
+     "index": 3,
+     "material": "M9_Face_Shade",
+     "role": "face",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      117,
+      73,
+      54
+     ]
+    }
+   ]
+  },
+  "Nose_Bridge": {
+   "texture": null,
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "M9_Face_Shade",
+     "role": "face",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      117,
+      73,
+      54
+     ]
+    }
+   ]
+  },
+  "Nose_Tip": {
+   "texture": null,
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "M9_Face_Shade",
+     "role": "face",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      117,
+      73,
+      54
+     ]
+    }
+   ]
+  }
+ },
+ "skin_materials": [
+  "MAT_Skin",
+  "DQ8_Neck_Shadow",
+  "M9_Face_Shade"
+ ],
+ "skin_role_materials": [
+  "MAT_Skin"
+ ],
+ "skin_vertex_color_meshes": [
+  "Eye_L",
+  "Eye_R"
+ ],
+ "face_materials": {
+  "AE_Brow_L": {
+   "srgb": [
+    128,
+    128,
+    128
+   ],
+   "role": "face",
+   "texture": null
+  },
+  "AE_Brow_R": {
+   "srgb": [
+    128,
+    128,
+    128
+   ],
+   "role": "face",
+   "texture": null
+  },
+  "AE_Eye_L": {
+   "srgb": [
+    128,
+    128,
+    128
+   ],
+   "role": "face",
+   "texture": null
+  },
+  "AE_Eye_R": {
+   "srgb": [
+    128,
+    128,
+    128
+   ],
+   "role": "face",
+   "texture": null
+  },
+  "AE_Mouth": {
+   "srgb": [
+    128,
+    128,
+    128
+   ],
+   "role": "face",
+   "texture": null
+  },
+  "M12_Blush": {
+   "srgb": [
+    232,
+    92,
+    116
+   ],
+   "role": "face",
+   "texture": null
+  },
+  "CA_Brow": {
+   "srgb": [
+    139,
+    121,
+    53
+   ],
+   "role": "face",
+   "texture": null
+  },
+  "DQ8_Neck_Shadow": {
+   "srgb": [
+    144,
+    87,
+    65
+   ],
+   "role": "face",
+   "texture": null
+  },
+  "MAT_Eye_White": {
+   "srgb": [
+    250,
+    250,
+    252
+   ],
+   "role": "face",
+   "texture": null
+  },
+  "CA_Iris": {
+   "srgb": [
+    176,
+    104,
+    38
+   ],
+   "role": "face",
+   "texture": "textures/iris.png"
+  },
+  "M9_Pupil": {
+   "srgb": [
+    22,
+    12,
+    18
+   ],
+   "role": "face",
+   "texture": null
+  },
+  "M9_Eye_Shine": {
+   "srgb": [
+    255,
+    255,
+    255
+   ],
+   "role": "face",
+   "texture": null
+  },
+  "M9_Face_Ink": {
+   "srgb": [
+    24,
+    16,
+    20
+   ],
+   "role": "face",
+   "texture": null
+  },
+  "M9_Face_Shade": {
+   "srgb": [
+    117,
+    73,
+    54
+   ],
+   "role": "face",
+   "texture": null
+  },
+  "CA_Sclera_Shade": {
+   "srgb": [
+    196,
+    192,
+    216
+   ],
+   "role": "face",
+   "texture": null
+  },
+  "M12_Mouth_Interior": {
+   "srgb": [
+    150,
+    62,
+    66
+   ],
+   "role": "face",
+   "texture": null
+  },
+  "M12_Teeth": {
+   "srgb": [
+    250,
+    248,
+    240
+   ],
+   "role": "face",
+   "texture": null
+  },
+  "M9_Mouth_Line": {
+   "srgb": [
+    111,
+    59,
+    43
+   ],
+   "role": "face",
+   "texture": null
+  }
+ },
+ "blend_shapes": {
+  "AE_Brow_L": [
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "TR_Chin",
+   "TR_Neck",
+   "TR_Head_Shape",
+   "TR_Jaw",
+   "TR_Ear_Big",
+   "TR_Ear_Point",
+   "TR_Ear_Out",
+   "TR_Ear_Detail",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F"
+  ],
+  "AE_Brow_R": [
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "TR_Chin",
+   "TR_Neck",
+   "TR_Head_Shape",
+   "TR_Jaw",
+   "TR_Ear_Big",
+   "TR_Ear_Point",
+   "TR_Ear_Out",
+   "TR_Ear_Detail",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F"
+  ],
+  "AE_Eye_L": [
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "TR_Chin",
+   "TR_Neck",
+   "TR_Head_Shape",
+   "TR_Jaw",
+   "TR_Ear_Big",
+   "TR_Ear_Point",
+   "TR_Ear_Out",
+   "TR_Ear_Detail",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F"
+  ],
+  "AE_Eye_R": [
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "TR_Chin",
+   "TR_Neck",
+   "TR_Head_Shape",
+   "TR_Jaw",
+   "TR_Ear_Big",
+   "TR_Ear_Point",
+   "TR_Ear_Out",
+   "TR_Ear_Detail",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F"
+  ],
+  "AE_Mouth": [
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "TR_Chin",
+   "TR_Neck",
+   "TR_Head_Shape",
+   "TR_Jaw",
+   "TR_Ear_Big",
+   "TR_Ear_Point",
+   "TR_Ear_Out",
+   "TR_Ear_Detail",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F"
+  ],
+  "Blush": [
+   "Expr_Embarrassed",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "TR_Head_Shape",
+   "TR_Jaw",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F"
+  ],
+  "Body_Base": [
+   "Def_Bust",
+   "Def_Hips",
+   "Def_Waist",
+   "Def_Shoulders",
+   "Def_Pecs",
+   "Def_Back",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "TR_Neck",
+   "TR_Hip_Width",
+   "TR_Waist_Width",
+   "TR_Chest_Width",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F",
+   "Cover_Top",
+   "Cover_Thighs",
+   "Cover_Shins",
+   "Cover_Feet",
+   "Body_Lean",
+   "Body_Stocky",
+   "Body_Athletic",
+   "Body_Bulk"
+  ],
+  "Brow_L": [
+   "Expr_Happy",
+   "Expr_Laughing",
+   "Expr_Angry",
+   "Expr_Sad",
+   "Expr_Surprised",
+   "Expr_Determined",
+   "Expr_Worried",
+   "Expr_Embarrassed",
+   "Expr_Smug",
+   "Brow_Style_DB",
+   "Brow_Style_Sharp",
+   "Brow_Style_Wide",
+   "Brow_Style_Round",
+   "Brow_Style_Narrow",
+   "Brow_Style_Sleepy",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "TR_Head_Shape",
+   "TR_Jaw",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F"
+  ],
+  "Brow_R": [
+   "Expr_Happy",
+   "Expr_Laughing",
+   "Expr_Angry",
+   "Expr_Sad",
+   "Expr_Surprised",
+   "Expr_Determined",
+   "Expr_Worried",
+   "Expr_Embarrassed",
+   "Expr_Smug",
+   "Brow_Style_DB",
+   "Brow_Style_Sharp",
+   "Brow_Style_Wide",
+   "Brow_Style_Round",
+   "Brow_Style_Narrow",
+   "Brow_Style_Sleepy",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "TR_Head_Shape",
+   "TR_Jaw",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F"
+  ],
+  "DQ8_Neck_Shadow": [
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "TR_Neck",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F",
+   "Body_Lean",
+   "Body_Stocky",
+   "Body_Athletic",
+   "Body_Bulk"
+  ],
+  "Ear_Ink": [
+   "TR_Head_Shape",
+   "TR_Jaw",
+   "TR_Ear_Big",
+   "TR_Ear_Point",
+   "TR_Ear_Out",
+   "TR_Ear_Detail",
+   "Pose_Rest"
+  ],
+  "Eye_L": [
+   "Expr_Blink",
+   "Expr_Happy",
+   "Expr_Laughing",
+   "Expr_Angry",
+   "Expr_Sad",
+   "Expr_Surprised",
+   "Expr_Determined",
+   "Expr_Worried",
+   "Expr_Embarrassed",
+   "Expr_Smug",
+   "Look_Right",
+   "Look_Left",
+   "Look_Up",
+   "Look_Down",
+   "Eye_Style_DB",
+   "Eye_Style_Sharp",
+   "Eye_Style_Wide",
+   "Eye_Style_Round",
+   "Eye_Style_Narrow",
+   "Eye_Style_Sleepy",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "TR_Head_Shape",
+   "TR_Jaw",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F"
+  ],
+  "Eye_R": [
+   "Expr_Blink",
+   "Expr_Happy",
+   "Expr_Laughing",
+   "Expr_Angry",
+   "Expr_Sad",
+   "Expr_Surprised",
+   "Expr_Determined",
+   "Expr_Worried",
+   "Expr_Embarrassed",
+   "Expr_Smug",
+   "Look_Right",
+   "Look_Left",
+   "Look_Up",
+   "Look_Down",
+   "Eye_Style_DB",
+   "Eye_Style_Sharp",
+   "Eye_Style_Wide",
+   "Eye_Style_Round",
+   "Eye_Style_Narrow",
+   "Eye_Style_Sleepy",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "TR_Head_Shape",
+   "TR_Jaw",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F"
+  ],
+  "Head_Base": [
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "TR_Chin",
+   "TR_Neck",
+   "TR_Head_Shape",
+   "TR_Jaw",
+   "TR_Ear_Big",
+   "TR_Ear_Point",
+   "TR_Ear_Out",
+   "TR_Ear_Detail",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F",
+   "Body_Lean",
+   "Body_Stocky",
+   "Body_Athletic",
+   "Body_Bulk"
+  ],
+  "Mouth": [
+   "Expr_Happy",
+   "Expr_Laughing",
+   "Expr_Angry",
+   "Expr_Sad",
+   "Expr_Surprised",
+   "Expr_Determined",
+   "Expr_Worried",
+   "Expr_Embarrassed",
+   "Expr_Smug",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "TR_Head_Shape",
+   "TR_Jaw",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F"
+  ],
+  "Nose_Bridge": [
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "TR_Head_Shape",
+   "TR_Jaw",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F"
+  ],
+  "Nose_Tip": [
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "TR_Head_Shape",
+   "TR_Jaw",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F"
+  ]
+ },
+ "bones": [
+  "root",
+  "DEF-pelvis",
+  "DEF-spine",
+  "DEF-chest",
+  "DEF-neck",
+  "DEF-head",
+  "SOCKET-head",
+  "DEF-clavicle.L",
+  "DEF-upper_arm.L",
+  "DEF-forearm.L",
+  "DEF-hand.L",
+  "SOCKET-hand.L",
+  "DEF-clavicle.R",
+  "DEF-upper_arm.R",
+  "DEF-forearm.R",
+  "DEF-hand.R",
+  "SOCKET-hand.R",
+  "SOCKET-back",
+  "DEF-thigh.L",
+  "DEF-shin.L",
+  "DEF-foot.L",
+  "DEF-toe.L",
+  "DEF-thigh.R",
+  "DEF-shin.R",
+  "DEF-foot.R",
+  "DEF-toe.R",
+  "SOCKET-hip"
+ ],
+ "glb": "M.glb",
+ "primal_marks": {
+  "Body_Base": {
+   "Rising": "textures/primal_marks_Body_Base_Rising.png",
+   "Crown": "textures/primal_marks_Body_Base_Crown.png"
+  },
+  "Head_Base": {
+   "Rising": "textures/primal_marks_Head_Base_Rising.png",
+   "Crown": "textures/primal_marks_Head_Base_Crown.png"
+  }
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "part": "prop",
+ "name": "Classic",
+ "baked": {
+  "TR_Katana_Classic": 7.6,
+  "TR_Saya_Classic": 0.5
+ },
+ "glb_mb": 0.57,
+ "seconds": 8.3
+}

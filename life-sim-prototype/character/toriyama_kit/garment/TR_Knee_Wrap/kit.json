@@ -1,0 +1,63 @@
+{
+ "kind": "garment",
+ "name": "TR_Knee_Wrap",
+ "object": "TR_Knee_Wrap",
+ "roles": [
+  "wrap"
+ ],
+ "slot": "legwear",
+ "meshes": {
+  "TR_Knee_Wrap": {
+   "texture": "textures/TR_Knee_Wrap.png",
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "TR_TR_Knee_Wrap_0",
+     "role": "wrap",
+     "patterns": [
+      "canvas"
+     ],
+     "default_srgb": [
+      47,
+      127,
+      132
+     ]
+    },
+    {
+     "index": 1,
+     "material": "TR_Ink",
+     "role": "cloth",
+     "patterns": [],
+     "default_srgb": null
+    }
+   ]
+  }
+ },
+ "blend_shapes": {
+  "TR_Knee_Wrap": [
+   "Def_Bust",
+   "Def_Hips",
+   "Def_Waist",
+   "Def_Shoulders",
+   "Def_Pecs",
+   "Def_Back",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F",
+   "TR_Chest_Width",
+   "TR_Waist_Width",
+   "TR_Hip_Width",
+   "TR_Neck",
+   "Body_Lean",
+   "Body_Stocky",
+   "Body_Athletic",
+   "Body_Bulk"
+  ]
+ },
+ "glb": "TR_Knee_Wrap.glb"
+}

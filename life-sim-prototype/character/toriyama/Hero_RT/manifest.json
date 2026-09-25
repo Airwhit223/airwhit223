@@ -1,0 +1,613 @@
+{
+ "character": "Hero_RT",
+ "faction": "artisan",
+ "eye_style": 0.2,
+ "head_scale": 0.8,
+ "leg_length": 0.0,
+ "skin_srgb": [
+  206,
+  152,
+  114
+ ],
+ "eye_srgb": [
+  120,
+  70,
+  36
+ ],
+ "hair": {
+  "cut": "Hero_Spiky_Curls",
+  "texture": "curly",
+  "days_to_overgrown": 32,
+  "structure": "loose",
+  "states": {
+   "fresh": 0.0,
+   "needs_maintenance": 0.62,
+   "overgrown": 1.0
+  },
+  "thresholds": {
+   "fresh": 0.0,
+   "needs_maintenance": 0.5,
+   "overgrown": 0.85
+  },
+  "meshes": {
+   "fresh": "Hair_fresh",
+   "needs_maintenance": "Hair_needs_maintenance",
+   "overgrown": "Hair_overgrown"
+  }
+ },
+ "textures": {
+  "Body_Base": "textures/Body_Base.png",
+  "Ear_Ink": "textures/Ear_Ink.png",
+  "Head_Base": "textures/Head_Base.png",
+  "Mechanic_Cargo_Pants": "textures/Mechanic_Cargo_Pants.png",
+  "Mechanic_Work_Boots": "textures/Mechanic_Work_Boots.png",
+  "Shirt_Casual_01": "textures/Shirt_Casual_01.png",
+  "TR_Crossbody_Bag": "textures/TR_Crossbody_Bag.png",
+  "TR_Hooded_Jacket": "textures/TR_Hooded_Jacket.png"
+ },
+ "vertex_color_meshes": [
+  "Hair_fresh",
+  "Hair_needs_maintenance",
+  "Hair_overgrown"
+ ],
+ "beard": null,
+ "skin_vertex_color_meshes": [
+  "Eye_L",
+  "Eye_R"
+ ],
+ "face_materials": {
+  "M12_Blush": {
+   "srgb": [
+    232,
+    92,
+    116
+   ],
+   "role": "face",
+   "texture": null
+  },
+  "CA_Brow": {
+   "srgb": [
+    53,
+    34,
+    21
+   ],
+   "role": "face",
+   "texture": null
+  },
+  "DQ8_Neck_Shadow": {
+   "srgb": [
+    188,
+    122,
+    90
+   ],
+   "role": "face",
+   "texture": null
+  },
+  "MAT_Eye_White": {
+   "srgb": [
+    250,
+    250,
+    252
+   ],
+   "role": "face",
+   "texture": null
+  },
+  "CA_Iris": {
+   "srgb": [
+    120,
+    70,
+    36
+   ],
+   "role": "face",
+   "texture": "textures/iris.png"
+  },
+  "M9_Pupil": {
+   "srgb": [
+    22,
+    12,
+    18
+   ],
+   "role": "face",
+   "texture": null
+  },
+  "M9_Eye_Shine": {
+   "srgb": [
+    255,
+    255,
+    255
+   ],
+   "role": "face",
+   "texture": null
+  },
+  "MAT_Skin": {
+   "srgb": [
+    206,
+    152,
+    114
+   ],
+   "role": "skin",
+   "texture": null
+  },
+  "M9_Face_Ink": {
+   "srgb": [
+    24,
+    16,
+    20
+   ],
+   "role": "face",
+   "texture": null
+  },
+  "M9_Face_Shade": {
+   "srgb": [
+    153,
+    102,
+    75
+   ],
+   "role": "face",
+   "texture": null
+  },
+  "CA_Sclera_Shade": {
+   "srgb": [
+    196,
+    192,
+    216
+   ],
+   "role": "face",
+   "texture": null
+  },
+  "M12_Mouth_Interior": {
+   "srgb": [
+    150,
+    62,
+    66
+   ],
+   "role": "face",
+   "texture": null
+  },
+  "M12_Teeth": {
+   "srgb": [
+    250,
+    248,
+    240
+   ],
+   "role": "face",
+   "texture": null
+  },
+  "M9_Mouth_Line": {
+   "srgb": [
+    145,
+    82,
+    60
+   ],
+   "role": "face",
+   "texture": null
+  }
+ },
+ "blend_shapes": {
+  "Blush": [
+   "Expr_Embarrassed",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "Pose_Rest",
+   "TR_Head_Shape",
+   "TR_Jaw"
+  ],
+  "Body_Base": [
+   "Def_Bust",
+   "Def_Hips",
+   "Def_Waist",
+   "Def_Shoulders",
+   "Def_Pecs",
+   "Def_Back",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "Pose_Rest",
+   "TR_Neck",
+   "Body_Lean",
+   "Body_Stocky",
+   "Body_Athletic",
+   "Body_Bulk"
+  ],
+  "Brow_L": [
+   "Expr_Happy",
+   "Expr_Laughing",
+   "Expr_Angry",
+   "Expr_Sad",
+   "Expr_Surprised",
+   "Expr_Determined",
+   "Expr_Worried",
+   "Expr_Embarrassed",
+   "Expr_Smug",
+   "Brow_Style_DB",
+   "Brow_Style_Sharp",
+   "Brow_Style_Wide",
+   "Brow_Style_Round",
+   "Brow_Style_Narrow",
+   "Brow_Style_Sleepy",
+   "TR_Head_Shape",
+   "TR_Jaw"
+  ],
+  "Brow_R": [
+   "Expr_Happy",
+   "Expr_Laughing",
+   "Expr_Angry",
+   "Expr_Sad",
+   "Expr_Surprised",
+   "Expr_Determined",
+   "Expr_Worried",
+   "Expr_Embarrassed",
+   "Expr_Smug",
+   "Brow_Style_DB",
+   "Brow_Style_Sharp",
+   "Brow_Style_Wide",
+   "Brow_Style_Round",
+   "Brow_Style_Narrow",
+   "Brow_Style_Sleepy",
+   "TR_Head_Shape",
+   "TR_Jaw"
+  ],
+  "DQ8_Neck_Shadow": [
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "Pose_Rest",
+   "TR_Neck",
+   "Body_Lean",
+   "Body_Stocky",
+   "Body_Athletic",
+   "Body_Bulk"
+  ],
+  "Ear_Ink": [
+   "TR_Head_Shape",
+   "TR_Jaw",
+   "TR_Ear_Big",
+   "TR_Ear_Point",
+   "TR_Ear_Out",
+   "TR_Ear_Detail"
+  ],
+  "Eye_L": [
+   "Expr_Blink",
+   "Expr_Happy",
+   "Expr_Laughing",
+   "Expr_Angry",
+   "Expr_Sad",
+   "Expr_Surprised",
+   "Expr_Determined",
+   "Expr_Worried",
+   "Expr_Embarrassed",
+   "Expr_Smug",
+   "Look_Right",
+   "Look_Left",
+   "Look_Up",
+   "Look_Down",
+   "Eye_Style_DB",
+   "Eye_Style_Sharp",
+   "Eye_Style_Wide",
+   "Eye_Style_Round",
+   "Eye_Style_Narrow",
+   "Eye_Style_Sleepy",
+   "TR_Head_Shape",
+   "TR_Jaw"
+  ],
+  "Eye_R": [
+   "Expr_Blink",
+   "Expr_Happy",
+   "Expr_Laughing",
+   "Expr_Angry",
+   "Expr_Sad",
+   "Expr_Surprised",
+   "Expr_Determined",
+   "Expr_Worried",
+   "Expr_Embarrassed",
+   "Expr_Smug",
+   "Look_Right",
+   "Look_Left",
+   "Look_Up",
+   "Look_Down",
+   "Eye_Style_DB",
+   "Eye_Style_Sharp",
+   "Eye_Style_Wide",
+   "Eye_Style_Round",
+   "Eye_Style_Narrow",
+   "Eye_Style_Sleepy",
+   "TR_Head_Shape",
+   "TR_Jaw"
+  ],
+  "Hair_fresh": [
+   "TR_Head_Shape"
+  ],
+  "Hair_needs_maintenance": [
+   "TR_Head_Shape"
+  ],
+  "Hair_overgrown": [
+   "TR_Head_Shape"
+  ],
+  "Head_Base": [
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "TR_Chin",
+   "Pose_Rest",
+   "TR_Head_Shape",
+   "TR_Jaw",
+   "TR_Ear_Big",
+   "TR_Ear_Point",
+   "TR_Ear_Out",
+   "TR_Ear_Detail",
+   "TR_Neck",
+   "Body_Lean",
+   "Body_Stocky",
+   "Body_Athletic",
+   "Body_Bulk"
+  ],
+  "Mechanic_Cargo_Pants": [
+   "Def_Bust",
+   "Def_Hips",
+   "Def_Waist",
+   "Def_Shoulders",
+   "Def_Pecs",
+   "Def_Back",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "Pose_Rest",
+   "Body_Lean",
+   "Body_Stocky",
+   "Body_Athletic",
+   "Body_Bulk"
+  ],
+  "Mechanic_Work_Boots": [
+   "Def_Bust",
+   "Def_Hips",
+   "Def_Waist",
+   "Def_Shoulders",
+   "Def_Pecs",
+   "Def_Back",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "Pose_Rest"
+  ],
+  "Mouth": [
+   "Expr_Happy",
+   "Expr_Laughing",
+   "Expr_Angry",
+   "Expr_Sad",
+   "Expr_Surprised",
+   "Expr_Determined",
+   "Expr_Worried",
+   "Expr_Embarrassed",
+   "Expr_Smug",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "Pose_Rest",
+   "TR_Head_Shape",
+   "TR_Jaw"
+  ],
+  "Nose_Bridge": [
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "Pose_Rest",
+   "TR_Head_Shape",
+   "TR_Jaw"
+  ],
+  "Nose_Tip": [
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "Pose_Rest",
+   "TR_Head_Shape",
+   "TR_Jaw"
+  ],
+  "Shirt_Casual_01": [
+   "Def_Bust",
+   "Def_Hips",
+   "Def_Waist",
+   "Def_Shoulders",
+   "Def_Pecs",
+   "Def_Back",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "Pose_Rest",
+   "Body_Lean",
+   "Body_Stocky",
+   "Body_Athletic",
+   "Body_Bulk"
+  ],
+  "TR_Crossbody_Bag": [
+   "Def_Bust",
+   "Def_Hips",
+   "Def_Waist",
+   "Def_Shoulders",
+   "Def_Pecs",
+   "Def_Back",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "Pose_Rest",
+   "Body_Lean",
+   "Body_Stocky",
+   "Body_Athletic",
+   "Body_Bulk"
+  ],
+  "TR_Hooded_Jacket": [
+   "Def_Bust",
+   "Def_Hips",
+   "Def_Waist",
+   "Def_Shoulders",
+   "Def_Pecs",
+   "Def_Back",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "Pose_Rest",
+   "Body_Lean",
+   "Body_Stocky",
+   "Body_Athletic",
+   "Body_Bulk"
+  ]
+ },
+ "bones": [
+  "root",
+  "DEF-pelvis",
+  "DEF-spine",
+  "DEF-chest",
+  "DEF-neck",
+  "DEF-head",
+  "SOCKET-head",
+  "DEF-clavicle.L",
+  "DEF-upper_arm.L",
+  "DEF-forearm.L",
+  "DEF-hand.L",
+  "SOCKET-hand.L",
+  "DEF-clavicle.R",
+  "DEF-upper_arm.R",
+  "DEF-forearm.R",
+  "DEF-hand.R",
+  "SOCKET-hand.R",
+  "SOCKET-back",
+  "DEF-thigh.L",
+  "DEF-shin.L",
+  "DEF-foot.L",
+  "DEF-toe.L",
+  "DEF-thigh.R",
+  "DEF-shin.R",
+  "DEF-foot.R",
+  "DEF-toe.R",
+  "SOCKET-hip"
+ ],
+ "services": {
+  "barber": {
+   "label": "Barber",
+   "structures": [
+    "loose"
+   ],
+   "textures": [
+    "straight",
+    "wavy",
+    "curly",
+    "coily_low",
+    "coily_medium",
+    "coily_high"
+   ],
+   "services": {
+    "fresh_cut": {
+     "resets_to": "fresh",
+     "cost": {
+      "currency": "gold",
+      "amount": 20
+     },
+     "minutes": 30
+    }
+   }
+  },
+  "stylist": {
+   "label": "Stylist",
+   "structures": [
+    "loose",
+    "twist"
+   ],
+   "textures": [
+    "straight",
+    "wavy",
+    "curly",
+    "coily_low",
+    "coily_medium",
+    "coily_high"
+   ],
+   "services": {
+    "restyle": {
+     "resets_to": "fresh",
+     "cost": {
+      "currency": "gold",
+      "amount": 35
+     },
+     "minutes": 60
+    },
+    "twist_set": {
+     "resets_to": "fresh",
+     "cost": {
+      "currency": "gold",
+      "amount": 40
+     },
+     "minutes": 90
+    }
+   }
+  },
+  "braider": {
+   "label": "Braider",
+   "structures": [
+    "braid",
+    "twist"
+   ],
+   "textures": [
+    "straight",
+    "wavy",
+    "curly",
+    "coily_low",
+    "coily_medium",
+    "coily_high"
+   ],
+   "services": {
+    "rebraid": {
+     "resets_to": "fresh",
+     "cost": {
+      "currency": "gold",
+      "amount": 60,
+      "item": null
+     },
+     "minutes": 240
+    },
+    "touch_up": {
+     "resets_to": "needs_maintenance_floor",
+     "cost": {
+      "currency": "gold",
+      "amount": 25
+     },
+     "minutes": 60
+    }
+   }
+  },
+  "loctician": {
+   "label": "Loctician",
+   "structures": [
+    "loc"
+   ],
+   "textures": [
+    "straight",
+    "wavy",
+    "curly",
+    "coily_low",
+    "coily_medium",
+    "coily_high"
+   ],
+   "services": {
+    "retwist": {
+     "resets_to": "fresh",
+     "cost": {
+      "currency": "gold",
+      "amount": 45
+     },
+     "minutes": 120
+    }
+   }
+  }
+ }
+}

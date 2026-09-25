@@ -1,0 +1,119 @@
+{
+ "kind": "garment",
+ "name": "TR_Hooded_Jacket",
+ "object": "TR_Hooded_Jacket",
+ "roles": [
+  "outer",
+  "top_trim",
+  "top_accent",
+  "top_seam",
+  "metal"
+ ],
+ "slot": "outerwear",
+ "meshes": {
+  "TR_Hooded_Jacket": {
+   "texture": "textures/TR_Hooded_Jacket.png",
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "TR_TR_Hooded_Jacket_0",
+     "role": "outer",
+     "patterns": [
+      "canvas"
+     ],
+     "default_srgb": [
+      180,
+      154,
+      106
+     ]
+    },
+    {
+     "index": 1,
+     "material": "TR_TR_Hooded_Jacket_1",
+     "role": "top_trim",
+     "patterns": [
+      "canvas"
+     ],
+     "default_srgb": [
+      60,
+      58,
+      58
+     ]
+    },
+    {
+     "index": 2,
+     "material": "TR_TR_Hooded_Jacket_2",
+     "role": "top_accent",
+     "patterns": [
+      "canvas"
+     ],
+     "default_srgb": [
+      200,
+      100,
+      42
+     ]
+    },
+    {
+     "index": 3,
+     "material": "TR_TR_Hooded_Jacket_3",
+     "role": "top_seam",
+     "patterns": [
+      "canvas"
+     ],
+     "default_srgb": [
+      60,
+      58,
+      58
+     ]
+    },
+    {
+     "index": 4,
+     "material": "TR_TR_Hooded_Jacket_4",
+     "role": "metal",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      201,
+      162,
+      78
+     ]
+    },
+    {
+     "index": 5,
+     "material": "TR_Ink",
+     "role": "cloth",
+     "patterns": [],
+     "default_srgb": null
+    }
+   ]
+  }
+ },
+ "blend_shapes": {
+  "TR_Hooded_Jacket": [
+   "Def_Bust",
+   "Def_Hips",
+   "Def_Waist",
+   "Def_Shoulders",
+   "Def_Pecs",
+   "Def_Back",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F",
+   "TR_Chest_Width",
+   "TR_Waist_Width",
+   "TR_Hip_Width",
+   "TR_Neck",
+   "Body_Lean",
+   "Body_Stocky",
+   "Body_Athletic",
+   "Body_Bulk"
+  ]
+ },
+ "glb": "TR_Hooded_Jacket.glb"
+}

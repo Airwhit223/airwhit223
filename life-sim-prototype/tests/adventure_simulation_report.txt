@@ -1,0 +1,5 @@
+RPG ADVENTURE FOUNDATION — HEADLESS VALIDATION
+Result: PASS
+Combat: sword damage, enemy defeat, attack telegraph path, dodge/invulnerability, health state.
+World: danger-zone enter/exit, leash-bound enemy, persistent Ruin Relic reward.
+Continuity: TimeManager advanced three in-game hours and reward survived the return home transition.

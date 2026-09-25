@@ -1,0 +1,63 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/starter_street/materials/wood_crate.tres" id="1_ewwtd"]
+[ext_resource type="Material" path="res://world/starter_street/materials/door_wood.tres" id="2_oo4qo"]
+[ext_resource type="Material" path="res://world/starter_street/materials/blob_shadow.tres" id="3_tolis"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6hlcu"]
+size = Vector3(0.6, 0.6, 0.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xnwog"]
+size = Vector3(0.06, 0.62, 0.06)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rkm14"]
+size = Vector3(0.06, 0.62, 0.06)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gcool"]
+size = Vector3(0.06, 0.62, 0.06)
+
+[sub_resource type="BoxMesh" id="BoxMesh_82m3a"]
+size = Vector3(0.06, 0.62, 0.06)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qddhg"]
+size = Vector3(0.62, 0.62, 0.62)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mfwcw"]
+size = Vector2(0.9, 0.9)
+
+[node name="Crate" type="StaticBody3D" unique_id=48686161]
+
+[node name="Box" type="MeshInstance3D" parent="." unique_id=145268730]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+material_override = ExtResource("1_ewwtd")
+mesh = SubResource("BoxMesh_6hlcu")
+
+[node name="Corner" type="MeshInstance3D" parent="." unique_id=164449273]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29, 0.31, -0.29)
+material_override = ExtResource("2_oo4qo")
+mesh = SubResource("BoxMesh_xnwog")
+
+[node name="@MeshInstance3D@81" type="MeshInstance3D" parent="." unique_id=1827044090]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29, 0.31, 0.29)
+material_override = ExtResource("2_oo4qo")
+mesh = SubResource("BoxMesh_rkm14")
+
+[node name="@MeshInstance3D@82" type="MeshInstance3D" parent="." unique_id=614168448]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 0.31, -0.29)
+material_override = ExtResource("2_oo4qo")
+mesh = SubResource("BoxMesh_gcool")
+
+[node name="@MeshInstance3D@83" type="MeshInstance3D" parent="." unique_id=1552817469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 0.31, 0.29)
+material_override = ExtResource("2_oo4qo")
+mesh = SubResource("BoxMesh_82m3a")
+
+[node name="@CollisionShape3D@84" type="CollisionShape3D" parent="." unique_id=1080535495]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31, 0)
+shape = SubResource("BoxShape3D_qddhg")
+
+[node name="BlobShadow" type="MeshInstance3D" parent="." unique_id=116517060]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015, 0)
+material_override = ExtResource("3_tolis")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_mfwcw")

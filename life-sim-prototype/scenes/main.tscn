@@ -1,0 +1,827 @@
+[gd_scene load_steps=66 format=3]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1"]
+[ext_resource type="Script" path="res://interactables/register.gd" id="2"]
+[ext_resource type="Script" path="res://interactables/gym_equipment.gd" id="3"]
+[ext_resource type="Script" path="res://interactables/skateboard_pickup.gd" id="4"]
+[ext_resource type="Script" path="res://interactables/basketball_hoop.gd" id="5"]
+[ext_resource type="Script" path="res://interactables/location_zone.gd" id="6"]
+[ext_resource type="PackedScene" path="res://scenes/basketball.tscn" id="7"]
+[ext_resource type="Script" path="res://interactables/bench.gd" id="8"]
+[ext_resource type="Script" path="res://interactables/teleporter.gd" id="9"]
+[ext_resource type="Script" path="res://interactables/bed.gd" id="10"]
+
+[sub_resource type="ProceduralSkyMaterial" id="SkyMat"]
+
+[sub_resource type="Sky" id="Sky"]
+sky_material = SubResource("SkyMat")
+
+[sub_resource type="Environment" id="Env"]
+background_mode = 2
+sky = SubResource("Sky")
+ambient_light_source = 3
+ambient_light_energy = 1.0
+
+[sub_resource type="NavigationMesh" id="NavMesh"]
+geometry_parsed_geometry_type = 1
+
+[sub_resource type="BoxMesh" id="UnitBoxMesh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape_4_3_4"]
+size = Vector3(4, 3, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape_6_3_5"]
+size = Vector3(6, 3, 5)
+
+[sub_resource type="CylinderShape3D" id="CylShape_0p15_3"]
+radius = 0.15
+height = 3
+
+[sub_resource type="BoxShape3D" id="BoxShape_2_1p2_0p1"]
+size = Vector3(2, 1.2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape_10_3_8"]
+size = Vector3(10, 3, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape_12_3_16"]
+size = Vector3(12, 3, 16)
+
+[sub_resource type="BoxShape3D" id="BoxShape_10_3_10"]
+size = Vector3(10, 3, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape_1p4_2_1"]
+size = Vector3(1.4, 2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape_1p6_1_1"]
+size = Vector3(1.6, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape_1p2_0p8_1"]
+size = Vector3(1.2, 0.8, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape_0p6_1p8_0p6"]
+size = Vector3(0.6, 1.8, 0.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape_0p8_0p3_2"]
+size = Vector3(0.8, 0.3, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape_1p7_0p7_0p7"]
+size = Vector3(1.7, 0.7, 0.7)
+
+[sub_resource type="BoxShape3D" id="BoxShape_1p2_0p6_1p2"]
+size = Vector3(1.2, 0.6, 1.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape_6_0p2_6"]
+size = Vector3(6, 0.2, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape_6_3_0p2"]
+size = Vector3(6, 3, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape_0p2_3_6"]
+size = Vector3(0.2, 3, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape_2p25_3_0p2"]
+size = Vector3(2.25, 3, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape_1p1_0p8_2p2"]
+size = Vector3(1.1, 0.8, 2.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape_1p4_2_0p6"]
+size = Vector3(1.4, 2, 0.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape_7_0p2_7"]
+size = Vector3(7, 0.2, 7)
+
+[sub_resource type="BoxShape3D" id="BoxShape_7_3_0p2"]
+size = Vector3(7, 3, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape_0p2_3_7"]
+size = Vector3(0.2, 3, 7)
+
+[sub_resource type="BoxShape3D" id="BoxShape_2p625_3_0p2"]
+size = Vector3(2.625, 3, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape_2p4_1_0p6"]
+size = Vector3(2.4, 1, 0.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape_0p6_0p6_0p5"]
+size = Vector3(0.6, 0.6, 0.5)
+
+[sub_resource type="BoxShape3D" id="GroundShape"]
+size = Vector3(70, 1, 70)
+
+[sub_resource type="CylinderMesh" id="UnitCylMesh"]
+top_radius = 1.0
+bottom_radius = 1.0
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="MatGround"]
+albedo_color = Color(0.35, 0.55, 0.25, 1)
+
+[sub_resource type="StandardMaterial3D" id="MatPlayerHome"]
+albedo_color = Color(0.55, 0.75, 0.95, 1)
+
+[sub_resource type="StandardMaterial3D" id="MatMaya"]
+albedo_color = Color(0.95, 0.6, 0.75, 1)
+
+[sub_resource type="StandardMaterial3D" id="MatJordan"]
+albedo_color = Color(0.7, 0.85, 0.55, 1)
+
+[sub_resource type="StandardMaterial3D" id="MatRivera"]
+albedo_color = Color(0.7, 0.55, 0.85, 1)
+
+[sub_resource type="StandardMaterial3D" id="MatSam"]
+albedo_color = Color(0.8, 0.8, 0.8, 1)
+
+[sub_resource type="StandardMaterial3D" id="MatStore"]
+albedo_color = Color(0.9, 0.35, 0.3, 1)
+
+[sub_resource type="StandardMaterial3D" id="MatPole"]
+albedo_color = Color(0.3, 0.3, 0.3, 1)
+
+[sub_resource type="StandardMaterial3D" id="MatBackboard"]
+albedo_color = Color(0.95, 0.95, 0.95, 1)
+
+[sub_resource type="StandardMaterial3D" id="MatGymPad"]
+albedo_color = Color(0.25, 0.25, 0.28, 1)
+
+[sub_resource type="StandardMaterial3D" id="MatCourtPad"]
+albedo_color = Color(0.3, 0.3, 0.32, 1)
+
+[sub_resource type="StandardMaterial3D" id="MatSkatePad"]
+albedo_color = Color(0.55, 0.55, 0.5, 1)
+
+[sub_resource type="StandardMaterial3D" id="MatSocialPad"]
+albedo_color = Color(0.65, 0.55, 0.4, 1)
+
+[sub_resource type="StandardMaterial3D" id="MatBench"]
+albedo_color = Color(0.4, 0.28, 0.15, 1)
+
+[sub_resource type="StandardMaterial3D" id="MatFirepit"]
+albedo_color = Color(0.15, 0.15, 0.15, 1)
+
+[sub_resource type="StandardMaterial3D" id="MatTreadmill"]
+albedo_color = Color(0.7, 0.15, 0.15, 1)
+
+[sub_resource type="StandardMaterial3D" id="MatWeightBench"]
+albedo_color = Color(0.15, 0.25, 0.6, 1)
+
+[sub_resource type="StandardMaterial3D" id="MatBag"]
+albedo_color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="StandardMaterial3D" id="MatSkateboard"]
+albedo_color = Color(0.8, 0.6, 0.1, 1)
+
+[sub_resource type="StandardMaterial3D" id="MatInteriorFloor"]
+albedo_color = Color(0.6, 0.45, 0.3, 1)
+
+[sub_resource type="StandardMaterial3D" id="MatInteriorWall"]
+albedo_color = Color(0.88, 0.85, 0.78, 1)
+
+[sub_resource type="StandardMaterial3D" id="MatBed"]
+albedo_color = Color(0.4, 0.55, 0.75, 1)
+
+[sub_resource type="StandardMaterial3D" id="MatDresser"]
+albedo_color = Color(0.35, 0.22, 0.12, 1)
+
+[sub_resource type="StandardMaterial3D" id="MatDoor"]
+albedo_color = Color(0.45, 0.3, 0.18, 1)
+
+[sub_resource type="StandardMaterial3D" id="MatShelf"]
+albedo_color = Color(0.55, 0.55, 0.58, 1)
+
+[sub_resource type="StandardMaterial3D" id="MatCounter"]
+albedo_color = Color(0.5, 0.35, 0.2, 1)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Env")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-50, -35, 0)
+shadow_enabled = true
+
+[node name="NavRegion" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavMesh")
+
+[node name="Ground" type="StaticBody3D" parent="NavRegion"]
+position = Vector3(0, -0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Ground"]
+shape = SubResource("GroundShape")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavRegion/Ground"]
+scale = Vector3(70, 1, 70)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatGround")
+
+[node name="PlayerHome" type="StaticBody3D" parent="NavRegion"]
+position = Vector3(-24, 1.5, -22)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/PlayerHome"]
+shape = SubResource("BoxShape_4_3_4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavRegion/PlayerHome"]
+scale = Vector3(4, 3, 4)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatPlayerHome")
+
+[node name="HomeMaya" type="StaticBody3D" parent="NavRegion"]
+position = Vector3(-12, 1.5, -22)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/HomeMaya"]
+shape = SubResource("BoxShape_4_3_4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavRegion/HomeMaya"]
+scale = Vector3(4, 3, 4)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatMaya")
+
+[node name="HomeJordan" type="StaticBody3D" parent="NavRegion"]
+position = Vector3(0, 1.5, -22)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/HomeJordan"]
+shape = SubResource("BoxShape_4_3_4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavRegion/HomeJordan"]
+scale = Vector3(4, 3, 4)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatJordan")
+
+[node name="HomeRivera" type="StaticBody3D" parent="NavRegion"]
+position = Vector3(12, 1.5, -22)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/HomeRivera"]
+shape = SubResource("BoxShape_4_3_4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavRegion/HomeRivera"]
+scale = Vector3(4, 3, 4)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatRivera")
+
+[node name="HomeSam" type="StaticBody3D" parent="NavRegion"]
+position = Vector3(24, 1.5, -22)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/HomeSam"]
+shape = SubResource("BoxShape_4_3_4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavRegion/HomeSam"]
+scale = Vector3(4, 3, 4)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatSam")
+
+[node name="Store" type="StaticBody3D" parent="NavRegion"]
+position = Vector3(-18, 1.5, 20)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Store"]
+shape = SubResource("BoxShape_6_3_5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavRegion/Store"]
+scale = Vector3(6, 3, 5)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatStore")
+
+[node name="HoopPole" type="StaticBody3D" parent="NavRegion"]
+position = Vector3(20, 1.5, 27)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/HoopPole"]
+shape = SubResource("CylShape_0p15_3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavRegion/HoopPole"]
+scale = Vector3(0.15, 3, 0.15)
+mesh = SubResource("UnitCylMesh")
+surface_material_override/0 = SubResource("MatPole")
+
+[node name="HoopBackboard" type="StaticBody3D" parent="NavRegion"]
+position = Vector3(20, 3.2, 26.35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/HoopBackboard"]
+shape = SubResource("BoxShape_2_1p2_0p1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavRegion/HoopBackboard"]
+scale = Vector3(2, 1.2, 0.1)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatBackboard")
+
+[node name="Decor" type="Node3D" parent="."]
+
+[node name="GymPad" type="MeshInstance3D" parent="Decor"]
+position = Vector3(0, 0.01, 20)
+scale = Vector3(10, 0.02, 8)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatGymPad")
+
+[node name="CourtPad" type="MeshInstance3D" parent="Decor"]
+position = Vector3(20, 0.01, 20)
+scale = Vector3(12, 0.02, 16)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatCourtPad")
+
+[node name="SkatePad" type="MeshInstance3D" parent="Decor"]
+position = Vector3(-30, 0.01, 0)
+scale = Vector3(10, 0.02, 10)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatSkatePad")
+
+[node name="SocialPad" type="MeshInstance3D" parent="Decor"]
+position = Vector3(0, 0.01, 0)
+scale = Vector3(10, 0.02, 10)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatSocialPad")
+
+[node name="Firepit" type="MeshInstance3D" parent="Decor"]
+position = Vector3(0, 0.15, 0)
+scale = Vector3(0.6, 0.3, 0.6)
+mesh = SubResource("UnitCylMesh")
+surface_material_override/0 = SubResource("MatFirepit")
+
+[node name="Zones" type="Node3D" parent="."]
+
+[node name="ZoneGym" type="Area3D" parent="Zones"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("6")
+location_id = "loc_gym"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/ZoneGym"]
+position = Vector3(0, 1.5, 20)
+shape = SubResource("BoxShape_10_3_8")
+
+[node name="ZoneCourt" type="Area3D" parent="Zones"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("6")
+location_id = "loc_basketball"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/ZoneCourt"]
+position = Vector3(20, 1.5, 20)
+shape = SubResource("BoxShape_12_3_16")
+
+[node name="ZoneSocial" type="Area3D" parent="Zones"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("6")
+location_id = "loc_social"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/ZoneSocial"]
+position = Vector3(0, 1.5, 0)
+shape = SubResource("BoxShape_10_3_10")
+
+[node name="Interactables" type="Node3D" parent="."]
+
+[node name="StoreDoor" type="Area3D" parent="Interactables"]
+position = Vector3(-18, 1.2, 17.3)
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+script = ExtResource("9")
+destination = NodePath("%StoreSpawnMarker")
+prompt_text = "Enter Store"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/StoreDoor"]
+shape = SubResource("BoxShape_1p4_2_1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interactables/StoreDoor"]
+scale = Vector3(1.0, 2.0, 0.15)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatDoor")
+
+[node name="Treadmill" type="Area3D" parent="Interactables"]
+position = Vector3(-3, 0.5, 18.5)
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+script = ExtResource("3")
+equipment_name = "treadmill"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/Treadmill"]
+shape = SubResource("BoxShape_1p6_1_1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interactables/Treadmill"]
+scale = Vector3(1.6, 1, 1)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatTreadmill")
+
+[node name="WeightBench" type="Area3D" parent="Interactables"]
+position = Vector3(0, 0.4, 22)
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+script = ExtResource("3")
+equipment_name = "weight bench"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/WeightBench"]
+shape = SubResource("BoxShape_1p2_0p8_1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interactables/WeightBench"]
+scale = Vector3(1.2, 0.8, 1)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatWeightBench")
+
+[node name="PunchingBag" type="Area3D" parent="Interactables"]
+position = Vector3(3, 0.9, 18.5)
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+script = ExtResource("3")
+equipment_name = "punching bag"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/PunchingBag"]
+shape = SubResource("BoxShape_0p6_1p8_0p6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interactables/PunchingBag"]
+scale = Vector3(0.6, 1.8, 0.6)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatBag")
+
+[node name="SkateboardSpot" type="Area3D" parent="Interactables"]
+position = Vector3(-30, 0.5, 2)
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+script = ExtResource("4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/SkateboardSpot"]
+shape = SubResource("BoxShape_0p8_0p3_2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interactables/SkateboardSpot"]
+scale = Vector3(0.8, 0.3, 2)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatSkateboard")
+
+[node name="Bench1" type="Area3D" parent="Interactables"]
+position = Vector3(-2, 0.25, 1.5)
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+script = ExtResource("8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/Bench1"]
+shape = SubResource("BoxShape_1p7_0p7_0p7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interactables/Bench1"]
+scale = Vector3(1.5, 0.5, 0.5)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatBench")
+
+[node name="Bench2" type="Area3D" parent="Interactables"]
+position = Vector3(2, 0.25, -1.5)
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+script = ExtResource("8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/Bench2"]
+shape = SubResource("BoxShape_1p7_0p7_0p7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interactables/Bench2"]
+scale = Vector3(1.5, 0.5, 0.5)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatBench")
+
+[node name="PlayerHomeDoor" type="Area3D" parent="Interactables"]
+position = Vector3(-24, 1.2, -19.6)
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+script = ExtResource("9")
+destination = NodePath("%PlayerSpawnMarker")
+prompt_text = "Enter Home"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/PlayerHomeDoor"]
+shape = SubResource("BoxShape_1p4_2_1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interactables/PlayerHomeDoor"]
+scale = Vector3(1.0, 2.0, 0.15)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatDoor")
+
+[node name="Hoop" type="Area3D" parent="."]
+position = Vector3(20, 2.9, 26)
+collision_layer = 0
+collision_mask = 16
+monitoring = true
+script = ExtResource("5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hoop"]
+shape = SubResource("BoxShape_1p2_0p6_1p2")
+
+[node name="Basketball" parent="." instance=ExtResource("7")]
+position = Vector3(20, 0.25, 20)
+
+[node name="Locations" type="Node3D" parent="."]
+
+[node name="home_player" type="Node3D" parent="Locations"]
+unique_name_in_owner = true
+position = Vector3(-24, 0, -18)
+
+[node name="home_maya" type="Node3D" parent="Locations"]
+position = Vector3(-12, 0, -18)
+
+[node name="home_jordan" type="Node3D" parent="Locations"]
+position = Vector3(0, 0, -18)
+
+[node name="home_rivera" type="Node3D" parent="Locations"]
+position = Vector3(12, 0, -18)
+
+[node name="home_sam" type="Node3D" parent="Locations"]
+position = Vector3(24, 0, -18)
+
+[node name="loc_store" type="Node3D" parent="Locations"]
+unique_name_in_owner = true
+position = Vector3(-18, 0, 15.5)
+
+[node name="loc_gym" type="Node3D" parent="Locations"]
+position = Vector3(0, 0, 20)
+
+[node name="loc_basketball" type="Node3D" parent="Locations"]
+position = Vector3(20, 0, 21)
+
+[node name="loc_skate" type="Node3D" parent="Locations"]
+position = Vector3(-30, 0, 0)
+
+[node name="loc_social" type="Node3D" parent="Locations"]
+position = Vector3(0, 0, 0)
+
+[node name="Interiors" type="Node3D" parent="."]
+position = Vector3(0, -500, 0)
+
+[node name="PlayerHomeInterior" type="Node3D" parent="Interiors"]
+
+[node name="Floor" type="StaticBody3D" parent="Interiors/PlayerHomeInterior"]
+position = Vector3(0, -0.1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interiors/PlayerHomeInterior/Floor"]
+shape = SubResource("BoxShape_6_0p2_6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interiors/PlayerHomeInterior/Floor"]
+scale = Vector3(6, 0.2, 6)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatInteriorFloor")
+
+[node name="WallNorth" type="StaticBody3D" parent="Interiors/PlayerHomeInterior"]
+position = Vector3(0, 1.5, -3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interiors/PlayerHomeInterior/WallNorth"]
+shape = SubResource("BoxShape_6_3_0p2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interiors/PlayerHomeInterior/WallNorth"]
+scale = Vector3(6, 3, 0.2)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatInteriorWall")
+
+[node name="WallEast" type="StaticBody3D" parent="Interiors/PlayerHomeInterior"]
+position = Vector3(3, 1.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interiors/PlayerHomeInterior/WallEast"]
+shape = SubResource("BoxShape_0p2_3_6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interiors/PlayerHomeInterior/WallEast"]
+scale = Vector3(0.2, 3, 6)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatInteriorWall")
+
+[node name="WallWest" type="StaticBody3D" parent="Interiors/PlayerHomeInterior"]
+position = Vector3(-3, 1.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interiors/PlayerHomeInterior/WallWest"]
+shape = SubResource("BoxShape_0p2_3_6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interiors/PlayerHomeInterior/WallWest"]
+scale = Vector3(0.2, 3, 6)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatInteriorWall")
+
+[node name="WallSouthLeft" type="StaticBody3D" parent="Interiors/PlayerHomeInterior"]
+position = Vector3(-1.875, 1.5, 3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interiors/PlayerHomeInterior/WallSouthLeft"]
+shape = SubResource("BoxShape_2p25_3_0p2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interiors/PlayerHomeInterior/WallSouthLeft"]
+scale = Vector3(2.25, 3, 0.2)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatInteriorWall")
+
+[node name="WallSouthRight" type="StaticBody3D" parent="Interiors/PlayerHomeInterior"]
+position = Vector3(1.875, 1.5, 3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interiors/PlayerHomeInterior/WallSouthRight"]
+shape = SubResource("BoxShape_2p25_3_0p2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interiors/PlayerHomeInterior/WallSouthRight"]
+scale = Vector3(2.25, 3, 0.2)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatInteriorWall")
+
+[node name="Light" type="OmniLight3D" parent="Interiors/PlayerHomeInterior"]
+position = Vector3(0, 2.5, 0)
+light_energy = 1.5
+omni_range = 8.0
+
+[node name="Dresser" type="MeshInstance3D" parent="Interiors/PlayerHomeInterior"]
+position = Vector3(2.3, 0.5, -2.4)
+scale = Vector3(0.8, 1.0, 0.4)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatDresser")
+
+[node name="Bed" type="Area3D" parent="Interiors/PlayerHomeInterior"]
+position = Vector3(-1.8, 0.35, -1.85)
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+script = ExtResource("10")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interiors/PlayerHomeInterior/Bed"]
+shape = SubResource("BoxShape_1p1_0p8_2p2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interiors/PlayerHomeInterior/Bed"]
+scale = Vector3(1.0, 0.6, 2.0)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatBed")
+
+[node name="PlayerSpawnMarker" type="Node3D" parent="Interiors/PlayerHomeInterior"]
+unique_name_in_owner = true
+position = Vector3(0, 0, 2.2)
+
+[node name="ExitDoor" type="Area3D" parent="Interiors/PlayerHomeInterior"]
+position = Vector3(0, 1.2, 2.7)
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+script = ExtResource("9")
+destination = NodePath("%home_player")
+prompt_text = "Exit Home"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interiors/PlayerHomeInterior/ExitDoor"]
+shape = SubResource("BoxShape_1p4_2_0p6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interiors/PlayerHomeInterior/ExitDoor"]
+scale = Vector3(1.0, 2.0, 0.15)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatDoor")
+
+[node name="StoreInterior" type="Node3D" parent="Interiors"]
+position = Vector3(50, 0, 0)
+
+[node name="Floor" type="StaticBody3D" parent="Interiors/StoreInterior"]
+position = Vector3(0, -0.1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interiors/StoreInterior/Floor"]
+shape = SubResource("BoxShape_7_0p2_7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interiors/StoreInterior/Floor"]
+scale = Vector3(7, 0.2, 7)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatInteriorFloor")
+
+[node name="WallNorth" type="StaticBody3D" parent="Interiors/StoreInterior"]
+position = Vector3(0, 1.5, -3.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interiors/StoreInterior/WallNorth"]
+shape = SubResource("BoxShape_7_3_0p2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interiors/StoreInterior/WallNorth"]
+scale = Vector3(7, 3, 0.2)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatInteriorWall")
+
+[node name="WallEast" type="StaticBody3D" parent="Interiors/StoreInterior"]
+position = Vector3(3.5, 1.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interiors/StoreInterior/WallEast"]
+shape = SubResource("BoxShape_0p2_3_7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interiors/StoreInterior/WallEast"]
+scale = Vector3(0.2, 3, 7)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatInteriorWall")
+
+[node name="WallWest" type="StaticBody3D" parent="Interiors/StoreInterior"]
+position = Vector3(-3.5, 1.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interiors/StoreInterior/WallWest"]
+shape = SubResource("BoxShape_0p2_3_7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interiors/StoreInterior/WallWest"]
+scale = Vector3(0.2, 3, 7)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatInteriorWall")
+
+[node name="WallSouthLeft" type="StaticBody3D" parent="Interiors/StoreInterior"]
+position = Vector3(-2.1875, 1.5, 3.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interiors/StoreInterior/WallSouthLeft"]
+shape = SubResource("BoxShape_2p625_3_0p2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interiors/StoreInterior/WallSouthLeft"]
+scale = Vector3(2.625, 3, 0.2)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatInteriorWall")
+
+[node name="WallSouthRight" type="StaticBody3D" parent="Interiors/StoreInterior"]
+position = Vector3(2.1875, 1.5, 3.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interiors/StoreInterior/WallSouthRight"]
+shape = SubResource("BoxShape_2p625_3_0p2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interiors/StoreInterior/WallSouthRight"]
+scale = Vector3(2.625, 3, 0.2)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatInteriorWall")
+
+[node name="Light" type="OmniLight3D" parent="Interiors/StoreInterior"]
+position = Vector3(0, 2.5, 0)
+light_energy = 1.6
+omni_range = 9.0
+
+[node name="Counter" type="StaticBody3D" parent="Interiors/StoreInterior"]
+position = Vector3(0, 0.5, -2.7)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interiors/StoreInterior/Counter"]
+shape = SubResource("BoxShape_2p4_1_0p6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interiors/StoreInterior/Counter"]
+scale = Vector3(2.4, 1.0, 0.6)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatCounter")
+
+[node name="ShelfWest" type="MeshInstance3D" parent="Interiors/StoreInterior"]
+position = Vector3(-3.0, 0.6, -1.0)
+scale = Vector3(0.4, 1.2, 3.5)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatShelf")
+
+[node name="ShelfEast" type="MeshInstance3D" parent="Interiors/StoreInterior"]
+position = Vector3(3.0, 0.6, -1.0)
+scale = Vector3(0.4, 1.2, 3.5)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatShelf")
+
+[node name="ProductsWest1" type="MeshInstance3D" parent="Interiors/StoreInterior"]
+position = Vector3(-3.0, 1.35, -1.8)
+scale = Vector3(0.3, 0.3, 0.3)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatTreadmill")
+
+[node name="ProductsWest2" type="MeshInstance3D" parent="Interiors/StoreInterior"]
+position = Vector3(-3.0, 1.35, -0.4)
+scale = Vector3(0.3, 0.3, 0.3)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatWeightBench")
+
+[node name="ProductsEast1" type="MeshInstance3D" parent="Interiors/StoreInterior"]
+position = Vector3(3.0, 1.35, -1.8)
+scale = Vector3(0.3, 0.3, 0.3)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatSkateboard")
+
+[node name="ProductsEast2" type="MeshInstance3D" parent="Interiors/StoreInterior"]
+position = Vector3(3.0, 1.35, -0.4)
+scale = Vector3(0.3, 0.3, 0.3)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatBag")
+
+[node name="Register" type="Area3D" parent="Interiors/StoreInterior"]
+position = Vector3(0, 1.1, -2.35)
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+script = ExtResource("2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interiors/StoreInterior/Register"]
+shape = SubResource("BoxShape_0p6_0p6_0p5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interiors/StoreInterior/Register"]
+scale = Vector3(0.4, 0.4, 0.4)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatBackboard")
+
+[node name="StoreWorkSpot" type="Node3D" parent="Interiors/StoreInterior"]
+unique_name_in_owner = true
+position = Vector3(0, 0, -2.0)
+
+[node name="StoreSpawnMarker" type="Node3D" parent="Interiors/StoreInterior"]
+unique_name_in_owner = true
+position = Vector3(0, 0, 2.7)
+
+[node name="ExitDoor" type="Area3D" parent="Interiors/StoreInterior"]
+position = Vector3(0, 1.2, 3.2)
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+script = ExtResource("9")
+destination = NodePath("%loc_store")
+prompt_text = "Exit Store"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interiors/StoreInterior/ExitDoor"]
+shape = SubResource("BoxShape_1p4_2_0p6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interiors/StoreInterior/ExitDoor"]
+scale = Vector3(1.0, 2.0, 0.15)
+mesh = SubResource("UnitBoxMesh")
+surface_material_override/0 = SubResource("MatDoor")

@@ -1,0 +1,24 @@
+{
+ "types": [
+  "Curious_Doe",
+  "Sleek_Cat",
+  "Heroine",
+  "Intense_Hero",
+  "Focused_Almond",
+  "Brawler",
+  "Toriyama"
+ ],
+ "frames": [
+  "open",
+  "half",
+  "closed",
+  "happy",
+  "angry",
+  "surprised",
+  "sad"
+ ],
+ "tile": [
+  512,
+  384
+ ]
+}

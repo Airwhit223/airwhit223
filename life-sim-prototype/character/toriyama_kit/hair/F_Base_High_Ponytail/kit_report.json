@@ -1,0 +1,11 @@
+{
+ "part": "hair",
+ "name": "F_Base_High_Ponytail",
+ "baked": {
+  "Hair_fresh": 4.1,
+  "Hair_needs_maintenance": 3.9,
+  "Hair_overgrown": 3.8
+ },
+ "glb_mb": 2.58,
+ "seconds": 12.2
+}

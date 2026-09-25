@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://world/shaders/toon_world.gdshader" id="1_kv3ox"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_kv3ox")
+shader_parameter/base_color = Color(0.95686275, 0.8784314, 0.3019608, 1)
+shader_parameter/shadow_color = Color(0.67058825, 0.6156863, 0.21176471, 1)
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/line_mode = 0
+shader_parameter/line_spacing = 0.22
+shader_parameter/line_color = Color(0.16, 0.12, 0.13, 1)
+shader_parameter/gap_color = Color(0.83, 0.72, 0.59, 1)
+shader_parameter/gap_shadow = Color(0.66, 0.56, 0.43, 1)
+shader_parameter/gap_width = 0.16
+shader_parameter/glow = 0.0

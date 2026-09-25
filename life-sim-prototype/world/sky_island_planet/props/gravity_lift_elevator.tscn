@@ -1,0 +1,68 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/power_grid_energy.tres" id="1_q86f3"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/ancient_city_wall.tres" id="2_f3l52"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_k4wu3"]
+top_radius = 3.0
+bottom_radius = 3.0
+height = 72.0
+radial_segments = 16
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wroau"]
+top_radius = 3.8
+bottom_radius = 4.2
+height = 0.6
+radial_segments = 16
+rings = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8sb4t"]
+height = 0.6
+radius = 4.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5ysuh"]
+top_radius = 4.2
+bottom_radius = 4.5
+height = 0.8
+radial_segments = 16
+rings = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_a6xet"]
+height = 0.8
+radius = 4.4
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6wsqg"]
+height = 72.0
+radius = 4.2
+
+[node name="GravityLiftElevator" type="StaticBody3D" unique_id=1166637124]
+
+[node name="LiftEnergyColumn" type="MeshInstance3D" parent="." unique_id=1947938109]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -35, 0)
+material_override = ExtResource("1_q86f3")
+mesh = SubResource("CylinderMesh_k4wu3")
+
+[node name="PlatformTop" type="MeshInstance3D" parent="." unique_id=1815337988]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+material_override = ExtResource("2_f3l52")
+mesh = SubResource("CylinderMesh_wroau")
+
+[node name="@CollisionShape3D@20" type="CollisionShape3D" parent="." unique_id=1253860580]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shape = SubResource("CylinderShape3D_8sb4t")
+
+[node name="PlatformBottom" type="MeshInstance3D" parent="." unique_id=382244119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -67.5, 0)
+material_override = ExtResource("2_f3l52")
+mesh = SubResource("CylinderMesh_5ysuh")
+
+[node name="@CollisionShape3D@21" type="CollisionShape3D" parent="." unique_id=721670441]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -67.5, 0)
+shape = SubResource("CylinderShape3D_a6xet")
+
+[node name="LiftTriggerArea" type="Area3D" parent="." unique_id=373226177]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -35, 0)
+
+[node name="@CollisionShape3D@22" type="CollisionShape3D" parent="LiftTriggerArea" unique_id=169756212]
+shape = SubResource("CylinderShape3D_6wsqg")

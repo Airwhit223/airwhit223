@@ -1,0 +1,146 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/pyramid_limestone.tres" id="1_6kt14"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/anubis_black.tres" id="2_q82ur"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/cream.tres" id="3_qbl2y"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/egypt_gold.tres" id="4_ymnvl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_c362p"]
+size = Vector3(7, 3, 7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_koksj"]
+size = Vector3(7, 3, 7)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d0amn"]
+size = Vector3(7, 0.9, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yirnq"]
+size = Vector3(7, 0.9, 0.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lo0ls"]
+size = Vector3(0.4, 0.9, 7)
+
+[sub_resource type="BoxMesh" id="BoxMesh_50xq0"]
+size = Vector3(0.9, 1.4, 0.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jocse"]
+size = Vector3(0.95, 1.1, 0.65)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uc4sp"]
+size = Vector3(1.1, 0.3, 0.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7hdnv"]
+size = Vector3(0.28, 0.2, 0.28)
+
+[sub_resource type="BoxMesh" id="BoxMesh_42uc3"]
+size = Vector3(0.28, 0.2, 0.28)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cd31r"]
+size = Vector3(0.45, 0.4, 0.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6ealx"]
+size = Vector3(0.65, 0.65, 0.65)
+
+[sub_resource type="PrismMesh" id="PrismMesh_b8odj"]
+size = Vector3(0.25, 0.9, 0.15)
+
+[sub_resource type="PrismMesh" id="PrismMesh_pgi7h"]
+size = Vector3(0.25, 0.9, 0.15)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c5yx2"]
+size = Vector3(0.85, 0.8, 0.5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_dbbb5"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 4.2
+radial_segments = 14
+rings = 1
+
+[sub_resource type="PrismMesh" id="PrismMesh_i4dep"]
+size = Vector3(0.25, 0.8, 0.05)
+
+[node name="AnubisSentinelWatchpoint" type="StaticBody3D" unique_id=839123006]
+
+[node name="ParapetBase" type="MeshInstance3D" parent="." unique_id=1644976493]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+material_override = ExtResource("1_6kt14")
+mesh = SubResource("BoxMesh_c362p")
+
+[node name="@CollisionShape3D@111" type="CollisionShape3D" parent="." unique_id=1397797560]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_koksj")
+
+[node name="ParapetWallFront" type="MeshInstance3D" parent="." unique_id=746517518]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.45, 3.3)
+material_override = ExtResource("1_6kt14")
+mesh = SubResource("BoxMesh_d0amn")
+
+[node name="@CollisionShape3D@112" type="CollisionShape3D" parent="." unique_id=1387219595]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.45, 3.3)
+shape = SubResource("BoxShape3D_yirnq")
+
+[node name="ParapetWallLeft" type="MeshInstance3D" parent="." unique_id=1290357546]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3, 3.45, 0)
+material_override = ExtResource("1_6kt14")
+mesh = SubResource("BoxMesh_lo0ls")
+
+[node name="SentinelTorso" type="MeshInstance3D" parent="." unique_id=1160400997]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.3, 1.2)
+material_override = ExtResource("2_q82ur")
+mesh = SubResource("BoxMesh_50xq0")
+
+[node name="PleatedKilt" type="MeshInstance3D" parent="." unique_id=1943892229]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4, 1.2)
+material_override = ExtResource("3_qbl2y")
+mesh = SubResource("BoxMesh_jocse")
+
+[node name="GoldCollar" type="MeshInstance3D" parent="." unique_id=2076707019]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.9, 1.2)
+material_override = ExtResource("4_ymnvl")
+mesh = SubResource("BoxMesh_uc4sp")
+
+[node name="GoldArmbandL" type="MeshInstance3D" parent="." unique_id=213723351]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 4.3, 1.2)
+material_override = ExtResource("4_ymnvl")
+mesh = SubResource("BoxMesh_7hdnv")
+
+[node name="GoldArmbandR" type="MeshInstance3D" parent="." unique_id=828416116]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 4.3, 1.2)
+material_override = ExtResource("4_ymnvl")
+mesh = SubResource("BoxMesh_42uc3")
+
+[node name="JackalMuzzle" type="MeshInstance3D" parent="." unique_id=1409998015]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.25, 1.6)
+material_override = ExtResource("2_q82ur")
+mesh = SubResource("BoxMesh_cd31r")
+
+[node name="JackalHead" type="MeshInstance3D" parent="." unique_id=2099325623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.35, 1.2)
+material_override = ExtResource("2_q82ur")
+mesh = SubResource("BoxMesh_6ealx")
+
+[node name="EarLeft" type="MeshInstance3D" parent="." unique_id=1621577986]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 6, 1.1)
+material_override = ExtResource("2_q82ur")
+mesh = SubResource("PrismMesh_b8odj")
+
+[node name="EarRight" type="MeshInstance3D" parent="." unique_id=505326519]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 6, 1.1)
+material_override = ExtResource("2_q82ur")
+mesh = SubResource("PrismMesh_pgi7h")
+
+[node name="NemesCloth" type="MeshInstance3D" parent="." unique_id=594227090]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.2, 0.9)
+material_override = ExtResource("4_ymnvl")
+mesh = SubResource("BoxMesh_c5yx2")
+
+[node name="SpearShaft" type="MeshInstance3D" parent="." unique_id=2002056909]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 4.5, 1.5)
+material_override = ExtResource("4_ymnvl")
+mesh = SubResource("CylinderMesh_dbbb5")
+
+[node name="SpearHead" type="MeshInstance3D" parent="." unique_id=1737525046]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 6.8, 1.5)
+material_override = ExtResource("4_ymnvl")
+mesh = SubResource("PrismMesh_i4dep")

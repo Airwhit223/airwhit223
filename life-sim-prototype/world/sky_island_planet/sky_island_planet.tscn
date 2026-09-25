@@ -1,0 +1,896 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://world/sky_island_planet/sky_island_planet.gd" id="1_48x33"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/sun_orange_glow.tres" id="2_d17gp"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/sun_blue_glow.tres" id="3_ma5vu"]
+[ext_resource type="PackedScene" path="res://world/sky_island_planet/props/gas_giant_backdrop.tscn" id="4_8sw18"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/quartz_crystal_magenta.tres" id="5_oek6n"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/quartz_crystal_cyan.tres" id="6_mejrt"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/bioluminescent_teal_turf.tres" id="7_njgl2"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/cosmic_mauve_rock.tres" id="8_8vku1"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/stargate_ancient_stone.tres" id="9_lpxqa"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/stargate_rune_glow.tres" id="10_p5aux"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/ancient_city_wall.tres" id="11_203ix"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/planet_bedrock_mauve.tres" id="12_fnspl"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/magma_vein.tres" id="13_mgxk1"]
+[ext_resource type="PackedScene" path="res://player/vehicles/space_capsule.tscn" id="14_6egl7"]
+[ext_resource type="Script" path="res://player/vehicles/space_capsule.gd" id="15_04axm"]
+[ext_resource type="PackedScene" path="res://world/sky_island_planet/props/quartz_spire_cluster.tscn" id="16_k57rk"]
+[ext_resource type="PackedScene" path="res://world/sky_island_planet/props/resonance_crystal_pillar.tscn" id="17_7t6o6"]
+[ext_resource type="PackedScene" path="res://world/sky_island_planet/props/spiral_tree.tscn" id="18_t1mkm"]
+[ext_resource type="PackedScene" path="res://world/sky_island_planet/props/giant_mushroom.tscn" id="19_geluc"]
+[ext_resource type="PackedScene" path="res://world/sky_island_planet/props/ancient_celestial_stargate.tscn" id="20_q4evx"]
+[ext_resource type="PackedScene" path="res://world/sky_island_planet/props/ancient_city_tower.tscn" id="21_nrnx0"]
+[ext_resource type="PackedScene" path="res://world/sky_island_planet/props/hydroponic_biodome.tscn" id="22_xaplu"]
+[ext_resource type="PackedScene" path="res://world/sky_island_planet/props/energy_conduit_pylon.tscn" id="23_jhcy6"]
+[ext_resource type="PackedScene" path="res://world/sky_island_planet/props/resonance_healing_fountain.tscn" id="24_3ncil"]
+[ext_resource type="PackedScene" path="res://world/sky_island_planet/props/elemental_cave_entrance.tscn" id="25_fqs1l"]
+[ext_resource type="PackedScene" path="res://world/sky_island_planet/props/gravity_lift_elevator.tscn" id="26_xqb8r"]
+[ext_resource type="PackedScene" path="res://world/sky_island_planet/props/rainbow_energy_bridge.tscn" id="27_hcb36"]
+[ext_resource type="PackedScene" path="res://world/sky_island_planet/props/stone_arch_bridge.tscn" id="28_dk56r"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="29_os6y3"]
+[ext_resource type="Script" path="res://player/player.gd" id="30_ofbqp"]
+[ext_resource type="Script" path="res://world/rolling_tides_world/zone_hud.gd" id="31_uulqf"]
+
+[sub_resource type="Environment" id="Environment_1nqnd"]
+background_mode = 1
+background_color = Color(0.08, 0.05, 0.16, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.48, 0.45, 0.68, 1)
+ambient_light_energy = 0.85
+glow_enabled = true
+glow_intensity = 0.8
+
+[sub_resource type="SphereMesh" id="SphereMesh_nahns"]
+radius = 18.0
+height = 36.0
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_l7y0u"]
+radius = 12.0
+height = 24.0
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_qbxn2"]
+radius = 1.9003205
+height = 3.800641
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_jk5l8"]
+radius = 1.0528712
+height = 2.1057425
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_enkkn"]
+radius = 0.9520142
+height = 1.9040284
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_7t3rj"]
+radius = 1.7099593
+height = 3.4199185
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_2tc1q"]
+radius = 2.0511158
+height = 4.1022315
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_jf5jk"]
+radius = 1.0190921
+height = 2.0381842
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_goprb"]
+radius = 1.7667494
+height = 3.5334988
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_kx468"]
+radius = 0.9125667
+height = 1.8251334
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_0rpwh"]
+radius = 1.4781337
+height = 2.9562674
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_gf80m"]
+radius = 1.0273929
+height = 2.0547857
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_dli0e"]
+radius = 1.8169897
+height = 3.6339793
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_wlv1d"]
+radius = 1.7689669
+height = 3.5379338
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_hgt2m"]
+radius = 1.3598278
+height = 2.7196555
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_1w7sw"]
+radius = 1.3832545
+height = 2.766509
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_6y4vl"]
+radius = 1.8694057
+height = 3.7388115
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_11obk"]
+radius = 1.5805906
+height = 3.1611812
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_ts67y"]
+radius = 1.9484992
+height = 3.8969984
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_060ch"]
+radius = 1.1522975
+height = 2.304595
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_h0we0"]
+radius = 1.9225175
+height = 3.845035
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_4ygrx"]
+radius = 1.4850441
+height = 2.9700882
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_s8wct"]
+radius = 0.925041
+height = 1.850082
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_8cxw0"]
+radius = 1.5379114
+height = 3.0758228
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_ctmqd"]
+radius = 1.1277025
+height = 2.255405
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_ccpln"]
+radius = 1.7054555
+height = 3.410911
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_26ouy"]
+radius = 1.6045661
+height = 3.2091322
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_xjb4i"]
+radius = 1.3566511
+height = 2.7133021
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_xeu1l"]
+radius = 1.8894091
+height = 3.7788181
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_nlgbl"]
+radius = 0.9647803
+height = 1.9295605
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_e6o3a"]
+radius = 1.7962538
+height = 3.5925076
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_nc2mw"]
+radius = 2.0963898
+height = 4.1927795
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_yydpg"]
+radius = 0.992179
+height = 1.984358
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_u0vs3"]
+radius = 1.1548741
+height = 2.3097482
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_xb2fn"]
+radius = 1.4476427
+height = 2.8952854
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_6jr2h"]
+radius = 1.21264
+height = 2.42528
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_0ughp"]
+radius = 0.9255494
+height = 1.8510988
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_imd6w"]
+radius = 1.7405615
+height = 3.481123
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_giekf"]
+radius = 1.5919428
+height = 3.1838856
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_x34ia"]
+radius = 1.2432784
+height = 2.4865568
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_4gym4"]
+radius = 1.9172213
+height = 3.8344426
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_8luoc"]
+radius = 1.6988139
+height = 3.3976278
+radial_segments = 24
+rings = 12
+
+[sub_resource type="BoxMesh" id="BoxMesh_6rw6i"]
+size = Vector3(52, 2, 42)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ngd1"]
+size = Vector3(52, 2, 42)
+
+[sub_resource type="BoxMesh" id="BoxMesh_o1l37"]
+size = Vector3(44, 4, 34)
+
+[sub_resource type="BoxMesh" id="BoxMesh_72sva"]
+size = Vector3(32, 5, 24)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2b48b"]
+top_radius = 9.0
+bottom_radius = 9.4
+height = 0.4
+radial_segments = 16
+rings = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cfdlu"]
+height = 0.4
+radius = 9.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2c7h8"]
+top_radius = 7.5
+bottom_radius = 7.5
+height = 0.05
+radial_segments = 16
+rings = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_dmkrg"]
+size = Vector3(36, 2, 32)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_888fx"]
+size = Vector3(36, 2, 32)
+
+[sub_resource type="BoxMesh" id="BoxMesh_602bt"]
+size = Vector3(30, 4, 26)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7o1i8"]
+size = Vector3(40, 2, 34)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wwacq"]
+size = Vector3(40, 2, 34)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4a1ei"]
+size = Vector3(32, 4, 28)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hllxm"]
+size = Vector3(34, 2, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o34vi"]
+size = Vector3(34, 2, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kv6w3"]
+size = Vector3(150, 3, 130)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4f2m"]
+size = Vector3(150, 3, 130)
+
+[sub_resource type="BoxMesh" id="BoxMesh_61abj"]
+size = Vector3(18, 0.08, 120)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lquig"]
+size = Vector3(35, 0.08, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6ye8o"]
+size = Vector3(35, 0.08, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8ix8b"]
+size = Vector3(360, 4, 360)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_apv58"]
+size = Vector3(360, 4, 360)
+
+[sub_resource type="SphereMesh" id="SphereMesh_uewuv"]
+radius = 35.0
+height = 70.0
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_2i8os"]
+radius = 40.0
+height = 80.0
+radial_segments = 24
+rings = 12
+
+[sub_resource type="BoxMesh" id="BoxMesh_y65qb"]
+size = Vector3(8, 0.2, 45)
+
+[sub_resource type="BoxMesh" id="BoxMesh_47wk6"]
+size = Vector3(35, 0.2, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_shcqt"]
+size = Vector3(160, 30, 160)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vt8fk"]
+size = Vector3(170, 30, 150)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2cf8a"]
+size = Vector3(360, 30, 360)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i4ka1"]
+size = Vector3(50, 25, 50)
+
+[node name="SkyIslandPlanet" type="Node3D" unique_id=1142414566]
+script = ExtResource("1_48x33")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=592313919]
+environment = SubResource("Environment_1nqnd")
+
+[node name="OrangeSun" type="DirectionalLight3D" parent="." unique_id=1028431091]
+transform = Transform3D(0.66913056, -0.4262504, 0.6087487, 0, 0.81915206, 0.57357645, -0.74314487, -0.38379753, 0.54811966, 0, 0, 0)
+light_color = Color(1, 0.72, 0.35, 1)
+light_energy = 1.6
+shadow_enabled = true
+directional_shadow_max_distance = 250.0
+
+[node name="BlueSun" type="DirectionalLight3D" parent="." unique_id=1321029901]
+transform = Transform3D(0.4694716, 0.35912713, -0.80661273, 0, 0.9135454, 0.40673664, 0.88294756, -0.1909513, 0.42888364, 0, 0, 0)
+light_color = Color(0.45, 0.75, 1, 1)
+light_energy = 1.1
+shadow_enabled = true
+directional_shadow_max_distance = 250.0
+
+[node name="CosmicBackdrop" type="Node3D" parent="." unique_id=126248345]
+
+[node name="OrangeSunOrb" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=1176073624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 160, -220)
+material_override = ExtResource("2_d17gp")
+mesh = SubResource("SphereMesh_nahns")
+
+[node name="BlueSunOrb" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=460540690]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140, 130, -240)
+material_override = ExtResource("3_ma5vu")
+mesh = SubResource("SphereMesh_l7y0u")
+
+[node name="LoomingGasGiant" type="Node3D" parent="CosmicBackdrop" unique_id=727500633 instance=ExtResource("4_8sw18")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, 110, -420)
+
+[node name="Star_0" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=1387051930]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 196.93811, 119.17111, -345.1835)
+material_override = ExtResource("5_oek6n")
+mesh = SubResource("SphereMesh_qbxn2")
+
+[node name="Star_1" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=1053161540]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 230.88611, 251.32014, -193.5749)
+material_override = ExtResource("5_oek6n")
+mesh = SubResource("SphereMesh_jk5l8")
+
+[node name="Star_2" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=3634525]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -113.70329, 243.88867, -180.62459)
+material_override = ExtResource("5_oek6n")
+mesh = SubResource("SphereMesh_enkkn")
+
+[node name="Star_3" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=443292154]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.858948, 123.32941, -296.66925)
+material_override = ExtResource("6_mejrt")
+mesh = SubResource("SphereMesh_7t3rj")
+
+[node name="Star_4" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=136720511]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -157.98714, 187.0292, -120.75307)
+material_override = ExtResource("6_mejrt")
+mesh = SubResource("SphereMesh_2tc1q")
+
+[node name="Star_5" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=1434160825]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -245.45493, 221.05817, -171.58214)
+material_override = ExtResource("5_oek6n")
+mesh = SubResource("SphereMesh_jf5jk")
+
+[node name="Star_6" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=1163852611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.776703, 149.05133, -103.331726)
+material_override = ExtResource("6_mejrt")
+mesh = SubResource("SphereMesh_goprb")
+
+[node name="Star_7" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=896049911]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.028778, 115.81181, -254.54335)
+material_override = ExtResource("5_oek6n")
+mesh = SubResource("SphereMesh_kx468")
+
+[node name="Star_8" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=998961950]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.817352, 83.150955, -327.76437)
+material_override = ExtResource("5_oek6n")
+mesh = SubResource("SphereMesh_0rpwh")
+
+[node name="Star_9" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=988747600]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.565216, 256.9239, -263.6799)
+material_override = ExtResource("5_oek6n")
+mesh = SubResource("SphereMesh_gf80m")
+
+[node name="Star_10" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=1861331350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -258.5334, 142.1417, -315.9405)
+material_override = ExtResource("5_oek6n")
+mesh = SubResource("SphereMesh_dli0e")
+
+[node name="Star_11" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=940280096]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.05362, 100.8622, -308.0346)
+material_override = ExtResource("5_oek6n")
+mesh = SubResource("SphereMesh_wlv1d")
+
+[node name="Star_12" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=380089049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 245.3761, 220.18799, -169.4868)
+material_override = ExtResource("5_oek6n")
+mesh = SubResource("SphereMesh_hgt2m")
+
+[node name="Star_13" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=1227119841]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -305.6973, 130.07077, -113.566345)
+material_override = ExtResource("5_oek6n")
+mesh = SubResource("SphereMesh_1w7sw")
+
+[node name="Star_14" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=155801896]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 153.47467, 136.92632, -224.23297)
+material_override = ExtResource("6_mejrt")
+mesh = SubResource("SphereMesh_6y4vl")
+
+[node name="Star_15" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=256697671]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.127502, 131.15187, -338.9842)
+material_override = ExtResource("5_oek6n")
+mesh = SubResource("SphereMesh_11obk")
+
+[node name="Star_16" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=1626330417]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.27026, 257.49832, -318.4869)
+material_override = ExtResource("6_mejrt")
+mesh = SubResource("SphereMesh_ts67y")
+
+[node name="Star_17" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=1406590786]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -115.32695, 107.39088, -296.08698)
+material_override = ExtResource("6_mejrt")
+mesh = SubResource("SphereMesh_060ch")
+
+[node name="Star_18" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=1277063571]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5792847, 97.7617, -222.23862)
+material_override = ExtResource("6_mejrt")
+mesh = SubResource("SphereMesh_h0we0")
+
+[node name="Star_19" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=1924428348]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.05948, 153.68236, -107.97955)
+material_override = ExtResource("5_oek6n")
+mesh = SubResource("SphereMesh_4ygrx")
+
+[node name="Star_20" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=963315394]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.83728, 113.03498, -257.59842)
+material_override = ExtResource("6_mejrt")
+mesh = SubResource("SphereMesh_s8wct")
+
+[node name="Star_21" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=854421485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -303.44315, 174.57126, -332.1322)
+material_override = ExtResource("5_oek6n")
+mesh = SubResource("SphereMesh_8cxw0")
+
+[node name="Star_22" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=2057152732]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 164.87549, 244.21619, -251.1406)
+material_override = ExtResource("5_oek6n")
+mesh = SubResource("SphereMesh_ctmqd")
+
+[node name="Star_23" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=2121603116]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.61319, 184.54962, -242.42053)
+material_override = ExtResource("5_oek6n")
+mesh = SubResource("SphereMesh_ccpln")
+
+[node name="Star_24" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=511658394]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116.45151, 86.87412, -307.50204)
+material_override = ExtResource("6_mejrt")
+mesh = SubResource("SphereMesh_26ouy")
+
+[node name="Star_25" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=383433136]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -270.78046, 138.99977, -103.010666)
+material_override = ExtResource("6_mejrt")
+mesh = SubResource("SphereMesh_xjb4i")
+
+[node name="Star_26" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=987002458]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.781128, 131.43283, -147.70172)
+material_override = ExtResource("5_oek6n")
+mesh = SubResource("SphereMesh_xeu1l")
+
+[node name="Star_27" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=1951636052]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 169.65326, 190.44064, -202.40584)
+material_override = ExtResource("5_oek6n")
+mesh = SubResource("SphereMesh_nlgbl")
+
+[node name="Star_28" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=458578888]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 341.00128, 218.39546, -219.3843)
+material_override = ExtResource("6_mejrt")
+mesh = SubResource("SphereMesh_e6o3a")
+
+[node name="Star_29" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=1037316520]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.545746, 243.74377, -149.35977)
+material_override = ExtResource("5_oek6n")
+mesh = SubResource("SphereMesh_nc2mw")
+
+[node name="Star_30" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=407823174]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116.559784, 246.32544, -280.3152)
+material_override = ExtResource("5_oek6n")
+mesh = SubResource("SphereMesh_yydpg")
+
+[node name="Star_31" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=1154684292]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -267.93542, 212.64302, -195.43768)
+material_override = ExtResource("6_mejrt")
+mesh = SubResource("SphereMesh_u0vs3")
+
+[node name="Star_32" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=1565804810]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 317.82025, 158.33057, -148.80923)
+material_override = ExtResource("6_mejrt")
+mesh = SubResource("SphereMesh_xb2fn")
+
+[node name="Star_33" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=2146738777]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 118.92804, 125.566986, -222.30672)
+material_override = ExtResource("5_oek6n")
+mesh = SubResource("SphereMesh_6jr2h")
+
+[node name="Star_34" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=1969105144]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -167.71129, 221.43156, -254.4642)
+material_override = ExtResource("5_oek6n")
+mesh = SubResource("SphereMesh_0ughp")
+
+[node name="Star_35" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=1153147853]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -166.13872, 217.33153, -123.76524)
+material_override = ExtResource("5_oek6n")
+mesh = SubResource("SphereMesh_imd6w")
+
+[node name="Star_36" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=527219682]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 171.20074, 225.00755, -117.059494)
+material_override = ExtResource("6_mejrt")
+mesh = SubResource("SphereMesh_giekf")
+
+[node name="Star_37" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=1133197859]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 303.49878, 204.71767, -177.45334)
+material_override = ExtResource("6_mejrt")
+mesh = SubResource("SphereMesh_x34ia")
+
+[node name="Star_38" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=1618975451]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.372345, 232.06471, -176.2983)
+material_override = ExtResource("5_oek6n")
+mesh = SubResource("SphereMesh_4gym4")
+
+[node name="Star_39" type="MeshInstance3D" parent="CosmicBackdrop" unique_id=1446237660]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 289.6219, 173.09964, -186.83748)
+material_override = ExtResource("6_mejrt")
+mesh = SubResource("SphereMesh_8luoc")
+
+[node name="FloatingIslands" type="Node3D" parent="." unique_id=1236951034]
+
+[node name="CentralNexusIsland" type="StaticBody3D" parent="FloatingIslands" unique_id=856591057]
+
+[node name="NexusTurfTop" type="MeshInstance3D" parent="FloatingIslands/CentralNexusIsland" unique_id=1768010910]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+material_override = ExtResource("7_njgl2")
+mesh = SubResource("BoxMesh_6rw6i")
+
+[node name="@CollisionShape3D@27" type="CollisionShape3D" parent="FloatingIslands/CentralNexusIsland" unique_id=142748723]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_3ngd1")
+
+[node name="CragBaseTier1" type="MeshInstance3D" parent="FloatingIslands/CentralNexusIsland" unique_id=950283816]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
+material_override = ExtResource("8_8vku1")
+mesh = SubResource("BoxMesh_o1l37")
+
+[node name="CragBaseTier2" type="MeshInstance3D" parent="FloatingIslands/CentralNexusIsland" unique_id=357387826]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.5, 0)
+material_override = ExtResource("8_8vku1")
+mesh = SubResource("BoxMesh_72sva")
+
+[node name="StarmapDaisBase" type="MeshInstance3D" parent="FloatingIslands/CentralNexusIsland" unique_id=1048370502]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+material_override = ExtResource("9_lpxqa")
+mesh = SubResource("CylinderMesh_2b48b")
+
+[node name="@CollisionShape3D@28" type="CollisionShape3D" parent="FloatingIslands/CentralNexusIsland" unique_id=137045893]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = SubResource("CylinderShape3D_cfdlu")
+
+[node name="StarmapRuneInlay" type="MeshInstance3D" parent="FloatingIslands/CentralNexusIsland" unique_id=1204069521]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42, 0)
+material_override = ExtResource("10_p5aux")
+mesh = SubResource("CylinderMesh_2c7h8")
+
+[node name="CrystalSpireIsland" type="StaticBody3D" parent="FloatingIslands" unique_id=1552340643]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 8, -36)
+
+[node name="TurfTop" type="MeshInstance3D" parent="FloatingIslands/CrystalSpireIsland" unique_id=1219508401]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+material_override = ExtResource("7_njgl2")
+mesh = SubResource("BoxMesh_dmkrg")
+
+[node name="@CollisionShape3D@29" type="CollisionShape3D" parent="FloatingIslands/CrystalSpireIsland" unique_id=1699671314]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_888fx")
+
+[node name="CragBase1" type="MeshInstance3D" parent="FloatingIslands/CrystalSpireIsland" unique_id=1560146786]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
+material_override = ExtResource("8_8vku1")
+mesh = SubResource("BoxMesh_602bt")
+
+[node name="FloatingGardensIsland" type="StaticBody3D" parent="FloatingIslands" unique_id=722605878]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48, 5, -30)
+
+[node name="TurfTop" type="MeshInstance3D" parent="FloatingIslands/FloatingGardensIsland" unique_id=1111816001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+material_override = ExtResource("7_njgl2")
+mesh = SubResource("BoxMesh_7o1i8")
+
+[node name="@CollisionShape3D@30" type="CollisionShape3D" parent="FloatingIslands/FloatingGardensIsland" unique_id=873988961]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_wwacq")
+
+[node name="CragBase1" type="MeshInstance3D" parent="FloatingIslands/FloatingGardensIsland" unique_id=1090221005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
+material_override = ExtResource("8_8vku1")
+mesh = SubResource("BoxMesh_4a1ei")
+
+[node name="NorthCelestialGateIsland" type="StaticBody3D" parent="FloatingIslands" unique_id=96177820]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -84)
+
+[node name="TurfTop" type="MeshInstance3D" parent="FloatingIslands/NorthCelestialGateIsland" unique_id=1941647463]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+material_override = ExtResource("7_njgl2")
+mesh = SubResource("BoxMesh_hllxm")
+
+[node name="@CollisionShape3D@31" type="CollisionShape3D" parent="FloatingIslands/NorthCelestialGateIsland" unique_id=1203163947]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_o34vi")
+
+[node name="AncientMetropolis" type="Node3D" parent="." unique_id=383179490]
+
+[node name="CityPlazaPlateau" type="StaticBody3D" parent="AncientMetropolis" unique_id=1896818086]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40, 55)
+
+[node name="PlazaFloor" type="MeshInstance3D" parent="AncientMetropolis/CityPlazaPlateau" unique_id=857966866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+material_override = ExtResource("11_203ix")
+mesh = SubResource("BoxMesh_kv6w3")
+
+[node name="@CollisionShape3D@32" type="CollisionShape3D" parent="AncientMetropolis/CityPlazaPlateau" unique_id=1414104842]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+shape = SubResource("BoxShape3D_g4f2m")
+
+[node name="CentralAvenueTurf" type="MeshInstance3D" parent="AncientMetropolis/CityPlazaPlateau" unique_id=1701273581]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+material_override = ExtResource("7_njgl2")
+mesh = SubResource("BoxMesh_61abj")
+
+[node name="EastParkTurf" type="MeshInstance3D" parent="AncientMetropolis/CityPlazaPlateau" unique_id=1342154236]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 0.05, 0)
+material_override = ExtResource("7_njgl2")
+mesh = SubResource("BoxMesh_lquig")
+
+[node name="WestParkTurf" type="MeshInstance3D" parent="AncientMetropolis/CityPlazaPlateau" unique_id=2082886222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0.05, 0)
+material_override = ExtResource("7_njgl2")
+mesh = SubResource("BoxMesh_6ye8o")
+
+[node name="PlanetGroundLayer" type="Node3D" parent="." unique_id=1659045129]
+
+[node name="PlanetBedrockGround" type="StaticBody3D" parent="PlanetGroundLayer" unique_id=760102925]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -68, 20)
+
+[node name="BedrockSlab" type="MeshInstance3D" parent="PlanetGroundLayer/PlanetBedrockGround" unique_id=1785794807]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+material_override = ExtResource("12_fnspl")
+mesh = SubResource("BoxMesh_8ix8b")
+
+[node name="@CollisionShape3D@33" type="CollisionShape3D" parent="PlanetGroundLayer/PlanetBedrockGround" unique_id=911853199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_apv58")
+
+[node name="CraterRidge1" type="MeshInstance3D" parent="PlanetGroundLayer/PlanetBedrockGround" unique_id=1967954585]
+transform = Transform3D(1.8, 0, 0, 0, 0.4, 0, 0, 0, 1.2, -110, 8, -60)
+material_override = ExtResource("12_fnspl")
+mesh = SubResource("SphereMesh_uewuv")
+
+[node name="CraterRidge2" type="MeshInstance3D" parent="PlanetGroundLayer/PlanetBedrockGround" unique_id=48630959]
+transform = Transform3D(1.6, 0, 0, 0, 0.45, 0, 0, 0, 1.4, 120, 10, 70)
+material_override = ExtResource("12_fnspl")
+mesh = SubResource("SphereMesh_2i8os")
+
+[node name="MagmaFissure1" type="MeshInstance3D" parent="PlanetGroundLayer/PlanetBedrockGround" unique_id=929168207]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 80)
+material_override = ExtResource("13_mgxk1")
+mesh = SubResource("BoxMesh_y65qb")
+
+[node name="MagmaFissure2" type="MeshInstance3D" parent="PlanetGroundLayer/PlanetBedrockGround" unique_id=703906562]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.1, 95)
+material_override = ExtResource("13_mgxk1")
+mesh = SubResource("BoxMesh_47wk6")
+
+[node name="Landmarks" type="Node3D" parent="." unique_id=1346927972]
+
+[node name="DockedSpaceCapsule" type="CharacterBody3D" parent="Landmarks" unique_id=649664207 instance=ExtResource("14_6egl7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0.1, 12)
+script = ExtResource("15_04axm")
+
+[node name="GiantCrystalPinnacle" type="StaticBody3D" parent="Landmarks" unique_id=791815415 instance=ExtResource("16_k57rk")]
+transform = Transform3D(0.9659258, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, 0.9659258, 52, 8, -36)
+
+[node name="AttunableResonanceCrystal" type="StaticBody3D" parent="Landmarks" unique_id=349647405 instance=ExtResource("17_7t6o6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 8, -26)
+
+[node name="SpiralTree1" type="StaticBody3D" parent="Landmarks" unique_id=690789458 instance=ExtResource("18_t1mkm")]
+transform = Transform3D(0.90630776, 0, 0.42261827, 0, 1, 0, -0.42261827, 0, 0.90630776, -42, 5, -22)
+
+[node name="SpiralTree2" type="StaticBody3D" parent="Landmarks" unique_id=1540507914 instance=ExtResource("18_t1mkm")]
+transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, -55, 5, -32)
+
+[node name="GiantMushroom1" type="StaticBody3D" parent="Landmarks" unique_id=413236510 instance=ExtResource("19_geluc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 5, -32)
+
+[node name="CelestialOriginStargate" type="StaticBody3D" parent="Landmarks" unique_id=2085703494 instance=ExtResource("20_q4evx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -84)
+
+[node name="MetropolisSpireNorthWest" type="StaticBody3D" parent="Landmarks" unique_id=489985917 instance=ExtResource("21_nrnx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, -40, 30)
+
+[node name="MetropolisSpireNorthEast" type="StaticBody3D" parent="Landmarks" unique_id=602578611 instance=ExtResource("21_nrnx0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, -40, 30)
+
+[node name="MetropolisSpireSouthWest" type="StaticBody3D" parent="Landmarks" unique_id=1897594271 instance=ExtResource("21_nrnx0")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -36, -40, 80)
+
+[node name="MetropolisSpireSouthEast" type="StaticBody3D" parent="Landmarks" unique_id=1260647264 instance=ExtResource("21_nrnx0")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 36, -40, 80)
+
+[node name="HydroponicBioDomeWest" type="StaticBody3D" parent="Landmarks" unique_id=172978914 instance=ExtResource("22_xaplu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, -40, 55)
+
+[node name="HydroponicBioDomeEast" type="StaticBody3D" parent="Landmarks" unique_id=105651795 instance=ExtResource("22_xaplu")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 50, -40, 55)
+
+[node name="ConduitPylonNorth" type="StaticBody3D" parent="Landmarks" unique_id=1414468949 instance=ExtResource("23_jhcy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40, 20)
+
+[node name="ConduitPylonSouthWest" type="StaticBody3D" parent="Landmarks" unique_id=1577547029 instance=ExtResource("23_jhcy6")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -25, -40, 95)
+
+[node name="ConduitPylonSouthEast" type="StaticBody3D" parent="Landmarks" unique_id=1046765095 instance=ExtResource("23_jhcy6")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 25, -40, 95)
+
+[node name="ResonanceHealingFountain" type="StaticBody3D" parent="Landmarks" unique_id=558663402 instance=ExtResource("24_3ncil")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40, 55)
+
+[node name="ElementalFireCaveEntrance" type="StaticBody3D" parent="Landmarks" unique_id=487660840 instance=ExtResource("25_fqs1l")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -68, 125)
+
+[node name="GravityLiftElevator" type="StaticBody3D" parent="Landmarks" unique_id=1166637124 instance=ExtResource("26_xqb8r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
+
+[node name="ConnectingBridges" type="Node3D" parent="." unique_id=2065347308]
+
+[node name="RainbowBridgeNexusToGardens" type="StaticBody3D" parent="ConnectingBridges" unique_id=380206725 instance=ExtResource("27_hcb36")]
+transform = Transform3D(0.57357645, 0, 0.81915206, 0, 1, 0, -0.81915206, 0, 0.57357645, -24, 2.5, -15)
+
+[node name="StoneArchNexusToCrystals" type="StaticBody3D" parent="ConnectingBridges" unique_id=1265761932 instance=ExtResource("28_dk56r")]
+transform = Transform3D(0.81915206, 0, -0.57357645, 0, 1, 0, 0.57357645, 0, 0.81915206, 25, 4, -18)
+
+[node name="ZoneTriggers" type="Node3D" parent="." unique_id=1100342165]
+
+[node name="Trigger_SkyIslandsEntrance" type="Area3D" parent="ZoneTriggers" unique_id=1219971905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, -20)
+metadata/zone_title = "The Origin Nexus — Sky Threshold"
+metadata/time_of_day = "Low-Gravity Zone: Active"
+
+[node name="@CollisionShape3D@34" type="CollisionShape3D" parent="ZoneTriggers/Trigger_SkyIslandsEntrance" unique_id=1653744150]
+shape = SubResource("BoxShape3D_shcqt")
+
+[node name="Trigger_AncientMetropolis" type="Area3D" parent="ZoneTriggers" unique_id=1545467882]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -32, 55)
+metadata/zone_title = "Metropolis of the Ancients"
+metadata/time_of_day = "Civilization Core"
+
+[node name="@CollisionShape3D@35" type="CollisionShape3D" parent="ZoneTriggers/Trigger_AncientMetropolis" unique_id=1368987833]
+shape = SubResource("BoxShape3D_vt8fk")
+
+[node name="Trigger_PlanetGround" type="Area3D" parent="ZoneTriggers" unique_id=1846277708]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -60, 20)
+metadata/zone_title = "Cosmic Planet Surface"
+metadata/time_of_day = "Ancient Bedrock Crust"
+
+[node name="@CollisionShape3D@36" type="CollisionShape3D" parent="ZoneTriggers/Trigger_PlanetGround" unique_id=1736338907]
+shape = SubResource("BoxShape3D_2cf8a")
+
+[node name="Trigger_ElementalCaverns" type="Area3D" parent="ZoneTriggers" unique_id=1352823369]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -62, 125)
+metadata/zone_title = "Infernal Caverns of Ignis"
+metadata/time_of_day = "Elemental Training Trial"
+
+[node name="@CollisionShape3D@37" type="CollisionShape3D" parent="ZoneTriggers/Trigger_ElementalCaverns" unique_id=1370198398]
+shape = SubResource("BoxShape3D_i4ka1")
+
+[node name="NPCSpawns" type="Node3D" parent="." unique_id=1477702713]
+
+[node name="PlayerSpawn" type="Marker3D" parent="NPCSpawns" unique_id=427116586]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.5, 6)
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=602450245 instance=ExtResource("29_os6y3")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.5, 6)
+collision_layer = 2
+collision_mask = 21
+script = ExtResource("30_ofbqp")
+
+[node name="ZoneHUD" type="CanvasLayer" parent="." unique_id=501458591]
+script = ExtResource("31_uulqf")

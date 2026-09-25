@@ -1,0 +1,12 @@
+{
+ "part": "garment",
+ "name": "TR_Tee_Print",
+ "collapsed_keys": {
+  "TR_Tee_Print": 11
+ },
+ "baked": {
+  "TR_Tee_Print": 9.0
+ },
+ "glb_mb": 0.05,
+ "seconds": 9.1
+}

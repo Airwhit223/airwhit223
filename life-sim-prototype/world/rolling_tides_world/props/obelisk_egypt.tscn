@@ -1,0 +1,90 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/pyramid_limestone.tres" id="1_rxnws"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/hieroglyph_glow.tres" id="2_o6gho"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/egypt_gold.tres" id="3_ehvm0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_edc3s"]
+size = Vector3(2.8, 0.6, 2.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_duje0"]
+size = Vector3(2.8, 0.6, 2.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xmnm4"]
+size = Vector3(2.2, 0.6, 2.2)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4wbaq"]
+top_radius = 0.75
+bottom_radius = 1.0
+height = 13.0
+radial_segments = 4
+rings = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ykcou"]
+height = 13.0
+radius = 0.9
+
+[sub_resource type="BoxMesh" id="BoxMesh_f8uip"]
+size = Vector3(0.28, 10.5, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_o7yv0"]
+size = Vector3(0.28, 10.5, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_teg1y"]
+size = Vector3(0.05, 10.5, 0.28)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8p8lv"]
+size = Vector3(0.05, 10.5, 0.28)
+
+[sub_resource type="PrismMesh" id="PrismMesh_u7g5m"]
+size = Vector3(1.5, 2.2, 1.5)
+
+[node name="ObeliskEgypt" type="StaticBody3D" unique_id=818397626]
+
+[node name="PlinthBase" type="MeshInstance3D" parent="." unique_id=1659821580]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+material_override = ExtResource("1_rxnws")
+mesh = SubResource("BoxMesh_edc3s")
+
+[node name="@CollisionShape3D@79" type="CollisionShape3D" parent="." unique_id=919891799]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shape = SubResource("BoxShape3D_duje0")
+
+[node name="PlinthTier" type="MeshInstance3D" parent="." unique_id=51560966]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+material_override = ExtResource("1_rxnws")
+mesh = SubResource("BoxMesh_xmnm4")
+
+[node name="Shaft" type="MeshInstance3D" parent="." unique_id=1651721394]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.7, 0)
+material_override = ExtResource("1_rxnws")
+mesh = SubResource("CylinderMesh_4wbaq")
+
+[node name="@CollisionShape3D@80" type="CollisionShape3D" parent="." unique_id=981842151]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.7, 0)
+shape = SubResource("CylinderShape3D_ykcou")
+
+[node name="HieroglyphGlowV" type="MeshInstance3D" parent="." unique_id=1654590532]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.7, 0.82)
+material_override = ExtResource("2_o6gho")
+mesh = SubResource("BoxMesh_f8uip")
+
+[node name="@MeshInstance3D@81" type="MeshInstance3D" parent="." unique_id=1501306974]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.7, -0.82)
+material_override = ExtResource("2_o6gho")
+mesh = SubResource("BoxMesh_o7yv0")
+
+[node name="HieroglyphGlowH" type="MeshInstance3D" parent="." unique_id=1192100996]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.82, 7.7, 0)
+material_override = ExtResource("2_o6gho")
+mesh = SubResource("BoxMesh_teg1y")
+
+[node name="@MeshInstance3D@82" type="MeshInstance3D" parent="." unique_id=643316930]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.82, 7.7, 0)
+material_override = ExtResource("2_o6gho")
+mesh = SubResource("BoxMesh_8p8lv")
+
+[node name="GoldPyramidion" type="MeshInstance3D" parent="." unique_id=1246219760]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.3, 0)
+material_override = ExtResource("3_ehvm0")
+mesh = SubResource("PrismMesh_u7g5m")

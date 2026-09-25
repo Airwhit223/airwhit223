@@ -1,0 +1,12 @@
+{
+ "part": "garment",
+ "name": "Emo_Combat_Boots",
+ "collapsed_keys": {
+  "Emo_Combat_Boots": 11
+ },
+ "baked": {
+  "Emo_Combat_Boots": 5.3
+ },
+ "glb_mb": 0.86,
+ "seconds": 5.5
+}

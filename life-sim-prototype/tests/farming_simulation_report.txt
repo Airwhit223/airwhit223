@@ -1,0 +1,6 @@
+SMALL FARMING SYSTEM — HEADLESS VALIDATION
+Result: PASS
+Crop: Turnip | watered growth days: 3 | forgiving missed-day behavior: yes
+Starter seeds remaining: 5 | harvested produce: 3
+History: planted 1 | watered 3 | ready 1 | harvested 1
+The same plot is reusable after harvest and growth follows TimeManager day changes.

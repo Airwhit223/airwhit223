@@ -1,0 +1,119 @@
+{
+ "kind": "garment",
+ "name": "Emo_Combat_Boots",
+ "object": "Emo_Combat_Boots",
+ "roles": [
+  "boot",
+  "sole",
+  "boot_trim",
+  "lace",
+  "metal"
+ ],
+ "slot": "shoes",
+ "meshes": {
+  "Emo_Combat_Boots": {
+   "texture": "textures/Emo_Combat_Boots.png",
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "TR_Emo_Combat_Boots_0",
+     "role": "boot",
+     "patterns": [
+      "leather"
+     ],
+     "default_srgb": [
+      110,
+      74,
+      46
+     ]
+    },
+    {
+     "index": 1,
+     "material": "TR_Emo_Combat_Boots_1",
+     "role": "sole",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      60,
+      58,
+      58
+     ]
+    },
+    {
+     "index": 2,
+     "material": "TR_Emo_Combat_Boots_2",
+     "role": "boot_trim",
+     "patterns": [
+      "leather"
+     ],
+     "default_srgb": [
+      60,
+      58,
+      58
+     ]
+    },
+    {
+     "index": 3,
+     "material": "TR_Emo_Combat_Boots_3",
+     "role": "lace",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      230,
+      220,
+      194
+     ]
+    },
+    {
+     "index": 4,
+     "material": "TR_Emo_Combat_Boots_4",
+     "role": "metal",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      201,
+      162,
+      78
+     ]
+    },
+    {
+     "index": 5,
+     "material": "TR_Ink",
+     "role": "cloth",
+     "patterns": [],
+     "default_srgb": null
+    }
+   ]
+  }
+ },
+ "blend_shapes": {
+  "Emo_Combat_Boots": [
+   "Def_Bust",
+   "Def_Hips",
+   "Def_Waist",
+   "Def_Shoulders",
+   "Def_Pecs",
+   "Def_Back",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F",
+   "TR_Chest_Width",
+   "TR_Waist_Width",
+   "TR_Hip_Width",
+   "TR_Neck",
+   "Body_Lean",
+   "Body_Stocky",
+   "Body_Athletic",
+   "Body_Bulk"
+  ]
+ },
+ "glb": "Emo_Combat_Boots.glb"
+}

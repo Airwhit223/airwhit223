@@ -1,0 +1,55 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://world/dungeons/relic_chest.gd" id="1_ox5lm"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/iron.tres" id="2_tslu8"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/neon_yellow.tres" id="3_hfsuu"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/awning_blue.tres" id="4_wfjpt"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hyupl"]
+size = Vector3(1.1, 0.5, 0.7)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pdsfa"]
+size = Vector3(1.12, 0.1, 0.72)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6jjae"]
+size = Vector3(1.1, 0.25, 0.7)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4dpx0"]
+top_radius = 0.08
+bottom_radius = 0.08
+height = 0.08
+radial_segments = 14
+rings = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ld8kx"]
+size = Vector3(1.2, 0.8, 0.8)
+
+[node name="RelicChest" type="StaticBody3D" unique_id=359875224]
+script = ExtResource("1_ox5lm")
+
+[node name="ChestBase" type="MeshInstance3D" parent="." unique_id=675460298]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+material_override = ExtResource("2_tslu8")
+mesh = SubResource("BoxMesh_hyupl")
+
+[node name="GoldTrim" type="MeshInstance3D" parent="." unique_id=1439983931]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+material_override = ExtResource("3_hfsuu")
+mesh = SubResource("BoxMesh_pdsfa")
+
+[node name="ChestLid" type="Node3D" parent="." unique_id=1624082685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.35)
+
+[node name="LidMesh" type="MeshInstance3D" parent="ChestLid" unique_id=34912976]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0.35)
+material_override = ExtResource("4_wfjpt")
+mesh = SubResource("BoxMesh_6jjae")
+
+[node name="LockLatch" type="MeshInstance3D" parent="ChestLid" unique_id=400119368]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.72)
+material_override = ExtResource("3_hfsuu")
+mesh = SubResource("CylinderMesh_4dpx0")
+
+[node name="@CollisionShape3D@7" type="CollisionShape3D" parent="." unique_id=1980826356]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("BoxShape3D_ld8kx")

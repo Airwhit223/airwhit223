@@ -1,0 +1,99 @@
+{
+ "kind": "garment",
+ "name": "TR_Beanie",
+ "object": "TR_Beanie",
+ "roles": [
+  "hat",
+  "hat_trim",
+  "patch",
+  "metal"
+ ],
+ "slot": "headwear",
+ "meshes": {
+  "TR_Beanie": {
+   "texture": "textures/TR_Beanie.png",
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "TR_TR_Beanie_0",
+     "role": "hat",
+     "patterns": [
+      "knit"
+     ],
+     "default_srgb": [
+      47,
+      127,
+      132
+     ]
+    },
+    {
+     "index": 1,
+     "material": "TR_TR_Beanie_1",
+     "role": "hat_trim",
+     "patterns": [
+      "knit"
+     ],
+     "default_srgb": [
+      200,
+      100,
+      42
+     ]
+    },
+    {
+     "index": 2,
+     "material": "TR_TR_Beanie_2",
+     "role": "patch",
+     "patterns": [
+      "leather"
+     ],
+     "default_srgb": [
+      110,
+      74,
+      46
+     ]
+    },
+    {
+     "index": 3,
+     "material": "TR_TR_Beanie_3",
+     "role": "metal",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      201,
+      162,
+      78
+     ]
+    },
+    {
+     "index": 4,
+     "material": "TR_Ink",
+     "role": "cloth",
+     "patterns": [],
+     "default_srgb": null
+    }
+   ]
+  }
+ },
+ "blend_shapes": {
+  "TR_Beanie": [
+   "Def_Bust",
+   "Def_Hips",
+   "Def_Waist",
+   "Def_Shoulders",
+   "Def_Pecs",
+   "Def_Back",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "Pose_Rest",
+   "TR_Chest_Width",
+   "TR_Waist_Width",
+   "TR_Hip_Width",
+   "TR_Neck"
+  ]
+ },
+ "glb": "TR_Beanie.glb"
+}

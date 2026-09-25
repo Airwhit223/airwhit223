@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://world/shaders/toon_world.gdshader" id="1_sf412"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_sf412")
+shader_parameter/base_color = Color(0.82, 0.45, 1.0, 1)
+shader_parameter/shadow_color = Color(0.55, 0.18, 0.85, 1)
+shader_parameter/shadow_threshold = 0.4
+shader_parameter/line_mode = 0
+shader_parameter/glow = 1.6

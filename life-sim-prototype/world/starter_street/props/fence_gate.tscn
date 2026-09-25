@@ -1,0 +1,159 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/starter_street/materials/warm_wood.tres" id="1_hopmo"]
+[ext_resource type="Material" path="res://world/starter_street/materials/metal.tres" id="2_asa4w"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_k5mh3"]
+size = Vector3(0.1, 1.15, 0.1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_6n4eg"]
+size = Vector3(0.12, 0.07, 0.12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d2ta2"]
+size = Vector3(0.12, 1.15, 0.12)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ouake"]
+size = Vector3(0.1, 1.15, 0.1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_u6t25"]
+size = Vector3(0.12, 0.07, 0.12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iw721"]
+size = Vector3(0.12, 1.15, 0.12)
+
+[sub_resource type="BoxMesh" id="BoxMesh_huvwi"]
+size = Vector3(0.78, 0.07, 0.04)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vc63e"]
+size = Vector3(0.78, 0.07, 0.04)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qenle"]
+size = Vector3(0.84, 0.06, 0.035)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3b27c"]
+size = Vector3(0.09, 0.88, 0.03)
+
+[sub_resource type="PrismMesh" id="PrismMesh_wmn1c"]
+size = Vector3(0.09, 0.07, 0.03)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8c67c"]
+size = Vector3(0.09, 0.88, 0.03)
+
+[sub_resource type="PrismMesh" id="PrismMesh_udjhn"]
+size = Vector3(0.09, 0.07, 0.03)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4iswy"]
+size = Vector3(0.09, 0.88, 0.03)
+
+[sub_resource type="PrismMesh" id="PrismMesh_fv150"]
+size = Vector3(0.09, 0.07, 0.03)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fxxul"]
+size = Vector3(0.09, 0.88, 0.03)
+
+[sub_resource type="PrismMesh" id="PrismMesh_asut1"]
+size = Vector3(0.09, 0.07, 0.03)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kolfe"]
+size = Vector3(0.1, 0.05, 0.03)
+
+[sub_resource type="BoxMesh" id="BoxMesh_eqvgu"]
+size = Vector3(0.1, 0.05, 0.03)
+
+[node name="FenceGate" type="StaticBody3D" unique_id=888590390]
+
+[node name="Post" type="MeshInstance3D" parent="." unique_id=1699771031]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0.575, 0)
+material_override = ExtResource("1_hopmo")
+mesh = SubResource("BoxMesh_k5mh3")
+
+[node name="PostCap" type="MeshInstance3D" parent="." unique_id=649161763]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 1.185, 0)
+material_override = ExtResource("1_hopmo")
+mesh = SubResource("PrismMesh_6n4eg")
+
+[node name="@CollisionShape3D@56" type="CollisionShape3D" parent="." unique_id=1356015611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0.575, 0)
+shape = SubResource("BoxShape3D_d2ta2")
+
+[node name="@MeshInstance3D@57" type="MeshInstance3D" parent="." unique_id=111767092]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 0.575, 0)
+material_override = ExtResource("1_hopmo")
+mesh = SubResource("BoxMesh_ouake")
+
+[node name="@MeshInstance3D@58" type="MeshInstance3D" parent="." unique_id=247447778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 1.185, 0)
+material_override = ExtResource("1_hopmo")
+mesh = SubResource("PrismMesh_u6t25")
+
+[node name="@CollisionShape3D@59" type="CollisionShape3D" parent="." unique_id=32204180]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 0.575, 0)
+shape = SubResource("BoxShape3D_iw721")
+
+[node name="Leaf" type="Node3D" parent="." unique_id=224346248]
+transform = Transform3D(0.52991927, 0, -0.8480481, 0, 1, 0, 0.8480481, 0, 0.52991927, 0.11, 0, 0)
+
+[node name="Rail" type="MeshInstance3D" parent="Leaf" unique_id=386075732]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39, 0.3, -0.04)
+material_override = ExtResource("1_hopmo")
+mesh = SubResource("BoxMesh_huvwi")
+
+[node name="@MeshInstance3D@60" type="MeshInstance3D" parent="Leaf" unique_id=1907267209]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39, 0.75, -0.04)
+material_override = ExtResource("1_hopmo")
+mesh = SubResource("BoxMesh_vc63e")
+
+[node name="Brace" type="MeshInstance3D" parent="Leaf" unique_id=1600334894]
+transform = Transform3D(0.83867055, -0.54463905, 0, 0.54463905, 0.83867055, 0, 0, 0, 1, 0.39, 0.525, -0.05)
+material_override = ExtResource("1_hopmo")
+mesh = SubResource("BoxMesh_qenle")
+
+[node name="Picket" type="MeshInstance3D" parent="Leaf" unique_id=1053156560]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08, 0.49, 0)
+material_override = ExtResource("1_hopmo")
+mesh = SubResource("BoxMesh_3b27c")
+
+[node name="PicketTip" type="MeshInstance3D" parent="Leaf" unique_id=1739958206]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08, 0.965, 0)
+material_override = ExtResource("1_hopmo")
+mesh = SubResource("PrismMesh_wmn1c")
+
+[node name="@MeshInstance3D@61" type="MeshInstance3D" parent="Leaf" unique_id=572139905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 0.49, 0)
+material_override = ExtResource("1_hopmo")
+mesh = SubResource("BoxMesh_8c67c")
+
+[node name="@MeshInstance3D@62" type="MeshInstance3D" parent="Leaf" unique_id=902039063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 0.965, 0)
+material_override = ExtResource("1_hopmo")
+mesh = SubResource("PrismMesh_udjhn")
+
+[node name="@MeshInstance3D@63" type="MeshInstance3D" parent="Leaf" unique_id=1118190427]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.49, 0)
+material_override = ExtResource("1_hopmo")
+mesh = SubResource("BoxMesh_4iswy")
+
+[node name="@MeshInstance3D@64" type="MeshInstance3D" parent="Leaf" unique_id=1157009491]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.965, 0)
+material_override = ExtResource("1_hopmo")
+mesh = SubResource("PrismMesh_fv150")
+
+[node name="@MeshInstance3D@65" type="MeshInstance3D" parent="Leaf" unique_id=433775440]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.71, 0.49, 0)
+material_override = ExtResource("1_hopmo")
+mesh = SubResource("BoxMesh_fxxul")
+
+[node name="@MeshInstance3D@66" type="MeshInstance3D" parent="Leaf" unique_id=1407453599]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.71, 0.965, 0)
+material_override = ExtResource("1_hopmo")
+mesh = SubResource("PrismMesh_asut1")
+
+[node name="Hinge" type="MeshInstance3D" parent="." unique_id=1695850421]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 0.3, -0.05)
+material_override = ExtResource("2_asa4w")
+mesh = SubResource("BoxMesh_kolfe")
+
+[node name="@MeshInstance3D@67" type="MeshInstance3D" parent="." unique_id=1690192850]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 0.75, -0.05)
+material_override = ExtResource("2_asa4w")
+mesh = SubResource("BoxMesh_eqvgu")

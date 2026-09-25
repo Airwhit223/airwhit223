@@ -1,0 +1,59 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/quartz_crystal_cyan.tres" id="1_siful"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/quartz_crystal_magenta.tres" id="2_50dt3"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/quartz_crystal_violet.tres" id="3_l1ql6"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lbne5"]
+top_radius = 0.1
+bottom_radius = 1.4
+height = 16.0
+radial_segments = 6
+rings = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_r3ul6"]
+height = 16.0
+radius = 1.2
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4hhax"]
+top_radius = 0.05
+bottom_radius = 1.0
+height = 11.5
+radial_segments = 6
+rings = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4crcu"]
+height = 11.5
+radius = 0.9
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_l6b0h"]
+top_radius = 0.05
+bottom_radius = 0.9
+height = 9.0
+radial_segments = 6
+rings = 1
+
+[node name="QuartzSpireCluster" type="StaticBody3D" unique_id=791815415]
+
+[node name="CrystalSpireCyanMain" type="MeshInstance3D" parent="." unique_id=1975491988]
+transform = Transform3D(0.9945219, 0.104528464, 0, -0.10427384, 0.99209934, -0.06975647, -0.007291537, 0.06937434, 0.9975641, 0, 8, 0)
+material_override = ExtResource("1_siful")
+mesh = SubResource("CylinderMesh_lbne5")
+
+[node name="@CollisionShape3D@3" type="CollisionShape3D" parent="." unique_id=846950977]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+shape = SubResource("CylinderShape3D_r3ul6")
+
+[node name="CrystalMagentaSpire" type="MeshInstance3D" parent="." unique_id=2088457817]
+transform = Transform3D(0.9092615, -0.24193291, 0.3386916, 0.20588832, 0.96862835, 0.1391731, -0.36173686, -0.0568121, 0.9305476, 2.2, 5.5, 0.8)
+material_override = ExtResource("2_50dt3")
+mesh = SubResource("CylinderMesh_4hhax")
+
+[node name="@CollisionShape3D@4" type="CollisionShape3D" parent="." unique_id=1318738511]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 5.5, 0.8)
+shape = SubResource("CylinderShape3D_4crcu")
+
+[node name="CrystalVioletSpire" type="MeshInstance3D" parent="." unique_id=1600483032]
+transform = Transform3D(0.96401453, 0.08114308, -0.25316322, -0.13613184, 0.96862835, -0.2079117, 0.22835049, 0.23489349, 0.944818, -1.8, 4.5, -1.2)
+material_override = ExtResource("3_l1ql6")
+mesh = SubResource("CylinderMesh_l6b0h")

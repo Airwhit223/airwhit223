@@ -1,0 +1,71 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/starter_street/materials/warm_wood.tres" id="1_aeisl"]
+[ext_resource type="Material" path="res://world/starter_street/materials/chalkboard.tres" id="2_y5taq"]
+[ext_resource type="Material" path="res://world/starter_street/materials/blob_shadow.tres" id="3_kru1h"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_w83rm"]
+size = Vector3(0.56, 0.78, 0.035)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wjfot"]
+size = Vector3(0.46, 0.62, 0.01)
+
+[sub_resource type="BoxMesh" id="BoxMesh_77xxw"]
+size = Vector3(0.56, 0.78, 0.035)
+
+[sub_resource type="BoxMesh" id="BoxMesh_38q87"]
+size = Vector3(0.46, 0.62, 0.01)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6lmso"]
+size = Vector3(0.6, 0.8, 0.4)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nl42a"]
+size = Vector2(0.8, 0.8)
+
+[node name="ChalkboardSign" type="StaticBody3D" unique_id=1766847886]
+
+[node name="FaceFront" type="Node3D" parent="." unique_id=1548525507]
+transform = Transform3D(1, 0, 0, 0, 0.9781476, 0.2079117, 0, -0.2079117, 0.9781476, 0, 0.39, 0.09)
+
+[node name="Frame" type="MeshInstance3D" parent="FaceFront" unique_id=1819382773]
+material_override = ExtResource("1_aeisl")
+mesh = SubResource("BoxMesh_w83rm")
+
+[node name="Board" type="MeshInstance3D" parent="FaceFront" unique_id=1872230953]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0.02)
+material_override = ExtResource("2_y5taq")
+mesh = SubResource("BoxMesh_wjfot")
+
+[node name="Chalk" type="Label3D" parent="FaceFront" unique_id=1080394539]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0.04)
+pixel_size = 0.0042
+double_sided = false
+alpha_cut = 1
+modulate = Color(0.95686275, 0.9372549, 0.8862745, 1)
+text = "SKATE
+Decks & Gear
+OPEN"
+font_size = 26
+outline_size = 0
+
+[node name="FaceBack" type="Node3D" parent="." unique_id=1907079095]
+transform = Transform3D(1, 0, 0, 0, 0.9781476, -0.2079117, 0, 0.2079117, 0.9781476, 0, 0.39, -0.09)
+
+[node name="Frame" type="MeshInstance3D" parent="FaceBack" unique_id=893721204]
+material_override = ExtResource("1_aeisl")
+mesh = SubResource("BoxMesh_77xxw")
+
+[node name="Board" type="MeshInstance3D" parent="FaceBack" unique_id=1905057567]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, -0.02)
+material_override = ExtResource("2_y5taq")
+mesh = SubResource("BoxMesh_38q87")
+
+[node name="@CollisionShape3D@87" type="CollisionShape3D" parent="." unique_id=1701359546]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("BoxShape3D_6lmso")
+
+[node name="BlobShadow" type="MeshInstance3D" parent="." unique_id=1707762447]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015, 0)
+material_override = ExtResource("3_kru1h")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_nl42a")

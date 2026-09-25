@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://world/shaders/ink_screen.gdshader" id="1_msdu0"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_msdu0")
+shader_parameter/ink_color = Color(0.13, 0.1, 0.12, 1)
+shader_parameter/thickness = 0.9
+shader_parameter/depth_sensitivity = 0.035
+shader_parameter/normal_sensitivity = 0.45
+shader_parameter/fade_start = 45.0
+shader_parameter/fade_end = 140.0

@@ -1,0 +1,12 @@
+{
+ "part": "garment",
+ "name": "Mechanic_Work_Gloves",
+ "collapsed_keys": {
+  "Mechanic_Work_Gloves": 11
+ },
+ "baked": {
+  "Mechanic_Work_Gloves": 8.0
+ },
+ "glb_mb": 0.69,
+ "seconds": 8.1
+}

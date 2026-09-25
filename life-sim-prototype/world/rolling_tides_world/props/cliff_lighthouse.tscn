@@ -1,0 +1,131 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/cream.tres" id="1_vm3j8"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/awning_red.tres" id="2_gpaty"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/iron.tres" id="3_24exp"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/lamp_glow.tres" id="4_72q3p"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/roof_slate.tres" id="5_edqgy"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/tavern_gold.tres" id="6_5e7gy"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_df3ab"]
+top_radius = 1.8
+bottom_radius = 2.4
+height = 3.5
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vajuk"]
+top_radius = 1.5
+bottom_radius = 1.8
+height = 3.0
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8qg3f"]
+top_radius = 1.25
+bottom_radius = 1.5
+height = 3.0
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1yntq"]
+top_radius = 1.05
+bottom_radius = 1.25
+height = 2.5
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ps75p"]
+top_radius = 1.5
+bottom_radius = 1.5
+height = 0.3
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_exbfr"]
+top_radius = 1.45
+bottom_radius = 1.45
+height = 0.6
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pptia"]
+top_radius = 0.9
+bottom_radius = 0.9
+height = 1.6
+radial_segments = 12
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_im61c"]
+top_radius = 0.05
+bottom_radius = 1.2
+height = 1.2
+radial_segments = 14
+rings = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_s243x"]
+radius = 0.15
+height = 0.3
+radial_segments = 16
+rings = 8
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cya1k"]
+height = 15.0
+radius = 2.4
+
+[node name="CliffLighthouse" type="StaticBody3D" unique_id=231386044]
+
+[node name="TowerWhiteBase" type="MeshInstance3D" parent="." unique_id=2035854385]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
+material_override = ExtResource("1_vm3j8")
+mesh = SubResource("CylinderMesh_df3ab")
+
+[node name="TowerRedBand1" type="MeshInstance3D" parent="." unique_id=596145479]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+material_override = ExtResource("2_gpaty")
+mesh = SubResource("CylinderMesh_vajuk")
+
+[node name="TowerWhiteBand2" type="MeshInstance3D" parent="." unique_id=1398136642]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+material_override = ExtResource("1_vm3j8")
+mesh = SubResource("CylinderMesh_8qg3f")
+
+[node name="TowerRedBand3" type="MeshInstance3D" parent="." unique_id=23699360]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.75, 0)
+material_override = ExtResource("2_gpaty")
+mesh = SubResource("CylinderMesh_1yntq")
+
+[node name="GalleryPlatform" type="MeshInstance3D" parent="." unique_id=815514741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.15, 0)
+material_override = ExtResource("3_24exp")
+mesh = SubResource("CylinderMesh_ps75p")
+
+[node name="GalleryRail" type="MeshInstance3D" parent="." unique_id=1806438690]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.5, 0)
+material_override = ExtResource("3_24exp")
+mesh = SubResource("CylinderMesh_exbfr")
+
+[node name="LanternGlass" type="MeshInstance3D" parent="." unique_id=444039192]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0)
+material_override = ExtResource("4_72q3p")
+mesh = SubResource("CylinderMesh_pptia")
+
+[node name="LanternRoof" type="MeshInstance3D" parent="." unique_id=2046788139]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.4, 0)
+material_override = ExtResource("5_edqgy")
+mesh = SubResource("CylinderMesh_im61c")
+
+[node name="LighthouseFinial" type="MeshInstance3D" parent="." unique_id=1034320134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.1, 0)
+material_override = ExtResource("6_5e7gy")
+mesh = SubResource("SphereMesh_s243x")
+
+[node name="@CollisionShape3D@41" type="CollisionShape3D" parent="." unique_id=57343500]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("CylinderShape3D_cya1k")
+
+[node name="BeaconLight" type="OmniLight3D" parent="." unique_id=1749418321]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0)
+light_color = Color(1, 0.9098039, 0.6901961, 1)
+light_energy = 4.0
+omni_range = 25.0

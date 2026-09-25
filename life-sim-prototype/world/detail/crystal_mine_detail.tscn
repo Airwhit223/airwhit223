@@ -1,0 +1,156 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/stone_plain.tres" id="1_stone"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/dark_timber.tres" id="2_timber"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/steel.tres" id="3_steel"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/amethyst_glow.tres" id="4_crystal"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/iron.tres" id="5_iron"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/lamp_glow.tres" id="6_lamp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cliff"]
+size = Vector3(44, 20, 16)
+
+[sub_resource type="BoxShape3D" id="BoxShape_cliff"]
+size = Vector3(44, 20, 16)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mine_tunnel"]
+size = Vector3(9, 7.5, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape_mine_tunnel"]
+size = Vector3(9, 7.5, 12)
+
+[sub_resource type="BoxMesh" id="BoxMesh_beam"]
+size = Vector3(0.5, 6.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_header"]
+size = Vector3(8.5, 0.6, 0.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rail"]
+size = Vector3(0.12, 0.12, 32.0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tie"]
+size = Vector3(2.4, 0.1, 0.35)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cart"]
+size = Vector3(2.2, 1.4, 3.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape_cart"]
+size = Vector3(2.2, 1.4, 3.2)
+
+[sub_resource type="PrismMesh" id="PrismMesh_crystal"]
+size = Vector3(1.2, 2.8, 1.2)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lantern_post"]
+top_radius = 0.1
+bottom_radius = 0.15
+height = 3.2
+
+[sub_resource type="BoxMesh" id="BoxMesh_lantern"]
+size = Vector3(0.4, 0.6, 0.4)
+
+[node name="CrystalMineDetail" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 0, -220)
+
+[node name="MineQuarryWall" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -12)
+
+[node name="RockMesh" type="MeshInstance3D" parent="MineQuarryWall"]
+mesh = SubResource("BoxMesh_cliff")
+surface_material_override/0 = ExtResource("1_stone")
+
+[node name="Coll" type="CollisionShape3D" parent="MineQuarryWall"]
+shape = SubResource("BoxShape_cliff")
+
+[node name="MineShaftPortal" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="LeftPillar" type="MeshInstance3D" parent="MineShaftPortal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8, 3.25, 0)
+mesh = SubResource("BoxMesh_beam")
+surface_material_override/0 = ExtResource("2_timber")
+
+[node name="RightPillar" type="MeshInstance3D" parent="MineShaftPortal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8, 3.25, 0)
+mesh = SubResource("BoxMesh_beam")
+surface_material_override/0 = ExtResource("2_timber")
+
+[node name="CrossBeam" type="MeshInstance3D" parent="MineShaftPortal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.2, 0)
+mesh = SubResource("BoxMesh_header")
+surface_material_override/0 = ExtResource("2_timber")
+
+[node name="RailTracks" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 10)
+
+[node name="RailLeft" type="MeshInstance3D" parent="RailTracks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 0.06, 0)
+mesh = SubResource("BoxMesh_rail")
+surface_material_override/0 = ExtResource("3_steel")
+
+[node name="RailRight" type="MeshInstance3D" parent="RailTracks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85, 0.06, 0)
+mesh = SubResource("BoxMesh_rail")
+surface_material_override/0 = ExtResource("3_steel")
+
+[node name="Tie1" type="MeshInstance3D" parent="RailTracks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+mesh = SubResource("BoxMesh_tie")
+surface_material_override/0 = ExtResource("2_timber")
+
+[node name="Tie2" type="MeshInstance3D" parent="RailTracks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+mesh = SubResource("BoxMesh_tie")
+surface_material_override/0 = ExtResource("2_timber")
+
+[node name="Tie3" type="MeshInstance3D" parent="RailTracks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+mesh = SubResource("BoxMesh_tie")
+surface_material_override/0 = ExtResource("2_timber")
+
+[node name="Tie4" type="MeshInstance3D" parent="RailTracks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+mesh = SubResource("BoxMesh_tie")
+surface_material_override/0 = ExtResource("2_timber")
+
+[node name="MineCartWithOre" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 5)
+
+[node name="CartBody" type="MeshInstance3D" parent="MineCartWithOre"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+mesh = SubResource("BoxMesh_cart")
+surface_material_override/0 = ExtResource("5_iron")
+
+[node name="Coll" type="CollisionShape3D" parent="MineCartWithOre"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+shape = SubResource("BoxShape_cart")
+
+[node name="AmethystClusterInCart" type="MeshInstance3D" parent="MineCartWithOre"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+mesh = SubResource("PrismMesh_crystal")
+surface_material_override/0 = ExtResource("4_crystal")
+
+[node name="WallCrystalClusters" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 4, -4)
+
+[node name="Spike1" type="MeshInstance3D" parent="WallCrystalClusters"]
+transform = Transform3D(0.866, -0.5, 0, 0.5, 0.866, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("PrismMesh_crystal")
+surface_material_override/0 = ExtResource("4_crystal")
+
+[node name="Spike2" type="MeshInstance3D" parent="WallCrystalClusters"]
+transform = Transform3D(0.707, 0.707, 0, -0.707, 0.707, 0, 0, 0, 1, 1.5, 1.2, 0)
+mesh = SubResource("PrismMesh_crystal")
+surface_material_override/0 = ExtResource("4_crystal")
+
+[node name="LanternPost" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 6)
+
+[node name="Post" type="MeshInstance3D" parent="LanternPost"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+mesh = SubResource("CylinderMesh_lantern_post")
+surface_material_override/0 = ExtResource("2_timber")
+
+[node name="Lantern" type="MeshInstance3D" parent="LanternPost"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1, 0)
+mesh = SubResource("BoxMesh_lantern")
+surface_material_override/0 = ExtResource("6_lamp")

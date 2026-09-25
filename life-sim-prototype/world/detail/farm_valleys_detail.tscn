@@ -1,0 +1,269 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/crop_soil.tres" id="1_soil"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/barn_red.tres" id="2_barn"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/dark_timber.tres" id="3_timber"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/warm_wood.tres" id="4_wood"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/roof_shingle.tres" id="5_roof"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/roof_slate.tres" id="6_slate"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/steel.tres" id="7_steel"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/stone_plain.tres" id="8_stone"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/window_glow.tres" id="9_window"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/living_green.tres" id="10_grass"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/awning_yellow.tres" id="11_yellow"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_soil"]
+size = Vector3(28, 0.2, 22)
+
+[sub_resource type="BoxShape3D" id="BoxShape_soil"]
+size = Vector3(28, 0.2, 22)
+
+[sub_resource type="BoxMesh" id="BoxMesh_barn_main"]
+size = Vector3(14, 9, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape_barn_main"]
+size = Vector3(14, 9, 20)
+
+[sub_resource type="PrismMesh" id="PrismMesh_barn_roof"]
+left_to_right = 0.5
+size = Vector3(14.6, 5.2, 20.4)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_silo"]
+top_radius = 2.4
+bottom_radius = 2.4
+height = 12.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_silo_cap"]
+radius = 2.45
+height = 2.4
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_windmill_tower"]
+top_radius = 1.4
+bottom_radius = 2.5
+height = 11.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_blade"]
+size = Vector3(0.5, 7.5, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_shed"]
+size = Vector3(6, 4.2, 7)
+
+[sub_resource type="BoxShape3D" id="BoxShape_shed"]
+size = Vector3(6, 4.2, 7)
+
+[sub_resource type="PrismMesh" id="PrismMesh_shed_roof"]
+left_to_right = 0.5
+size = Vector3(6.4, 2.2, 7.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bin"]
+size = Vector3(2.2, 1.4, 3.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape_bin"]
+size = Vector3(2.2, 1.4, 3.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fence"]
+size = Vector3(4.0, 1.1, 0.15)
+
+[sub_resource type="SphereMesh" id="SphereMesh_pumpkin"]
+radius = 0.55
+height = 0.85
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_scarecrow_pole"]
+top_radius = 0.08
+bottom_radius = 0.08
+height = 2.4
+
+[sub_resource type="BoxMesh" id="BoxMesh_scarecrow_arms"]
+size = Vector3(1.8, 0.12, 0.12)
+
+[node name="FarmValleysDetail" type="Node3D"]
+
+[node name="StartingFarmYard" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -105, 0, -65)
+
+[node name="TilledCropField1" type="StaticBody3D" parent="StartingFarmYard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="StartingFarmYard/TilledCropField1"]
+mesh = SubResource("BoxMesh_soil")
+surface_material_override/0 = ExtResource("1_soil")
+
+[node name="Coll" type="CollisionShape3D" parent="StartingFarmYard/TilledCropField1"]
+shape = SubResource("BoxShape_soil")
+
+[node name="TilledCropField2" type="StaticBody3D" parent="StartingFarmYard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 26)
+
+[node name="Mesh" type="MeshInstance3D" parent="StartingFarmYard/TilledCropField2"]
+mesh = SubResource("BoxMesh_soil")
+surface_material_override/0 = ExtResource("1_soil")
+
+[node name="Coll" type="CollisionShape3D" parent="StartingFarmYard/TilledCropField2"]
+shape = SubResource("BoxShape_soil")
+
+[node name="Scarecrow1" type="Node3D" parent="StartingFarmYard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Pole" type="MeshInstance3D" parent="StartingFarmYard/Scarecrow1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+mesh = SubResource("CylinderMesh_scarecrow_pole")
+surface_material_override/0 = ExtResource("4_wood")
+
+[node name="Arms" type="MeshInstance3D" parent="StartingFarmYard/Scarecrow1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+mesh = SubResource("BoxMesh_scarecrow_arms")
+surface_material_override/0 = ExtResource("4_wood")
+
+[node name="StartingFarmhouse" type="StaticBody3D" parent="StartingFarmYard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 4)
+
+[node name="Body" type="MeshInstance3D" parent="StartingFarmYard/StartingFarmhouse"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+mesh = SubResource("BoxMesh_shed")
+surface_material_override/0 = ExtResource("4_wood")
+
+[node name="Roof" type="MeshInstance3D" parent="StartingFarmYard/StartingFarmhouse"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.2, 0)
+mesh = SubResource("PrismMesh_shed_roof")
+surface_material_override/0 = ExtResource("5_roof")
+
+[node name="Coll" type="CollisionShape3D" parent="StartingFarmYard/StartingFarmhouse"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+shape = SubResource("BoxShape_shed")
+
+[node name="Windmill" type="StaticBody3D" parent="StartingFarmYard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -8)
+
+[node name="Tower" type="MeshInstance3D" parent="StartingFarmYard/Windmill"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0)
+mesh = SubResource("CylinderMesh_windmill_tower")
+surface_material_override/0 = ExtResource("8_stone")
+
+[node name="Blades" type="Node3D" parent="StartingFarmYard/Windmill"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.5, 1.4)
+
+[node name="Blade1" type="MeshInstance3D" parent="StartingFarmYard/Windmill/Blades"]
+mesh = SubResource("BoxMesh_blade")
+surface_material_override/0 = ExtResource("4_wood")
+
+[node name="Blade2" type="MeshInstance3D" parent="StartingFarmYard/Windmill/Blades"]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_blade")
+surface_material_override/0 = ExtResource("4_wood")
+
+[node name="GrainSilo" type="StaticBody3D" parent="StartingFarmYard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -8)
+
+[node name="Tank" type="MeshInstance3D" parent="StartingFarmYard/GrainSilo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("CylinderMesh_silo")
+surface_material_override/0 = ExtResource("7_steel")
+
+[node name="Dome" type="MeshInstance3D" parent="StartingFarmYard/GrainSilo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+mesh = SubResource("SphereMesh_silo_cap")
+surface_material_override/0 = ExtResource("7_steel")
+
+[node name="GrandpasShed" type="StaticBody3D" parent="StartingFarmYard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 16)
+
+[node name="ShedBody" type="MeshInstance3D" parent="StartingFarmYard/GrandpasShed"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
+mesh = SubResource("BoxMesh_shed")
+surface_material_override/0 = ExtResource("3_timber")
+
+[node name="ShedRoof" type="MeshInstance3D" parent="StartingFarmYard/GrandpasShed"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.6, 0)
+mesh = SubResource("PrismMesh_shed_roof")
+surface_material_override/0 = ExtResource("6_slate")
+
+[node name="Coll" type="CollisionShape3D" parent="StartingFarmYard/GrandpasShed"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
+shape = SubResource("BoxShape_shed")
+
+[node name="ShippingBin" type="StaticBody3D" parent="StartingFarmYard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 26)
+
+[node name="Box" type="MeshInstance3D" parent="StartingFarmYard/ShippingBin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+mesh = SubResource("BoxMesh_bin")
+surface_material_override/0 = ExtResource("3_timber")
+
+[node name="Coll" type="CollisionShape3D" parent="StartingFarmYard/ShippingBin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+shape = SubResource("BoxShape_bin")
+
+[node name="CompetitorFarmValley" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130, 0, -90)
+
+[node name="BigRedBarn" type="StaticBody3D" parent="CompetitorFarmValley"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="BarnBody" type="MeshInstance3D" parent="CompetitorFarmValley/BigRedBarn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
+mesh = SubResource("BoxMesh_barn_main")
+surface_material_override/0 = ExtResource("2_barn")
+
+[node name="BarnRoof" type="MeshInstance3D" parent="CompetitorFarmValley/BigRedBarn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.5, 0)
+mesh = SubResource("PrismMesh_barn_roof")
+surface_material_override/0 = ExtResource("5_roof")
+
+[node name="Coll" type="CollisionShape3D" parent="CompetitorFarmValley/BigRedBarn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
+shape = SubResource("BoxShape_barn_main")
+
+[node name="CompetitorPumpkinPatch" type="StaticBody3D" parent="CompetitorFarmValley"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0.1, 0)
+
+[node name="FieldMesh" type="MeshInstance3D" parent="CompetitorFarmValley/CompetitorPumpkinPatch"]
+mesh = SubResource("BoxMesh_soil")
+surface_material_override/0 = ExtResource("1_soil")
+
+[node name="Pumpkin1" type="MeshInstance3D" parent="CompetitorFarmValley/CompetitorPumpkinPatch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.4, -3)
+mesh = SubResource("SphereMesh_pumpkin")
+surface_material_override/0 = ExtResource("11_yellow")
+
+[node name="Pumpkin2" type="MeshInstance3D" parent="CompetitorFarmValley/CompetitorPumpkinPatch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.4, 4)
+mesh = SubResource("SphereMesh_pumpkin")
+surface_material_override/0 = ExtResource("11_yellow")
+
+[node name="Pumpkin3" type="MeshInstance3D" parent="CompetitorFarmValley/CompetitorPumpkinPatch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.4, -5)
+mesh = SubResource("SphereMesh_pumpkin")
+surface_material_override/0 = ExtResource("11_yellow")
+
+[node name="Coll" type="CollisionShape3D" parent="CompetitorFarmValley/CompetitorPumpkinPatch"]
+shape = SubResource("BoxShape_soil")
+
+[node name="SeedSuppliesShop" type="StaticBody3D" parent="CompetitorFarmValley"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 24)
+
+[node name="Body" type="MeshInstance3D" parent="CompetitorFarmValley/SeedSuppliesShop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+mesh = SubResource("BoxMesh_shed")
+surface_material_override/0 = ExtResource("4_wood")
+
+[node name="Roof" type="MeshInstance3D" parent="CompetitorFarmValley/SeedSuppliesShop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8, 0)
+mesh = SubResource("PrismMesh_shed_roof")
+surface_material_override/0 = ExtResource("6_slate")
+
+[node name="Coll" type="CollisionShape3D" parent="CompetitorFarmValley/SeedSuppliesShop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+shape = SubResource("BoxShape_shed")
+
+[node name="AnimalsForSalePasture" type="Node3D" parent="CompetitorFarmValley"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 24)
+
+[node name="FenceNorth" type="MeshInstance3D" parent="CompetitorFarmValley/AnimalsForSalePasture"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, -6)
+mesh = SubResource("BoxMesh_fence")
+surface_material_override/0 = ExtResource("4_wood")
+
+[node name="FenceSouth" type="MeshInstance3D" parent="CompetitorFarmValley/AnimalsForSalePasture"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 6)
+mesh = SubResource("BoxMesh_fence")
+surface_material_override/0 = ExtResource("4_wood")

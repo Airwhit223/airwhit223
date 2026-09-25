@@ -1,0 +1,224 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/gothic_stone.tres" id="1_4trm1"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/mossy_stone.tres" id="2_5abjl"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/neon_cyan.tres" id="3_lf2gs"]
+[ext_resource type="PackedScene" path="res://world/dungeons/destructible_rock.tscn" id="4_ry658"]
+[ext_resource type="Script" path="res://world/dungeons/destructible_rock.gd" id="5_op1dw"]
+[ext_resource type="PackedScene" path="res://world/dungeons/relic_chest.tscn" id="6_ebc0q"]
+[ext_resource type="Script" path="res://world/dungeons/relic_chest.gd" id="7_j7vbr"]
+[ext_resource type="PackedScene" path="res://world/dungeons/pressure_plate.tscn" id="8_bmy0q"]
+[ext_resource type="Script" path="res://world/dungeons/pressure_plate.gd" id="9_h0lr6"]
+[ext_resource type="PackedScene" path="res://world/dungeons/elemental_brazier.tscn" id="10_nfums"]
+[ext_resource type="Script" path="res://world/dungeons/elemental_brazier.gd" id="11_8c1dx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2jruq"]
+size = Vector3(28, 0.5, 36)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lauvw"]
+size = Vector3(28, 0.5, 36)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2qssg"]
+size = Vector3(1.5, 7, 36)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e7q2e"]
+size = Vector3(1.5, 7, 36)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lfbhp"]
+size = Vector3(1.5, 7, 36)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3lwr3"]
+size = Vector3(1.5, 7, 36)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bb4l2"]
+size = Vector3(28, 7, 1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1qmu0"]
+size = Vector3(28, 7, 1.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_inc8j"]
+size = Vector3(28, 1, 36)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fajt3"]
+size = Vector3(28, 1, 36)
+
+[sub_resource type="PrismMesh" id="PrismMesh_yrcdv"]
+size = Vector3(0.9, 2.4, 0.9)
+
+[sub_resource type="PrismMesh" id="PrismMesh_qtema"]
+size = Vector3(0.9, 2.4, 0.9)
+
+[sub_resource type="PrismMesh" id="PrismMesh_ed1ly"]
+size = Vector3(0.9, 2.4, 0.9)
+
+[sub_resource type="PrismMesh" id="PrismMesh_5j5rx"]
+size = Vector3(0.9, 2.4, 0.9)
+
+[sub_resource type="PrismMesh" id="PrismMesh_mena7"]
+size = Vector3(0.9, 2.4, 0.9)
+
+[sub_resource type="PrismMesh" id="PrismMesh_bvay4"]
+size = Vector3(0.9, 2.4, 0.9)
+
+[sub_resource type="PrismMesh" id="PrismMesh_d8c34"]
+size = Vector3(0.9, 2.4, 0.9)
+
+[sub_resource type="PrismMesh" id="PrismMesh_2yibr"]
+size = Vector3(0.9, 2.4, 0.9)
+
+[sub_resource type="PrismMesh" id="PrismMesh_mx43m"]
+size = Vector3(0.6, 1.5, 0.6)
+
+[sub_resource type="PrismMesh" id="PrismMesh_cfm0d"]
+size = Vector3(0.6, 1.5, 0.6)
+
+[sub_resource type="PrismMesh" id="PrismMesh_00xf4"]
+size = Vector3(0.6, 1.5, 0.6)
+
+[sub_resource type="PrismMesh" id="PrismMesh_bhbo1"]
+size = Vector3(0.6, 1.5, 0.6)
+
+[sub_resource type="PrismMesh" id="PrismMesh_t63uc"]
+size = Vector3(0.6, 1.5, 0.6)
+
+[sub_resource type="PrismMesh" id="PrismMesh_e0tcc"]
+size = Vector3(0.6, 1.5, 0.6)
+
+[node name="MonsterCave" type="Node3D" unique_id=1992017401]
+
+[node name="CaveStructure" type="StaticBody3D" parent="." unique_id=1110541883]
+
+[node name="CaveFloor" type="MeshInstance3D" parent="CaveStructure" unique_id=239196309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+material_override = ExtResource("1_4trm1")
+mesh = SubResource("BoxMesh_2jruq")
+
+[node name="@CollisionShape3D@11" type="CollisionShape3D" parent="CaveStructure" unique_id=1204526883]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("BoxShape3D_lauvw")
+
+[node name="WallWest" type="MeshInstance3D" parent="CaveStructure" unique_id=388831595]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 3.5, 0)
+material_override = ExtResource("2_5abjl")
+mesh = SubResource("BoxMesh_2qssg")
+
+[node name="@CollisionShape3D@12" type="CollisionShape3D" parent="CaveStructure" unique_id=614051681]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 3.5, 0)
+shape = SubResource("BoxShape3D_e7q2e")
+
+[node name="WallEast" type="MeshInstance3D" parent="CaveStructure" unique_id=1580722290]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 3.5, 0)
+material_override = ExtResource("2_5abjl")
+mesh = SubResource("BoxMesh_lfbhp")
+
+[node name="@CollisionShape3D@13" type="CollisionShape3D" parent="CaveStructure" unique_id=374283362]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 3.5, 0)
+shape = SubResource("BoxShape3D_3lwr3")
+
+[node name="WallNorthBack" type="MeshInstance3D" parent="CaveStructure" unique_id=922664851]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -17.5)
+material_override = ExtResource("2_5abjl")
+mesh = SubResource("BoxMesh_bb4l2")
+
+[node name="@CollisionShape3D@14" type="CollisionShape3D" parent="CaveStructure" unique_id=1240091103]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -17.5)
+shape = SubResource("BoxShape3D_1qmu0")
+
+[node name="Ceiling" type="MeshInstance3D" parent="CaveStructure" unique_id=1067608999]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+material_override = ExtResource("1_4trm1")
+mesh = SubResource("BoxMesh_inc8j")
+
+[node name="@CollisionShape3D@15" type="CollisionShape3D" parent="CaveStructure" unique_id=1386156088]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("BoxShape3D_fajt3")
+
+[node name="Stalactite_0" type="MeshInstance3D" parent="CaveStructure" unique_id=251040699]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 5.6268034, 5.8, -6.7771854)
+material_override = ExtResource("1_4trm1")
+mesh = SubResource("PrismMesh_yrcdv")
+
+[node name="Stalactite_1" type="MeshInstance3D" parent="CaveStructure" unique_id=977025546]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -9.614679, 5.8, 6.8626366)
+material_override = ExtResource("1_4trm1")
+mesh = SubResource("PrismMesh_qtema")
+
+[node name="Stalactite_2" type="MeshInstance3D" parent="CaveStructure" unique_id=2079101364]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -9.901731, 5.8, 7.9160957)
+material_override = ExtResource("1_4trm1")
+mesh = SubResource("PrismMesh_ed1ly")
+
+[node name="Stalactite_3" type="MeshInstance3D" parent="CaveStructure" unique_id=825242886]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 9.035572, 5.8, 3.0168085)
+material_override = ExtResource("1_4trm1")
+mesh = SubResource("PrismMesh_5j5rx")
+
+[node name="Stalactite_4" type="MeshInstance3D" parent="CaveStructure" unique_id=18316803]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -6.3875537, 5.8, -8.488351)
+material_override = ExtResource("1_4trm1")
+mesh = SubResource("PrismMesh_mena7")
+
+[node name="Stalactite_5" type="MeshInstance3D" parent="CaveStructure" unique_id=1763740938]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -3.2486653, 5.8, 9.851824)
+material_override = ExtResource("1_4trm1")
+mesh = SubResource("PrismMesh_bvay4")
+
+[node name="Stalactite_6" type="MeshInstance3D" parent="CaveStructure" unique_id=495364790]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 3.5500326, 5.8, -9.394043)
+material_override = ExtResource("1_4trm1")
+mesh = SubResource("PrismMesh_d8c34")
+
+[node name="Stalactite_7" type="MeshInstance3D" parent="CaveStructure" unique_id=1144795607]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -6.02335, 5.8, 0.7837353)
+material_override = ExtResource("1_4trm1")
+mesh = SubResource("PrismMesh_2yibr")
+
+[node name="CaveCrystal_0" type="MeshInstance3D" parent="." unique_id=1254749062]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 1.2, -12)
+material_override = ExtResource("3_lf2gs")
+mesh = SubResource("PrismMesh_mx43m")
+
+[node name="CaveCrystal_1" type="MeshInstance3D" parent="." unique_id=1846323651]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 1.2, -7.5)
+material_override = ExtResource("3_lf2gs")
+mesh = SubResource("PrismMesh_cfm0d")
+
+[node name="CaveCrystal_2" type="MeshInstance3D" parent="." unique_id=1575096780]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 1.2, -3)
+material_override = ExtResource("3_lf2gs")
+mesh = SubResource("PrismMesh_00xf4")
+
+[node name="CaveCrystal_3" type="MeshInstance3D" parent="." unique_id=1696754022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 1.2, 1.5)
+material_override = ExtResource("3_lf2gs")
+mesh = SubResource("PrismMesh_bhbo1")
+
+[node name="CaveCrystal_4" type="MeshInstance3D" parent="." unique_id=1609138899]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 1.2, 6)
+material_override = ExtResource("3_lf2gs")
+mesh = SubResource("PrismMesh_t63uc")
+
+[node name="CaveCrystal_5" type="MeshInstance3D" parent="." unique_id=155936144]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 1.2, 10.5)
+material_override = ExtResource("3_lf2gs")
+mesh = SubResource("PrismMesh_e0tcc")
+
+[node name="SecretChamberRock" type="StaticBody3D" parent="." unique_id=2088291717 instance=ExtResource("4_ry658")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+script = ExtResource("5_op1dw")
+
+[node name="CaveRelicChest" type="StaticBody3D" parent="." unique_id=359875224 instance=ExtResource("6_ebc0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14)
+script = ExtResource("7_j7vbr")
+
+[node name="PressurePlate" type="Area3D" parent="." unique_id=1749911059 instance=ExtResource("8_bmy0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+script = ExtResource("9_h0lr6")
+
+[node name="ElementalBrazier" type="StaticBody3D" parent="." unique_id=1582657074 instance=ExtResource("10_nfums")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 4)
+script = ExtResource("11_8c1dx")
+
+[node name="@StaticBody3D@16" type="StaticBody3D" parent="." unique_id=1187843332 instance=ExtResource("10_nfums")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 4)
+script = ExtResource("11_8c1dx")

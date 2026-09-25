@@ -1,0 +1,12 @@
+{
+ "part": "garment",
+ "name": "TR_Beanie_Slouch",
+ "collapsed_keys": {
+  "TR_Beanie_Slouch": 0
+ },
+ "baked": {
+  "TR_Beanie_Slouch": 4.9
+ },
+ "glb_mb": 0.05,
+ "seconds": 5.0
+}

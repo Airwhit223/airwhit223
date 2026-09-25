@@ -1,0 +1,218 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/mudbrick_wall.tres" id="1_mudbrick"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/pyramid_limestone.tres" id="2_limestone"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/tent_cloth.tres" id="3_tent"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/awning_yellow.tres" id="4_awning"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/wood_planks.tres" id="5_wood"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/dark_timber.tres" id="6_timber"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/lamp_glow.tres" id="7_lamp"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/egypt_gold.tres" id="8_gold"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_village_ground"]
+size = Vector3(70, 1.0, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_village_ground"]
+size = Vector3(70, 1.0, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dwelling_body"]
+size = Vector3(7.0, 4.5, 7.0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dwelling_body"]
+size = Vector3(7.0, 4.5, 7.0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_dome"]
+radius = 3.2
+height = 3.2
+
+[sub_resource type="BoxMesh" id="BoxMesh_windcatcher"]
+size = Vector3(2.8, 10.0, 2.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_windcatcher"]
+size = Vector3(2.8, 10.0, 2.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bazaar_counter"]
+size = Vector3(4.0, 1.1, 1.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bazaar_counter"]
+size = Vector3(4.0, 1.1, 1.4)
+
+[sub_resource type="PrismMesh" id="PrismMesh_canopy"]
+size = Vector3(5.0, 1.6, 3.2)
+
+[sub_resource type="PrismMesh" id="PrismMesh_sandboard_ramp"]
+size = Vector3(6.0, 3.5, 14.0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sandboard_ramp"]
+size = Vector3(6.0, 3.5, 14.0)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tower_body"]
+top_radius = 2.2
+bottom_radius = 2.8
+height = 12.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tower_body"]
+top_radius = 2.2
+bottom_radius = 2.8
+height = 12.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tower_deck"]
+top_radius = 3.0
+bottom_radius = 3.0
+height = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_fence_rail"]
+size = Vector3(14.0, 1.2, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pottery_jar"]
+size = Vector3(0.8, 1.2, 0.8)
+
+[sub_resource type="SphereMesh" id="SphereMesh_lantern"]
+radius = 0.3
+height = 0.6
+
+[node name="SandVillagesDetail" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 310, 0, -130)
+
+[node name="VillageDuneTerrace" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="Ground" type="MeshInstance3D" parent="VillageDuneTerrace"]
+mesh = SubResource("BoxMesh_village_ground")
+surface_material_override/0 = ExtResource("2_limestone")
+
+[node name="Collision" type="CollisionShape3D" parent="VillageDuneTerrace"]
+shape = SubResource("BoxShape3D_village_ground")
+
+[node name="DuneDwellingWest" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 2.25, -12)
+
+[node name="Walls" type="MeshInstance3D" parent="DuneDwellingWest"]
+mesh = SubResource("BoxMesh_dwelling_body")
+surface_material_override/0 = ExtResource("1_mudbrick")
+
+[node name="Collision" type="CollisionShape3D" parent="DuneDwellingWest"]
+shape = SubResource("BoxShape3D_dwelling_body")
+
+[node name="Dome" type="MeshInstance3D" parent="DuneDwellingWest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 0)
+mesh = SubResource("SphereMesh_dome")
+surface_material_override/0 = ExtResource("1_mudbrick")
+
+[node name="DuneDwellingCenter" type="StaticBody3D" parent="."]
+transform = Transform3D(0.966, 0, 0.259, 0, 1, 0, -0.259, 0, 0.966, 0, 2.25, -18)
+
+[node name="Walls" type="MeshInstance3D" parent="DuneDwellingCenter"]
+mesh = SubResource("BoxMesh_dwelling_body")
+surface_material_override/0 = ExtResource("1_mudbrick")
+
+[node name="Collision" type="CollisionShape3D" parent="DuneDwellingCenter"]
+shape = SubResource("BoxShape3D_dwelling_body")
+
+[node name="Dome" type="MeshInstance3D" parent="DuneDwellingCenter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 0)
+mesh = SubResource("SphereMesh_dome")
+surface_material_override/0 = ExtResource("1_mudbrick")
+
+[node name="DuneDwellingEast" type="StaticBody3D" parent="."]
+transform = Transform3D(0.866, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866, 18, 2.25, -10)
+
+[node name="Walls" type="MeshInstance3D" parent="DuneDwellingEast"]
+mesh = SubResource("BoxMesh_dwelling_body")
+surface_material_override/0 = ExtResource("1_mudbrick")
+
+[node name="Collision" type="CollisionShape3D" parent="DuneDwellingEast"]
+shape = SubResource("BoxShape3D_dwelling_body")
+
+[node name="Dome" type="MeshInstance3D" parent="DuneDwellingEast"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 0)
+mesh = SubResource("SphereMesh_dome")
+surface_material_override/0 = ExtResource("1_mudbrick")
+
+[node name="WindcatcherTower" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 5.0, -18)
+
+[node name="Shaft" type="MeshInstance3D" parent="WindcatcherTower"]
+mesh = SubResource("BoxMesh_windcatcher")
+surface_material_override/0 = ExtResource("1_mudbrick")
+
+[node name="Collision" type="CollisionShape3D" parent="WindcatcherTower"]
+shape = SubResource("BoxShape3D_windcatcher")
+
+[node name="Cap" type="MeshInstance3D" parent="WindcatcherTower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.2, 0)
+mesh = SubResource("BoxMesh_bazaar_counter")
+surface_material_override/0 = ExtResource("8_gold")
+
+[node name="BazaarStallSpice" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.55, 4)
+
+[node name="Counter" type="MeshInstance3D" parent="BazaarStallSpice"]
+mesh = SubResource("BoxMesh_bazaar_counter")
+surface_material_override/0 = ExtResource("5_wood")
+
+[node name="Collision" type="CollisionShape3D" parent="BazaarStallSpice"]
+shape = SubResource("BoxShape3D_bazaar_counter")
+
+[node name="Canopy" type="MeshInstance3D" parent="BazaarStallSpice"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+mesh = SubResource("PrismMesh_canopy")
+surface_material_override/0 = ExtResource("3_tent")
+
+[node name="BazaarStallTextiles" type="StaticBody3D" parent="."]
+transform = Transform3D(0.966, 0, 0.259, 0, 1, 0, -0.259, 0, 0.966, 6, 0.55, 6)
+
+[node name="Counter" type="MeshInstance3D" parent="BazaarStallTextiles"]
+mesh = SubResource("BoxMesh_bazaar_counter")
+surface_material_override/0 = ExtResource("5_wood")
+
+[node name="Collision" type="CollisionShape3D" parent="BazaarStallTextiles"]
+shape = SubResource("BoxShape3D_bazaar_counter")
+
+[node name="Canopy" type="MeshInstance3D" parent="BazaarStallTextiles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+mesh = SubResource("PrismMesh_canopy")
+surface_material_override/0 = ExtResource("4_awning")
+
+[node name="SandboardLaunchRamp" type="StaticBody3D" parent="."]
+transform = Transform3D(0.866, 0.174, -0.47, 0, 0.939, 0.342, 0.5, -0.296, 0.813, 20, 2.2, 16)
+
+[node name="Ramp" type="MeshInstance3D" parent="SandboardLaunchRamp"]
+mesh = SubResource("PrismMesh_sandboard_ramp")
+surface_material_override/0 = ExtResource("5_wood")
+
+[node name="Collision" type="CollisionShape3D" parent="SandboardLaunchRamp"]
+shape = SubResource("BoxShape3D_sandboard_ramp")
+
+[node name="DesertWatchtower" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 6.0, 16)
+
+[node name="Tower" type="MeshInstance3D" parent="DesertWatchtower"]
+mesh = SubResource("CylinderMesh_tower_body")
+surface_material_override/0 = ExtResource("2_limestone")
+
+[node name="Collision" type="CollisionShape3D" parent="DesertWatchtower"]
+shape = SubResource("CylinderShape3D_tower_body")
+
+[node name="Platform" type="MeshInstance3D" parent="DesertWatchtower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.2, 0)
+mesh = SubResource("CylinderMesh_tower_deck")
+surface_material_override/0 = ExtResource("5_wood")
+
+[node name="BeaconLantern" type="MeshInstance3D" parent="DesertWatchtower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+mesh = SubResource("SphereMesh_lantern")
+surface_material_override/0 = ExtResource("7_lamp")
+
+[node name="BeastCorral" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 18)
+
+[node name="FenceNorth" type="MeshInstance3D" parent="BeastCorral"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -5)
+mesh = SubResource("BoxMesh_fence_rail")
+surface_material_override/0 = ExtResource("6_timber")
+
+[node name="FenceSouth" type="MeshInstance3D" parent="BeastCorral"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 5)
+mesh = SubResource("BoxMesh_fence_rail")
+surface_material_override/0 = ExtResource("6_timber")

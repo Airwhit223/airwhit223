@@ -1,0 +1,138 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://world/space/outer_space_realm.gd" id="1_u43lw"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/ocean_water.tres" id="2_xm7rr"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/steel.tres" id="3_junq5"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/iron.tres" id="4_3on2r"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/neon_cyan.tres" id="5_0amea"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/rift_purple.tres" id="6_0y5m3"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="7_mye00"]
+[ext_resource type="Script" path="res://player/player.gd" id="8_5168r"]
+[ext_resource type="PackedScene" path="res://player/vehicles/space_capsule.tscn" id="9_wr8mc"]
+[ext_resource type="Script" path="res://player/vehicles/space_capsule.gd" id="10_qabuf"]
+[ext_resource type="Script" path="res://world/rolling_tides_world/zone_hud.gd" id="11_4lhgb"]
+
+[sub_resource type="Environment" id="Environment_macul"]
+background_mode = 1
+background_color = Color(0.02, 0.02, 0.06, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.15, 0.15, 0.3, 1)
+ambient_light_energy = 0.8
+glow_enabled = true
+glow_intensity = 0.8
+
+[sub_resource type="SphereMesh" id="SphereMesh_w8bm6"]
+radius = 180.0
+height = 360.0
+radial_segments = 16
+rings = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_hckn6"]
+size = Vector3(32, 1.2, 32)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_esflj"]
+size = Vector3(32, 1.2, 32)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6n2ig"]
+top_radius = 8.0
+bottom_radius = 8.0
+height = 0.05
+radial_segments = 16
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_aet3y"]
+top_radius = 8.1
+bottom_radius = 8.1
+height = 0.06
+radial_segments = 16
+rings = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_4tej4"]
+size = Vector3(12, 0.07, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ljrde"]
+size = Vector3(0.3, 0.07, 12)
+
+[sub_resource type="BoxMesh" id="BoxMesh_te84j"]
+size = Vector3(4, 0.8, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ahd83"]
+size = Vector3(1.8, 7.5, 0.6)
+
+[node name="OuterSpaceRealm" type="Node3D" unique_id=439642455]
+script = ExtResource("1_u43lw")
+
+[node name="SpaceEnvironment" type="WorldEnvironment" parent="." unique_id=1892999808]
+environment = SubResource("Environment_macul")
+
+[node name="CosmicSun" type="DirectionalLight3D" parent="." unique_id=1450029129]
+transform = Transform3D(0.8660254, 0.35355338, -0.35355338, 0, 0.70710677, 0.70710677, 0.5, -0.6123724, 0.6123724, 0, 0, 0)
+light_color = Color(1, 0.98, 0.9, 1)
+light_energy = 2.2
+
+[node name="HomeworldGlobe" type="MeshInstance3D" parent="." unique_id=1968458204]
+transform = Transform3D(1, 0, 0, 0, 0.9, 0, 0, 0, 1, 0, -260, 0)
+material_override = ExtResource("2_xm7rr")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_w8bm6")
+
+[node name="CelestialRuins" type="StaticBody3D" parent="." unique_id=1578926824]
+
+[node name="MainPlatform" type="MeshInstance3D" parent="CelestialRuins" unique_id=1995437000]
+material_override = ExtResource("3_junq5")
+mesh = SubResource("BoxMesh_hckn6")
+
+[node name="@CollisionShape3D@27" type="CollisionShape3D" parent="CelestialRuins" unique_id=306586507]
+shape = SubResource("BoxShape3D_esflj")
+
+[node name="LandingPadDark" type="MeshInstance3D" parent="CelestialRuins" unique_id=164473149]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 0)
+material_override = ExtResource("4_3on2r")
+mesh = SubResource("CylinderMesh_6n2ig")
+
+[node name="LandingPadRim" type="MeshInstance3D" parent="CelestialRuins" unique_id=1582142947]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 0)
+material_override = ExtResource("3_junq5")
+mesh = SubResource("CylinderMesh_aet3y")
+
+[node name="LandingLine1" type="MeshInstance3D" parent="CelestialRuins" unique_id=53104755]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.66, 0)
+material_override = ExtResource("5_0amea")
+mesh = SubResource("BoxMesh_4tej4")
+
+[node name="LandingLine2" type="MeshInstance3D" parent="CelestialRuins" unique_id=2043774328]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.66, 0)
+material_override = ExtResource("5_0amea")
+mesh = SubResource("BoxMesh_ljrde")
+
+[node name="MonolithPedestal" type="MeshInstance3D" parent="CelestialRuins" unique_id=1582524123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -10)
+material_override = ExtResource("4_3on2r")
+mesh = SubResource("BoxMesh_te84j")
+
+[node name="CosmicMonolith" type="MeshInstance3D" parent="CelestialRuins" unique_id=1015328570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8, -10)
+material_override = ExtResource("6_0y5m3")
+mesh = SubResource("BoxMesh_ahd83")
+
+[node name="MonolithGlow" type="OmniLight3D" parent="CelestialRuins" unique_id=258877434]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8, -9)
+light_color = Color(0.72156864, 0.3019608, 1, 1)
+light_energy = 4.5
+omni_range = 14.0
+
+[node name="SpacePlayerSpawn" type="Marker3D" parent="." unique_id=176303675]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 6)
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=100274655 instance=ExtResource("7_mye00")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 6)
+collision_layer = 2
+collision_mask = 21
+script = ExtResource("8_5168r")
+
+[node name="DockedSpaceCapsule" type="CharacterBody3D" parent="." unique_id=649664207 instance=ExtResource("9_wr8mc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+script = ExtResource("10_qabuf")
+
+[node name="ZoneHUD" type="CanvasLayer" parent="." unique_id=1395427766]
+script = ExtResource("11_4lhgb")

@@ -1,0 +1,54 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/stargate_ancient_stone.tres" id="1_3q5ci"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/quartz_crystal_cyan.tres" id="2_j6hd2"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_18c6x"]
+top_radius = 1.8
+bottom_radius = 2.2
+height = 1.4
+radial_segments = 8
+rings = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_e78u4"]
+height = 1.4
+radius = 2.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jgymp"]
+top_radius = 0.2
+bottom_radius = 0.9
+height = 5.2
+radial_segments = 6
+rings = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_svfcp"]
+height = 3.0
+radius = 4.0
+
+[node name="AttunableResonanceCrystal" type="StaticBody3D" unique_id=349647405]
+
+[node name="StonePedestal" type="MeshInstance3D" parent="." unique_id=1428498942]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+material_override = ExtResource("1_3q5ci")
+mesh = SubResource("CylinderMesh_18c6x")
+
+[node name="@CollisionShape3D@5" type="CollisionShape3D" parent="." unique_id=336090554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+shape = SubResource("CylinderShape3D_e78u4")
+
+[node name="ResonanceCore" type="MeshInstance3D" parent="." unique_id=282912351]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+material_override = ExtResource("2_j6hd2")
+mesh = SubResource("CylinderMesh_jgymp")
+
+[node name="ResonanceLight" type="OmniLight3D" parent="." unique_id=855723850]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+light_color = Color(0.2, 0.95, 1, 1)
+light_energy = 3.5
+omni_range = 10.0
+
+[node name="AttuneArea" type="Area3D" parent="." unique_id=1348375985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="@CollisionShape3D@6" type="CollisionShape3D" parent="AttuneArea" unique_id=989281204]
+shape = SubResource("CylinderShape3D_svfcp")

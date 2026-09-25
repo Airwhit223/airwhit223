@@ -1,0 +1,66 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/starter_street/materials/cream.tres" id="1_gd8jc"]
+[ext_resource type="Material" path="res://world/starter_street/materials/shutter_teal.tres" id="2_np4a2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_n78ko"]
+size = Vector3(0.11, 0.03, 0.27)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0bujy"]
+size = Vector3(0.1, 0.07, 0.2)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ng4md"]
+radius = 0.055
+height = 0.11
+radial_segments = 16
+rings = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_242f4"]
+size = Vector3(0.11, 0.03, 0.27)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sbe7t"]
+size = Vector3(0.1, 0.07, 0.2)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ejsya"]
+radius = 0.055
+height = 0.11
+radial_segments = 16
+rings = 8
+
+[node name="PorchShoes" type="Node3D" unique_id=1883170025]
+
+[node name="Shoe0" type="Node3D" parent="." unique_id=31913444]
+transform = Transform3D(0.99026805, 0, 0.1391731, 0, 1, 0, -0.1391731, 0, 0.99026805, -0.075, 0, 0)
+
+[node name="Sole" type="MeshInstance3D" parent="Shoe0" unique_id=2130866733]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015, 0)
+material_override = ExtResource("1_gd8jc")
+mesh = SubResource("BoxMesh_n78ko")
+
+[node name="Upper" type="MeshInstance3D" parent="Shoe0" unique_id=610548165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, -0.03)
+material_override = ExtResource("2_np4a2")
+mesh = SubResource("BoxMesh_0bujy")
+
+[node name="Toe" type="MeshInstance3D" parent="Shoe0" unique_id=1186406571]
+transform = Transform3D(1, 0, 0, 0, 0.7, 0, 0, 0, 1.1, 0, 0.05, 0.08)
+material_override = ExtResource("2_np4a2")
+mesh = SubResource("SphereMesh_ng4md")
+
+[node name="Shoe1" type="Node3D" parent="." unique_id=288047641]
+transform = Transform3D(0.9702957, 0, -0.2419219, 0, 1, 0, 0.2419219, 0, 0.9702957, 0.075, 0, 0.04)
+
+[node name="Sole" type="MeshInstance3D" parent="Shoe1" unique_id=1122645203]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015, 0)
+material_override = ExtResource("1_gd8jc")
+mesh = SubResource("BoxMesh_242f4")
+
+[node name="Upper" type="MeshInstance3D" parent="Shoe1" unique_id=1863937584]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, -0.03)
+material_override = ExtResource("2_np4a2")
+mesh = SubResource("BoxMesh_sbe7t")
+
+[node name="Toe" type="MeshInstance3D" parent="Shoe1" unique_id=1776569698]
+transform = Transform3D(1, 0, 0, 0, 0.7, 0, 0, 0, 1.1, 0, 0.05, 0.08)
+material_override = ExtResource("2_np4a2")
+mesh = SubResource("SphereMesh_ejsya")

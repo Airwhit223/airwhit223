@@ -1,0 +1,12 @@
+{
+ "part": "garment",
+ "name": "TR_Hooded_Jacket",
+ "collapsed_keys": {
+  "TR_Hooded_Jacket": 11
+ },
+ "baked": {
+  "TR_Hooded_Jacket": 5.7
+ },
+ "glb_mb": 1.34,
+ "seconds": 5.8
+}

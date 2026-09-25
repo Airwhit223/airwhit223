@@ -1,0 +1,86 @@
+{
+ "character": "Hero_Stripes",
+ "apply": {
+  "character": "Hero_Stripes",
+  "faction": "artisan",
+  "growth": 0.0,
+  "state": "fresh",
+  "hair": "TR_Hair",
+  "beard": null
+ },
+ "hair_states": {
+  "Hair_fresh": 25254,
+  "Hair_needs_maintenance": 26400,
+  "Hair_overgrown": 27582
+ },
+ "beard": {},
+ "collapsed_keys": {
+  "Blush": 12,
+  "Body_Base": 11,
+  "Brow_L": 68,
+  "Brow_R": 68,
+  "DQ8_Neck_Shadow": 23,
+  "Ear_Ink": 0,
+  "Eye_L": 95,
+  "Eye_R": 95,
+  "Hair_fresh": 0,
+  "Hair_needs_maintenance": 0,
+  "Hair_overgrown": 0,
+  "Head_Base": 23,
+  "Mouth": 56,
+  "Nose_Bridge": 12,
+  "Nose_Tip": 12,
+  "Pants_Casual_01": 11,
+  "Shirt_Casual_01": 11,
+  "Shoes_Sneaker_01": 11
+ },
+ "baked": {
+  "Body_Base": {
+   "texture": "textures/Body_Base.png",
+   "seconds": 26.7
+  },
+  "Ear_Ink": {
+   "texture": "textures/Ear_Ink.png",
+   "seconds": 0.7
+  },
+  "Head_Base": {
+   "texture": "textures/Head_Base.png",
+   "seconds": 37.5
+  },
+  "Pants_Casual_01": {
+   "texture": "textures/Pants_Casual_01.png",
+   "seconds": 34.5
+  },
+  "Shirt_Casual_01": {
+   "texture": "textures/Shirt_Casual_01.png",
+   "seconds": 33.8
+  },
+  "Shoes_Sneaker_01": {
+   "texture": "textures/Shoes_Sneaker_01.png",
+   "seconds": 33.7
+  },
+  "Hair_fresh": {
+   "vertex_colors": "TR_Paint",
+   "seconds": 16.0
+  },
+  "Hair_needs_maintenance": {
+   "vertex_colors": "TR_Paint",
+   "seconds": 16.6
+  },
+  "Hair_overgrown": {
+   "vertex_colors": "TR_Paint",
+   "seconds": 17.4
+  }
+ },
+ "skin_vertex_color_meshes": [
+  "Eye_L",
+  "Eye_R"
+ ],
+ "head_warp": [
+  "Hair_fresh",
+  "Hair_needs_maintenance",
+  "Hair_overgrown"
+ ],
+ "glb_mb": 24.62,
+ "seconds": 218.8
+}

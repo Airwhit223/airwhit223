@@ -1,0 +1,6 @@
+TINY GUITAR RHYTHM GAME — HEADLESS VALIDATION
+Result: PASS
+Pattern: 16 notes across four arrow-key lanes
+Instrument: Acoustic Guitar is available through the existing modular equipment inventory.
+Scoring: timing window, perfect/good grades, combo, misses and final accuracy are active.
+World handoff: the clock pauses for the set and restores its previous speed afterward.

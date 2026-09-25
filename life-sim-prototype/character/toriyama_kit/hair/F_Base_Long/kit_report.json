@@ -1,0 +1,11 @@
+{
+ "part": "hair",
+ "name": "F_Base_Long",
+ "baked": {
+  "Hair_fresh": 4.7,
+  "Hair_needs_maintenance": 4.7,
+  "Hair_overgrown": 4.7
+ },
+ "glb_mb": 3.31,
+ "seconds": 14.4
+}

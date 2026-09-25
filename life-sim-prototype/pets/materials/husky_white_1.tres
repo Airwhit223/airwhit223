@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://world/shaders/toon_world.gdshader" id="1_r5w1w"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_r5w1w")
+shader_parameter/base_color = Color(0.7411765, 0.7411765, 0.7137255, 1)
+shader_parameter/shadow_color = Color(0.4817647, 0.4817647, 0.46392158, 1)
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/line_mode = 0
+shader_parameter/line_spacing = 0.22
+shader_parameter/line_color = Color(0.16, 0.12, 0.13, 1)
+shader_parameter/gap_color = Color(0.83, 0.72, 0.59, 1)
+shader_parameter/gap_shadow = Color(0.66, 0.56, 0.43, 1)
+shader_parameter/gap_width = 0.16
+shader_parameter/glow = 0.0

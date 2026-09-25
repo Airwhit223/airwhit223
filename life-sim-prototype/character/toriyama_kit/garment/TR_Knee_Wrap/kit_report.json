@@ -1,0 +1,12 @@
+{
+ "part": "garment",
+ "name": "TR_Knee_Wrap",
+ "collapsed_keys": {
+  "TR_Knee_Wrap": 11
+ },
+ "baked": {
+  "TR_Knee_Wrap": 6.9
+ },
+ "glb_mb": 0.1,
+ "seconds": 6.9
+}

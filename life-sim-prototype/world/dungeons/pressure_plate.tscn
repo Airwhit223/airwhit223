@@ -1,0 +1,40 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://world/dungeons/pressure_plate.gd" id="1_m2lj1"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/iron.tres" id="2_la2q4"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/gothic_stone.tres" id="3_cmmq1"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_w1o1n"]
+top_radius = 1.1
+bottom_radius = 1.1
+height = 0.08
+radial_segments = 12
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ah7rq"]
+top_radius = 0.95
+bottom_radius = 0.95
+height = 0.09
+radial_segments = 12
+rings = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fsk8x"]
+height = 0.2
+radius = 0.95
+
+[node name="PressurePlate" type="Area3D" unique_id=1749911059]
+script = ExtResource("1_m2lj1")
+
+[node name="PlateRim" type="MeshInstance3D" parent="." unique_id=2136319523]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04, 0)
+material_override = ExtResource("2_la2q4")
+mesh = SubResource("CylinderMesh_w1o1n")
+
+[node name="PlateMesh" type="MeshInstance3D" parent="." unique_id=1096673609]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+material_override = ExtResource("3_cmmq1")
+mesh = SubResource("CylinderMesh_ah7rq")
+
+[node name="@CollisionShape3D@10" type="CollisionShape3D" parent="." unique_id=1083345779]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = SubResource("CylinderShape3D_fsk8x")

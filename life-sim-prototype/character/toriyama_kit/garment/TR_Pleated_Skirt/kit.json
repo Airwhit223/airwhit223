@@ -1,0 +1,77 @@
+{
+ "kind": "garment",
+ "name": "TR_Pleated_Skirt",
+ "object": "TR_Pleated_Skirt",
+ "roles": [
+  "skirt",
+  "skirt_trim"
+ ],
+ "slot": "bottom",
+ "meshes": {
+  "TR_Pleated_Skirt": {
+   "texture": "textures/TR_Pleated_Skirt.png",
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "TR_TR_Pleated_Skirt_0",
+     "role": "skirt",
+     "patterns": [
+      "canvas"
+     ],
+     "default_srgb": [
+      180,
+      154,
+      106
+     ]
+    },
+    {
+     "index": 1,
+     "material": "TR_TR_Pleated_Skirt_1",
+     "role": "skirt_trim",
+     "patterns": [
+      "canvas"
+     ],
+     "default_srgb": [
+      60,
+      58,
+      58
+     ]
+    },
+    {
+     "index": 2,
+     "material": "TR_Ink",
+     "role": "cloth",
+     "patterns": [],
+     "default_srgb": null
+    }
+   ]
+  }
+ },
+ "blend_shapes": {
+  "TR_Pleated_Skirt": [
+   "Def_Bust",
+   "Def_Hips",
+   "Def_Waist",
+   "Def_Shoulders",
+   "Def_Pecs",
+   "Def_Back",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F",
+   "TR_Chest_Width",
+   "TR_Waist_Width",
+   "TR_Hip_Width",
+   "TR_Neck",
+   "Body_Lean",
+   "Body_Stocky",
+   "Body_Athletic",
+   "Body_Bulk"
+  ]
+ },
+ "glb": "TR_Pleated_Skirt.glb"
+}

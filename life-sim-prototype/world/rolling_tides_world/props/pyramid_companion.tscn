@@ -1,0 +1,59 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/pyramid_limestone.tres" id="1_5b0of"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/egypt_gold.tres" id="2_xwevs"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_v3cjr"]
+size = Vector3(22, 5, 22)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kksts"]
+size = Vector3(22, 5, 22)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s7smd"]
+size = Vector3(15, 4.5, 15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_chx07"]
+size = Vector3(15, 4.5, 15)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xdg6v"]
+size = Vector3(8, 4, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3yrsk"]
+size = Vector3(8, 4, 8)
+
+[sub_resource type="PrismMesh" id="PrismMesh_t6gcd"]
+size = Vector3(3.6, 3.5, 3.6)
+
+[node name="CompanionPyramid" type="StaticBody3D" unique_id=972811863]
+
+[node name="Tier1" type="MeshInstance3D" parent="." unique_id=1539874790]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+material_override = ExtResource("1_5b0of")
+mesh = SubResource("BoxMesh_v3cjr")
+
+[node name="@CollisionShape3D@76" type="CollisionShape3D" parent="." unique_id=416153804]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("BoxShape3D_kksts")
+
+[node name="Tier2" type="MeshInstance3D" parent="." unique_id=1364434065]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.25, 0)
+material_override = ExtResource("1_5b0of")
+mesh = SubResource("BoxMesh_s7smd")
+
+[node name="@CollisionShape3D@77" type="CollisionShape3D" parent="." unique_id=313008564]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.25, 0)
+shape = SubResource("BoxShape3D_chx07")
+
+[node name="Tier3" type="MeshInstance3D" parent="." unique_id=2135157733]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.5, 0)
+material_override = ExtResource("1_5b0of")
+mesh = SubResource("BoxMesh_xdg6v")
+
+[node name="@CollisionShape3D@78" type="CollisionShape3D" parent="." unique_id=1820491968]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.5, 0)
+shape = SubResource("BoxShape3D_3yrsk")
+
+[node name="GoldCap" type="MeshInstance3D" parent="." unique_id=1002015351]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.2, 0)
+material_override = ExtResource("2_xwevs")
+mesh = SubResource("PrismMesh_t6gcd")

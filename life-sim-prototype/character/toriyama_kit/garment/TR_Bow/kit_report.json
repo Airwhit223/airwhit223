@@ -1,0 +1,12 @@
+{
+ "part": "garment",
+ "name": "TR_Bow",
+ "collapsed_keys": {
+  "TR_Bow": 0
+ },
+ "baked": {
+  "TR_Bow": 8.8
+ },
+ "glb_mb": 0.05,
+ "seconds": 8.9
+}

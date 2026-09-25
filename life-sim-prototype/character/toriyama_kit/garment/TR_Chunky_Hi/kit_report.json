@@ -1,0 +1,15 @@
+{
+ "part": "garment",
+ "name": "TR_Chunky_Hi",
+ "collapsed_keys": {
+  "TR_Chunky_Hi": 11
+ },
+ "baked": {
+  "TR_Chunky_Hi": 1.5
+ },
+ "head_warp": [
+  "TR_Chunky_Hi"
+ ],
+ "glb_mb": 2.79,
+ "seconds": 1.8
+}

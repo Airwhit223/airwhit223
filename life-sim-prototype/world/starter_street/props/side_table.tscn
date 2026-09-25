@@ -1,0 +1,73 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/starter_street/materials/warm_wood.tres" id="1_7eaql"]
+[ext_resource type="Material" path="res://world/starter_street/materials/door_wood.tres" id="2_3fjei"]
+[ext_resource type="Material" path="res://world/starter_street/materials/cream.tres" id="3_nexkg"]
+[ext_resource type="Material" path="res://world/starter_street/materials/blob_shadow.tres" id="4_felsy"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_svn81"]
+top_radius = 0.24
+bottom_radius = 0.24
+height = 0.04
+radial_segments = 18
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_560pe"]
+top_radius = 0.035
+bottom_radius = 0.04
+height = 0.52
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ii5ih"]
+top_radius = 0.14
+bottom_radius = 0.16
+height = 0.03
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_v5djc"]
+top_radius = 0.04
+bottom_radius = 0.04
+height = 0.08
+radial_segments = 10
+rings = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_eso3o"]
+height = 0.6
+radius = 0.25
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hyftm"]
+size = Vector2(0.6, 0.6)
+
+[node name="SideTable" type="StaticBody3D" unique_id=1792502309]
+
+[node name="Top" type="MeshInstance3D" parent="." unique_id=511819276]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56, 0)
+material_override = ExtResource("1_7eaql")
+mesh = SubResource("CylinderMesh_svn81")
+
+[node name="Stem" type="MeshInstance3D" parent="." unique_id=1961681933]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28, 0)
+material_override = ExtResource("2_3fjei")
+mesh = SubResource("CylinderMesh_560pe")
+
+[node name="Foot" type="MeshInstance3D" parent="." unique_id=1058319516]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015, 0)
+material_override = ExtResource("2_3fjei")
+mesh = SubResource("CylinderMesh_ii5ih")
+
+[node name="Mug" type="MeshInstance3D" parent="." unique_id=435230972]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07, 0.62, 0.04)
+material_override = ExtResource("3_nexkg")
+mesh = SubResource("CylinderMesh_v5djc")
+
+[node name="@CollisionShape3D@80" type="CollisionShape3D" parent="." unique_id=69462146]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shape = SubResource("CylinderShape3D_eso3o")
+
+[node name="BlobShadow" type="MeshInstance3D" parent="." unique_id=430177378]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015, 0)
+material_override = ExtResource("4_felsy")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_hyftm")

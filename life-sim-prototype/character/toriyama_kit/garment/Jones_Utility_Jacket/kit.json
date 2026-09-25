@@ -1,0 +1,63 @@
+{
+ "kind": "garment",
+ "name": "Jones_Utility_Jacket",
+ "object": "Jones_Utility_Jacket",
+ "roles": [
+  "outer"
+ ],
+ "slot": "outerwear",
+ "meshes": {
+  "Jones_Utility_Jacket": {
+   "texture": "textures/Jones_Utility_Jacket.png",
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "TR_Jones_Utility_Jacket_0",
+     "role": "outer",
+     "patterns": [
+      "canvas"
+     ],
+     "default_srgb": [
+      180,
+      154,
+      106
+     ]
+    },
+    {
+     "index": 1,
+     "material": "TR_Ink",
+     "role": "cloth",
+     "patterns": [],
+     "default_srgb": null
+    }
+   ]
+  }
+ },
+ "blend_shapes": {
+  "Jones_Utility_Jacket": [
+   "Def_Bust",
+   "Def_Hips",
+   "Def_Waist",
+   "Def_Shoulders",
+   "Def_Pecs",
+   "Def_Back",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F",
+   "TR_Chest_Width",
+   "TR_Waist_Width",
+   "TR_Hip_Width",
+   "TR_Neck",
+   "Body_Lean",
+   "Body_Stocky",
+   "Body_Athletic",
+   "Body_Bulk"
+  ]
+ },
+ "glb": "Jones_Utility_Jacket.glb"
+}

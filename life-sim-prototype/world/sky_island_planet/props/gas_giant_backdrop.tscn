@@ -1,0 +1,41 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/gas_giant_body.tres" id="1_phsve"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/gas_giant_bands.tres" id="2_wsjp1"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/gas_giant_rings.tres" id="3_n4ic2"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_tehok"]
+radius = 85.0
+height = 170.0
+radial_segments = 24
+rings = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_4lvun"]
+radius = 85.5
+height = 171.0
+radial_segments = 24
+rings = 12
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_oifd7"]
+top_radius = 175.0
+bottom_radius = 105.0
+height = 0.6
+radial_segments = 32
+rings = 1
+
+[node name="RingedGasGiant" type="Node3D" unique_id=727500633]
+
+[node name="PlanetGlobe" type="MeshInstance3D" parent="." unique_id=804171323]
+transform = Transform3D(1, 0, 0, 0, 0.94, 0, 0, 0, 1, 0, 0, 0)
+material_override = ExtResource("1_phsve")
+mesh = SubResource("SphereMesh_tehok")
+
+[node name="BandEquator" type="MeshInstance3D" parent="." unique_id=194953473]
+transform = Transform3D(1.02, 0, 0, 0, 0.35, 0, 0, 0, 1.02, 0, 0, 0)
+material_override = ExtResource("2_wsjp1")
+mesh = SubResource("SphereMesh_4lvun")
+
+[node name="RingDiscMain" type="MeshInstance3D" parent="." unique_id=185554336]
+transform = Transform3D(0.88110197, 0.41404867, 0.22852364, -0.2728458, 0.83973306, -0.46947157, -0.38628292, 0.3513006, 0.8528618, 0, 0, 0)
+material_override = ExtResource("3_n4ic2")
+mesh = SubResource("CylinderMesh_oifd7")

@@ -1,0 +1,214 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/pyramid_limestone.tres" id="1_228hd"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/egypt_gold.tres" id="2_lowg4"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/tent_cloth.tres" id="3_kg7tt"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/cream.tres" id="4_5oyx5"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/warm_wood.tres" id="5_16sr7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_i21pa"]
+size = Vector3(8, 0.8, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jtx81"]
+size = Vector3(8, 0.8, 8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e3ye2"]
+size = Vector3(9.2, 0.3, 9.2)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mxqts"]
+top_radius = 0.18
+bottom_radius = 0.22
+height = 5.0
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qseeh"]
+height = 5.0
+radius = 0.22
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_nywhq"]
+top_radius = 0.18
+bottom_radius = 0.22
+height = 5.0
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wu4ma"]
+height = 5.0
+radius = 0.22
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kn3md"]
+top_radius = 0.18
+bottom_radius = 0.22
+height = 5.0
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_iysf1"]
+height = 5.0
+radius = 0.22
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8ttig"]
+top_radius = 0.18
+bottom_radius = 0.22
+height = 5.0
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mov2p"]
+height = 5.0
+radius = 0.22
+
+[sub_resource type="BoxMesh" id="BoxMesh_b1k1i"]
+size = Vector3(8.2, 0.3, 8.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xpe71"]
+size = Vector3(8.4, 0.4, 8.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8q0kx"]
+size = Vector3(2.2, 1.2, 1.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e2kty"]
+size = Vector3(2.2, 1.2, 1.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hntl0"]
+size = Vector3(2.2, 2.6, 0.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5n758"]
+size = Vector3(0.8, 0.8, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3e58k"]
+size = Vector3(0.7, 2, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dug4q"]
+size = Vector3(0.45, 0.6, 0.45)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3omhn"]
+size = Vector3(0.8, 0.25, 0.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xyaeq"]
+size = Vector3(0.65, 0.7, 0.55)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6v2wm"]
+top_radius = 0.04
+bottom_radius = 0.04
+height = 3.2
+radial_segments = 14
+rings = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_wvmog"]
+radius = 0.25
+height = 0.5
+radial_segments = 16
+rings = 8
+
+[node name="QueenNefertariPavilion" type="StaticBody3D" unique_id=953719470]
+
+[node name="ThroneDais" type="MeshInstance3D" parent="." unique_id=1437215041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+material_override = ExtResource("1_228hd")
+mesh = SubResource("BoxMesh_i21pa")
+
+[node name="@CollisionShape3D@113" type="CollisionShape3D" parent="." unique_id=508695119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("BoxShape3D_jtx81")
+
+[node name="DaisSteps" type="MeshInstance3D" parent="." unique_id=494056344]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+material_override = ExtResource("1_228hd")
+mesh = SubResource("BoxMesh_e3ye2")
+
+[node name="PavilionPillar" type="MeshInstance3D" parent="." unique_id=803121140]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4, 3.1, -3.4)
+material_override = ExtResource("2_lowg4")
+mesh = SubResource("CylinderMesh_mxqts")
+
+[node name="@CollisionShape3D@114" type="CollisionShape3D" parent="." unique_id=1293052091]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4, 3.1, -3.4)
+shape = SubResource("CylinderShape3D_qseeh")
+
+[node name="@MeshInstance3D@115" type="MeshInstance3D" parent="." unique_id=1812899928]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4, 3.1, 3.4)
+material_override = ExtResource("2_lowg4")
+mesh = SubResource("CylinderMesh_nywhq")
+
+[node name="@CollisionShape3D@116" type="CollisionShape3D" parent="." unique_id=440639089]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4, 3.1, 3.4)
+shape = SubResource("CylinderShape3D_wu4ma")
+
+[node name="@MeshInstance3D@117" type="MeshInstance3D" parent="." unique_id=380016768]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4, 3.1, -3.4)
+material_override = ExtResource("2_lowg4")
+mesh = SubResource("CylinderMesh_kn3md")
+
+[node name="@CollisionShape3D@118" type="CollisionShape3D" parent="." unique_id=218371347]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4, 3.1, -3.4)
+shape = SubResource("CylinderShape3D_iysf1")
+
+[node name="@MeshInstance3D@119" type="MeshInstance3D" parent="." unique_id=1561665829]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4, 3.1, 3.4)
+material_override = ExtResource("2_lowg4")
+mesh = SubResource("CylinderMesh_8ttig")
+
+[node name="@CollisionShape3D@120" type="CollisionShape3D" parent="." unique_id=520569240]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4, 3.1, 3.4)
+shape = SubResource("CylinderShape3D_mov2p")
+
+[node name="CanopyRoof" type="MeshInstance3D" parent="." unique_id=1138572064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.7, 0)
+material_override = ExtResource("3_kg7tt")
+mesh = SubResource("BoxMesh_b1k1i")
+
+[node name="CanopyFringe" type="MeshInstance3D" parent="." unique_id=507447495]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0)
+material_override = ExtResource("2_lowg4")
+mesh = SubResource("BoxMesh_xpe71")
+
+[node name="ThroneSeat" type="MeshInstance3D" parent="." unique_id=1292760017]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -1.8)
+material_override = ExtResource("2_lowg4")
+mesh = SubResource("BoxMesh_8q0kx")
+
+[node name="@CollisionShape3D@121" type="CollisionShape3D" parent="." unique_id=631118192]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -1.8)
+shape = SubResource("BoxShape3D_e2kty")
+
+[node name="ThroneBack" type="MeshInstance3D" parent="." unique_id=789741456]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7, -2.4)
+material_override = ExtResource("2_lowg4")
+mesh = SubResource("BoxMesh_hntl0")
+
+[node name="ThroneCrestCobra" type="MeshInstance3D" parent="." unique_id=656590978]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2, -2.4)
+material_override = ExtResource("2_lowg4")
+mesh = SubResource("BoxMesh_5n758")
+
+[node name="QueenDress" type="MeshInstance3D" parent="." unique_id=1450077208]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -0.6)
+material_override = ExtResource("4_5oyx5")
+mesh = SubResource("BoxMesh_3e58k")
+
+[node name="QueenSkin" type="MeshInstance3D" parent="." unique_id=1243991232]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1, -0.6)
+material_override = ExtResource("5_16sr7")
+mesh = SubResource("BoxMesh_dug4q")
+
+[node name="QueenCollar" type="MeshInstance3D" parent="." unique_id=827187112]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.85, -0.6)
+material_override = ExtResource("2_lowg4")
+mesh = SubResource("BoxMesh_3omhn")
+
+[node name="QueenCrown" type="MeshInstance3D" parent="." unique_id=807297010]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -0.6)
+material_override = ExtResource("2_lowg4")
+mesh = SubResource("BoxMesh_xyaeq")
+
+[node name="AuthorityStaff" type="MeshInstance3D" parent="." unique_id=1968288775]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.2, -0.4)
+material_override = ExtResource("2_lowg4")
+mesh = SubResource("CylinderMesh_6v2wm")
+
+[node name="StaffLotusHead" type="MeshInstance3D" parent="." unique_id=1610882763]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 3.7, -0.4)
+material_override = ExtResource("2_lowg4")
+mesh = SubResource("SphereMesh_wvmog")

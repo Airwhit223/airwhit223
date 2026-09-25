@@ -1,0 +1,77 @@
+{
+ "kind": "garment",
+ "name": "Mechanic_Work_Gloves",
+ "object": "Mechanic_Work_Gloves",
+ "roles": [
+  "gloves",
+  "glove_trim"
+ ],
+ "slot": "accessory",
+ "meshes": {
+  "Mechanic_Work_Gloves": {
+   "texture": "textures/Mechanic_Work_Gloves.png",
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "TR_Mechanic_Work_Gloves_0",
+     "role": "gloves",
+     "patterns": [
+      "leather"
+     ],
+     "default_srgb": [
+      200,
+      100,
+      42
+     ]
+    },
+    {
+     "index": 1,
+     "material": "TR_Mechanic_Work_Gloves_1",
+     "role": "glove_trim",
+     "patterns": [
+      "leather"
+     ],
+     "default_srgb": [
+      60,
+      58,
+      58
+     ]
+    },
+    {
+     "index": 2,
+     "material": "TR_Ink",
+     "role": "cloth",
+     "patterns": [],
+     "default_srgb": null
+    }
+   ]
+  }
+ },
+ "blend_shapes": {
+  "Mechanic_Work_Gloves": [
+   "Def_Bust",
+   "Def_Hips",
+   "Def_Waist",
+   "Def_Shoulders",
+   "Def_Pecs",
+   "Def_Back",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F",
+   "TR_Chest_Width",
+   "TR_Waist_Width",
+   "TR_Hip_Width",
+   "TR_Neck",
+   "Body_Lean",
+   "Body_Stocky",
+   "Body_Athletic",
+   "Body_Bulk"
+  ]
+ },
+ "glb": "Mechanic_Work_Gloves.glb"
+}

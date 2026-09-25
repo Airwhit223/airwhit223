@@ -1,0 +1,55 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://world/dungeons/destructible_rock.gd" id="1_r2akt"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/gothic_stone.tres" id="2_d20g7"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/mossy_stone.tres" id="3_0gx0v"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/rift_purple.tres" id="4_tme7x"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_xu73u"]
+radius = 0.9
+height = 1.8
+radial_segments = 16
+rings = 8
+
+[sub_resource type="SphereMesh" id="SphereMesh_ohpkh"]
+radius = 0.6
+height = 1.2
+radial_segments = 16
+rings = 8
+
+[sub_resource type="SphereMesh" id="SphereMesh_lhlun"]
+radial_segments = 16
+rings = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_rjq1q"]
+size = Vector3(0.08, 1.2, 0.08)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lwglp"]
+size = Vector3(1.8, 1.8, 1.8)
+
+[node name="DestructibleRock" type="StaticBody3D" unique_id=2088291717]
+script = ExtResource("1_r2akt")
+
+[node name="Rock1" type="MeshInstance3D" parent="." unique_id=1981358648]
+transform = Transform3D(1.1, 0, 0, 0, 0.9, 0, 0, 0, 1, 0, 0.8, 0)
+material_override = ExtResource("2_d20g7")
+mesh = SubResource("SphereMesh_xu73u")
+
+[node name="Rock2" type="MeshInstance3D" parent="." unique_id=1783034838]
+transform = Transform3D(0.9, 0, 0, 0, 1.1, 0, 0, 0, 0.8, 0.5, 0.6, 0.2)
+material_override = ExtResource("3_0gx0v")
+mesh = SubResource("SphereMesh_ohpkh")
+
+[node name="Rock3" type="MeshInstance3D" parent="." unique_id=459327763]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.5, -0.3)
+material_override = ExtResource("2_d20g7")
+mesh = SubResource("SphereMesh_lhlun")
+
+[node name="CrackLine" type="MeshInstance3D" parent="." unique_id=1525189207]
+transform = Transform3D(0.9848077, 0.07338689, 0.15737869, 0, 0.90630776, -0.42261827, -0.17364818, 0.41619775, 0.8925389, 0.1, 0.8, 0.85)
+material_override = ExtResource("4_tme7x")
+mesh = SubResource("BoxMesh_rjq1q")
+
+[node name="@CollisionShape3D@6" type="CollisionShape3D" parent="." unique_id=1456417647]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("BoxShape3D_lwglp")

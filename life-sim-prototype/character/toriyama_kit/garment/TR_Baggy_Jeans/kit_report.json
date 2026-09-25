@@ -1,0 +1,12 @@
+{
+ "part": "garment",
+ "name": "TR_Baggy_Jeans",
+ "collapsed_keys": {
+  "TR_Baggy_Jeans": 11
+ },
+ "baked": {
+  "TR_Baggy_Jeans": 7.9
+ },
+ "glb_mb": 1.15,
+ "seconds": 8.1
+}

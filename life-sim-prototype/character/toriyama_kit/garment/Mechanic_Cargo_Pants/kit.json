@@ -1,0 +1,106 @@
+{
+ "kind": "garment",
+ "name": "Mechanic_Cargo_Pants",
+ "object": "Mechanic_Cargo_Pants",
+ "roles": [
+  "bottom",
+  "stitch",
+  "belt",
+  "pouch"
+ ],
+ "slot": "bottom",
+ "meshes": {
+  "Mechanic_Cargo_Pants": {
+   "texture": "textures/Mechanic_Cargo_Pants.png",
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "TR_Mechanic_Cargo_Pants_0",
+     "role": "bottom",
+     "patterns": [
+      "canvas"
+     ],
+     "default_srgb": [
+      180,
+      154,
+      106
+     ]
+    },
+    {
+     "index": 1,
+     "material": "TR_Mechanic_Cargo_Pants_1",
+     "role": "stitch",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      200,
+      100,
+      42
+     ]
+    },
+    {
+     "index": 2,
+     "material": "TR_Mechanic_Cargo_Pants_2",
+     "role": "belt",
+     "patterns": [
+      "leather",
+      "studs"
+     ],
+     "default_srgb": [
+      110,
+      74,
+      46
+     ]
+    },
+    {
+     "index": 3,
+     "material": "TR_Mechanic_Cargo_Pants_3",
+     "role": "pouch",
+     "patterns": [
+      "leather"
+     ],
+     "default_srgb": [
+      110,
+      74,
+      46
+     ]
+    },
+    {
+     "index": 4,
+     "material": "TR_Ink",
+     "role": "cloth",
+     "patterns": [],
+     "default_srgb": null
+    }
+   ]
+  }
+ },
+ "blend_shapes": {
+  "Mechanic_Cargo_Pants": [
+   "Def_Bust",
+   "Def_Hips",
+   "Def_Waist",
+   "Def_Shoulders",
+   "Def_Pecs",
+   "Def_Back",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F",
+   "TR_Chest_Width",
+   "TR_Waist_Width",
+   "TR_Hip_Width",
+   "TR_Neck",
+   "Body_Lean",
+   "Body_Stocky",
+   "Body_Athletic",
+   "Body_Bulk"
+  ]
+ },
+ "glb": "Mechanic_Cargo_Pants.glb"
+}

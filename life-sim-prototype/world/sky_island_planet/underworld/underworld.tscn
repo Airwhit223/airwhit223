@@ -1,0 +1,2947 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://world/sky_island_planet/underworld/underworld.gd" id="1_ojl72"]
+[ext_resource type="Material" path="res://world/sky_island_planet/underworld/materials/underworld_bedrock.tres" id="2_t44vy"]
+[ext_resource type="Material" path="res://world/sky_island_planet/underworld/materials/cavern_ceiling.tres" id="3_62yfi"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/quartz_crystal_cyan.tres" id="4_s5xmg"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/quartz_crystal_magenta.tres" id="5_dxbs8"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/quartz_crystal_violet.tres" id="6_xrudi"]
+[ext_resource type="Material" path="res://world/sky_island_planet/underworld/materials/village_ground.tres" id="7_f0a8p"]
+[ext_resource type="Material" path="res://world/sky_island_planet/underworld/materials/hearth_ember.tres" id="8_0nrde"]
+[ext_resource type="Material" path="res://world/sky_island_planet/underworld/materials/stone_training.tres" id="9_5lw6n"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/ancient_city_wall.tres" id="10_48ck4"]
+[ext_resource type="Material" path="res://world/sky_island_planet/underworld/materials/draconic_scale_jade.tres" id="11_vts26"]
+[ext_resource type="Material" path="res://world/sky_island_planet/underworld/materials/village_timber.tres" id="12_fflqw"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/ancient_gold_trim.tres" id="13_t62v4"]
+[ext_resource type="Material" path="res://world/sky_island_planet/underworld/materials/draconic_scale_dusk.tres" id="14_3584r"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/magma_vein.tres" id="15_q68hy"]
+[ext_resource type="Material" path="res://world/sky_island_planet/underworld/materials/tide_water.tres" id="16_o2p0i"]
+[ext_resource type="Material" path="res://world/sky_island_planet/underworld/materials/storm_cloud.tres" id="17_5dqoj"]
+[ext_resource type="Material" path="res://world/sky_island_planet/underworld/materials/aether_light.tres" id="18_20lmq"]
+[ext_resource type="Material" path="res://world/sky_island_planet/underworld/materials/lore_tablet.tres" id="19_cm87f"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/power_grid_energy.tres" id="20_x4mqv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bcg8c"]
+size = Vector3(360, 2, 360)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v5b8h"]
+size = Vector3(360, 2, 360)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ysano"]
+size = Vector3(360, 4, 360)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h2lxv"]
+size = Vector3(360, 4, 360)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pl0nh"]
+size = Vector3(360, 52, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4qgqp"]
+size = Vector3(360, 52, 6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jb7m2"]
+size = Vector3(6, 52, 360)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kxavw"]
+size = Vector3(6, 52, 360)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rhij0"]
+size = Vector3(360, 52, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iotf2"]
+size = Vector3(360, 52, 6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7ve1m"]
+size = Vector3(6, 52, 360)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5kolx"]
+size = Vector3(6, 52, 360)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ym6oq"]
+top_radius = 0.0
+bottom_radius = 2.929075
+height = 6.2697244
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6rkx7"]
+top_radius = 0.0
+bottom_radius = 2.576541
+height = 19.324902
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pqqyw"]
+top_radius = 0.0
+bottom_radius = 3.203084
+height = 10.725934
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_r1lic"]
+top_radius = 0.0
+bottom_radius = 2.3718424
+height = 8.783655
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2nkpb"]
+top_radius = 0.0
+bottom_radius = 3.3844702
+height = 15.099591
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vw0fm"]
+top_radius = 0.0
+bottom_radius = 3.166039
+height = 18.837828
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_x4qu1"]
+top_radius = 0.0
+bottom_radius = 2.7700772
+height = 16.971191
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_y3njl"]
+top_radius = 0.0
+bottom_radius = 2.0439606
+height = 13.575534
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0fpn5"]
+top_radius = 0.0
+bottom_radius = 2.1333382
+height = 13.822453
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fvtqr"]
+top_radius = 0.0
+bottom_radius = 1.4768226
+height = 7.125667
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mwj1c"]
+top_radius = 0.0
+bottom_radius = 2.2656384
+height = 7.245196
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4xky5"]
+top_radius = 0.0
+bottom_radius = 1.9596169
+height = 19.760746
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_376gl"]
+top_radius = 0.0
+bottom_radius = 1.9595096
+height = 7.829332
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8ujxn"]
+top_radius = 0.0
+bottom_radius = 2.246403
+height = 9.541626
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_b5u8s"]
+top_radius = 0.0
+bottom_radius = 2.1016777
+height = 15.689669
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_k67sd"]
+top_radius = 0.0
+bottom_radius = 2.0797293
+height = 16.10874
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_elths"]
+top_radius = 0.0
+bottom_radius = 3.2806163
+height = 9.894394
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4luwh"]
+top_radius = 0.0
+bottom_radius = 1.8957661
+height = 16.069492
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_m7d84"]
+top_radius = 0.0
+bottom_radius = 2.265028
+height = 18.54596
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bemyb"]
+top_radius = 0.0
+bottom_radius = 1.8225007
+height = 13.805905
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_m2isn"]
+top_radius = 0.0
+bottom_radius = 3.004784
+height = 7.7647333
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6xcjr"]
+top_radius = 0.0
+bottom_radius = 1.6744345
+height = 8.130402
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_s6kjg"]
+top_radius = 0.0
+bottom_radius = 1.4170876
+height = 13.051586
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_s37hw"]
+top_radius = 0.0
+bottom_radius = 2.167813
+height = 14.790098
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_i3leq"]
+top_radius = 0.0
+bottom_radius = 1.5338418
+height = 12.850441
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2eij8"]
+top_radius = 0.0
+bottom_radius = 1.3964931
+height = 11.174488
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pmope"]
+top_radius = 0.0
+bottom_radius = 1.3572366
+height = 13.355542
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_t2sdy"]
+top_radius = 0.0
+bottom_radius = 3.2070868
+height = 16.297508
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ft7si"]
+top_radius = 0.0
+bottom_radius = 2.2163587
+height = 8.275913
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bkm6a"]
+top_radius = 0.0
+bottom_radius = 1.8157165
+height = 15.054554
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_rfnat"]
+top_radius = 0.0
+bottom_radius = 2.4643183
+height = 8.379885
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_eaal2"]
+top_radius = 0.0
+bottom_radius = 3.3735063
+height = 10.588871
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_slo6o"]
+top_radius = 0.0
+bottom_radius = 1.8286235
+height = 13.475622
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3dk8b"]
+top_radius = 0.0
+bottom_radius = 2.8331962
+height = 9.99613
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mbn3a"]
+top_radius = 0.0
+bottom_radius = 1.9489949
+height = 7.6478024
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_rl5ps"]
+top_radius = 0.0
+bottom_radius = 2.7655416
+height = 13.31448
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qredh"]
+top_radius = 0.0
+bottom_radius = 2.965634
+height = 18.735626
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kpvap"]
+top_radius = 0.0
+bottom_radius = 3.2328665
+height = 15.331196
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ouux5"]
+top_radius = 0.0
+bottom_radius = 1.4579173
+height = 12.683856
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_b2dgb"]
+top_radius = 0.0
+bottom_radius = 3.2938392
+height = 9.54874
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_rabk5"]
+top_radius = 0.0
+bottom_radius = 2.2177243
+height = 17.266684
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mo5yf"]
+top_radius = 0.0
+bottom_radius = 2.323701
+height = 9.544099
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_b76w4"]
+top_radius = 0.0
+bottom_radius = 2.928608
+height = 9.645775
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_k5jpk"]
+top_radius = 0.0
+bottom_radius = 1.7778499
+height = 10.623346
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ap6i4"]
+top_radius = 0.0
+bottom_radius = 1.8563614
+height = 15.405615
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1dny5"]
+top_radius = 0.0
+bottom_radius = 2.4444814
+height = 19.044668
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_40nyg"]
+top_radius = 0.0
+bottom_radius = 2.7184105
+height = 15.700263
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ptwry"]
+top_radius = 0.0
+bottom_radius = 3.0585687
+height = 14.067447
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kpt5c"]
+top_radius = 0.0
+bottom_radius = 3.2102404
+height = 10.649898
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vbjaa"]
+top_radius = 0.0
+bottom_radius = 2.9892168
+height = 14.988138
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8q02v"]
+top_radius = 0.0
+bottom_radius = 1.321005
+height = 13.406109
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_nrebk"]
+top_radius = 0.0
+bottom_radius = 2.2196069
+height = 17.872627
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7mgul"]
+top_radius = 0.0
+bottom_radius = 3.3219962
+height = 8.352888
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kokrm"]
+top_radius = 0.0
+bottom_radius = 2.5975733
+height = 10.065187
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_uhsxt"]
+top_radius = 0.0
+bottom_radius = 2.9759004
+height = 7.6401625
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5xr4x"]
+top_radius = 0.0
+bottom_radius = 2.048133
+height = 8.684606
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ivkp5"]
+top_radius = 0.0
+bottom_radius = 2.0253184
+height = 14.603107
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_flxjw"]
+top_radius = 0.0
+bottom_radius = 1.3092332
+height = 6.1265564
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_d3edw"]
+top_radius = 0.0
+bottom_radius = 2.3052545
+height = 7.990118
+
+[sub_resource type="BoxMesh" id="BoxMesh_8jtss"]
+size = Vector3(58, 0.3, 58)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_040lg"]
+size = Vector3(58, 0.3, 58)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bsnbm"]
+top_radius = 0.0
+bottom_radius = 3.4
+height = 2.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_nxk47"]
+size = Vector3(9, 0.7, 9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hqb8j"]
+size = Vector3(9, 0.7, 9)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s1cve"]
+size = Vector3(7.5, 4.4, 7.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_krcbi"]
+size = Vector3(7.5, 4.4, 7.5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_a1gmk"]
+top_radius = 0.0
+bottom_radius = 6.2
+height = 3.4
+
+[sub_resource type="BoxMesh" id="BoxMesh_utv7s"]
+size = Vector3(1.8, 2.6, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xm8cq"]
+size = Vector3(2.6, 0.3, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rtcr3"]
+size = Vector3(7.5, 4.4, 7.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lqtkj"]
+size = Vector3(7.5, 4.4, 7.5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5gtf0"]
+top_radius = 0.0
+bottom_radius = 6.2
+height = 3.4
+
+[sub_resource type="BoxMesh" id="BoxMesh_tt0nq"]
+size = Vector3(1.8, 2.6, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_km5or"]
+size = Vector3(2.6, 0.3, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d3c25"]
+size = Vector3(7.5, 4.4, 7.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sdw2x"]
+size = Vector3(7.5, 4.4, 7.5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hvygo"]
+top_radius = 0.0
+bottom_radius = 6.2
+height = 3.4
+
+[sub_resource type="BoxMesh" id="BoxMesh_6wn4n"]
+size = Vector3(1.8, 2.6, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5hjeg"]
+size = Vector3(2.6, 0.3, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2o76p"]
+size = Vector3(7.5, 4.4, 7.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0isrn"]
+size = Vector3(7.5, 4.4, 7.5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7a8q0"]
+top_radius = 0.0
+bottom_radius = 6.2
+height = 3.4
+
+[sub_resource type="BoxMesh" id="BoxMesh_rtq2q"]
+size = Vector3(1.8, 2.6, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4oba"]
+size = Vector3(2.6, 0.3, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xmass"]
+size = Vector3(7.5, 4.4, 7.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1iwqu"]
+size = Vector3(7.5, 4.4, 7.5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2ppj5"]
+top_radius = 0.0
+bottom_radius = 6.2
+height = 3.4
+
+[sub_resource type="BoxMesh" id="BoxMesh_vcran"]
+size = Vector3(1.8, 2.6, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kvor5"]
+size = Vector3(2.6, 0.3, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4id7k"]
+size = Vector3(7.5, 4.4, 7.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vbw8c"]
+size = Vector3(7.5, 4.4, 7.5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_sjult"]
+top_radius = 0.0
+bottom_radius = 6.2
+height = 3.4
+
+[sub_resource type="BoxMesh" id="BoxMesh_30moj"]
+size = Vector3(1.8, 2.6, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_v55e7"]
+size = Vector3(2.6, 0.3, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_32hsk"]
+size = Vector3(7.5, 4.4, 7.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q2ptt"]
+size = Vector3(7.5, 4.4, 7.5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gc3n1"]
+top_radius = 0.0
+bottom_radius = 6.2
+height = 3.4
+
+[sub_resource type="BoxMesh" id="BoxMesh_ybvbr"]
+size = Vector3(1.8, 2.6, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5osrn"]
+size = Vector3(2.6, 0.3, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_iddr3"]
+size = Vector3(22, 8, 13)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yge00"]
+size = Vector3(22, 8, 13)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jfe6a"]
+top_radius = 0.0
+bottom_radius = 15.0
+height = 5.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_i5mk8"]
+size = Vector3(4.4, 5.2, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pql15"]
+size = Vector3(1.2, 2.4, 1.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_o6ukx"]
+size = Vector3(1.2, 2.4, 1.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sj7yw"]
+size = Vector3(16, 2.4, 14)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nvpqe"]
+size = Vector3(16, 2.4, 14)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nfrac"]
+size = Vector3(5, 14, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h3myw"]
+size = Vector3(5, 14, 5)
+
+[sub_resource type="TorusMesh" id="TorusMesh_jqcul"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_kyo0a"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_m5iog"]
+size = Vector3(16, 2.4, 14)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hev14"]
+size = Vector3(16, 2.4, 14)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sff8y"]
+size = Vector3(5, 19, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r8c6s"]
+size = Vector3(5, 19, 5)
+
+[sub_resource type="TorusMesh" id="TorusMesh_cifkn"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_cyqak"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_p6spl"]
+size = Vector3(16, 2.4, 14)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jmtkr"]
+size = Vector3(16, 2.4, 14)
+
+[sub_resource type="BoxMesh" id="BoxMesh_okcum"]
+size = Vector3(5, 24, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dvf5m"]
+size = Vector3(5, 24, 5)
+
+[sub_resource type="TorusMesh" id="TorusMesh_rvkb5"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_jkr6h"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_a2e8n"]
+size = Vector3(16, 2.4, 14)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wgdg5"]
+size = Vector3(16, 2.4, 14)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xywcf"]
+size = Vector3(5, 14, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3oxya"]
+size = Vector3(5, 14, 5)
+
+[sub_resource type="TorusMesh" id="TorusMesh_kprkp"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_6yuk1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_t1o77"]
+size = Vector3(16, 2.4, 14)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qgjv3"]
+size = Vector3(16, 2.4, 14)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7iif6"]
+size = Vector3(5, 19, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_njc02"]
+size = Vector3(5, 19, 5)
+
+[sub_resource type="TorusMesh" id="TorusMesh_shai5"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_7fdhh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jp6vt"]
+size = Vector3(48, 0.5, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vsby4"]
+size = Vector3(48, 0.5, 48)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2niir"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tr05o"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_8gsdo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lhk1e"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d7tb2"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_hx41n"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qd5ft"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j3krc"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_cvo05"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gfina"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kqk26"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_lrkg0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2enks"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ohkpm"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ie5og"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qbrsi"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ouqyc"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_41fgd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ooxcu"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mimaq"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_jn0du"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_toqwi"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jk2r8"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_0hxg1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_scnnu"]
+size = Vector3(16, 0.4, 16)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_c1kry"]
+top_radius = 0.0
+bottom_radius = 1.8
+height = 4.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wb2ax"]
+top_radius = 0.0
+bottom_radius = 1.8
+height = 4.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_b5rl4"]
+top_radius = 0.0
+bottom_radius = 1.8
+height = 4.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_bg6g0"]
+size = Vector3(7, 0.2, 66)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7a4ve"]
+size = Vector3(48, 0.5, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j4bka"]
+size = Vector3(48, 0.5, 48)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d6jed"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ihyk"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ujkle"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_m88qf"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x8rsm"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_hkebq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cx2b2"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v7spf"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_df7ef"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_oho5w"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bklum"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_6nc2f"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ffya3"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2joxv"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_6nppp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_f43vx"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_df5n6"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_xr0gg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_mmplm"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_prxvu"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_0nbgv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_127bm"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ealnw"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_sh2c5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_c1mi8"]
+size = Vector3(18, 0.3, 18)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_w3evg"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_aecih"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_t6fs3"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_w8xbl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_eoatg"]
+size = Vector3(7, 0.2, 65.85408)
+
+[sub_resource type="BoxMesh" id="BoxMesh_javxb"]
+size = Vector3(48, 0.5, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mxpif"]
+size = Vector3(48, 0.5, 48)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lo4wd"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oqhbh"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_h6hfg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nkdoa"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8kxpv"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_bni5u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lyc7l"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xbb1p"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_kbtpg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_mvfbo"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h0fsj"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_x02qs"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5daxq"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qcwbb"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_4grbj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tg5on"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5g6g6"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_66fuc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ftxb5"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qu2ts"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_bqdsh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_i0ac3"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yvymf"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_v7ty7"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0tk0j"]
+top_radius = 0.0
+bottom_radius = 2.2
+height = 8.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_t70jn"]
+top_radius = 0.0
+bottom_radius = 2.2
+height = 8.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xwidx"]
+top_radius = 0.0
+bottom_radius = 2.2
+height = 8.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_605bm"]
+top_radius = 0.0
+bottom_radius = 2.2
+height = 8.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jw8bt"]
+top_radius = 0.0
+bottom_radius = 2.2
+height = 8.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_uksqe"]
+size = Vector3(7, 0.2, 65.62023)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bctjr"]
+size = Vector3(48, 0.5, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5wxsk"]
+size = Vector3(48, 0.5, 48)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2fdch"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c0gxl"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_q7qmr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vfto6"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rdrxh"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_pvner"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gn4s6"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_88eia"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_r33k1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_frmbk"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q3f28"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_dcmiv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_r3fmn"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cw54x"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ymwd1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hso6v"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_crycx"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_equ7g"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_l4ouh"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qjbtl"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_1oine"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_678dy"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l7rvn"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_fxt3u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_krk5e"]
+size = Vector3(5, 0.4, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1no5o"]
+size = Vector3(5, 0.4, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pw8ur"]
+size = Vector3(5, 0.4, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cn5rh"]
+size = Vector3(5, 0.4, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2ab2k"]
+size = Vector3(5, 0.4, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n33hk"]
+size = Vector3(5, 0.4, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_say0q"]
+size = Vector3(5, 0.4, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ru1ed"]
+size = Vector3(5, 0.4, 5)
+
+[sub_resource type="SphereMesh" id="SphereMesh_dfsi8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_m7hi5"]
+size = Vector3(7, 0.2, 65.62023)
+
+[sub_resource type="BoxMesh" id="BoxMesh_btv2l"]
+size = Vector3(48, 0.5, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pr7x8"]
+size = Vector3(48, 0.5, 48)
+
+[sub_resource type="BoxMesh" id="BoxMesh_k70h1"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g076p"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_q6e3i"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ab0li"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vuv7d"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_yb5c3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cynr6"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3phf2"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_i7d3p"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_37ne2"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lydip"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_a3116"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ul6wn"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rwocm"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_7ep3j"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_djdqn"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bw7ns"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_2g0pl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5j00x"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lho3s"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_jr6df"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_eii41"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gn46p"]
+size = Vector3(1.6, 6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_dpmqu"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fejg6"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gxx4f"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hemcm"]
+size = Vector3(7, 0.2, 65.85408)
+
+[sub_resource type="BoxMesh" id="BoxMesh_301je"]
+size = Vector3(4, 4.4, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b0bxu"]
+size = Vector3(4, 4.4, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8p2t3"]
+size = Vector3(5, 0.6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_afmef"]
+size = Vector3(5, 0.6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_q6adh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ytexv"]
+size = Vector3(4, 4.4, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_50bvd"]
+size = Vector3(4, 4.4, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_avwwi"]
+size = Vector3(5, 0.6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nrcke"]
+size = Vector3(5, 0.6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_m6ixi"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_skddk"]
+size = Vector3(4, 4.4, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ggos2"]
+size = Vector3(4, 4.4, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8jrxh"]
+size = Vector3(5, 0.6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hi1du"]
+size = Vector3(5, 0.6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_mg4uy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_mumkr"]
+size = Vector3(4, 4.4, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rdxq4"]
+size = Vector3(4, 4.4, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ibo0j"]
+size = Vector3(5, 0.6, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ya1kd"]
+size = Vector3(5, 0.6, 1.6)
+
+[sub_resource type="SphereMesh" id="SphereMesh_1mxxn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_q0n5e"]
+size = Vector3(12, 0.6, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tly04"]
+size = Vector3(12, 0.6, 12)
+
+[node name="Underworld" type="Node3D" unique_id=431881895]
+script = ExtResource("1_ojl72")
+
+[node name="Cavern" type="Node3D" parent="." unique_id=1807376232]
+
+[node name="BedrockFloor" type="MeshInstance3D" parent="Cavern" unique_id=1261167933]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+material_override = ExtResource("2_t44vy")
+mesh = SubResource("BoxMesh_bcg8c")
+
+[node name="@StaticBody3D@4" type="StaticBody3D" parent="Cavern/BedrockFloor" unique_id=1066890466]
+
+[node name="@CollisionShape3D@3" type="CollisionShape3D" parent="Cavern/BedrockFloor/@StaticBody3D@4" unique_id=792585515]
+shape = SubResource("BoxShape3D_v5b8h")
+
+[node name="CavernCeiling" type="MeshInstance3D" parent="Cavern" unique_id=1784814399]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 52, 0)
+material_override = ExtResource("3_62yfi")
+mesh = SubResource("BoxMesh_ysano")
+
+[node name="@StaticBody3D@6" type="StaticBody3D" parent="Cavern/CavernCeiling" unique_id=1567150537]
+
+[node name="@CollisionShape3D@5" type="CollisionShape3D" parent="Cavern/CavernCeiling/@StaticBody3D@6" unique_id=2136337179]
+shape = SubResource("BoxShape3D_h2lxv")
+
+[node name="CavernWall0" type="MeshInstance3D" parent="Cavern" unique_id=1053755188]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 180)
+material_override = ExtResource("2_t44vy")
+mesh = SubResource("BoxMesh_pl0nh")
+
+[node name="@StaticBody3D@8" type="StaticBody3D" parent="Cavern/CavernWall0" unique_id=1841857128]
+
+[node name="@CollisionShape3D@7" type="CollisionShape3D" parent="Cavern/CavernWall0/@StaticBody3D@8" unique_id=738169675]
+shape = SubResource("BoxShape3D_4qgqp")
+
+[node name="CavernWall1" type="MeshInstance3D" parent="Cavern" unique_id=783616612]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, 25, 1.1021821e-14)
+material_override = ExtResource("2_t44vy")
+mesh = SubResource("BoxMesh_jb7m2")
+
+[node name="@StaticBody3D@10" type="StaticBody3D" parent="Cavern/CavernWall1" unique_id=1183517462]
+
+[node name="@CollisionShape3D@9" type="CollisionShape3D" parent="Cavern/CavernWall1/@StaticBody3D@10" unique_id=268032307]
+shape = SubResource("BoxShape3D_kxavw")
+
+[node name="CavernWall2" type="MeshInstance3D" parent="Cavern" unique_id=1290552645]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2043643e-14, 25, -180)
+material_override = ExtResource("2_t44vy")
+mesh = SubResource("BoxMesh_rhij0")
+
+[node name="@StaticBody3D@12" type="StaticBody3D" parent="Cavern/CavernWall2" unique_id=1161593884]
+
+[node name="@CollisionShape3D@11" type="CollisionShape3D" parent="Cavern/CavernWall2/@StaticBody3D@12" unique_id=321191096]
+shape = SubResource("BoxShape3D_iotf2")
+
+[node name="CavernWall3" type="MeshInstance3D" parent="Cavern" unique_id=388332752]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -180, 25, -3.3065463e-14)
+material_override = ExtResource("2_t44vy")
+mesh = SubResource("BoxMesh_7ve1m")
+
+[node name="@StaticBody3D@14" type="StaticBody3D" parent="Cavern/CavernWall3" unique_id=1978840210]
+
+[node name="@CollisionShape3D@13" type="CollisionShape3D" parent="Cavern/CavernWall3/@StaticBody3D@14" unique_id=912344170]
+shape = SubResource("BoxShape3D_5kolx")
+
+[node name="Stalactites" type="Node3D" parent="Cavern" unique_id=123817916]
+
+[node name="Stalactite0" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=909989178]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 92.842255, 46.86514, -93.1863)
+material_override = ExtResource("4_s5xmg")
+mesh = SubResource("CylinderMesh_ym6oq")
+
+[node name="Stalactite1" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=1517664294]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -163.37856, 40.337547, 108.84631)
+material_override = ExtResource("5_dxbs8")
+mesh = SubResource("CylinderMesh_6rkx7")
+
+[node name="Stalactite2" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=1725307082]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -105.39464, 44.63703, -116.71483)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("CylinderMesh_pqqyw")
+
+[node name="Stalactite3" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=2129175256]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 58.57553, 45.608173, -129.16809)
+material_override = ExtResource("4_s5xmg")
+mesh = SubResource("CylinderMesh_r1lic")
+
+[node name="Stalactite4" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=1809137481]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -85.56276, 42.450203, -94.60342)
+material_override = ExtResource("5_dxbs8")
+mesh = SubResource("CylinderMesh_2nkpb")
+
+[node name="Stalactite5" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=1275574935]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -74.47965, 40.581085, 31.22023)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("CylinderMesh_vw0fm")
+
+[node name="Stalactite6" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=812191984]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 150.04291, 41.514404, -115.71447)
+material_override = ExtResource("4_s5xmg")
+mesh = SubResource("CylinderMesh_x4qu1")
+
+[node name="Stalactite7" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=1501235764]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -113.35686, 43.212234, -90.54639)
+material_override = ExtResource("5_dxbs8")
+mesh = SubResource("CylinderMesh_y3njl")
+
+[node name="Stalactite8" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=929327624]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 160.60214, 43.088776, 62.876617)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("CylinderMesh_0fpn5")
+
+[node name="Stalactite9" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=2107263645]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -99.34501, 46.43717, -38.997215)
+material_override = ExtResource("4_s5xmg")
+mesh = SubResource("CylinderMesh_fvtqr")
+
+[node name="Stalactite10" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=2115264098]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -28.671036, 46.377403, -159.22324)
+material_override = ExtResource("5_dxbs8")
+mesh = SubResource("CylinderMesh_mwj1c")
+
+[node name="Stalactite11" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=439842300]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -50.417427, 40.11963, -5.4521637)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("CylinderMesh_4xky5")
+
+[node name="Stalactite12" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=1434765472]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -111.40025, 46.085335, -90.320984)
+material_override = ExtResource("4_s5xmg")
+mesh = SubResource("CylinderMesh_376gl")
+
+[node name="Stalactite13" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=860950152]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -120.04143, 45.229187, 74.718994)
+material_override = ExtResource("5_dxbs8")
+mesh = SubResource("CylinderMesh_8ujxn")
+
+[node name="Stalactite14" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=512275953]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -126.75264, 42.155167, -109.60568)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("CylinderMesh_b5u8s")
+
+[node name="Stalactite15" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=1623015735]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 115.67731, 41.94563, 92.01132)
+material_override = ExtResource("4_s5xmg")
+mesh = SubResource("CylinderMesh_k67sd")
+
+[node name="Stalactite16" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=2059193781]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -34.14044, 45.052803, -144.11444)
+material_override = ExtResource("5_dxbs8")
+mesh = SubResource("CylinderMesh_elths")
+
+[node name="Stalactite17" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=884886537]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -27.518585, 41.965256, -147.45511)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("CylinderMesh_4luwh")
+
+[node name="Stalactite18" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=541802539]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 1.0124664, 40.72702, 87.07419)
+material_override = ExtResource("4_s5xmg")
+mesh = SubResource("CylinderMesh_m7d84")
+
+[node name="Stalactite19" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=420061620]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -71.221565, 43.097046, -150.45912)
+material_override = ExtResource("5_dxbs8")
+mesh = SubResource("CylinderMesh_bemyb")
+
+[node name="Stalactite20" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=1508236369]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 34.070267, 46.117634, 160.41357)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("CylinderMesh_m2isn")
+
+[node name="Stalactite21" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=1744537150]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 38.7986, 45.9348, -54.368416)
+material_override = ExtResource("4_s5xmg")
+mesh = SubResource("CylinderMesh_6xcjr")
+
+[node name="Stalactite22" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=1062940085]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -81.958466, 43.474205, 93.569336)
+material_override = ExtResource("5_dxbs8")
+mesh = SubResource("CylinderMesh_s6kjg")
+
+[node name="Stalactite23" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=1893441198]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 3.6450195, 42.60495, 99.59338)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("CylinderMesh_s37hw")
+
+[node name="Stalactite24" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=1399569912]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -29.91568, 43.57478, 154.46698)
+material_override = ExtResource("4_s5xmg")
+mesh = SubResource("CylinderMesh_i3leq")
+
+[node name="Stalactite25" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=1155074907]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -41.880424, 44.412758, -104.43587)
+material_override = ExtResource("5_dxbs8")
+mesh = SubResource("CylinderMesh_2eij8")
+
+[node name="Stalactite26" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=2103202252]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 51.879883, 43.322227, -143.05177)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("CylinderMesh_pmope")
+
+[node name="Stalactite27" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=1806918320]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 8.936264, 41.851246, -42.33377)
+material_override = ExtResource("4_s5xmg")
+mesh = SubResource("CylinderMesh_t2sdy")
+
+[node name="Stalactite28" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=339750999]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -34.50557, 45.862045, -87.75584)
+material_override = ExtResource("5_dxbs8")
+mesh = SubResource("CylinderMesh_ft7si")
+
+[node name="Stalactite29" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=963931876]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 26.674286, 42.472725, -22.995102)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("CylinderMesh_bkm6a")
+
+[node name="Stalactite30" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=303269532]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 54.898575, 45.81006, -152.39743)
+material_override = ExtResource("4_s5xmg")
+mesh = SubResource("CylinderMesh_rfnat")
+
+[node name="Stalactite31" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=1121135296]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 145.00684, 44.705566, -127.65364)
+material_override = ExtResource("5_dxbs8")
+mesh = SubResource("CylinderMesh_eaal2")
+
+[node name="Stalactite32" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=1779841427]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -33.789413, 43.262188, 93.542786)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("CylinderMesh_slo6o")
+
+[node name="Stalactite33" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=638883044]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 102.03372, 45.001934, 91.789276)
+material_override = ExtResource("4_s5xmg")
+mesh = SubResource("CylinderMesh_3dk8b")
+
+[node name="Stalactite34" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=1687887290]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 37.474487, 46.176098, 29.82431)
+material_override = ExtResource("5_dxbs8")
+mesh = SubResource("CylinderMesh_mbn3a")
+
+[node name="Stalactite35" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=854908682]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 160.75775, 43.34276, 88.725006)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("CylinderMesh_rl5ps")
+
+[node name="Stalactite36" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=348650314]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 159.15219, 40.632187, -37.0287)
+material_override = ExtResource("4_s5xmg")
+mesh = SubResource("CylinderMesh_qredh")
+
+[node name="Stalactite37" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=1327761943]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 140.57755, 42.334404, -94.43678)
+material_override = ExtResource("5_dxbs8")
+mesh = SubResource("CylinderMesh_kpvap")
+
+[node name="Stalactite38" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=1910989660]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -73.01606, 43.658073, -119.700676)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("CylinderMesh_ouux5")
+
+[node name="Stalactite39" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=1798813007]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 78.17886, 45.22563, 39.022247)
+material_override = ExtResource("4_s5xmg")
+mesh = SubResource("CylinderMesh_b2dgb")
+
+[node name="Stalactite40" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=64862175]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 149.82956, 41.366657, -21.393967)
+material_override = ExtResource("5_dxbs8")
+mesh = SubResource("CylinderMesh_rabk5")
+
+[node name="Stalactite41" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=1559899962]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 29.65593, 45.22795, 56.06607)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("CylinderMesh_mo5yf")
+
+[node name="Stalactite42" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=642105586]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -67.73485, 45.177113, -79.2599)
+material_override = ExtResource("4_s5xmg")
+mesh = SubResource("CylinderMesh_b76w4")
+
+[node name="Stalactite43" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=760982139]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -38.89273, 44.688328, -135.40622)
+material_override = ExtResource("5_dxbs8")
+mesh = SubResource("CylinderMesh_k5jpk")
+
+[node name="Stalactite44" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=280069086]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 86.77446, 42.29719, 133.62988)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("CylinderMesh_ap6i4")
+
+[node name="Stalactite45" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=649258546]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 80.70894, 40.477665, 100.8472)
+material_override = ExtResource("4_s5xmg")
+mesh = SubResource("CylinderMesh_1dny5")
+
+[node name="Stalactite46" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=506602345]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 87.83795, 42.149868, 143.078)
+material_override = ExtResource("5_dxbs8")
+mesh = SubResource("CylinderMesh_40nyg")
+
+[node name="Stalactite47" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=1455616514]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -60.512962, 42.966278, 28.123444)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("CylinderMesh_ptwry")
+
+[node name="Stalactite48" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=1286876989]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 64.286255, 44.675053, 98.34503)
+material_override = ExtResource("4_s5xmg")
+mesh = SubResource("CylinderMesh_kpt5c")
+
+[node name="Stalactite49" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=2108438935]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 5.682678, 42.50593, 50.37451)
+material_override = ExtResource("5_dxbs8")
+mesh = SubResource("CylinderMesh_vbjaa")
+
+[node name="Stalactite50" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=1924892513]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -123.955, 43.296944, -150.12085)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("CylinderMesh_8q02v")
+
+[node name="Stalactite52" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=2029688089]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -52.119385, 41.063686, 117.208435)
+material_override = ExtResource("5_dxbs8")
+mesh = SubResource("CylinderMesh_nrebk")
+
+[node name="Stalactite53" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=795772948]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -27.14296, 45.823555, -95.26879)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("CylinderMesh_7mgul")
+
+[node name="Stalactite54" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=846553414]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 149.26321, 44.967407, -81.881195)
+material_override = ExtResource("4_s5xmg")
+mesh = SubResource("CylinderMesh_kokrm")
+
+[node name="Stalactite55" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=1474489269]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -80.06224, 46.17992, -107.88457)
+material_override = ExtResource("5_dxbs8")
+mesh = SubResource("CylinderMesh_uhsxt")
+
+[node name="Stalactite56" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=1815635288]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -146.05298, 45.657696, 19.422195)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("CylinderMesh_5xr4x")
+
+[node name="Stalactite57" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=690507773]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 99.08853, 42.69845, 78.69269)
+material_override = ExtResource("4_s5xmg")
+mesh = SubResource("CylinderMesh_ivkp5")
+
+[node name="Stalactite58" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=71322773]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 115.12924, 46.93672, -26.458542)
+material_override = ExtResource("5_dxbs8")
+mesh = SubResource("CylinderMesh_flxjw")
+
+[node name="Stalactite59" type="MeshInstance3D" parent="Cavern/Stalactites" unique_id=1297976573]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -62.03276, 46.00494, 54.098694)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("CylinderMesh_d3edw")
+
+[node name="HollowlightVillage" type="Node3D" parent="." unique_id=581691399]
+
+[node name="VillagePlaza" type="MeshInstance3D" parent="HollowlightVillage" unique_id=1377295851]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+material_override = ExtResource("7_f0a8p")
+mesh = SubResource("BoxMesh_8jtss")
+
+[node name="@StaticBody3D@16" type="StaticBody3D" parent="HollowlightVillage/VillagePlaza" unique_id=1540014350]
+
+[node name="@CollisionShape3D@15" type="CollisionShape3D" parent="HollowlightVillage/VillagePlaza/@StaticBody3D@16" unique_id=94946068]
+shape = SubResource("BoxShape3D_040lg")
+
+[node name="GreatHearth" type="MeshInstance3D" parent="HollowlightVillage" unique_id=1523801873]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+material_override = ExtResource("8_0nrde")
+mesh = SubResource("CylinderMesh_bsnbm")
+
+[node name="HearthRing" type="MeshInstance3D" parent="HollowlightVillage" unique_id=778158062]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_nxk47")
+
+[node name="@StaticBody3D@18" type="StaticBody3D" parent="HollowlightVillage/HearthRing" unique_id=1398687034]
+
+[node name="@CollisionShape3D@17" type="CollisionShape3D" parent="HollowlightVillage/HearthRing/@StaticBody3D@18" unique_id=1681669132]
+shape = SubResource("BoxShape3D_hqb8j")
+
+[node name="Dwelling1" type="Node3D" parent="HollowlightVillage" unique_id=1643144232]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 22)
+
+[node name="Walls" type="MeshInstance3D" parent="HollowlightVillage/Dwelling1" unique_id=1405061787]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+material_override = ExtResource("10_48ck4")
+mesh = SubResource("BoxMesh_s1cve")
+
+[node name="@StaticBody3D@20" type="StaticBody3D" parent="HollowlightVillage/Dwelling1/Walls" unique_id=697337510]
+
+[node name="@CollisionShape3D@19" type="CollisionShape3D" parent="HollowlightVillage/Dwelling1/Walls/@StaticBody3D@20" unique_id=1003433164]
+shape = SubResource("BoxShape3D_krcbi")
+
+[node name="Roof" type="MeshInstance3D" parent="HollowlightVillage/Dwelling1" unique_id=74842757]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+material_override = ExtResource("11_vts26")
+mesh = SubResource("CylinderMesh_a1gmk")
+
+[node name="Door" type="MeshInstance3D" parent="HollowlightVillage/Dwelling1" unique_id=716533767]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 3.85)
+material_override = ExtResource("12_fflqw")
+mesh = SubResource("BoxMesh_utv7s")
+
+[node name="Lintel" type="MeshInstance3D" parent="HollowlightVillage/Dwelling1" unique_id=927673405]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 3.9)
+material_override = ExtResource("13_t62v4")
+mesh = SubResource("BoxMesh_xm8cq")
+
+[node name="Dwelling2" type="Node3D" parent="HollowlightVillage" unique_id=1831548621]
+transform = Transform3D(0.6234898, 0, -0.7818315, 0, 1, 0, 0.7818315, 0, 0.6234898, 17.200293, 0, 13.716776)
+
+[node name="Walls" type="MeshInstance3D" parent="HollowlightVillage/Dwelling2" unique_id=1506497473]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+material_override = ExtResource("10_48ck4")
+mesh = SubResource("BoxMesh_rtcr3")
+
+[node name="@StaticBody3D@22" type="StaticBody3D" parent="HollowlightVillage/Dwelling2/Walls" unique_id=116126876]
+
+[node name="@CollisionShape3D@21" type="CollisionShape3D" parent="HollowlightVillage/Dwelling2/Walls/@StaticBody3D@22" unique_id=103736592]
+shape = SubResource("BoxShape3D_lqtkj")
+
+[node name="Roof" type="MeshInstance3D" parent="HollowlightVillage/Dwelling2" unique_id=1415198452]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+material_override = ExtResource("14_3584r")
+mesh = SubResource("CylinderMesh_5gtf0")
+
+[node name="Door" type="MeshInstance3D" parent="HollowlightVillage/Dwelling2" unique_id=120949693]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 3.85)
+material_override = ExtResource("12_fflqw")
+mesh = SubResource("BoxMesh_tt0nq")
+
+[node name="Lintel" type="MeshInstance3D" parent="HollowlightVillage/Dwelling2" unique_id=1486381608]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 3.9)
+material_override = ExtResource("13_t62v4")
+mesh = SubResource("BoxMesh_km5or")
+
+[node name="Dwelling3" type="Node3D" parent="HollowlightVillage" unique_id=1391441495]
+transform = Transform3D(-0.22252095, 0, -0.9749279, 0, 1, 0, 0.9749279, 0, -0.22252095, 21.448414, 0, -4.8954606)
+
+[node name="Walls" type="MeshInstance3D" parent="HollowlightVillage/Dwelling3" unique_id=1076530038]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+material_override = ExtResource("10_48ck4")
+mesh = SubResource("BoxMesh_d3c25")
+
+[node name="@StaticBody3D@24" type="StaticBody3D" parent="HollowlightVillage/Dwelling3/Walls" unique_id=95664185]
+
+[node name="@CollisionShape3D@23" type="CollisionShape3D" parent="HollowlightVillage/Dwelling3/Walls/@StaticBody3D@24" unique_id=355331221]
+shape = SubResource("BoxShape3D_sdw2x")
+
+[node name="Roof" type="MeshInstance3D" parent="HollowlightVillage/Dwelling3" unique_id=684420982]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+material_override = ExtResource("11_vts26")
+mesh = SubResource("CylinderMesh_hvygo")
+
+[node name="Door" type="MeshInstance3D" parent="HollowlightVillage/Dwelling3" unique_id=19738450]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 3.85)
+material_override = ExtResource("12_fflqw")
+mesh = SubResource("BoxMesh_6wn4n")
+
+[node name="Lintel" type="MeshInstance3D" parent="HollowlightVillage/Dwelling3" unique_id=375031212]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 3.9)
+material_override = ExtResource("13_t62v4")
+mesh = SubResource("BoxMesh_5hjeg")
+
+[node name="Dwelling4" type="Node3D" parent="HollowlightVillage" unique_id=1283611993]
+transform = Transform3D(-0.90096885, 0, -0.43388382, 0, 1, 0, 0.43388382, 0, -0.90096885, 9.545443, 0, -19.821316)
+
+[node name="Walls" type="MeshInstance3D" parent="HollowlightVillage/Dwelling4" unique_id=1789964760]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+material_override = ExtResource("10_48ck4")
+mesh = SubResource("BoxMesh_2o76p")
+
+[node name="@StaticBody3D@26" type="StaticBody3D" parent="HollowlightVillage/Dwelling4/Walls" unique_id=520468925]
+
+[node name="@CollisionShape3D@25" type="CollisionShape3D" parent="HollowlightVillage/Dwelling4/Walls/@StaticBody3D@26" unique_id=1172564828]
+shape = SubResource("BoxShape3D_0isrn")
+
+[node name="Roof" type="MeshInstance3D" parent="HollowlightVillage/Dwelling4" unique_id=1124393434]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+material_override = ExtResource("14_3584r")
+mesh = SubResource("CylinderMesh_7a8q0")
+
+[node name="Door" type="MeshInstance3D" parent="HollowlightVillage/Dwelling4" unique_id=2097228156]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 3.85)
+material_override = ExtResource("12_fflqw")
+mesh = SubResource("BoxMesh_rtq2q")
+
+[node name="Lintel" type="MeshInstance3D" parent="HollowlightVillage/Dwelling4" unique_id=1601805551]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 3.9)
+material_override = ExtResource("13_t62v4")
+mesh = SubResource("BoxMesh_g4oba")
+
+[node name="Dwelling5" type="Node3D" parent="HollowlightVillage" unique_id=1752485300]
+transform = Transform3D(-0.90096885, 0, 0.43388376, 0, 1, 0, -0.43388376, 0, -0.90096885, -9.545443, 0, -19.821316)
+
+[node name="Walls" type="MeshInstance3D" parent="HollowlightVillage/Dwelling5" unique_id=1196662735]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+material_override = ExtResource("10_48ck4")
+mesh = SubResource("BoxMesh_xmass")
+
+[node name="@StaticBody3D@28" type="StaticBody3D" parent="HollowlightVillage/Dwelling5/Walls" unique_id=1416715672]
+
+[node name="@CollisionShape3D@27" type="CollisionShape3D" parent="HollowlightVillage/Dwelling5/Walls/@StaticBody3D@28" unique_id=1187364348]
+shape = SubResource("BoxShape3D_1iwqu")
+
+[node name="Roof" type="MeshInstance3D" parent="HollowlightVillage/Dwelling5" unique_id=1648932396]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+material_override = ExtResource("11_vts26")
+mesh = SubResource("CylinderMesh_2ppj5")
+
+[node name="Door" type="MeshInstance3D" parent="HollowlightVillage/Dwelling5" unique_id=1002784114]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 3.85)
+material_override = ExtResource("12_fflqw")
+mesh = SubResource("BoxMesh_vcran")
+
+[node name="Lintel" type="MeshInstance3D" parent="HollowlightVillage/Dwelling5" unique_id=710688963]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 3.9)
+material_override = ExtResource("13_t62v4")
+mesh = SubResource("BoxMesh_kvor5")
+
+[node name="Dwelling6" type="Node3D" parent="HollowlightVillage" unique_id=1262183701]
+transform = Transform3D(-0.222521, 0, 0.9749279, 0, 1, 0, -0.9749279, 0, -0.222521, -21.448414, 0, -4.8954606)
+
+[node name="Walls" type="MeshInstance3D" parent="HollowlightVillage/Dwelling6" unique_id=1177076249]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+material_override = ExtResource("10_48ck4")
+mesh = SubResource("BoxMesh_4id7k")
+
+[node name="@StaticBody3D@30" type="StaticBody3D" parent="HollowlightVillage/Dwelling6/Walls" unique_id=674827906]
+
+[node name="@CollisionShape3D@29" type="CollisionShape3D" parent="HollowlightVillage/Dwelling6/Walls/@StaticBody3D@30" unique_id=705441644]
+shape = SubResource("BoxShape3D_vbw8c")
+
+[node name="Roof" type="MeshInstance3D" parent="HollowlightVillage/Dwelling6" unique_id=1827956854]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+material_override = ExtResource("14_3584r")
+mesh = SubResource("CylinderMesh_sjult")
+
+[node name="Door" type="MeshInstance3D" parent="HollowlightVillage/Dwelling6" unique_id=693281624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 3.85)
+material_override = ExtResource("12_fflqw")
+mesh = SubResource("BoxMesh_30moj")
+
+[node name="Lintel" type="MeshInstance3D" parent="HollowlightVillage/Dwelling6" unique_id=1359415887]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 3.9)
+material_override = ExtResource("13_t62v4")
+mesh = SubResource("BoxMesh_v55e7")
+
+[node name="Dwelling7" type="Node3D" parent="HollowlightVillage" unique_id=1248764074]
+transform = Transform3D(0.6234897, 0, 0.7818316, 0, 1, 0, -0.7818316, 0, 0.6234897, -17.200293, 0, 13.716776)
+
+[node name="Walls" type="MeshInstance3D" parent="HollowlightVillage/Dwelling7" unique_id=13175862]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+material_override = ExtResource("10_48ck4")
+mesh = SubResource("BoxMesh_32hsk")
+
+[node name="@StaticBody3D@32" type="StaticBody3D" parent="HollowlightVillage/Dwelling7/Walls" unique_id=1377108946]
+
+[node name="@CollisionShape3D@31" type="CollisionShape3D" parent="HollowlightVillage/Dwelling7/Walls/@StaticBody3D@32" unique_id=767519162]
+shape = SubResource("BoxShape3D_q2ptt")
+
+[node name="Roof" type="MeshInstance3D" parent="HollowlightVillage/Dwelling7" unique_id=2042270002]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+material_override = ExtResource("11_vts26")
+mesh = SubResource("CylinderMesh_gc3n1")
+
+[node name="Door" type="MeshInstance3D" parent="HollowlightVillage/Dwelling7" unique_id=1661543038]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 3.85)
+material_override = ExtResource("12_fflqw")
+mesh = SubResource("BoxMesh_ybvbr")
+
+[node name="Lintel" type="MeshInstance3D" parent="HollowlightVillage/Dwelling7" unique_id=804511003]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 3.9)
+material_override = ExtResource("13_t62v4")
+mesh = SubResource("BoxMesh_5osrn")
+
+[node name="GreatHall" type="Node3D" parent="HollowlightVillage" unique_id=73583007]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
+
+[node name="Walls" type="MeshInstance3D" parent="HollowlightVillage/GreatHall" unique_id=859308669]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+material_override = ExtResource("10_48ck4")
+mesh = SubResource("BoxMesh_iddr3")
+
+[node name="@StaticBody3D@34" type="StaticBody3D" parent="HollowlightVillage/GreatHall/Walls" unique_id=1122321018]
+
+[node name="@CollisionShape3D@33" type="CollisionShape3D" parent="HollowlightVillage/GreatHall/Walls/@StaticBody3D@34" unique_id=1171196072]
+shape = SubResource("BoxShape3D_yge00")
+
+[node name="Roof" type="MeshInstance3D" parent="HollowlightVillage/GreatHall" unique_id=682717481]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+material_override = ExtResource("14_3584r")
+mesh = SubResource("CylinderMesh_jfe6a")
+
+[node name="Doors" type="MeshInstance3D" parent="HollowlightVillage/GreatHall" unique_id=453405505]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 6.6)
+material_override = ExtResource("12_fflqw")
+mesh = SubResource("BoxMesh_i5mk8")
+
+[node name="BrazierL" type="MeshInstance3D" parent="HollowlightVillage/GreatHall" unique_id=1138910998]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1.2, 7.4)
+material_override = ExtResource("8_0nrde")
+mesh = SubResource("BoxMesh_pql15")
+
+[node name="BrazierR" type="MeshInstance3D" parent="HollowlightVillage/GreatHall" unique_id=696323897]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.2, 7.4)
+material_override = ExtResource("8_0nrde")
+mesh = SubResource("BoxMesh_o6ukx")
+
+[node name="DraconicRoosts" type="Node3D" parent="." unique_id=714029768]
+
+[node name="Roost1" type="Node3D" parent="DraconicRoosts" unique_id=154917098]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.367051, 14, 49.677498)
+
+[node name="Ledge" type="MeshInstance3D" parent="DraconicRoosts/Roost1" unique_id=1128911192]
+material_override = ExtResource("2_t44vy")
+mesh = SubResource("BoxMesh_sj7yw")
+
+[node name="@StaticBody3D@36" type="StaticBody3D" parent="DraconicRoosts/Roost1/Ledge" unique_id=238333131]
+
+[node name="@CollisionShape3D@35" type="CollisionShape3D" parent="DraconicRoosts/Roost1/Ledge/@StaticBody3D@36" unique_id=897854113]
+shape = SubResource("BoxShape3D_nvpqe")
+
+[node name="Buttress" type="MeshInstance3D" parent="DraconicRoosts/Roost1" unique_id=1433068116]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 0)
+material_override = ExtResource("2_t44vy")
+mesh = SubResource("BoxMesh_nfrac")
+
+[node name="@StaticBody3D@38" type="StaticBody3D" parent="DraconicRoosts/Roost1/Buttress" unique_id=1475196507]
+
+[node name="@CollisionShape3D@37" type="CollisionShape3D" parent="DraconicRoosts/Roost1/Buttress/@StaticBody3D@38" unique_id=1226759152]
+shape = SubResource("BoxShape3D_h3myw")
+
+[node name="NestRim" type="MeshInstance3D" parent="DraconicRoosts/Roost1" unique_id=752612430]
+transform = Transform3D(3.2, 0, 0, 0, 1, 0, 0, 0, 3.2, 0, 1.8, 0)
+material_override = ExtResource("11_vts26")
+mesh = SubResource("TorusMesh_jqcul")
+
+[node name="Egg" type="MeshInstance3D" parent="DraconicRoosts/Roost1" unique_id=1331908067]
+transform = Transform3D(1.4, 0, 0, 0, 1.8, 0, 0, 0, 1.4, 0, 2, 0)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("SphereMesh_kyo0a")
+
+[node name="DraconicPerch" type="Node3D" parent="DraconicRoosts/Roost1" unique_id=1736291735]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+metadata/species = "draconic"
+metadata/roost = 1
+
+[node name="Roost2" type="Node3D" parent="DraconicRoosts" unique_id=421829737]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.99479, 19, 0.7362572)
+
+[node name="Ledge" type="MeshInstance3D" parent="DraconicRoosts/Roost2" unique_id=965019403]
+material_override = ExtResource("2_t44vy")
+mesh = SubResource("BoxMesh_m5iog")
+
+[node name="@StaticBody3D@40" type="StaticBody3D" parent="DraconicRoosts/Roost2/Ledge" unique_id=1386709476]
+
+[node name="@CollisionShape3D@39" type="CollisionShape3D" parent="DraconicRoosts/Roost2/Ledge/@StaticBody3D@40" unique_id=1863605158]
+shape = SubResource("BoxShape3D_hev14")
+
+[node name="Buttress" type="MeshInstance3D" parent="DraconicRoosts/Roost2" unique_id=691727965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.5, 0)
+material_override = ExtResource("2_t44vy")
+mesh = SubResource("BoxMesh_sff8y")
+
+[node name="@StaticBody3D@42" type="StaticBody3D" parent="DraconicRoosts/Roost2/Buttress" unique_id=761097137]
+
+[node name="@CollisionShape3D@41" type="CollisionShape3D" parent="DraconicRoosts/Roost2/Buttress/@StaticBody3D@42" unique_id=1783672940]
+shape = SubResource("BoxShape3D_r8c6s")
+
+[node name="NestRim" type="MeshInstance3D" parent="DraconicRoosts/Roost2" unique_id=1537390085]
+transform = Transform3D(3.2, 0, 0, 0, 1, 0, 0, 0, 3.2, 0, 1.8, 0)
+material_override = ExtResource("11_vts26")
+mesh = SubResource("TorusMesh_cifkn")
+
+[node name="Egg" type="MeshInstance3D" parent="DraconicRoosts/Roost2" unique_id=1256290693]
+transform = Transform3D(1.4, 0, 0, 0, 1.8, 0, 0, 0, 1.4, 0, 2, 0)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("SphereMesh_cyqak")
+
+[node name="DraconicPerch" type="Node3D" parent="DraconicRoosts/Roost2" unique_id=221523744]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+metadata/species = "draconic"
+metadata/roost = 2
+
+[node name="Roost3" type="Node3D" parent="DraconicRoosts" unique_id=1538007755]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.767496, 24, -49.222466)
+
+[node name="Ledge" type="MeshInstance3D" parent="DraconicRoosts/Roost3" unique_id=1060241809]
+material_override = ExtResource("2_t44vy")
+mesh = SubResource("BoxMesh_p6spl")
+
+[node name="@StaticBody3D@44" type="StaticBody3D" parent="DraconicRoosts/Roost3/Ledge" unique_id=1225141060]
+
+[node name="@CollisionShape3D@43" type="CollisionShape3D" parent="DraconicRoosts/Roost3/Ledge/@StaticBody3D@44" unique_id=783565730]
+shape = SubResource("BoxShape3D_jmtkr")
+
+[node name="Buttress" type="MeshInstance3D" parent="DraconicRoosts/Roost3" unique_id=230120012]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, 0)
+material_override = ExtResource("2_t44vy")
+mesh = SubResource("BoxMesh_okcum")
+
+[node name="@StaticBody3D@46" type="StaticBody3D" parent="DraconicRoosts/Roost3/Buttress" unique_id=2014108475]
+
+[node name="@CollisionShape3D@45" type="CollisionShape3D" parent="DraconicRoosts/Roost3/Buttress/@StaticBody3D@46" unique_id=458045501]
+shape = SubResource("BoxShape3D_dvf5m")
+
+[node name="NestRim" type="MeshInstance3D" parent="DraconicRoosts/Roost3" unique_id=839534973]
+transform = Transform3D(3.2, 0, 0, 0, 1, 0, 0, 0, 3.2, 0, 1.8, 0)
+material_override = ExtResource("11_vts26")
+mesh = SubResource("TorusMesh_rvkb5")
+
+[node name="Egg" type="MeshInstance3D" parent="DraconicRoosts/Roost3" unique_id=473369211]
+transform = Transform3D(1.4, 0, 0, 0, 1.8, 0, 0, 0, 1.4, 0, 2, 0)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("SphereMesh_jkr6h")
+
+[node name="DraconicPerch" type="Node3D" parent="DraconicRoosts/Roost3" unique_id=1499442049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+metadata/species = "draconic"
+metadata/roost = 3
+
+[node name="Roost4" type="Node3D" parent="DraconicRoosts" unique_id=683152461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.631905, 14, -31.157413)
+
+[node name="Ledge" type="MeshInstance3D" parent="DraconicRoosts/Roost4" unique_id=999594479]
+material_override = ExtResource("2_t44vy")
+mesh = SubResource("BoxMesh_a2e8n")
+
+[node name="@StaticBody3D@48" type="StaticBody3D" parent="DraconicRoosts/Roost4/Ledge" unique_id=1069024868]
+
+[node name="@CollisionShape3D@47" type="CollisionShape3D" parent="DraconicRoosts/Roost4/Ledge/@StaticBody3D@48" unique_id=942099915]
+shape = SubResource("BoxShape3D_wgdg5")
+
+[node name="Buttress" type="MeshInstance3D" parent="DraconicRoosts/Roost4" unique_id=1687992135]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 0)
+material_override = ExtResource("2_t44vy")
+mesh = SubResource("BoxMesh_xywcf")
+
+[node name="@StaticBody3D@50" type="StaticBody3D" parent="DraconicRoosts/Roost4/Buttress" unique_id=315627692]
+
+[node name="@CollisionShape3D@49" type="CollisionShape3D" parent="DraconicRoosts/Roost4/Buttress/@StaticBody3D@50" unique_id=795529405]
+shape = SubResource("BoxShape3D_3oxya")
+
+[node name="NestRim" type="MeshInstance3D" parent="DraconicRoosts/Roost4" unique_id=450400771]
+transform = Transform3D(3.2, 0, 0, 0, 1, 0, 0, 0, 3.2, 0, 1.8, 0)
+material_override = ExtResource("11_vts26")
+mesh = SubResource("TorusMesh_kprkp")
+
+[node name="Egg" type="MeshInstance3D" parent="DraconicRoosts/Roost4" unique_id=1144187843]
+transform = Transform3D(1.4, 0, 0, 0, 1.8, 0, 0, 0, 1.4, 0, 2, 0)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("SphereMesh_6yuk1")
+
+[node name="DraconicPerch" type="Node3D" parent="DraconicRoosts/Roost4" unique_id=1818883752]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+metadata/species = "draconic"
+metadata/roost = 4
+
+[node name="Roost5" type="Node3D" parent="DraconicRoosts" unique_id=602413133]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.49743, 19, 29.966125)
+
+[node name="Ledge" type="MeshInstance3D" parent="DraconicRoosts/Roost5" unique_id=1243197127]
+material_override = ExtResource("2_t44vy")
+mesh = SubResource("BoxMesh_t1o77")
+
+[node name="@StaticBody3D@52" type="StaticBody3D" parent="DraconicRoosts/Roost5/Ledge" unique_id=1617595102]
+
+[node name="@CollisionShape3D@51" type="CollisionShape3D" parent="DraconicRoosts/Roost5/Ledge/@StaticBody3D@52" unique_id=1748070726]
+shape = SubResource("BoxShape3D_qgjv3")
+
+[node name="Buttress" type="MeshInstance3D" parent="DraconicRoosts/Roost5" unique_id=785945332]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.5, 0)
+material_override = ExtResource("2_t44vy")
+mesh = SubResource("BoxMesh_7iif6")
+
+[node name="@StaticBody3D@54" type="StaticBody3D" parent="DraconicRoosts/Roost5/Buttress" unique_id=628149859]
+
+[node name="@CollisionShape3D@53" type="CollisionShape3D" parent="DraconicRoosts/Roost5/Buttress/@StaticBody3D@54" unique_id=251132147]
+shape = SubResource("BoxShape3D_njc02")
+
+[node name="NestRim" type="MeshInstance3D" parent="DraconicRoosts/Roost5" unique_id=826462810]
+transform = Transform3D(3.2, 0, 0, 0, 1, 0, 0, 0, 3.2, 0, 1.8, 0)
+material_override = ExtResource("11_vts26")
+mesh = SubResource("TorusMesh_shai5")
+
+[node name="Egg" type="MeshInstance3D" parent="DraconicRoosts/Roost5" unique_id=317253940]
+transform = Transform3D(1.4, 0, 0, 0, 1.8, 0, 0, 0, 1.4, 0, 2, 0)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("SphereMesh_7fdhh")
+
+[node name="DraconicPerch" type="Node3D" parent="DraconicRoosts/Roost5" unique_id=1557383463]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+metadata/species = "draconic"
+metadata/roost = 5
+
+[node name="ElementalBiomes" type="Node3D" parent="." unique_id=294883894]
+
+[node name="Biome_Ember" type="Node3D" parent="ElementalBiomes" unique_id=1920887273]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -120)
+
+[node name="Terrace" type="MeshInstance3D" parent="ElementalBiomes/Biome_Ember" unique_id=849172005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+material_override = ExtResource("15_q68hy")
+mesh = SubResource("BoxMesh_jp6vt")
+
+[node name="@StaticBody3D@56" type="StaticBody3D" parent="ElementalBiomes/Biome_Ember/Terrace" unique_id=1562068482]
+
+[node name="@CollisionShape3D@55" type="CollisionShape3D" parent="ElementalBiomes/Biome_Ember/Terrace/@StaticBody3D@56" unique_id=1570647210]
+shape = SubResource("BoxShape3D_vsby4")
+
+[node name="Pillar1" type="MeshInstance3D" parent="ElementalBiomes/Biome_Ember" unique_id=2134956010]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 19)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_2niir")
+
+[node name="@StaticBody3D@58" type="StaticBody3D" parent="ElementalBiomes/Biome_Ember/Pillar1" unique_id=1077725948]
+
+[node name="@CollisionShape3D@57" type="CollisionShape3D" parent="ElementalBiomes/Biome_Ember/Pillar1/@StaticBody3D@58" unique_id=288332647]
+shape = SubResource("BoxShape3D_tr05o")
+
+[node name="PillarLight1" type="MeshInstance3D" parent="ElementalBiomes/Biome_Ember" unique_id=1196082767]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 6.6, 19)
+material_override = ExtResource("15_q68hy")
+mesh = SubResource("SphereMesh_8gsdo")
+
+[node name="Pillar2" type="MeshInstance3D" parent="ElementalBiomes/Biome_Ember" unique_id=375835619]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.435029, 3, 13.435029)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_lhk1e")
+
+[node name="@StaticBody3D@60" type="StaticBody3D" parent="ElementalBiomes/Biome_Ember/Pillar2" unique_id=772417051]
+
+[node name="@CollisionShape3D@59" type="CollisionShape3D" parent="ElementalBiomes/Biome_Ember/Pillar2/@StaticBody3D@60" unique_id=1632480725]
+shape = SubResource("BoxShape3D_d7tb2")
+
+[node name="PillarLight2" type="MeshInstance3D" parent="ElementalBiomes/Biome_Ember" unique_id=264554845]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 13.435029, 6.6, 13.435029)
+material_override = ExtResource("15_q68hy")
+mesh = SubResource("SphereMesh_hx41n")
+
+[node name="Pillar3" type="MeshInstance3D" parent="ElementalBiomes/Biome_Ember" unique_id=378739227]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 3, 1.1634145e-15)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_qd5ft")
+
+[node name="@StaticBody3D@62" type="StaticBody3D" parent="ElementalBiomes/Biome_Ember/Pillar3" unique_id=1948360102]
+
+[node name="@CollisionShape3D@61" type="CollisionShape3D" parent="ElementalBiomes/Biome_Ember/Pillar3/@StaticBody3D@62" unique_id=2128169655]
+shape = SubResource("BoxShape3D_j3krc")
+
+[node name="PillarLight3" type="MeshInstance3D" parent="ElementalBiomes/Biome_Ember" unique_id=1280031658]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 19, 6.6, 1.1634145e-15)
+material_override = ExtResource("15_q68hy")
+mesh = SubResource("SphereMesh_cvo05")
+
+[node name="Pillar4" type="MeshInstance3D" parent="ElementalBiomes/Biome_Ember" unique_id=1488771421]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.435029, 3, -13.435029)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_gfina")
+
+[node name="@StaticBody3D@64" type="StaticBody3D" parent="ElementalBiomes/Biome_Ember/Pillar4" unique_id=1442342711]
+
+[node name="@CollisionShape3D@63" type="CollisionShape3D" parent="ElementalBiomes/Biome_Ember/Pillar4/@StaticBody3D@64" unique_id=505980645]
+shape = SubResource("BoxShape3D_kqk26")
+
+[node name="PillarLight4" type="MeshInstance3D" parent="ElementalBiomes/Biome_Ember" unique_id=84047110]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 13.435029, 6.6, -13.435029)
+material_override = ExtResource("15_q68hy")
+mesh = SubResource("SphereMesh_lrkg0")
+
+[node name="Pillar5" type="MeshInstance3D" parent="ElementalBiomes/Biome_Ember" unique_id=1630571270]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.326829e-15, 3, -19)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_2enks")
+
+[node name="@StaticBody3D@66" type="StaticBody3D" parent="ElementalBiomes/Biome_Ember/Pillar5" unique_id=83674186]
+
+[node name="@CollisionShape3D@65" type="CollisionShape3D" parent="ElementalBiomes/Biome_Ember/Pillar5/@StaticBody3D@66" unique_id=1159232102]
+shape = SubResource("BoxShape3D_ohkpm")
+
+[node name="PillarLight5" type="MeshInstance3D" parent="ElementalBiomes/Biome_Ember" unique_id=1539451922]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 2.326829e-15, 6.6, -19)
+material_override = ExtResource("15_q68hy")
+mesh = SubResource("SphereMesh_ie5og")
+
+[node name="Pillar6" type="MeshInstance3D" parent="ElementalBiomes/Biome_Ember" unique_id=1683394951]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.435029, 3, -13.435029)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_qbrsi")
+
+[node name="@StaticBody3D@68" type="StaticBody3D" parent="ElementalBiomes/Biome_Ember/Pillar6" unique_id=1902302778]
+
+[node name="@CollisionShape3D@67" type="CollisionShape3D" parent="ElementalBiomes/Biome_Ember/Pillar6/@StaticBody3D@68" unique_id=1071844133]
+shape = SubResource("BoxShape3D_ouqyc")
+
+[node name="PillarLight6" type="MeshInstance3D" parent="ElementalBiomes/Biome_Ember" unique_id=621087829]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -13.435029, 6.6, -13.435029)
+material_override = ExtResource("15_q68hy")
+mesh = SubResource("SphereMesh_41fgd")
+
+[node name="Pillar7" type="MeshInstance3D" parent="ElementalBiomes/Biome_Ember" unique_id=1157105693]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 3, -3.4902433e-15)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_ooxcu")
+
+[node name="@StaticBody3D@70" type="StaticBody3D" parent="ElementalBiomes/Biome_Ember/Pillar7" unique_id=386541842]
+
+[node name="@CollisionShape3D@69" type="CollisionShape3D" parent="ElementalBiomes/Biome_Ember/Pillar7/@StaticBody3D@70" unique_id=773313863]
+shape = SubResource("BoxShape3D_mimaq")
+
+[node name="PillarLight7" type="MeshInstance3D" parent="ElementalBiomes/Biome_Ember" unique_id=735535241]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -19, 6.6, -3.4902433e-15)
+material_override = ExtResource("15_q68hy")
+mesh = SubResource("SphereMesh_jn0du")
+
+[node name="Pillar8" type="MeshInstance3D" parent="ElementalBiomes/Biome_Ember" unique_id=929745283]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.435029, 3, 13.435029)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_toqwi")
+
+[node name="@StaticBody3D@72" type="StaticBody3D" parent="ElementalBiomes/Biome_Ember/Pillar8" unique_id=1999212890]
+
+[node name="@CollisionShape3D@71" type="CollisionShape3D" parent="ElementalBiomes/Biome_Ember/Pillar8/@StaticBody3D@72" unique_id=115621790]
+shape = SubResource("BoxShape3D_jk2r8")
+
+[node name="PillarLight8" type="MeshInstance3D" parent="ElementalBiomes/Biome_Ember" unique_id=1376949190]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -13.435029, 6.6, 13.435029)
+material_override = ExtResource("15_q68hy")
+mesh = SubResource("SphereMesh_0hxg1")
+
+[node name="MagmaPool" type="MeshInstance3D" parent="ElementalBiomes/Biome_Ember" unique_id=778598588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+material_override = ExtResource("15_q68hy")
+mesh = SubResource("BoxMesh_scnnu")
+
+[node name="Obsidian1" type="MeshInstance3D" parent="ElementalBiomes/Biome_Ember" unique_id=97014468]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 2)
+material_override = ExtResource("2_t44vy")
+mesh = SubResource("CylinderMesh_c1kry")
+
+[node name="Obsidian2" type="MeshInstance3D" parent="ElementalBiomes/Biome_Ember" unique_id=260200672]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 2)
+material_override = ExtResource("2_t44vy")
+mesh = SubResource("CylinderMesh_wb2ax")
+
+[node name="Obsidian3" type="MeshInstance3D" parent="ElementalBiomes/Biome_Ember" unique_id=1249702975]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 2)
+material_override = ExtResource("2_t44vy")
+mesh = SubResource("CylinderMesh_b5rl4")
+
+[node name="TrainingSpot" type="Node3D" parent="ElementalBiomes/Biome_Ember" unique_id=94481165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 14)
+metadata/biome_id = "ember"
+metadata/display_name = "Ember Hollow"
+metadata/element = "fire"
+metadata/skill = "adventure"
+
+[node name="BiomeEntrance" type="Node3D" parent="ElementalBiomes/Biome_Ember" unique_id=1937961753]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 24)
+metadata/biome_id = "ember"
+metadata/display_name = "Ember Hollow"
+
+[node name="RoadToVillage" type="Node3D" parent="ElementalBiomes/Biome_Ember" unique_id=1918945279]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 57)
+
+[node name="Roadbed" type="MeshInstance3D" parent="ElementalBiomes/Biome_Ember/RoadToVillage" unique_id=425183657]
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_bg6g0")
+
+[node name="Biome_Tide" type="Node3D" parent="ElementalBiomes" unique_id=331204531]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114, 0, -37)
+
+[node name="Terrace" type="MeshInstance3D" parent="ElementalBiomes/Biome_Tide" unique_id=144555569]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+material_override = ExtResource("16_o2p0i")
+mesh = SubResource("BoxMesh_7a4ve")
+
+[node name="@StaticBody3D@74" type="StaticBody3D" parent="ElementalBiomes/Biome_Tide/Terrace" unique_id=1349029292]
+
+[node name="@CollisionShape3D@73" type="CollisionShape3D" parent="ElementalBiomes/Biome_Tide/Terrace/@StaticBody3D@74" unique_id=1607659717]
+shape = SubResource("BoxShape3D_j4bka")
+
+[node name="Pillar1" type="MeshInstance3D" parent="ElementalBiomes/Biome_Tide" unique_id=1361462658]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 19)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_d6jed")
+
+[node name="@StaticBody3D@76" type="StaticBody3D" parent="ElementalBiomes/Biome_Tide/Pillar1" unique_id=187449072]
+
+[node name="@CollisionShape3D@75" type="CollisionShape3D" parent="ElementalBiomes/Biome_Tide/Pillar1/@StaticBody3D@76" unique_id=1805099764]
+shape = SubResource("BoxShape3D_8ihyk")
+
+[node name="PillarLight1" type="MeshInstance3D" parent="ElementalBiomes/Biome_Tide" unique_id=137815786]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 6.6, 19)
+material_override = ExtResource("16_o2p0i")
+mesh = SubResource("SphereMesh_ujkle")
+
+[node name="Pillar2" type="MeshInstance3D" parent="ElementalBiomes/Biome_Tide" unique_id=966222043]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.435029, 3, 13.435029)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_m88qf")
+
+[node name="@StaticBody3D@78" type="StaticBody3D" parent="ElementalBiomes/Biome_Tide/Pillar2" unique_id=171278801]
+
+[node name="@CollisionShape3D@77" type="CollisionShape3D" parent="ElementalBiomes/Biome_Tide/Pillar2/@StaticBody3D@78" unique_id=1140833642]
+shape = SubResource("BoxShape3D_x8rsm")
+
+[node name="PillarLight2" type="MeshInstance3D" parent="ElementalBiomes/Biome_Tide" unique_id=1470134584]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 13.435029, 6.6, 13.435029)
+material_override = ExtResource("16_o2p0i")
+mesh = SubResource("SphereMesh_hkebq")
+
+[node name="Pillar3" type="MeshInstance3D" parent="ElementalBiomes/Biome_Tide" unique_id=285592002]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 3, 1.1634145e-15)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_cx2b2")
+
+[node name="@StaticBody3D@80" type="StaticBody3D" parent="ElementalBiomes/Biome_Tide/Pillar3" unique_id=1128887131]
+
+[node name="@CollisionShape3D@79" type="CollisionShape3D" parent="ElementalBiomes/Biome_Tide/Pillar3/@StaticBody3D@80" unique_id=1826655788]
+shape = SubResource("BoxShape3D_v7spf")
+
+[node name="PillarLight3" type="MeshInstance3D" parent="ElementalBiomes/Biome_Tide" unique_id=1863877838]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 19, 6.6, 1.1634145e-15)
+material_override = ExtResource("16_o2p0i")
+mesh = SubResource("SphereMesh_df7ef")
+
+[node name="Pillar4" type="MeshInstance3D" parent="ElementalBiomes/Biome_Tide" unique_id=441362084]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.435029, 3, -13.435029)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_oho5w")
+
+[node name="@StaticBody3D@82" type="StaticBody3D" parent="ElementalBiomes/Biome_Tide/Pillar4" unique_id=822803879]
+
+[node name="@CollisionShape3D@81" type="CollisionShape3D" parent="ElementalBiomes/Biome_Tide/Pillar4/@StaticBody3D@82" unique_id=566930020]
+shape = SubResource("BoxShape3D_bklum")
+
+[node name="PillarLight4" type="MeshInstance3D" parent="ElementalBiomes/Biome_Tide" unique_id=95148119]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 13.435029, 6.6, -13.435029)
+material_override = ExtResource("16_o2p0i")
+mesh = SubResource("SphereMesh_6nc2f")
+
+[node name="Pillar5" type="MeshInstance3D" parent="ElementalBiomes/Biome_Tide" unique_id=1741783575]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.326829e-15, 3, -19)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_ffya3")
+
+[node name="@StaticBody3D@84" type="StaticBody3D" parent="ElementalBiomes/Biome_Tide/Pillar5" unique_id=751179152]
+
+[node name="@CollisionShape3D@83" type="CollisionShape3D" parent="ElementalBiomes/Biome_Tide/Pillar5/@StaticBody3D@84" unique_id=463776660]
+shape = SubResource("BoxShape3D_2joxv")
+
+[node name="PillarLight5" type="MeshInstance3D" parent="ElementalBiomes/Biome_Tide" unique_id=1443629381]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 2.326829e-15, 6.6, -19)
+material_override = ExtResource("16_o2p0i")
+mesh = SubResource("SphereMesh_6nppp")
+
+[node name="Pillar6" type="MeshInstance3D" parent="ElementalBiomes/Biome_Tide" unique_id=355791181]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.435029, 3, -13.435029)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_f43vx")
+
+[node name="@StaticBody3D@86" type="StaticBody3D" parent="ElementalBiomes/Biome_Tide/Pillar6" unique_id=1077143121]
+
+[node name="@CollisionShape3D@85" type="CollisionShape3D" parent="ElementalBiomes/Biome_Tide/Pillar6/@StaticBody3D@86" unique_id=269319954]
+shape = SubResource("BoxShape3D_df5n6")
+
+[node name="PillarLight6" type="MeshInstance3D" parent="ElementalBiomes/Biome_Tide" unique_id=1590592530]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -13.435029, 6.6, -13.435029)
+material_override = ExtResource("16_o2p0i")
+mesh = SubResource("SphereMesh_xr0gg")
+
+[node name="Pillar7" type="MeshInstance3D" parent="ElementalBiomes/Biome_Tide" unique_id=1704996680]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 3, -3.4902433e-15)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_mmplm")
+
+[node name="@StaticBody3D@88" type="StaticBody3D" parent="ElementalBiomes/Biome_Tide/Pillar7" unique_id=1072387916]
+
+[node name="@CollisionShape3D@87" type="CollisionShape3D" parent="ElementalBiomes/Biome_Tide/Pillar7/@StaticBody3D@88" unique_id=1030830612]
+shape = SubResource("BoxShape3D_prxvu")
+
+[node name="PillarLight7" type="MeshInstance3D" parent="ElementalBiomes/Biome_Tide" unique_id=2032893941]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -19, 6.6, -3.4902433e-15)
+material_override = ExtResource("16_o2p0i")
+mesh = SubResource("SphereMesh_0nbgv")
+
+[node name="Pillar8" type="MeshInstance3D" parent="ElementalBiomes/Biome_Tide" unique_id=908552871]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.435029, 3, 13.435029)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_127bm")
+
+[node name="@StaticBody3D@90" type="StaticBody3D" parent="ElementalBiomes/Biome_Tide/Pillar8" unique_id=489960749]
+
+[node name="@CollisionShape3D@89" type="CollisionShape3D" parent="ElementalBiomes/Biome_Tide/Pillar8/@StaticBody3D@90" unique_id=1261462116]
+shape = SubResource("BoxShape3D_ealnw")
+
+[node name="PillarLight8" type="MeshInstance3D" parent="ElementalBiomes/Biome_Tide" unique_id=1474779236]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -13.435029, 6.6, 13.435029)
+material_override = ExtResource("16_o2p0i")
+mesh = SubResource("SphereMesh_sh2c5")
+
+[node name="TidePool" type="MeshInstance3D" parent="ElementalBiomes/Biome_Tide" unique_id=932055906]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+material_override = ExtResource("16_o2p0i")
+mesh = SubResource("BoxMesh_c1mi8")
+
+[node name="Geyser1" type="MeshInstance3D" parent="ElementalBiomes/Biome_Tide" unique_id=265603054]
+transform = Transform3D(0.5, 0, 0, 0, 2.4, 0, 0, 0, 0.5, 0, 2.4, 6)
+material_override = ExtResource("16_o2p0i")
+mesh = SubResource("CylinderMesh_w3evg")
+
+[node name="Geyser2" type="MeshInstance3D" parent="ElementalBiomes/Biome_Tide" unique_id=155088890]
+transform = Transform3D(0.5, 0, 0, 0, 2.4, 0, 0, 0, 0.5, 6, 2.4, 3.6739403e-16)
+material_override = ExtResource("16_o2p0i")
+mesh = SubResource("CylinderMesh_aecih")
+
+[node name="Geyser3" type="MeshInstance3D" parent="ElementalBiomes/Biome_Tide" unique_id=1939313890]
+transform = Transform3D(0.5, 0, 0, 0, 2.4, 0, 0, 0, 0.5, 7.3478806e-16, 2.4, -6)
+material_override = ExtResource("16_o2p0i")
+mesh = SubResource("CylinderMesh_t6fs3")
+
+[node name="Geyser4" type="MeshInstance3D" parent="ElementalBiomes/Biome_Tide" unique_id=397621691]
+transform = Transform3D(0.5, 0, 0, 0, 2.4, 0, 0, 0, 0.5, -6, 2.4, -1.1021821e-15)
+material_override = ExtResource("16_o2p0i")
+mesh = SubResource("CylinderMesh_w8xbl")
+
+[node name="TrainingSpot" type="Node3D" parent="ElementalBiomes/Biome_Tide" unique_id=1504760204]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 14)
+metadata/biome_id = "tide"
+metadata/display_name = "The Tidepool Deep"
+metadata/element = "water"
+metadata/skill = "adventure"
+
+[node name="BiomeEntrance" type="Node3D" parent="ElementalBiomes/Biome_Tide" unique_id=1218741556]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 24)
+metadata/biome_id = "tide"
+metadata/display_name = "The Tidepool Deep"
+
+[node name="RoadToVillage" type="Node3D" parent="ElementalBiomes/Biome_Tide" unique_id=81961201]
+transform = Transform3D(0.30870867, 0, -0.9511566, 0, 1, 0, 0.9511566, 0, 0.30870867, -54.14653, 0, 17.573874)
+
+[node name="Roadbed" type="MeshInstance3D" parent="ElementalBiomes/Biome_Tide/RoadToVillage" unique_id=1420989903]
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_eoatg")
+
+[node name="Biome_Stone" type="Node3D" parent="ElementalBiomes" unique_id=1933171055]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 97)
+
+[node name="Terrace" type="MeshInstance3D" parent="ElementalBiomes/Biome_Stone" unique_id=1781932041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_javxb")
+
+[node name="@StaticBody3D@92" type="StaticBody3D" parent="ElementalBiomes/Biome_Stone/Terrace" unique_id=1691670400]
+
+[node name="@CollisionShape3D@91" type="CollisionShape3D" parent="ElementalBiomes/Biome_Stone/Terrace/@StaticBody3D@92" unique_id=1018824218]
+shape = SubResource("BoxShape3D_mxpif")
+
+[node name="Pillar1" type="MeshInstance3D" parent="ElementalBiomes/Biome_Stone" unique_id=883736681]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 19)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_lo4wd")
+
+[node name="@StaticBody3D@94" type="StaticBody3D" parent="ElementalBiomes/Biome_Stone/Pillar1" unique_id=1134481407]
+
+[node name="@CollisionShape3D@93" type="CollisionShape3D" parent="ElementalBiomes/Biome_Stone/Pillar1/@StaticBody3D@94" unique_id=120394999]
+shape = SubResource("BoxShape3D_oqhbh")
+
+[node name="PillarLight1" type="MeshInstance3D" parent="ElementalBiomes/Biome_Stone" unique_id=1137903768]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 6.6, 19)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("SphereMesh_h6hfg")
+
+[node name="Pillar2" type="MeshInstance3D" parent="ElementalBiomes/Biome_Stone" unique_id=792806944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.435029, 3, 13.435029)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_nkdoa")
+
+[node name="@StaticBody3D@96" type="StaticBody3D" parent="ElementalBiomes/Biome_Stone/Pillar2" unique_id=590614358]
+
+[node name="@CollisionShape3D@95" type="CollisionShape3D" parent="ElementalBiomes/Biome_Stone/Pillar2/@StaticBody3D@96" unique_id=1401736008]
+shape = SubResource("BoxShape3D_8kxpv")
+
+[node name="PillarLight2" type="MeshInstance3D" parent="ElementalBiomes/Biome_Stone" unique_id=276370585]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 13.435029, 6.6, 13.435029)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("SphereMesh_bni5u")
+
+[node name="Pillar3" type="MeshInstance3D" parent="ElementalBiomes/Biome_Stone" unique_id=611904176]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 3, 1.1634145e-15)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_lyc7l")
+
+[node name="@StaticBody3D@98" type="StaticBody3D" parent="ElementalBiomes/Biome_Stone/Pillar3" unique_id=1361992988]
+
+[node name="@CollisionShape3D@97" type="CollisionShape3D" parent="ElementalBiomes/Biome_Stone/Pillar3/@StaticBody3D@98" unique_id=1563034711]
+shape = SubResource("BoxShape3D_xbb1p")
+
+[node name="PillarLight3" type="MeshInstance3D" parent="ElementalBiomes/Biome_Stone" unique_id=916677204]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 19, 6.6, 1.1634145e-15)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("SphereMesh_kbtpg")
+
+[node name="Pillar4" type="MeshInstance3D" parent="ElementalBiomes/Biome_Stone" unique_id=1652998414]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.435029, 3, -13.435029)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_mvfbo")
+
+[node name="@StaticBody3D@100" type="StaticBody3D" parent="ElementalBiomes/Biome_Stone/Pillar4" unique_id=1099235006]
+
+[node name="@CollisionShape3D@99" type="CollisionShape3D" parent="ElementalBiomes/Biome_Stone/Pillar4/@StaticBody3D@100" unique_id=710554704]
+shape = SubResource("BoxShape3D_h0fsj")
+
+[node name="PillarLight4" type="MeshInstance3D" parent="ElementalBiomes/Biome_Stone" unique_id=272911206]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 13.435029, 6.6, -13.435029)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("SphereMesh_x02qs")
+
+[node name="Pillar5" type="MeshInstance3D" parent="ElementalBiomes/Biome_Stone" unique_id=1974860983]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.326829e-15, 3, -19)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_5daxq")
+
+[node name="@StaticBody3D@102" type="StaticBody3D" parent="ElementalBiomes/Biome_Stone/Pillar5" unique_id=1528115749]
+
+[node name="@CollisionShape3D@101" type="CollisionShape3D" parent="ElementalBiomes/Biome_Stone/Pillar5/@StaticBody3D@102" unique_id=1948448724]
+shape = SubResource("BoxShape3D_qcwbb")
+
+[node name="PillarLight5" type="MeshInstance3D" parent="ElementalBiomes/Biome_Stone" unique_id=238819782]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 2.326829e-15, 6.6, -19)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("SphereMesh_4grbj")
+
+[node name="Pillar6" type="MeshInstance3D" parent="ElementalBiomes/Biome_Stone" unique_id=1598113629]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.435029, 3, -13.435029)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_tg5on")
+
+[node name="@StaticBody3D@104" type="StaticBody3D" parent="ElementalBiomes/Biome_Stone/Pillar6" unique_id=1431832369]
+
+[node name="@CollisionShape3D@103" type="CollisionShape3D" parent="ElementalBiomes/Biome_Stone/Pillar6/@StaticBody3D@104" unique_id=980689027]
+shape = SubResource("BoxShape3D_5g6g6")
+
+[node name="PillarLight6" type="MeshInstance3D" parent="ElementalBiomes/Biome_Stone" unique_id=1797063017]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -13.435029, 6.6, -13.435029)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("SphereMesh_66fuc")
+
+[node name="Pillar7" type="MeshInstance3D" parent="ElementalBiomes/Biome_Stone" unique_id=776785825]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 3, -3.4902433e-15)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_ftxb5")
+
+[node name="@StaticBody3D@106" type="StaticBody3D" parent="ElementalBiomes/Biome_Stone/Pillar7" unique_id=1363997208]
+
+[node name="@CollisionShape3D@105" type="CollisionShape3D" parent="ElementalBiomes/Biome_Stone/Pillar7/@StaticBody3D@106" unique_id=1505843502]
+shape = SubResource("BoxShape3D_qu2ts")
+
+[node name="PillarLight7" type="MeshInstance3D" parent="ElementalBiomes/Biome_Stone" unique_id=241101433]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -19, 6.6, -3.4902433e-15)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("SphereMesh_bqdsh")
+
+[node name="Pillar8" type="MeshInstance3D" parent="ElementalBiomes/Biome_Stone" unique_id=1563348418]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.435029, 3, 13.435029)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_i0ac3")
+
+[node name="@StaticBody3D@108" type="StaticBody3D" parent="ElementalBiomes/Biome_Stone/Pillar8" unique_id=8808390]
+
+[node name="@CollisionShape3D@107" type="CollisionShape3D" parent="ElementalBiomes/Biome_Stone/Pillar8/@StaticBody3D@108" unique_id=234322254]
+shape = SubResource("BoxShape3D_yvymf")
+
+[node name="PillarLight8" type="MeshInstance3D" parent="ElementalBiomes/Biome_Stone" unique_id=555671535]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -13.435029, 6.6, 13.435029)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("SphereMesh_v7ty7")
+
+[node name="Monolith1" type="MeshInstance3D" parent="ElementalBiomes/Biome_Stone" unique_id=512375672]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 6.5)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("CylinderMesh_0tk0j")
+
+[node name="Monolith2" type="MeshInstance3D" parent="ElementalBiomes/Biome_Stone" unique_id=1214218169]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.181867, 4, 2.0086105)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("CylinderMesh_t70jn")
+
+[node name="Monolith3" type="MeshInstance3D" parent="ElementalBiomes/Biome_Stone" unique_id=1229078482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.820604, 4, -5.2586102)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("CylinderMesh_xwidx")
+
+[node name="Monolith4" type="MeshInstance3D" parent="ElementalBiomes/Biome_Stone" unique_id=174811978]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.820604, 4, -5.2586102)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("CylinderMesh_605bm")
+
+[node name="Monolith5" type="MeshInstance3D" parent="ElementalBiomes/Biome_Stone" unique_id=705843474]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.181867, 4, 2.0086105)
+material_override = ExtResource("6_xrudi")
+mesh = SubResource("CylinderMesh_jw8bt")
+
+[node name="TrainingSpot" type="Node3D" parent="ElementalBiomes/Biome_Stone" unique_id=1444475277]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 14)
+metadata/biome_id = "stone"
+metadata/display_name = "Stoneheart Terrace"
+metadata/element = "earth"
+metadata/skill = "adventure"
+
+[node name="BiomeEntrance" type="Node3D" parent="ElementalBiomes/Biome_Stone" unique_id=514537739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 24)
+metadata/biome_id = "stone"
+metadata/display_name = "Stoneheart Terrace"
+
+[node name="RoadToVillage" type="Node3D" parent="ElementalBiomes/Biome_Stone" unique_id=2106047075]
+transform = Transform3D(-0.81089956, 0, -0.58518535, 0, 1, 0, 0.58518535, 0, -0.81089956, -33.244446, 0, -46.067303)
+
+[node name="Roadbed" type="MeshInstance3D" parent="ElementalBiomes/Biome_Stone/RoadToVillage" unique_id=1973982234]
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_uksqe")
+
+[node name="Biome_Storm" type="Node3D" parent="ElementalBiomes" unique_id=1386333429]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 0, 97)
+
+[node name="Terrace" type="MeshInstance3D" parent="ElementalBiomes/Biome_Storm" unique_id=808791866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+material_override = ExtResource("17_5dqoj")
+mesh = SubResource("BoxMesh_bctjr")
+
+[node name="@StaticBody3D@110" type="StaticBody3D" parent="ElementalBiomes/Biome_Storm/Terrace" unique_id=364012526]
+
+[node name="@CollisionShape3D@109" type="CollisionShape3D" parent="ElementalBiomes/Biome_Storm/Terrace/@StaticBody3D@110" unique_id=829015352]
+shape = SubResource("BoxShape3D_5wxsk")
+
+[node name="Pillar1" type="MeshInstance3D" parent="ElementalBiomes/Biome_Storm" unique_id=898282549]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 19)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_2fdch")
+
+[node name="@StaticBody3D@112" type="StaticBody3D" parent="ElementalBiomes/Biome_Storm/Pillar1" unique_id=1327225723]
+
+[node name="@CollisionShape3D@111" type="CollisionShape3D" parent="ElementalBiomes/Biome_Storm/Pillar1/@StaticBody3D@112" unique_id=1227878407]
+shape = SubResource("BoxShape3D_c0gxl")
+
+[node name="PillarLight1" type="MeshInstance3D" parent="ElementalBiomes/Biome_Storm" unique_id=766791306]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 6.6, 19)
+material_override = ExtResource("17_5dqoj")
+mesh = SubResource("SphereMesh_q7qmr")
+
+[node name="Pillar2" type="MeshInstance3D" parent="ElementalBiomes/Biome_Storm" unique_id=907507480]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.435029, 3, 13.435029)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_vfto6")
+
+[node name="@StaticBody3D@114" type="StaticBody3D" parent="ElementalBiomes/Biome_Storm/Pillar2" unique_id=71423942]
+
+[node name="@CollisionShape3D@113" type="CollisionShape3D" parent="ElementalBiomes/Biome_Storm/Pillar2/@StaticBody3D@114" unique_id=1059632636]
+shape = SubResource("BoxShape3D_rdrxh")
+
+[node name="PillarLight2" type="MeshInstance3D" parent="ElementalBiomes/Biome_Storm" unique_id=688526459]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 13.435029, 6.6, 13.435029)
+material_override = ExtResource("17_5dqoj")
+mesh = SubResource("SphereMesh_pvner")
+
+[node name="Pillar3" type="MeshInstance3D" parent="ElementalBiomes/Biome_Storm" unique_id=1257823820]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 3, 1.1634145e-15)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_gn4s6")
+
+[node name="@StaticBody3D@116" type="StaticBody3D" parent="ElementalBiomes/Biome_Storm/Pillar3" unique_id=1143633652]
+
+[node name="@CollisionShape3D@115" type="CollisionShape3D" parent="ElementalBiomes/Biome_Storm/Pillar3/@StaticBody3D@116" unique_id=1999602173]
+shape = SubResource("BoxShape3D_88eia")
+
+[node name="PillarLight3" type="MeshInstance3D" parent="ElementalBiomes/Biome_Storm" unique_id=1924881586]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 19, 6.6, 1.1634145e-15)
+material_override = ExtResource("17_5dqoj")
+mesh = SubResource("SphereMesh_r33k1")
+
+[node name="Pillar4" type="MeshInstance3D" parent="ElementalBiomes/Biome_Storm" unique_id=1904378947]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.435029, 3, -13.435029)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_frmbk")
+
+[node name="@StaticBody3D@118" type="StaticBody3D" parent="ElementalBiomes/Biome_Storm/Pillar4" unique_id=303468134]
+
+[node name="@CollisionShape3D@117" type="CollisionShape3D" parent="ElementalBiomes/Biome_Storm/Pillar4/@StaticBody3D@118" unique_id=1610020567]
+shape = SubResource("BoxShape3D_q3f28")
+
+[node name="PillarLight4" type="MeshInstance3D" parent="ElementalBiomes/Biome_Storm" unique_id=1540406893]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 13.435029, 6.6, -13.435029)
+material_override = ExtResource("17_5dqoj")
+mesh = SubResource("SphereMesh_dcmiv")
+
+[node name="Pillar5" type="MeshInstance3D" parent="ElementalBiomes/Biome_Storm" unique_id=970485596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.326829e-15, 3, -19)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_r3fmn")
+
+[node name="@StaticBody3D@120" type="StaticBody3D" parent="ElementalBiomes/Biome_Storm/Pillar5" unique_id=1248866729]
+
+[node name="@CollisionShape3D@119" type="CollisionShape3D" parent="ElementalBiomes/Biome_Storm/Pillar5/@StaticBody3D@120" unique_id=2091623874]
+shape = SubResource("BoxShape3D_cw54x")
+
+[node name="PillarLight5" type="MeshInstance3D" parent="ElementalBiomes/Biome_Storm" unique_id=1613332374]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 2.326829e-15, 6.6, -19)
+material_override = ExtResource("17_5dqoj")
+mesh = SubResource("SphereMesh_ymwd1")
+
+[node name="Pillar6" type="MeshInstance3D" parent="ElementalBiomes/Biome_Storm" unique_id=1346169750]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.435029, 3, -13.435029)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_hso6v")
+
+[node name="@StaticBody3D@122" type="StaticBody3D" parent="ElementalBiomes/Biome_Storm/Pillar6" unique_id=389409000]
+
+[node name="@CollisionShape3D@121" type="CollisionShape3D" parent="ElementalBiomes/Biome_Storm/Pillar6/@StaticBody3D@122" unique_id=1301443119]
+shape = SubResource("BoxShape3D_crycx")
+
+[node name="PillarLight6" type="MeshInstance3D" parent="ElementalBiomes/Biome_Storm" unique_id=1735255825]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -13.435029, 6.6, -13.435029)
+material_override = ExtResource("17_5dqoj")
+mesh = SubResource("SphereMesh_equ7g")
+
+[node name="Pillar7" type="MeshInstance3D" parent="ElementalBiomes/Biome_Storm" unique_id=2026657077]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 3, -3.4902433e-15)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_l4ouh")
+
+[node name="@StaticBody3D@124" type="StaticBody3D" parent="ElementalBiomes/Biome_Storm/Pillar7" unique_id=1311819324]
+
+[node name="@CollisionShape3D@123" type="CollisionShape3D" parent="ElementalBiomes/Biome_Storm/Pillar7/@StaticBody3D@124" unique_id=1254312265]
+shape = SubResource("BoxShape3D_qjbtl")
+
+[node name="PillarLight7" type="MeshInstance3D" parent="ElementalBiomes/Biome_Storm" unique_id=386455581]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -19, 6.6, -3.4902433e-15)
+material_override = ExtResource("17_5dqoj")
+mesh = SubResource("SphereMesh_1oine")
+
+[node name="Pillar8" type="MeshInstance3D" parent="ElementalBiomes/Biome_Storm" unique_id=198974911]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.435029, 3, 13.435029)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_678dy")
+
+[node name="@StaticBody3D@126" type="StaticBody3D" parent="ElementalBiomes/Biome_Storm/Pillar8" unique_id=1947486065]
+
+[node name="@CollisionShape3D@125" type="CollisionShape3D" parent="ElementalBiomes/Biome_Storm/Pillar8/@StaticBody3D@126" unique_id=1702288305]
+shape = SubResource("BoxShape3D_l7rvn")
+
+[node name="PillarLight8" type="MeshInstance3D" parent="ElementalBiomes/Biome_Storm" unique_id=1130832978]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -13.435029, 6.6, 13.435029)
+material_override = ExtResource("17_5dqoj")
+mesh = SubResource("SphereMesh_fxt3u")
+
+[node name="UpdraftPad1" type="MeshInstance3D" parent="ElementalBiomes/Biome_Storm" unique_id=985767343]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1, 0)
+material_override = ExtResource("17_5dqoj")
+mesh = SubResource("BoxMesh_krk5e")
+
+[node name="@StaticBody3D@128" type="StaticBody3D" parent="ElementalBiomes/Biome_Storm/UpdraftPad1" unique_id=1085507633]
+
+[node name="@CollisionShape3D@127" type="CollisionShape3D" parent="ElementalBiomes/Biome_Storm/UpdraftPad1/@StaticBody3D@128" unique_id=2059569247]
+shape = SubResource("BoxShape3D_1no5o")
+
+[node name="UpdraftPad2" type="MeshInstance3D" parent="ElementalBiomes/Biome_Storm" unique_id=2109568014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3.5, 0)
+material_override = ExtResource("17_5dqoj")
+mesh = SubResource("BoxMesh_pw8ur")
+
+[node name="@StaticBody3D@130" type="StaticBody3D" parent="ElementalBiomes/Biome_Storm/UpdraftPad2" unique_id=2038040519]
+
+[node name="@CollisionShape3D@129" type="CollisionShape3D" parent="ElementalBiomes/Biome_Storm/UpdraftPad2/@StaticBody3D@130" unique_id=274752935]
+shape = SubResource("BoxShape3D_cn5rh")
+
+[node name="UpdraftPad3" type="MeshInstance3D" parent="ElementalBiomes/Biome_Storm" unique_id=71703135]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 6, 0)
+material_override = ExtResource("17_5dqoj")
+mesh = SubResource("BoxMesh_2ab2k")
+
+[node name="@StaticBody3D@132" type="StaticBody3D" parent="ElementalBiomes/Biome_Storm/UpdraftPad3" unique_id=259566280]
+
+[node name="@CollisionShape3D@131" type="CollisionShape3D" parent="ElementalBiomes/Biome_Storm/UpdraftPad3/@StaticBody3D@132" unique_id=576563804]
+shape = SubResource("BoxShape3D_n33hk")
+
+[node name="UpdraftPad4" type="MeshInstance3D" parent="ElementalBiomes/Biome_Storm" unique_id=1753216298]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 8.5, 0)
+material_override = ExtResource("17_5dqoj")
+mesh = SubResource("BoxMesh_say0q")
+
+[node name="@StaticBody3D@134" type="StaticBody3D" parent="ElementalBiomes/Biome_Storm/UpdraftPad4" unique_id=957552474]
+
+[node name="@CollisionShape3D@133" type="CollisionShape3D" parent="ElementalBiomes/Biome_Storm/UpdraftPad4/@StaticBody3D@134" unique_id=605814569]
+shape = SubResource("BoxShape3D_ru1ed")
+
+[node name="StormCore" type="MeshInstance3D" parent="ElementalBiomes/Biome_Storm" unique_id=928800859]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 12, 0)
+material_override = ExtResource("17_5dqoj")
+mesh = SubResource("SphereMesh_dfsi8")
+
+[node name="TrainingSpot" type="Node3D" parent="ElementalBiomes/Biome_Storm" unique_id=587851460]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 14)
+metadata/biome_id = "storm"
+metadata/display_name = "The Stormvault"
+metadata/element = "air"
+metadata/skill = "adventure"
+
+[node name="BiomeEntrance" type="Node3D" parent="ElementalBiomes/Biome_Storm" unique_id=448684187]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 24)
+metadata/biome_id = "storm"
+metadata/display_name = "The Stormvault"
+
+[node name="RoadToVillage" type="Node3D" parent="ElementalBiomes/Biome_Storm" unique_id=1243705190]
+transform = Transform3D(-0.81089956, 0, 0.58518535, 0, 1, 0, -0.58518535, 0, -0.81089956, 33.244446, 0, -46.067303)
+
+[node name="Roadbed" type="MeshInstance3D" parent="ElementalBiomes/Biome_Storm/RoadToVillage" unique_id=502244805]
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_m7hi5")
+
+[node name="Biome_Aether" type="Node3D" parent="ElementalBiomes" unique_id=1612557016]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114, 0, -37)
+
+[node name="Terrace" type="MeshInstance3D" parent="ElementalBiomes/Biome_Aether" unique_id=794491699]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+material_override = ExtResource("18_20lmq")
+mesh = SubResource("BoxMesh_btv2l")
+
+[node name="@StaticBody3D@136" type="StaticBody3D" parent="ElementalBiomes/Biome_Aether/Terrace" unique_id=470834962]
+
+[node name="@CollisionShape3D@135" type="CollisionShape3D" parent="ElementalBiomes/Biome_Aether/Terrace/@StaticBody3D@136" unique_id=2006441511]
+shape = SubResource("BoxShape3D_pr7x8")
+
+[node name="Pillar1" type="MeshInstance3D" parent="ElementalBiomes/Biome_Aether" unique_id=909560323]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 19)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_k70h1")
+
+[node name="@StaticBody3D@138" type="StaticBody3D" parent="ElementalBiomes/Biome_Aether/Pillar1" unique_id=1144149286]
+
+[node name="@CollisionShape3D@137" type="CollisionShape3D" parent="ElementalBiomes/Biome_Aether/Pillar1/@StaticBody3D@138" unique_id=194076660]
+shape = SubResource("BoxShape3D_g076p")
+
+[node name="PillarLight1" type="MeshInstance3D" parent="ElementalBiomes/Biome_Aether" unique_id=288837160]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 6.6, 19)
+material_override = ExtResource("18_20lmq")
+mesh = SubResource("SphereMesh_q6e3i")
+
+[node name="Pillar2" type="MeshInstance3D" parent="ElementalBiomes/Biome_Aether" unique_id=1598671981]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.435029, 3, 13.435029)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_ab0li")
+
+[node name="@StaticBody3D@140" type="StaticBody3D" parent="ElementalBiomes/Biome_Aether/Pillar2" unique_id=1940091947]
+
+[node name="@CollisionShape3D@139" type="CollisionShape3D" parent="ElementalBiomes/Biome_Aether/Pillar2/@StaticBody3D@140" unique_id=1702467668]
+shape = SubResource("BoxShape3D_vuv7d")
+
+[node name="PillarLight2" type="MeshInstance3D" parent="ElementalBiomes/Biome_Aether" unique_id=107503818]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 13.435029, 6.6, 13.435029)
+material_override = ExtResource("18_20lmq")
+mesh = SubResource("SphereMesh_yb5c3")
+
+[node name="Pillar3" type="MeshInstance3D" parent="ElementalBiomes/Biome_Aether" unique_id=1564980722]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 3, 1.1634145e-15)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_cynr6")
+
+[node name="@StaticBody3D@142" type="StaticBody3D" parent="ElementalBiomes/Biome_Aether/Pillar3" unique_id=124483412]
+
+[node name="@CollisionShape3D@141" type="CollisionShape3D" parent="ElementalBiomes/Biome_Aether/Pillar3/@StaticBody3D@142" unique_id=177047058]
+shape = SubResource("BoxShape3D_3phf2")
+
+[node name="PillarLight3" type="MeshInstance3D" parent="ElementalBiomes/Biome_Aether" unique_id=1191119261]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 19, 6.6, 1.1634145e-15)
+material_override = ExtResource("18_20lmq")
+mesh = SubResource("SphereMesh_i7d3p")
+
+[node name="Pillar4" type="MeshInstance3D" parent="ElementalBiomes/Biome_Aether" unique_id=1354178986]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.435029, 3, -13.435029)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_37ne2")
+
+[node name="@StaticBody3D@144" type="StaticBody3D" parent="ElementalBiomes/Biome_Aether/Pillar4" unique_id=705012662]
+
+[node name="@CollisionShape3D@143" type="CollisionShape3D" parent="ElementalBiomes/Biome_Aether/Pillar4/@StaticBody3D@144" unique_id=1442600855]
+shape = SubResource("BoxShape3D_lydip")
+
+[node name="PillarLight4" type="MeshInstance3D" parent="ElementalBiomes/Biome_Aether" unique_id=209702128]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 13.435029, 6.6, -13.435029)
+material_override = ExtResource("18_20lmq")
+mesh = SubResource("SphereMesh_a3116")
+
+[node name="Pillar5" type="MeshInstance3D" parent="ElementalBiomes/Biome_Aether" unique_id=1685952422]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.326829e-15, 3, -19)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_ul6wn")
+
+[node name="@StaticBody3D@146" type="StaticBody3D" parent="ElementalBiomes/Biome_Aether/Pillar5" unique_id=1539137994]
+
+[node name="@CollisionShape3D@145" type="CollisionShape3D" parent="ElementalBiomes/Biome_Aether/Pillar5/@StaticBody3D@146" unique_id=1290520503]
+shape = SubResource("BoxShape3D_rwocm")
+
+[node name="PillarLight5" type="MeshInstance3D" parent="ElementalBiomes/Biome_Aether" unique_id=1538610106]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 2.326829e-15, 6.6, -19)
+material_override = ExtResource("18_20lmq")
+mesh = SubResource("SphereMesh_7ep3j")
+
+[node name="Pillar6" type="MeshInstance3D" parent="ElementalBiomes/Biome_Aether" unique_id=440513109]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.435029, 3, -13.435029)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_djdqn")
+
+[node name="@StaticBody3D@148" type="StaticBody3D" parent="ElementalBiomes/Biome_Aether/Pillar6" unique_id=868449692]
+
+[node name="@CollisionShape3D@147" type="CollisionShape3D" parent="ElementalBiomes/Biome_Aether/Pillar6/@StaticBody3D@148" unique_id=1043681483]
+shape = SubResource("BoxShape3D_bw7ns")
+
+[node name="PillarLight6" type="MeshInstance3D" parent="ElementalBiomes/Biome_Aether" unique_id=585625830]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -13.435029, 6.6, -13.435029)
+material_override = ExtResource("18_20lmq")
+mesh = SubResource("SphereMesh_2g0pl")
+
+[node name="Pillar7" type="MeshInstance3D" parent="ElementalBiomes/Biome_Aether" unique_id=707058431]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 3, -3.4902433e-15)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_5j00x")
+
+[node name="@StaticBody3D@150" type="StaticBody3D" parent="ElementalBiomes/Biome_Aether/Pillar7" unique_id=109327023]
+
+[node name="@CollisionShape3D@149" type="CollisionShape3D" parent="ElementalBiomes/Biome_Aether/Pillar7/@StaticBody3D@150" unique_id=1603687275]
+shape = SubResource("BoxShape3D_lho3s")
+
+[node name="PillarLight7" type="MeshInstance3D" parent="ElementalBiomes/Biome_Aether" unique_id=2554021]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -19, 6.6, -3.4902433e-15)
+material_override = ExtResource("18_20lmq")
+mesh = SubResource("SphereMesh_jr6df")
+
+[node name="Pillar8" type="MeshInstance3D" parent="ElementalBiomes/Biome_Aether" unique_id=103741298]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.435029, 3, 13.435029)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_eii41")
+
+[node name="@StaticBody3D@152" type="StaticBody3D" parent="ElementalBiomes/Biome_Aether/Pillar8" unique_id=362931705]
+
+[node name="@CollisionShape3D@151" type="CollisionShape3D" parent="ElementalBiomes/Biome_Aether/Pillar8/@StaticBody3D@152" unique_id=339869477]
+shape = SubResource("BoxShape3D_gn46p")
+
+[node name="PillarLight8" type="MeshInstance3D" parent="ElementalBiomes/Biome_Aether" unique_id=388160421]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -13.435029, 6.6, 13.435029)
+material_override = ExtResource("18_20lmq")
+mesh = SubResource("SphereMesh_dpmqu")
+
+[node name="AetherWell" type="MeshInstance3D" parent="ElementalBiomes/Biome_Aether" unique_id=1627479520]
+transform = Transform3D(6, 0, 0, 0, 1, 0, 0, 0, 6, 0, 1, 0)
+material_override = ExtResource("18_20lmq")
+mesh = SubResource("CylinderMesh_fejg6")
+
+[node name="AetherColumn" type="MeshInstance3D" parent="ElementalBiomes/Biome_Aether" unique_id=1515214688]
+transform = Transform3D(1.2, 0, 0, 0, 13, 0, 0, 0, 1.2, 0, 14, 0)
+material_override = ExtResource("18_20lmq")
+mesh = SubResource("CylinderMesh_gxx4f")
+
+[node name="TrainingSpot" type="Node3D" parent="ElementalBiomes/Biome_Aether" unique_id=241001504]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 14)
+metadata/biome_id = "aether"
+metadata/display_name = "The Aether Well"
+metadata/element = "aether"
+metadata/skill = "adventure"
+
+[node name="BiomeEntrance" type="Node3D" parent="ElementalBiomes/Biome_Aether" unique_id=1735031854]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 24)
+metadata/biome_id = "aether"
+metadata/display_name = "The Aether Well"
+
+[node name="RoadToVillage" type="Node3D" parent="ElementalBiomes/Biome_Aether" unique_id=1252668472]
+transform = Transform3D(0.30870867, 0, 0.9511566, 0, 1, 0, -0.9511566, 0, 0.30870867, 54.14653, 0, 17.573874)
+
+[node name="Roadbed" type="MeshInstance3D" parent="ElementalBiomes/Biome_Aether/RoadToVillage" unique_id=1028180772]
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_hemcm")
+
+[node name="LoreTablets" type="Node3D" parent="." unique_id=814270177]
+
+[node name="LoreTablet1" type="Node3D" parent="LoreTablets" unique_id=446895996]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -58)
+metadata/lore_text = "THE FIRST SKY
+We built the cities above on light we did not understand.
+The draconics warned us. We called it envy."
+metadata/lore_title = "The War Above"
+
+[node name="Slab" type="MeshInstance3D" parent="LoreTablets/LoreTablet1" unique_id=1617049787]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+material_override = ExtResource("19_cm87f")
+mesh = SubResource("BoxMesh_301je")
+
+[node name="@StaticBody3D@154" type="StaticBody3D" parent="LoreTablets/LoreTablet1/Slab" unique_id=371849641]
+
+[node name="@CollisionShape3D@153" type="CollisionShape3D" parent="LoreTablets/LoreTablet1/Slab/@StaticBody3D@154" unique_id=1393578032]
+shape = SubResource("BoxShape3D_b0bxu")
+
+[node name="Base" type="MeshInstance3D" parent="LoreTablets/LoreTablet1" unique_id=1464932233]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_8p2t3")
+
+[node name="@StaticBody3D@156" type="StaticBody3D" parent="LoreTablets/LoreTablet1/Base" unique_id=2069793793]
+
+[node name="@CollisionShape3D@155" type="CollisionShape3D" parent="LoreTablets/LoreTablet1/Base/@StaticBody3D@156" unique_id=2146560285]
+shape = SubResource("BoxShape3D_afmef")
+
+[node name="Rune" type="MeshInstance3D" parent="LoreTablets/LoreTablet1" unique_id=1865871696]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 4.6, 0)
+material_override = ExtResource("18_20lmq")
+mesh = SubResource("SphereMesh_q6adh")
+
+[node name="LoreTablet2" type="Node3D" parent="LoreTablets" unique_id=324053050]
+transform = Transform3D(0.32599068, 0, -0.945373, 0, 1, 0, 0.945373, 0, 0.32599068, 58, 0, -20)
+metadata/lore_text = "THE BURNING OF THE SPIRES
+Nine hundred years of war for a sky that was already dying.
+Both peoples counted their dead in the same numbers."
+metadata/lore_title = "The War Above"
+
+[node name="Slab" type="MeshInstance3D" parent="LoreTablets/LoreTablet2" unique_id=1558583197]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+material_override = ExtResource("19_cm87f")
+mesh = SubResource("BoxMesh_ytexv")
+
+[node name="@StaticBody3D@158" type="StaticBody3D" parent="LoreTablets/LoreTablet2/Slab" unique_id=24810997]
+
+[node name="@CollisionShape3D@157" type="CollisionShape3D" parent="LoreTablets/LoreTablet2/Slab/@StaticBody3D@158" unique_id=447473389]
+shape = SubResource("BoxShape3D_50bvd")
+
+[node name="Base" type="MeshInstance3D" parent="LoreTablets/LoreTablet2" unique_id=1802463065]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_avwwi")
+
+[node name="@StaticBody3D@160" type="StaticBody3D" parent="LoreTablets/LoreTablet2/Base" unique_id=453249793]
+
+[node name="@CollisionShape3D@159" type="CollisionShape3D" parent="LoreTablets/LoreTablet2/Base/@StaticBody3D@160" unique_id=865476914]
+shape = SubResource("BoxShape3D_nrcke")
+
+[node name="Rune" type="MeshInstance3D" parent="LoreTablets/LoreTablet2" unique_id=1739910587]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 4.6, 0)
+material_override = ExtResource("18_20lmq")
+mesh = SubResource("SphereMesh_m6ixi")
+
+[node name="LoreTablet3" type="Node3D" parent="LoreTablets" unique_id=580027975]
+transform = Transform3D(0.32599068, 0, 0.945373, 0, 1, 0, -0.945373, 0, 0.32599068, -58, 0, -20)
+metadata/lore_text = "THE DESCENT
+When the light failed, the wings carried the wingless down.
+No terms were written. There was no one left to write them to."
+metadata/lore_title = "The War Above"
+
+[node name="Slab" type="MeshInstance3D" parent="LoreTablets/LoreTablet3" unique_id=2089203320]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+material_override = ExtResource("19_cm87f")
+mesh = SubResource("BoxMesh_skddk")
+
+[node name="@StaticBody3D@162" type="StaticBody3D" parent="LoreTablets/LoreTablet3/Slab" unique_id=444936683]
+
+[node name="@CollisionShape3D@161" type="CollisionShape3D" parent="LoreTablets/LoreTablet3/Slab/@StaticBody3D@162" unique_id=1011355196]
+shape = SubResource("BoxShape3D_ggos2")
+
+[node name="Base" type="MeshInstance3D" parent="LoreTablets/LoreTablet3" unique_id=875431238]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_8jrxh")
+
+[node name="@StaticBody3D@164" type="StaticBody3D" parent="LoreTablets/LoreTablet3/Base" unique_id=884466101]
+
+[node name="@CollisionShape3D@163" type="CollisionShape3D" parent="LoreTablets/LoreTablet3/Base/@StaticBody3D@164" unique_id=1809051920]
+shape = SubResource("BoxShape3D_hi1du")
+
+[node name="Rune" type="MeshInstance3D" parent="LoreTablets/LoreTablet3" unique_id=944943898]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 4.6, 0)
+material_override = ExtResource("18_20lmq")
+mesh = SubResource("SphereMesh_mg4uy")
+
+[node name="LoreTablet4" type="Node3D" parent="LoreTablets" unique_id=232239782]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 54)
+metadata/lore_text = "HOLLOWLIGHT
+We train in the deep so the deep does not take us.
+Our children cannot tell which of them is which. Let it stay that way."
+metadata/lore_title = "The War Above"
+
+[node name="Slab" type="MeshInstance3D" parent="LoreTablets/LoreTablet4" unique_id=862568397]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+material_override = ExtResource("19_cm87f")
+mesh = SubResource("BoxMesh_mumkr")
+
+[node name="@StaticBody3D@166" type="StaticBody3D" parent="LoreTablets/LoreTablet4/Slab" unique_id=1382739158]
+
+[node name="@CollisionShape3D@165" type="CollisionShape3D" parent="LoreTablets/LoreTablet4/Slab/@StaticBody3D@166" unique_id=2085536507]
+shape = SubResource("BoxShape3D_rdxq4")
+
+[node name="Base" type="MeshInstance3D" parent="LoreTablets/LoreTablet4" unique_id=633426855]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+material_override = ExtResource("9_5lw6n")
+mesh = SubResource("BoxMesh_ibo0j")
+
+[node name="@StaticBody3D@168" type="StaticBody3D" parent="LoreTablets/LoreTablet4/Base" unique_id=1284385413]
+
+[node name="@CollisionShape3D@167" type="CollisionShape3D" parent="LoreTablets/LoreTablet4/Base/@StaticBody3D@168" unique_id=365571559]
+shape = SubResource("BoxShape3D_ya1kd")
+
+[node name="Rune" type="MeshInstance3D" parent="LoreTablets/LoreTablet4" unique_id=1703314872]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 4.6, 0)
+material_override = ExtResource("18_20lmq")
+mesh = SubResource("SphereMesh_1mxxn")
+
+[node name="Links" type="Node3D" parent="." unique_id=1506570235]
+
+[node name="GravityLiftPad" type="MeshInstance3D" parent="Links" unique_id=841550044]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0.3, 0)
+material_override = ExtResource("20_x4mqv")
+mesh = SubResource("BoxMesh_q0n5e")
+
+[node name="@StaticBody3D@170" type="StaticBody3D" parent="Links/GravityLiftPad" unique_id=1139464617]
+
+[node name="@CollisionShape3D@169" type="CollisionShape3D" parent="Links/GravityLiftPad/@StaticBody3D@170" unique_id=1315173765]
+shape = SubResource("BoxShape3D_tly04")
+
+[node name="ArrivalSpawn" type="Node3D" parent="Links" unique_id=1116009507]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0.8, 8)
+metadata/from = "sky_island_planet"
+
+[node name="ReturnToSurface" type="Node3D" parent="Links" unique_id=1487481835]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0.8, 0)
+metadata/target = "sky_island_planet"
+
+[node name="FireCaveEntrance" type="Node3D" parent="Links" unique_id=1156465684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -142)
+metadata/target = "res://world/sky_island_planet/dungeons/elemental_fire_cave.tscn"
+metadata/biome_id = "ember"

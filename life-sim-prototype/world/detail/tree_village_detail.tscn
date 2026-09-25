@@ -1,0 +1,410 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/dark_timber.tres" id="1_timber"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/wood_planks.tres" id="2_planks"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/living_green.tres" id="3_green"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/dark_green.tres" id="4_darkgreen"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/warm_wood.tres" id="5_warmwood"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/lamp_glow.tres" id="6_lamp"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/spectral_blue.tres" id="7_blueglow"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/tent_cloth.tres" id="8_rope"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/cobblestone.tres" id="9_stone"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_trunk_huge"]
+top_radius = 2.4
+bottom_radius = 3.4
+height = 30.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_trunk_huge"]
+top_radius = 2.4
+bottom_radius = 3.4
+height = 30.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_trunk_med"]
+top_radius = 1.8
+bottom_radius = 2.6
+height = 26.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_trunk_med"]
+top_radius = 1.8
+bottom_radius = 2.6
+height = 26.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_canopy_huge"]
+radius = 11.0
+height = 16.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_canopy_med"]
+radius = 8.5
+height = 12.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_platform_large"]
+top_radius = 7.5
+bottom_radius = 7.5
+height = 0.5
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_platform_large"]
+top_radius = 7.5
+bottom_radius = 7.5
+height = 0.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_platform_med"]
+top_radius = 5.5
+bottom_radius = 5.5
+height = 0.5
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_platform_med"]
+top_radius = 5.5
+bottom_radius = 5.5
+height = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_bridge_plank"]
+size = Vector3(2.2, 0.25, 18.0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bridge_plank"]
+size = Vector3(2.2, 0.25, 18.0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bridge_rail"]
+size = Vector3(0.12, 0.8, 18.0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hut_body"]
+size = Vector3(4.8, 3.6, 4.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hut_body"]
+size = Vector3(4.8, 3.6, 4.8)
+
+[sub_resource type="PrismMesh" id="PrismMesh_hut_roof"]
+size = Vector3(5.6, 2.6, 5.6)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mushroom_cap"]
+top_radius = 1.6
+bottom_radius = 1.2
+height = 0.4
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mushroom_cap"]
+top_radius = 1.6
+bottom_radius = 1.2
+height = 0.4
+
+[sub_resource type="SphereMesh" id="SphereMesh_lantern"]
+radius = 0.35
+height = 0.7
+
+[sub_resource type="BoxMesh" id="BoxMesh_ramp_segment"]
+size = Vector3(2.0, 0.25, 4.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ramp_segment"]
+size = Vector3(2.0, 0.25, 4.5)
+
+[node name="TreeVillageDetail" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -260)
+
+[node name="GreatElderTree" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
+
+[node name="Trunk" type="MeshInstance3D" parent="GreatElderTree"]
+mesh = SubResource("CylinderMesh_trunk_huge")
+surface_material_override/0 = ExtResource("1_timber")
+
+[node name="Collision" type="CollisionShape3D" parent="GreatElderTree"]
+shape = SubResource("CylinderShape3D_trunk_huge")
+
+[node name="CanopyMain" type="MeshInstance3D" parent="GreatElderTree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, 0)
+mesh = SubResource("SphereMesh_canopy_huge")
+surface_material_override/0 = ExtResource("3_green")
+
+[node name="CanopyTop" type="MeshInstance3D" parent="GreatElderTree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22, 0)
+mesh = SubResource("SphereMesh_canopy_med")
+surface_material_override/0 = ExtResource("4_darkgreen")
+
+[node name="AncientTreeNorth" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 13, -15)
+
+[node name="Trunk" type="MeshInstance3D" parent="AncientTreeNorth"]
+mesh = SubResource("CylinderMesh_trunk_med")
+surface_material_override/0 = ExtResource("1_timber")
+
+[node name="Collision" type="CollisionShape3D" parent="AncientTreeNorth"]
+shape = SubResource("CylinderShape3D_trunk_med")
+
+[node name="Canopy" type="MeshInstance3D" parent="AncientTreeNorth"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, 0)
+mesh = SubResource("SphereMesh_canopy_huge")
+surface_material_override/0 = ExtResource("4_darkgreen")
+
+[node name="AncientTreeEast" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 13, -10)
+
+[node name="Trunk" type="MeshInstance3D" parent="AncientTreeEast"]
+mesh = SubResource("CylinderMesh_trunk_med")
+surface_material_override/0 = ExtResource("1_timber")
+
+[node name="Collision" type="CollisionShape3D" parent="AncientTreeEast"]
+shape = SubResource("CylinderShape3D_trunk_med")
+
+[node name="Canopy" type="MeshInstance3D" parent="AncientTreeEast"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, 0)
+mesh = SubResource("SphereMesh_canopy_huge")
+surface_material_override/0 = ExtResource("3_green")
+
+[node name="AncientTreeSouth" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 12, 18)
+
+[node name="Trunk" type="MeshInstance3D" parent="AncientTreeSouth"]
+mesh = SubResource("CylinderMesh_trunk_med")
+surface_material_override/0 = ExtResource("1_timber")
+
+[node name="Collision" type="CollisionShape3D" parent="AncientTreeSouth"]
+shape = SubResource("CylinderShape3D_trunk_med")
+
+[node name="Canopy" type="MeshInstance3D" parent="AncientTreeSouth"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0)
+mesh = SubResource("SphereMesh_canopy_med")
+surface_material_override/0 = ExtResource("4_darkgreen")
+
+[node name="PlatformElderCentral" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+
+[node name="Planks" type="MeshInstance3D" parent="PlatformElderCentral"]
+mesh = SubResource("CylinderMesh_platform_large")
+surface_material_override/0 = ExtResource("2_planks")
+
+[node name="Collision" type="CollisionShape3D" parent="PlatformElderCentral"]
+shape = SubResource("CylinderShape3D_platform_large")
+
+[node name="PlatformNorth" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 9.5, -15)
+
+[node name="Planks" type="MeshInstance3D" parent="PlatformNorth"]
+mesh = SubResource("CylinderMesh_platform_med")
+surface_material_override/0 = ExtResource("2_planks")
+
+[node name="Collision" type="CollisionShape3D" parent="PlatformNorth"]
+shape = SubResource("CylinderShape3D_platform_med")
+
+[node name="PlatformEast" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 9, -10)
+
+[node name="Planks" type="MeshInstance3D" parent="PlatformEast"]
+mesh = SubResource("CylinderMesh_platform_med")
+surface_material_override/0 = ExtResource("2_planks")
+
+[node name="Collision" type="CollisionShape3D" parent="PlatformEast"]
+shape = SubResource("CylinderShape3D_platform_med")
+
+[node name="PlatformSouth" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 7.5, 18)
+
+[node name="Planks" type="MeshInstance3D" parent="PlatformSouth"]
+mesh = SubResource("CylinderMesh_platform_med")
+surface_material_override/0 = ExtResource("2_planks")
+
+[node name="Collision" type="CollisionShape3D" parent="PlatformSouth"]
+shape = SubResource("CylinderShape3D_platform_med")
+
+[node name="HighLookoutPlatform" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.5, 0)
+
+[node name="Planks" type="MeshInstance3D" parent="HighLookoutPlatform"]
+mesh = SubResource("CylinderMesh_platform_med")
+surface_material_override/0 = ExtResource("2_planks")
+
+[node name="Collision" type="CollisionShape3D" parent="HighLookoutPlatform"]
+shape = SubResource("CylinderShape3D_platform_med")
+
+[node name="BridgeCentralToNorth" type="StaticBody3D" parent="."]
+transform = Transform3D(0.684, 0.08, 0.725, 0, 0.994, -0.11, -0.729, 0.075, 0.68, -8, 8.7, -7.5)
+
+[node name="Planks" type="MeshInstance3D" parent="BridgeCentralToNorth"]
+mesh = SubResource("BoxMesh_bridge_plank")
+surface_material_override/0 = ExtResource("2_planks")
+
+[node name="Collision" type="CollisionShape3D" parent="BridgeCentralToNorth"]
+shape = SubResource("BoxShape3D_bridge_plank")
+
+[node name="RailL" type="MeshInstance3D" parent="BridgeCentralToNorth"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0, 0.45, 0)
+mesh = SubResource("BoxMesh_bridge_rail")
+surface_material_override/0 = ExtResource("8_rope")
+
+[node name="RailR" type="MeshInstance3D" parent="BridgeCentralToNorth"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0, 0.45, 0)
+mesh = SubResource("BoxMesh_bridge_rail")
+surface_material_override/0 = ExtResource("8_rope")
+
+[node name="BridgeCentralToEast" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.485, 0.05, 0.873, 0, 0.998, -0.057, -0.874, -0.028, -0.484, 9, 8.5, -5)
+
+[node name="Planks" type="MeshInstance3D" parent="BridgeCentralToEast"]
+mesh = SubResource("BoxMesh_bridge_plank")
+surface_material_override/0 = ExtResource("2_planks")
+
+[node name="Collision" type="CollisionShape3D" parent="BridgeCentralToEast"]
+shape = SubResource("BoxShape3D_bridge_plank")
+
+[node name="RailL" type="MeshInstance3D" parent="BridgeCentralToEast"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0, 0.45, 0)
+mesh = SubResource("BoxMesh_bridge_rail")
+surface_material_override/0 = ExtResource("8_rope")
+
+[node name="RailR" type="MeshInstance3D" parent="BridgeCentralToEast"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0, 0.45, 0)
+mesh = SubResource("BoxMesh_bridge_rail")
+surface_material_override/0 = ExtResource("8_rope")
+
+[node name="BridgeCentralToSouth" type="StaticBody3D" parent="."]
+transform = Transform3D(0.976, -0.027, -0.216, 0, 0.992, -0.124, 0.218, 0.121, 0.968, 2, 7.7, 9)
+
+[node name="Planks" type="MeshInstance3D" parent="BridgeCentralToSouth"]
+mesh = SubResource("BoxMesh_bridge_plank")
+surface_material_override/0 = ExtResource("2_planks")
+
+[node name="Collision" type="CollisionShape3D" parent="BridgeCentralToSouth"]
+shape = SubResource("BoxShape3D_bridge_plank")
+
+[node name="RailL" type="MeshInstance3D" parent="BridgeCentralToSouth"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0, 0.45, 0)
+mesh = SubResource("BoxMesh_bridge_rail")
+surface_material_override/0 = ExtResource("8_rope")
+
+[node name="RailR" type="MeshInstance3D" parent="BridgeCentralToSouth"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0, 0.45, 0)
+mesh = SubResource("BoxMesh_bridge_rail")
+surface_material_override/0 = ExtResource("8_rope")
+
+[node name="ElderHut" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 10.0, 2.5)
+
+[node name="Body" type="MeshInstance3D" parent="ElderHut"]
+mesh = SubResource("BoxMesh_hut_body")
+surface_material_override/0 = ExtResource("5_warmwood")
+
+[node name="Collision" type="CollisionShape3D" parent="ElderHut"]
+shape = SubResource("BoxShape3D_hut_body")
+
+[node name="Roof" type="MeshInstance3D" parent="ElderHut"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0, 0)
+mesh = SubResource("PrismMesh_hut_roof")
+surface_material_override/0 = ExtResource("4_darkgreen")
+
+[node name="NorthWatchHut" type="StaticBody3D" parent="."]
+transform = Transform3D(0.866, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866, -17.5, 11.5, -16)
+
+[node name="Body" type="MeshInstance3D" parent="NorthWatchHut"]
+mesh = SubResource("BoxMesh_hut_body")
+surface_material_override/0 = ExtResource("5_warmwood")
+
+[node name="Collision" type="CollisionShape3D" parent="NorthWatchHut"]
+shape = SubResource("BoxShape3D_hut_body")
+
+[node name="Roof" type="MeshInstance3D" parent="NorthWatchHut"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0, 0)
+mesh = SubResource("PrismMesh_hut_roof")
+surface_material_override/0 = ExtResource("3_green")
+
+[node name="EastMerchantHut" type="StaticBody3D" parent="."]
+transform = Transform3D(0.707, 0, -0.707, 0, 1, 0, 0.707, 0, 0.707, 19.5, 11.0, -11)
+
+[node name="Body" type="MeshInstance3D" parent="EastMerchantHut"]
+mesh = SubResource("BoxMesh_hut_body")
+surface_material_override/0 = ExtResource("5_warmwood")
+
+[node name="Collision" type="CollisionShape3D" parent="EastMerchantHut"]
+shape = SubResource("BoxShape3D_hut_body")
+
+[node name="Roof" type="MeshInstance3D" parent="EastMerchantHut"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0, 0)
+mesh = SubResource("PrismMesh_hut_roof")
+surface_material_override/0 = ExtResource("4_darkgreen")
+
+[node name="SpiralRamp1" type="StaticBody3D" parent="."]
+transform = Transform3D(0.966, 0.174, 0.191, -0.174, 0.985, 0, -0.188, -0.033, 0.982, 4.2, 1.2, 0)
+
+[node name="Planks" type="MeshInstance3D" parent="SpiralRamp1"]
+mesh = SubResource("BoxMesh_ramp_segment")
+surface_material_override/0 = ExtResource("2_planks")
+
+[node name="Collision" type="CollisionShape3D" parent="SpiralRamp1"]
+shape = SubResource("BoxShape3D_ramp_segment")
+
+[node name="SpiralRamp2" type="StaticBody3D" parent="."]
+transform = Transform3D(0.259, 0.174, -0.95, -0.174, 0.985, 0, 0.936, 0.165, 0.285, 2.5, 3.2, -3.8)
+
+[node name="Planks" type="MeshInstance3D" parent="SpiralRamp2"]
+mesh = SubResource("BoxMesh_ramp_segment")
+surface_material_override/0 = ExtResource("2_planks")
+
+[node name="Collision" type="CollisionShape3D" parent="SpiralRamp2"]
+shape = SubResource("BoxShape3D_ramp_segment")
+
+[node name="SpiralRamp3" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.966, 0.174, -0.191, -0.174, -0.985, 0, -0.188, 0.033, 0.982, -3.8, 5.2, -1.8)
+
+[node name="Planks" type="MeshInstance3D" parent="SpiralRamp3"]
+mesh = SubResource("BoxMesh_ramp_segment")
+surface_material_override/0 = ExtResource("2_planks")
+
+[node name="Collision" type="CollisionShape3D" parent="SpiralRamp3"]
+shape = SubResource("BoxShape3D_ramp_segment")
+
+[node name="SpiralRamp4" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.259, 0.174, 0.95, -0.174, -0.985, 0, 0.936, -0.165, -0.285, -2.5, 7.0, 3.2)
+
+[node name="Planks" type="MeshInstance3D" parent="SpiralRamp4"]
+mesh = SubResource("BoxMesh_ramp_segment")
+surface_material_override/0 = ExtResource("2_planks")
+
+[node name="Collision" type="CollisionShape3D" parent="SpiralRamp4"]
+shape = SubResource("BoxShape3D_ramp_segment")
+
+[node name="ShelfMushroom1" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 3.0, -13)
+
+[node name="Cap" type="MeshInstance3D" parent="ShelfMushroom1"]
+mesh = SubResource("CylinderMesh_mushroom_cap")
+surface_material_override/0 = ExtResource("7_blueglow")
+
+[node name="Collision" type="CollisionShape3D" parent="ShelfMushroom1"]
+shape = SubResource("CylinderShape3D_mushroom_cap")
+
+[node name="ShelfMushroom2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 5.5, -16.5)
+
+[node name="Cap" type="MeshInstance3D" parent="ShelfMushroom2"]
+mesh = SubResource("CylinderMesh_mushroom_cap")
+surface_material_override/0 = ExtResource("7_blueglow")
+
+[node name="Collision" type="CollisionShape3D" parent="ShelfMushroom2"]
+shape = SubResource("CylinderShape3D_mushroom_cap")
+
+[node name="ShelfMushroom3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 7.8, -14)
+
+[node name="Cap" type="MeshInstance3D" parent="ShelfMushroom3"]
+mesh = SubResource("CylinderMesh_mushroom_cap")
+surface_material_override/0 = ExtResource("7_blueglow")
+
+[node name="Collision" type="CollisionShape3D" parent="ShelfMushroom3"]
+shape = SubResource("CylinderShape3D_mushroom_cap")
+
+[node name="Lantern1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 7.2, -6)
+mesh = SubResource("SphereMesh_lantern")
+surface_material_override/0 = ExtResource("6_lamp")
+
+[node name="Lantern2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 7.2, -4)
+mesh = SubResource("SphereMesh_lantern")
+surface_material_override/0 = ExtResource("6_lamp")
+
+[node name="Lantern3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6.8, 8)
+mesh = SubResource("SphereMesh_lantern")
+surface_material_override/0 = ExtResource("7_blueglow")
+
+[node name="Lantern4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.5, 3)
+mesh = SubResource("SphereMesh_lantern")
+surface_material_override/0 = ExtResource("6_lamp")

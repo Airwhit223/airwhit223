@@ -1,0 +1,181 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/asphalt_sidewalk.tres" id="1_7kue0"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/iron.tres" id="2_1ngpf"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/cream.tres" id="3_x6es8"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/steel.tres" id="4_jk1on"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/lamp_glow.tres" id="5_ghqgo"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gatxd"]
+top_radius = 0.15
+bottom_radius = 0.2
+height = 7.5
+radial_segments = 10
+rings = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_emg2c"]
+height = 7.5
+radius = 0.2
+
+[sub_resource type="BoxMesh" id="BoxMesh_rqbgw"]
+size = Vector3(2.6, 0.15, 0.15)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1coa8"]
+size = Vector3(2.2, 0.15, 0.15)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_p5lys"]
+top_radius = 0.05
+bottom_radius = 0.06
+height = 0.22
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wust1"]
+top_radius = 0.05
+bottom_radius = 0.06
+height = 0.22
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_i4rav"]
+top_radius = 0.05
+bottom_radius = 0.06
+height = 0.22
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tnwuo"]
+top_radius = 0.05
+bottom_radius = 0.06
+height = 0.22
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_aughv"]
+top_radius = 0.05
+bottom_radius = 0.06
+height = 0.22
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ae7k5"]
+top_radius = 0.05
+bottom_radius = 0.06
+height = 0.22
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_dib68"]
+top_radius = 0.05
+bottom_radius = 0.06
+height = 0.22
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ask0y"]
+top_radius = 0.05
+bottom_radius = 0.06
+height = 0.22
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7tvtu"]
+top_radius = 0.32
+bottom_radius = 0.32
+height = 1.1
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_td2ut"]
+top_radius = 0.04
+bottom_radius = 0.04
+height = 1.4
+radial_segments = 14
+rings = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_0y5d7"]
+size = Vector3(0.35, 0.15, 0.55)
+
+[sub_resource type="BoxMesh" id="BoxMesh_68wew"]
+size = Vector3(0.3, 0.05, 0.5)
+
+[node name="OverheadWirePole" type="StaticBody3D" unique_id=1808241184]
+
+[node name="PolePillar" type="MeshInstance3D" parent="." unique_id=1186559253]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 0)
+material_override = ExtResource("1_7kue0")
+mesh = SubResource("CylinderMesh_gatxd")
+
+[node name="@CollisionShape3D@27" type="CollisionShape3D" parent="." unique_id=955738363]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 0)
+shape = SubResource("CylinderShape3D_emg2c")
+
+[node name="CrossarmTop" type="MeshInstance3D" parent="." unique_id=498898813]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.8, 0)
+material_override = ExtResource("2_1ngpf")
+mesh = SubResource("BoxMesh_rqbgw")
+
+[node name="CrossarmMid" type="MeshInstance3D" parent="." unique_id=1669915079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.8, 0)
+material_override = ExtResource("2_1ngpf")
+mesh = SubResource("BoxMesh_1coa8")
+
+[node name="InsulatorTop_-11" type="MeshInstance3D" parent="." unique_id=1692193452]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 7, 0)
+material_override = ExtResource("3_x6es8")
+mesh = SubResource("CylinderMesh_p5lys")
+
+[node name="InsulatorMid_-11" type="MeshInstance3D" parent="." unique_id=2131630880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.88, 6, 0)
+material_override = ExtResource("3_x6es8")
+mesh = SubResource("CylinderMesh_wust1")
+
+[node name="InsulatorTop_-5" type="MeshInstance3D" parent="." unique_id=555771730]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 7, 0)
+material_override = ExtResource("3_x6es8")
+mesh = SubResource("CylinderMesh_i4rav")
+
+[node name="InsulatorMid_-5" type="MeshInstance3D" parent="." unique_id=1258915943]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 6, 0)
+material_override = ExtResource("3_x6es8")
+mesh = SubResource("CylinderMesh_tnwuo")
+
+[node name="InsulatorTop_5" type="MeshInstance3D" parent="." unique_id=1230840263]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 7, 0)
+material_override = ExtResource("3_x6es8")
+mesh = SubResource("CylinderMesh_aughv")
+
+[node name="InsulatorMid_5" type="MeshInstance3D" parent="." unique_id=325477723]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 6, 0)
+material_override = ExtResource("3_x6es8")
+mesh = SubResource("CylinderMesh_ae7k5")
+
+[node name="InsulatorTop_11" type="MeshInstance3D" parent="." unique_id=1902075292]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 7, 0)
+material_override = ExtResource("3_x6es8")
+mesh = SubResource("CylinderMesh_dib68")
+
+[node name="InsulatorMid_11" type="MeshInstance3D" parent="." unique_id=784234075]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.88, 6, 0)
+material_override = ExtResource("3_x6es8")
+mesh = SubResource("CylinderMesh_ask0y")
+
+[node name="Transformer" type="MeshInstance3D" parent="." unique_id=1929271506]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 5.2, 0.3)
+material_override = ExtResource("4_jk1on")
+mesh = SubResource("CylinderMesh_7tvtu")
+
+[node name="LampArm" type="MeshInstance3D" parent="." unique_id=1651438845]
+transform = Transform3D(0.70710677, -0.29883623, -0.6408563, 0, 0.90630776, -0.42261827, 0.70710677, 0.29883623, 0.6408563, -0.6, 4.8, 0.6)
+material_override = ExtResource("2_1ngpf")
+mesh = SubResource("CylinderMesh_td2ut")
+
+[node name="StreetLightCap" type="MeshInstance3D" parent="." unique_id=1084738877]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 4.4, 1)
+material_override = ExtResource("2_1ngpf")
+mesh = SubResource("BoxMesh_0y5d7")
+
+[node name="StreetLightGlow" type="MeshInstance3D" parent="." unique_id=762338542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 4.35, 1)
+material_override = ExtResource("5_ghqgo")
+mesh = SubResource("BoxMesh_68wew")

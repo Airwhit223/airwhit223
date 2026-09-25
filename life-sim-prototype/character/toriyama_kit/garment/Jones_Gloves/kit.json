@@ -1,0 +1,63 @@
+{
+ "kind": "garment",
+ "name": "Jones_Gloves",
+ "object": "Jones_Gloves",
+ "roles": [
+  "gloves"
+ ],
+ "slot": "accessory",
+ "meshes": {
+  "Jones_Gloves": {
+   "texture": "textures/Jones_Gloves.png",
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "TR_Jones_Gloves_0",
+     "role": "gloves",
+     "patterns": [
+      "leather"
+     ],
+     "default_srgb": [
+      200,
+      100,
+      42
+     ]
+    },
+    {
+     "index": 1,
+     "material": "TR_Ink",
+     "role": "cloth",
+     "patterns": [],
+     "default_srgb": null
+    }
+   ]
+  }
+ },
+ "blend_shapes": {
+  "Jones_Gloves": [
+   "Def_Bust",
+   "Def_Hips",
+   "Def_Waist",
+   "Def_Shoulders",
+   "Def_Pecs",
+   "Def_Back",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F",
+   "TR_Chest_Width",
+   "TR_Waist_Width",
+   "TR_Hip_Width",
+   "TR_Neck",
+   "Body_Lean",
+   "Body_Stocky",
+   "Body_Athletic",
+   "Body_Bulk"
+  ]
+ },
+ "glb": "Jones_Gloves.glb"
+}

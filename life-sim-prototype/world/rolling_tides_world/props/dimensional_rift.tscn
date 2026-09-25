@@ -1,0 +1,71 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/rift_crack.tres" id="1_xkm6a"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/rift_purple.tres" id="2_2hgpp"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_aory0"]
+size = Vector2(4.5, 1.8)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g0jia"]
+size = Vector2(2.5, 1.2)
+
+[sub_resource type="PrismMesh" id="PrismMesh_upqs8"]
+size = Vector3(0.2, 0.4, 0.2)
+
+[sub_resource type="PrismMesh" id="PrismMesh_e841t"]
+size = Vector3(0.2, 0.4, 0.2)
+
+[sub_resource type="PrismMesh" id="PrismMesh_smn16"]
+size = Vector3(0.2, 0.4, 0.2)
+
+[sub_resource type="PrismMesh" id="PrismMesh_4r0vd"]
+size = Vector3(0.2, 0.4, 0.2)
+
+[sub_resource type="PrismMesh" id="PrismMesh_8d4t6"]
+size = Vector3(0.2, 0.4, 0.2)
+
+[node name="DimensionalRift" type="StaticBody3D" unique_id=751002837]
+
+[node name="RiftCrackMesh" type="MeshInstance3D" parent="." unique_id=876475434]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)
+material_override = ExtResource("1_xkm6a")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_aory0")
+
+[node name="RiftCrackMesh2" type="MeshInstance3D" parent="." unique_id=1812846822]
+transform = Transform3D(0.81915206, 0, 0.57357645, 0, 1, 0, -0.57357645, 0, 0.81915206, 1.2, 0.022, 0.6)
+material_override = ExtResource("1_xkm6a")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_g0jia")
+
+[node name="RiftLight" type="OmniLight3D" parent="." unique_id=167522266]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+light_color = Color(0.72156864, 0.3019608, 1, 1)
+light_energy = 3.5
+omni_range = 7.5
+visible = false
+
+[node name="RiftShard_0" type="MeshInstance3D" parent="." unique_id=1345146169]
+transform = Transform3D(-0.6985148, 0.11386166, -0.706479, 0, 0.98726016, 0.15911452, 0.7155956, 0.11114385, -0.68961585, -0.8655482, 0.46520007, -0.30952078)
+material_override = ExtResource("2_2hgpp")
+mesh = SubResource("PrismMesh_upqs8")
+
+[node name="RiftShard_1" type="MeshInstance3D" parent="." unique_id=981928743]
+transform = Transform3D(0.9400864, -0.091055736, -0.32855192, 0, 0.9636756, -0.26707557, 0.3409362, 0.2510741, 0.9059384, -0.7737373, 0.74970084, 0.2583391)
+material_override = ExtResource("2_2hgpp")
+mesh = SubResource("PrismMesh_e841t")
+
+[node name="RiftShard_2" type="MeshInstance3D" parent="." unique_id=1830263724]
+transform = Transform3D(-0.7695556, -0.40770942, 0.49148467, 0, -0.7696527, -0.6384628, 0.6385798, -0.49133262, 0.5922906, 0.9890678, 1.0952471, 0.18784046)
+material_override = ExtResource("2_2hgpp")
+mesh = SubResource("PrismMesh_smn16")
+
+[node name="RiftShard_3" type="MeshInstance3D" parent="." unique_id=323803436]
+transform = Transform3D(0.80621487, -0.14980914, 0.57234156, 0, -0.96740943, -0.25321728, 0.5916229, 0.20414753, -0.7799399, -0.014020562, 0.64405155, -0.47497416)
+material_override = ExtResource("2_2hgpp")
+mesh = SubResource("PrismMesh_4r0vd")
+
+[node name="RiftShard_4" type="MeshInstance3D" parent="." unique_id=1330996576]
+transform = Transform3D(-0.4990213, 0.21290886, 0.84002835, 0, -0.9693495, 0.24568589, 0.8665897, 0.12260249, 0.48372605, 0.30471027, 0.96936756, -0.12178919)
+material_override = ExtResource("2_2hgpp")
+mesh = SubResource("PrismMesh_8d4t6")

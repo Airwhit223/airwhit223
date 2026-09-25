@@ -1,0 +1,15 @@
+{
+ "part": "garment",
+ "name": "TR_Skate_Hi",
+ "collapsed_keys": {
+  "TR_Skate_Hi": 11
+ },
+ "baked": {
+  "TR_Skate_Hi": 1.4
+ },
+ "head_warp": [
+  "TR_Skate_Hi"
+ ],
+ "glb_mb": 3.0,
+ "seconds": 1.7
+}

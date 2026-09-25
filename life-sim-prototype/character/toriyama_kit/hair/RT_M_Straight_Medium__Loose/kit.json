@@ -1,0 +1,198 @@
+{
+ "kind": "hair",
+ "name": "RT_M_Straight_Medium__Loose",
+ "cut": "RT_M_Straight_Medium__Loose",
+ "texture": "straight",
+ "library": "primal_loose",
+ "days_to_overgrown": 35,
+ "structure": "loose",
+ "silhouette": "round",
+ "base": null,
+ "bangs": null,
+ "accessory": null,
+ "states": {
+  "fresh": 0.0,
+  "needs_maintenance": 0.62,
+  "overgrown": 1.0
+ },
+ "thresholds": {
+  "fresh": 0.0,
+  "needs_maintenance": 0.5,
+  "overgrown": 0.85
+ },
+ "meshes": {
+  "Hair_fresh": {
+   "texture": null,
+   "vertex_colors": "TR_Paint",
+   "state": "fresh",
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "TR_Hair",
+     "role": "hair",
+     "patterns": [
+      "hair"
+     ],
+     "default_srgb": [
+      240,
+      210,
+      92
+     ]
+    },
+    {
+     "index": 1,
+     "material": "TR_Hair_Accent",
+     "role": "hair",
+     "patterns": [
+      "hair"
+     ],
+     "default_srgb": [
+      29,
+      24,
+      34
+     ]
+    },
+    {
+     "index": 2,
+     "material": "TR_Hair_Tie",
+     "role": "hair",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      255,
+      210,
+      31
+     ]
+    },
+    {
+     "index": 3,
+     "material": "TR_Ink",
+     "role": "ink",
+     "patterns": [],
+     "default_srgb": [
+      255,
+      255,
+      255
+     ]
+    }
+   ]
+  },
+  "Hair_needs_maintenance": {
+   "texture": null,
+   "vertex_colors": "TR_Paint",
+   "state": "needs_maintenance",
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "TR_Hair",
+     "role": "hair",
+     "patterns": [
+      "hair"
+     ],
+     "default_srgb": [
+      240,
+      210,
+      92
+     ]
+    },
+    {
+     "index": 1,
+     "material": "TR_Hair_Accent",
+     "role": "hair",
+     "patterns": [
+      "hair"
+     ],
+     "default_srgb": [
+      29,
+      24,
+      34
+     ]
+    },
+    {
+     "index": 2,
+     "material": "TR_Hair_Tie",
+     "role": "hair",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      255,
+      210,
+      31
+     ]
+    },
+    {
+     "index": 3,
+     "material": "TR_Ink",
+     "role": "ink",
+     "patterns": [],
+     "default_srgb": [
+      255,
+      255,
+      255
+     ]
+    }
+   ]
+  },
+  "Hair_overgrown": {
+   "texture": null,
+   "vertex_colors": "TR_Paint",
+   "state": "overgrown",
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "TR_Hair",
+     "role": "hair",
+     "patterns": [
+      "hair"
+     ],
+     "default_srgb": [
+      240,
+      210,
+      92
+     ]
+    },
+    {
+     "index": 1,
+     "material": "TR_Hair_Accent",
+     "role": "hair",
+     "patterns": [
+      "hair"
+     ],
+     "default_srgb": [
+      29,
+      24,
+      34
+     ]
+    },
+    {
+     "index": 2,
+     "material": "TR_Hair_Tie",
+     "role": "hair",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      255,
+      210,
+      31
+     ]
+    },
+    {
+     "index": 3,
+     "material": "TR_Ink",
+     "role": "ink",
+     "patterns": [],
+     "default_srgb": [
+      255,
+      255,
+      255
+     ]
+    }
+   ]
+  }
+ },
+ "head_bone": "DEF-head",
+ "glb": "RT_M_Straight_Medium__Loose.glb"
+}

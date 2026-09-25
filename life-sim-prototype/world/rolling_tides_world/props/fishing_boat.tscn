@@ -1,0 +1,107 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/pier_wood.tres" id="1_yynb3"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/awning_blue.tres" id="2_w72mc"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/warm_wood.tres" id="3_rem4n"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/sand_coastal.tres" id="4_jniq2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fn750"]
+size = Vector3(1.8, 0.3, 4.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c5qgq"]
+size = Vector3(0.15, 0.6, 4.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mk5c8"]
+size = Vector3(0.15, 0.6, 4.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_msv68"]
+size = Vector3(1.9, 0.6, 0.15)
+
+[sub_resource type="PrismMesh" id="PrismMesh_57ara"]
+size = Vector3(1.9, 0.6, 1.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_moko5"]
+size = Vector3(1.7, 0.08, 0.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fxod0"]
+size = Vector3(1.4, 0.08, 0.35)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_cymfx"]
+top_radius = 0.04
+bottom_radius = 0.04
+height = 2.8
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_v4sbd"]
+top_radius = 0.04
+bottom_radius = 0.04
+height = 2.8
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_dt0gy"]
+top_radius = 0.28
+bottom_radius = 0.32
+height = 0.15
+radial_segments = 10
+rings = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4axl6"]
+size = Vector3(2.2, 0.8, 5.2)
+
+[node name="FishingBoat" type="StaticBody3D" unique_id=2010303800]
+
+[node name="HullBottom" type="MeshInstance3D" parent="." unique_id=414143591]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+material_override = ExtResource("1_yynb3")
+mesh = SubResource("BoxMesh_fn750")
+
+[node name="GunwaleL" type="MeshInstance3D" parent="." unique_id=744190664]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 0.5, 0)
+material_override = ExtResource("2_w72mc")
+mesh = SubResource("BoxMesh_c5qgq")
+
+[node name="GunwaleR" type="MeshInstance3D" parent="." unique_id=1180046285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 0.5, 0)
+material_override = ExtResource("2_w72mc")
+mesh = SubResource("BoxMesh_mk5c8")
+
+[node name="TransomStern" type="MeshInstance3D" parent="." unique_id=2086818620]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2.1)
+material_override = ExtResource("2_w72mc")
+mesh = SubResource("BoxMesh_msv68")
+
+[node name="BowPoint" type="MeshInstance3D" parent="." unique_id=1935354394]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 2.7)
+material_override = ExtResource("2_w72mc")
+mesh = SubResource("PrismMesh_57ara")
+
+[node name="ThwartMid" type="MeshInstance3D" parent="." unique_id=400019581]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+material_override = ExtResource("3_rem4n")
+mesh = SubResource("BoxMesh_moko5")
+
+[node name="ThwartBow" type="MeshInstance3D" parent="." unique_id=931386344]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 1.4)
+material_override = ExtResource("3_rem4n")
+mesh = SubResource("BoxMesh_fxod0")
+
+[node name="Oar1" type="MeshInstance3D" parent="." unique_id=1238245553]
+transform = Transform3D(0.9659258, 0.044943456, 0.25488698, 0, 0.9848077, -0.17364818, -0.25881904, 0.16773126, 0.9512512, 0.4, 0.55, 0.2)
+material_override = ExtResource("3_rem4n")
+mesh = SubResource("CylinderMesh_cymfx")
+
+[node name="Oar2" type="MeshInstance3D" parent="." unique_id=1498244129]
+transform = Transform3D(0.9659258, 0.044943456, -0.25488698, 0, 0.9848077, 0.17364818, 0.25881904, -0.16773126, 0.9512512, -0.4, 0.55, -0.2)
+material_override = ExtResource("3_rem4n")
+mesh = SubResource("CylinderMesh_v4sbd")
+
+[node name="CoiledRope" type="MeshInstance3D" parent="." unique_id=1800702832]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -1.4)
+material_override = ExtResource("4_jniq2")
+mesh = SubResource("CylinderMesh_dt0gy")
+
+[node name="@CollisionShape3D@36" type="CollisionShape3D" parent="." unique_id=414859864]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0.3)
+shape = SubResource("BoxShape3D_4axl6")

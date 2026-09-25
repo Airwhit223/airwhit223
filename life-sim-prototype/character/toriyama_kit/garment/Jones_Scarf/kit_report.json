@@ -1,0 +1,12 @@
+{
+ "part": "garment",
+ "name": "Jones_Scarf",
+ "collapsed_keys": {
+  "Jones_Scarf": 0
+ },
+ "baked": {
+  "Jones_Scarf": 5.8
+ },
+ "glb_mb": 0.05,
+ "seconds": 5.9
+}

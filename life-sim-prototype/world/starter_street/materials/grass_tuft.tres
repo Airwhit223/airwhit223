@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://world/shaders/toon_world_noink.gdshader" id="1_5pb68"]
+
+[resource]
+render_priority = 2
+shader = ExtResource("1_5pb68")
+shader_parameter/base_color = Color(0.54901963, 0.76862746, 0.33333334, 1)
+shader_parameter/shadow_color = Color(0.30980393, 0.49019608, 0.17254902, 1)
+shader_parameter/shadow_threshold = 0.5

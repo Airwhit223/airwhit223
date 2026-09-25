@@ -1,0 +1,62 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/starter_street/materials/terracotta.tres" id="1_6il3x"]
+[ext_resource type="Material" path="res://world/starter_street/materials/living_green.tres" id="2_5emaq"]
+[ext_resource type="Material" path="res://world/starter_street/materials/blob_shadow.tres" id="3_i8fwg"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hdb1m"]
+top_radius = 0.15
+bottom_radius = 0.11
+height = 0.2
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_v62ml"]
+top_radius = 0.165
+bottom_radius = 0.165
+height = 0.05
+radial_segments = 14
+rings = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_5lgvc"]
+radius = 0.16
+height = 0.32
+radial_segments = 16
+rings = 8
+
+[sub_resource type="SphereMesh" id="SphereMesh_233uh"]
+radius = 0.1
+height = 0.2
+radial_segments = 16
+rings = 8
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_00goj"]
+size = Vector2(0.44, 0.44)
+
+[node name="PottedPlant" type="Node3D" unique_id=1613860543]
+
+[node name="Pot" type="MeshInstance3D" parent="." unique_id=1880082400]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+material_override = ExtResource("1_6il3x")
+mesh = SubResource("CylinderMesh_hdb1m")
+
+[node name="Rim" type="MeshInstance3D" parent="." unique_id=9975527]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+material_override = ExtResource("1_6il3x")
+mesh = SubResource("CylinderMesh_v62ml")
+
+[node name="Leaves" type="MeshInstance3D" parent="." unique_id=2139140866]
+transform = Transform3D(1, 0, 0, 0, 0.85, 0, 0, 0, 1, 0, 0.3, 0)
+material_override = ExtResource("2_5emaq")
+mesh = SubResource("SphereMesh_5lgvc")
+
+[node name="Leaves2" type="MeshInstance3D" parent="." unique_id=1637632370]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.27, 0.05)
+material_override = ExtResource("2_5emaq")
+mesh = SubResource("SphereMesh_233uh")
+
+[node name="BlobShadow" type="MeshInstance3D" parent="." unique_id=619812777]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015, 0)
+material_override = ExtResource("3_i8fwg")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_00goj")

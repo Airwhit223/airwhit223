@@ -1,0 +1,106 @@
+{
+ "character": "Maya",
+ "apply": {
+  "character": "Maya",
+  "faction": "artisan",
+  "growth": 0.0,
+  "state": "fresh",
+  "hair": "TR_Hair",
+  "beard": null
+ },
+ "hair_states": {
+  "Hair_fresh": 9744,
+  "Hair_needs_maintenance": 10002,
+  "Hair_overgrown": 10212
+ },
+ "beard": {},
+ "collapsed_keys": {
+  "Blush": 12,
+  "Body_Base": 11,
+  "Brow_L": 68,
+  "Brow_R": 68,
+  "DQ8_Neck_Shadow": 23,
+  "Ear_Ink": 0,
+  "Eye_L": 95,
+  "Eye_R": 95,
+  "Hair_fresh": 0,
+  "Hair_needs_maintenance": 0,
+  "Hair_overgrown": 0,
+  "Head_Base": 23,
+  "Jones_Scarf": 0,
+  "Mechanic_Work_Boots": 0,
+  "Mechanic_Work_Gloves": 11,
+  "Mouth": 56,
+  "Nose_Bridge": 12,
+  "Nose_Tip": 12,
+  "Shirt_Casual_01": 11,
+  "TR_Cargo_Shorts": 11,
+  "TR_Cropped_Jacket": 11,
+  "TR_Knee_Wrap": 11
+ },
+ "baked": {
+  "Body_Base": {
+   "texture": "textures/Body_Base.png",
+   "seconds": 24.5
+  },
+  "Ear_Ink": {
+   "texture": "textures/Ear_Ink.png",
+   "seconds": 0.5
+  },
+  "Head_Base": {
+   "texture": "textures/Head_Base.png",
+   "seconds": 34.6
+  },
+  "Jones_Scarf": {
+   "texture": "textures/Jones_Scarf.png",
+   "seconds": 1013.7
+  },
+  "Mechanic_Work_Boots": {
+   "texture": "textures/Mechanic_Work_Boots.png",
+   "seconds": 52.8
+  },
+  "Mechanic_Work_Gloves": {
+   "texture": "textures/Mechanic_Work_Gloves.png",
+   "seconds": 226.8
+  },
+  "Shirt_Casual_01": {
+   "texture": "textures/Shirt_Casual_01.png",
+   "seconds": 1035.4
+  },
+  "TR_Cargo_Shorts": {
+   "texture": "textures/TR_Cargo_Shorts.png",
+   "seconds": 40.0
+  },
+  "TR_Cropped_Jacket": {
+   "texture": "textures/TR_Cropped_Jacket.png",
+   "seconds": 201.0
+  },
+  "TR_Knee_Wrap": {
+   "texture": "textures/TR_Knee_Wrap.png",
+   "seconds": 1104.5
+  },
+  "Hair_fresh": {
+   "vertex_colors": "TR_Paint",
+   "seconds": 7.1
+  },
+  "Hair_needs_maintenance": {
+   "vertex_colors": "TR_Paint",
+   "seconds": 921.0
+  },
+  "Hair_overgrown": {
+   "vertex_colors": "TR_Paint",
+   "seconds": 6.4
+  }
+ },
+ "skin_vertex_color_meshes": [
+  "Eye_L",
+  "Eye_R"
+ ],
+ "head_warp": [
+  "Hair_fresh",
+  "Hair_needs_maintenance",
+  "Hair_overgrown"
+ ],
+ "glb_mb": 14.16,
+ "seconds": 4670.3
+}

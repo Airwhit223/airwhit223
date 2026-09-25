@@ -1,0 +1,103 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/ancient_city_wall.tres" id="1_t3hjf"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/power_grid_energy.tres" id="2_fpkkf"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/quartz_crystal_cyan.tres" id="3_631nm"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_f0wej"]
+top_radius = 6.0
+bottom_radius = 7.5
+height = 12.0
+radial_segments = 16
+rings = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_m500t"]
+height = 12.0
+radius = 6.8
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_88p3n"]
+top_radius = 7.6
+bottom_radius = 7.6
+height = 0.4
+radial_segments = 16
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_luvlg"]
+top_radius = 4.2
+bottom_radius = 5.8
+height = 12.0
+radial_segments = 16
+rings = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5i01p"]
+height = 12.0
+radius = 5.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_j4ar1"]
+top_radius = 5.9
+bottom_radius = 5.9
+height = 0.4
+radial_segments = 16
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mdh60"]
+top_radius = 2.2
+bottom_radius = 3.8
+height = 10.0
+radial_segments = 16
+rings = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_s5v2b"]
+height = 10.0
+radius = 3.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7nq32"]
+top_radius = 0.1
+bottom_radius = 1.8
+height = 8.0
+radial_segments = 6
+rings = 1
+
+[node name="AncientCityTower" type="StaticBody3D" unique_id=489985917]
+
+[node name="TowerBaseTier" type="MeshInstance3D" parent="." unique_id=63139884]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+material_override = ExtResource("1_t3hjf")
+mesh = SubResource("CylinderMesh_f0wej")
+
+[node name="@CollisionShape3D@12" type="CollisionShape3D" parent="." unique_id=1659785246]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CylinderShape3D_m500t")
+
+[node name="BasePowerRing" type="MeshInstance3D" parent="." unique_id=2110753609]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.8, 0)
+material_override = ExtResource("2_fpkkf")
+mesh = SubResource("CylinderMesh_88p3n")
+
+[node name="TowerMidTier" type="MeshInstance3D" parent="." unique_id=616924411]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 0)
+material_override = ExtResource("1_t3hjf")
+mesh = SubResource("CylinderMesh_luvlg")
+
+[node name="@CollisionShape3D@13" type="CollisionShape3D" parent="." unique_id=1360521483]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 0)
+shape = SubResource("CylinderShape3D_5i01p")
+
+[node name="MidPowerRing" type="MeshInstance3D" parent="." unique_id=622610363]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.8, 0)
+material_override = ExtResource("2_fpkkf")
+mesh = SubResource("CylinderMesh_j4ar1")
+
+[node name="TowerTopTier" type="MeshInstance3D" parent="." unique_id=715464665]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29, 0)
+material_override = ExtResource("1_t3hjf")
+mesh = SubResource("CylinderMesh_mdh60")
+
+[node name="@CollisionShape3D@14" type="CollisionShape3D" parent="." unique_id=1860920610]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29, 0)
+shape = SubResource("CylinderShape3D_s5v2b")
+
+[node name="CrystalPinnacle" type="MeshInstance3D" parent="." unique_id=1118434378]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 38, 0)
+material_override = ExtResource("3_631nm")
+mesh = SubResource("CylinderMesh_7nq32")

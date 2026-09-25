@@ -1,0 +1,10 @@
+{
+ "part": "prop",
+ "name": "Black",
+ "baked": {
+  "TR_Katana_Black": 7.6,
+  "TR_Saya_Black": 0.4
+ },
+ "glb_mb": 0.57,
+ "seconds": 8.1
+}

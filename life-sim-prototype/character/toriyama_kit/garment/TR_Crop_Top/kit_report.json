@@ -1,0 +1,12 @@
+{
+ "part": "garment",
+ "name": "TR_Crop_Top",
+ "collapsed_keys": {
+  "TR_Crop_Top": 11
+ },
+ "baked": {
+  "TR_Crop_Top": 6.4
+ },
+ "glb_mb": 0.64,
+ "seconds": 6.5
+}

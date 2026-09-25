@@ -1,0 +1,91 @@
+{
+ "kind": "garment",
+ "name": "TR_Crop_Top",
+ "object": "TR_Crop_Top",
+ "roles": [
+  "top",
+  "top_trim",
+  "top_seam"
+ ],
+ "slot": "top",
+ "meshes": {
+  "TR_Crop_Top": {
+   "texture": "textures/TR_Crop_Top.png",
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "TR_TR_Crop_Top_0",
+     "role": "top",
+     "patterns": [
+      "canvas"
+     ],
+     "default_srgb": [
+      47,
+      127,
+      132
+     ]
+    },
+    {
+     "index": 1,
+     "material": "TR_TR_Crop_Top_1",
+     "role": "top_trim",
+     "patterns": [
+      "canvas"
+     ],
+     "default_srgb": [
+      60,
+      58,
+      58
+     ]
+    },
+    {
+     "index": 2,
+     "material": "TR_TR_Crop_Top_2",
+     "role": "top_seam",
+     "patterns": [
+      "canvas"
+     ],
+     "default_srgb": [
+      60,
+      58,
+      58
+     ]
+    },
+    {
+     "index": 3,
+     "material": "TR_Ink",
+     "role": "cloth",
+     "patterns": [],
+     "default_srgb": null
+    }
+   ]
+  }
+ },
+ "blend_shapes": {
+  "TR_Crop_Top": [
+   "Def_Bust",
+   "Def_Hips",
+   "Def_Waist",
+   "Def_Shoulders",
+   "Def_Pecs",
+   "Def_Back",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F",
+   "TR_Chest_Width",
+   "TR_Waist_Width",
+   "TR_Hip_Width",
+   "TR_Neck",
+   "Body_Lean",
+   "Body_Stocky",
+   "Body_Athletic",
+   "Body_Bulk"
+  ]
+ },
+ "glb": "TR_Crop_Top.glb"
+}

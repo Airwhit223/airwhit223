@@ -1,0 +1,307 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://pets/maine_coon_silver.glb" id="model_maine_coon_silver"]
+[ext_resource type="Script" path="res://pets/pet.gd" id="1_48p7g"]
+[ext_resource type="Material" path="res://pets/materials/maine_coon_smoke_0.tres" id="2_okrm3"]
+[ext_resource type="Material" path="res://pets/materials/maine_coon_smoke_2.tres" id="3_dg8mw"]
+[ext_resource type="Material" path="res://pets/materials/maine_coon_smoke_3.tres" id="4_iax5y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0yx8t"]
+size = Vector3(0.2415, 0.5035, 0.594)
+
+[sub_resource type="SphereMesh" id="SphereMesh_l130u"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_u3hpy"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_mocx4"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_aq4xx"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_hnyw5"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_hksmo"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_exxmy"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_114b6"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_8vkfm"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_2pm46"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_su5he"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2hlm6"]
+top_radius = 0.0
+bottom_radius = 0.05106
+height = 0.139564
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7xsen"]
+top_radius = 0.0
+bottom_radius = 0.015318
+height = 0.057868
+
+[sub_resource type="SphereMesh" id="SphereMesh_x5mxr"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2aqbb"]
+top_radius = 0.0
+bottom_radius = 0.05106
+height = 0.139564
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xvwkp"]
+top_radius = 0.0
+bottom_radius = 0.015318
+height = 0.057868
+
+[sub_resource type="SphereMesh" id="SphereMesh_orn20"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_3j1sb"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ow2fs"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_rflne"]
+size = Vector3(0.0644, 0.27278, 0.0644)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xhouy"]
+size = Vector3(0.0782, 0.07, 0.1012)
+
+[sub_resource type="SphereMesh" id="SphereMesh_44l6r"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fvp6l"]
+size = Vector3(0.0644, 0.27278, 0.0644)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bs1h3"]
+size = Vector3(0.0782, 0.07, 0.1012)
+
+[sub_resource type="SphereMesh" id="SphereMesh_yjhy3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8t5b1"]
+size = Vector3(0.0644, 0.27278, 0.0644)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wrthu"]
+size = Vector3(0.0782, 0.07, 0.1012)
+
+[sub_resource type="SphereMesh" id="SphereMesh_6q5m1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qeq6u"]
+size = Vector3(0.0644, 0.27278, 0.0644)
+
+[sub_resource type="BoxMesh" id="BoxMesh_in5a8"]
+size = Vector3(0.0782, 0.07, 0.1012)
+
+[sub_resource type="SphereMesh" id="SphereMesh_v6ixw"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ajdfl"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ynlim"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_g4gmj"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_asw0k"]
+
+[node name="MaineCoonSmoke" type="CharacterBody3D" unique_id=1942911926]
+script = ExtResource("1_48p7g")
+model_scene = ExtResource("model_maine_coon_silver")
+breed_id = "maine_coon_smoke"
+display_name = "Maine Coon Smoke"
+species = "cat"
+shoulder_height = 0.4
+
+[node name="@CollisionShape3D@13" type="CollisionShape3D" parent="." unique_id=1874957010]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25175, 0)
+shape = SubResource("BoxShape3D_0yx8t")
+
+[node name="Art" type="Node3D" parent="." unique_id=1234275155]
+
+[node name="Chest" type="MeshInstance3D" parent="Art" unique_id=1017475591]
+transform = Transform3D(0.2392, 0, 0, 0, 0.2576, 0, 0, 0, 0.264, 0, 0.4092, -0.1188)
+material_override = ExtResource("2_okrm3")
+mesh = SubResource("SphereMesh_l130u")
+
+[node name="Waist" type="MeshInstance3D" parent="Art" unique_id=28439095]
+transform = Transform3D(0.1978, 0, 0, 0, 0.2024, 0, 0, 0, 0.198, 0, 0.3954, 0)
+material_override = ExtResource("2_okrm3")
+mesh = SubResource("SphereMesh_u3hpy")
+
+[node name="Haunch" type="MeshInstance3D" parent="Art" unique_id=2095024654]
+transform = Transform3D(0.253, 0, 0, 0, 0.2438, 0, 0, 0, 0.2376, 0, 0.4046, 0.132)
+material_override = ExtResource("2_okrm3")
+mesh = SubResource("SphereMesh_mocx4")
+
+[node name="Belly" type="MeshInstance3D" parent="Art" unique_id=2032479505]
+transform = Transform3D(0.1932, 0, 0, 0, 0.1104, 0, 0, 0, 0.2904, 0, 0.3218, -0.0132)
+material_override = ExtResource("3_dg8mw")
+mesh = SubResource("SphereMesh_aq4xx")
+
+[node name="Neck" type="MeshInstance3D" parent="Art" unique_id=876679034]
+transform = Transform3D(0.1334, 0, 0, 0, 0.1334, 0, 0, 0, 0.1472, 0, 0.4345, -0.19139999)
+material_override = ExtResource("2_okrm3")
+mesh = SubResource("SphereMesh_hnyw5")
+
+[node name="Ruff" type="MeshInstance3D" parent="Art" unique_id=2009825386]
+transform = Transform3D(0.24978, 0, 0, 0, 0.2323, 0, 0, 0, 0.16882, 0, 0.4253, -0.16839999)
+material_override = ExtResource("2_okrm3")
+mesh = SubResource("SphereMesh_hksmo")
+
+[node name="RuffBib" type="MeshInstance3D" parent="Art" unique_id=739893203]
+transform = Transform3D(0.16928, 0, 0, 0, 0.15134, 0, 0, 0, 0.092, 0, 0.3701, -0.219)
+material_override = ExtResource("3_dg8mw")
+mesh = SubResource("SphereMesh_exxmy")
+
+[node name="Head" type="Node3D" parent="Art" unique_id=678910624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4782, -0.264)
+
+[node name="Skull" type="MeshInstance3D" parent="Art/Head" unique_id=1695955860]
+transform = Transform3D(0.1702, 0, 0, 0, 0.159988, 0, 0, 0, 0.166796, 0, 0, 0)
+material_override = ExtResource("2_okrm3")
+mesh = SubResource("SphereMesh_114b6")
+
+[node name="Muzzle" type="MeshInstance3D" parent="Art/Head" unique_id=622979539]
+transform = Transform3D(0.091908, 0, 0, 0, 0.074888, 0, 0, 0, 0.12805, 0, -0.044252, -0.154044)
+material_override = ExtResource("3_dg8mw")
+mesh = SubResource("SphereMesh_8vkfm")
+
+[node name="Nose" type="MeshInstance3D" parent="Art/Head" unique_id=706383421]
+transform = Transform3D(0.032, 0, 0, 0, 0.026, 0, 0, 0, 0.026, 0, -0.03404, -0.22469)
+material_override = ExtResource("4_iax5y")
+mesh = SubResource("SphereMesh_2pm46")
+
+[node name="EyeL" type="MeshInstance3D" parent="Art/Head" unique_id=89184827]
+transform = Transform3D(0.032, 0, 0, 0, 0.038, 0, 0, 0, 0.022, -0.06808, 0.01702, -0.11914)
+material_override = ExtResource("4_iax5y")
+mesh = SubResource("SphereMesh_su5he")
+
+[node name="EarL" type="MeshInstance3D" parent="Art/Head" unique_id=336370907]
+transform = Transform3D(0.9800666, 0.19866933, 0, -0.19724062, 0.9730186, 0.119712204, 0.023783144, -0.11732593, 0.99280864, -0.074888, 0.105524, 0.01702)
+material_override = ExtResource("2_okrm3")
+mesh = SubResource("CylinderMesh_2hlm6")
+
+[node name="TuftL" type="MeshInstance3D" parent="Art/Head" unique_id=488997906]
+transform = Transform3D(0.96638995, 0.25708055, 0, -0.25579622, 0.96156204, 0.09983342, 0.025665231, -0.096478015, 0.9950042, -0.081696, 0.173604, 0.013616)
+material_override = ExtResource("3_dg8mw")
+mesh = SubResource("CylinderMesh_7xsen")
+
+[node name="EyeR" type="MeshInstance3D" parent="Art/Head" unique_id=965513244]
+transform = Transform3D(0.032, 0, 0, 0, 0.038, 0, 0, 0, 0.022, 0.06808, 0.01702, -0.11914)
+material_override = ExtResource("4_iax5y")
+mesh = SubResource("SphereMesh_x5mxr")
+
+[node name="EarR" type="MeshInstance3D" parent="Art/Head" unique_id=1369878725]
+transform = Transform3D(0.9800666, -0.19866933, 0, 0.19724062, 0.9730186, 0.119712204, -0.023783144, -0.11732593, 0.99280864, 0.074888, 0.105524, 0.01702)
+material_override = ExtResource("2_okrm3")
+mesh = SubResource("CylinderMesh_2aqbb")
+
+[node name="TuftR" type="MeshInstance3D" parent="Art/Head" unique_id=1231918891]
+transform = Transform3D(0.96638995, -0.25708055, 0, 0.25579622, 0.96156204, 0.09983342, -0.025665231, -0.096478015, 0.9950042, 0.081696, 0.173604, 0.013616)
+material_override = ExtResource("3_dg8mw")
+mesh = SubResource("CylinderMesh_xvwkp")
+
+[node name="CheekL" type="MeshInstance3D" parent="Art/Head" unique_id=1870560636]
+transform = Transform3D(0.057868, 0, 0, 0, 0.078292, 0, 0, 0, 0.06808, -0.078292, -0.027232, -0.037444)
+material_override = ExtResource("3_dg8mw")
+mesh = SubResource("SphereMesh_orn20")
+
+[node name="CheekR" type="MeshInstance3D" parent="Art/Head" unique_id=524326130]
+transform = Transform3D(0.057868, 0, 0, 0, 0.078292, 0, 0, 0, 0.06808, 0.078292, -0.027232, -0.037444)
+material_override = ExtResource("3_dg8mw")
+mesh = SubResource("SphereMesh_3j1sb")
+
+[node name="LegForeL" type="Node3D" parent="Art" unique_id=1147010925]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1058, 0, -0.1584)
+
+[node name="Thigh" type="MeshInstance3D" parent="Art/LegForeL" unique_id=1499550230]
+transform = Transform3D(0.0828, 0, 0, 0, 0.10081, 0, 0, 0, 0.092, 0, 0.33675, 0)
+material_override = ExtResource("2_okrm3")
+mesh = SubResource("SphereMesh_ow2fs")
+
+[node name="Shin" type="MeshInstance3D" parent="Art/LegForeL" unique_id=1902999638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13639, 0)
+material_override = ExtResource("2_okrm3")
+mesh = SubResource("BoxMesh_rflne")
+
+[node name="Paw" type="MeshInstance3D" parent="Art/LegForeL" unique_id=919841927]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.035, -0.0138)
+material_override = ExtResource("3_dg8mw")
+mesh = SubResource("BoxMesh_xhouy")
+
+[node name="LegHindL" type="Node3D" parent="Art" unique_id=745077993]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1058, 0, 0.1584)
+
+[node name="Thigh" type="MeshInstance3D" parent="Art/LegHindL" unique_id=567202213]
+transform = Transform3D(0.0828, 0, 0, 0, 0.10081, 0, 0, 0, 0.092, 0, 0.33675, 0)
+material_override = ExtResource("2_okrm3")
+mesh = SubResource("SphereMesh_44l6r")
+
+[node name="Shin" type="MeshInstance3D" parent="Art/LegHindL" unique_id=687319490]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13639, 0)
+material_override = ExtResource("2_okrm3")
+mesh = SubResource("BoxMesh_fvp6l")
+
+[node name="Paw" type="MeshInstance3D" parent="Art/LegHindL" unique_id=665175750]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.035, -0.0138)
+material_override = ExtResource("3_dg8mw")
+mesh = SubResource("BoxMesh_bs1h3")
+
+[node name="LegForeR" type="Node3D" parent="Art" unique_id=2143006583]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1058, 0, -0.1584)
+
+[node name="Thigh" type="MeshInstance3D" parent="Art/LegForeR" unique_id=345122582]
+transform = Transform3D(0.0828, 0, 0, 0, 0.10081, 0, 0, 0, 0.092, 0, 0.33675, 0)
+material_override = ExtResource("2_okrm3")
+mesh = SubResource("SphereMesh_yjhy3")
+
+[node name="Shin" type="MeshInstance3D" parent="Art/LegForeR" unique_id=1133458373]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13639, 0)
+material_override = ExtResource("2_okrm3")
+mesh = SubResource("BoxMesh_8t5b1")
+
+[node name="Paw" type="MeshInstance3D" parent="Art/LegForeR" unique_id=1784729021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.035, -0.0138)
+material_override = ExtResource("3_dg8mw")
+mesh = SubResource("BoxMesh_wrthu")
+
+[node name="LegHindR" type="Node3D" parent="Art" unique_id=322345449]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1058, 0, 0.1584)
+
+[node name="Thigh" type="MeshInstance3D" parent="Art/LegHindR" unique_id=2107522320]
+transform = Transform3D(0.0828, 0, 0, 0, 0.10081, 0, 0, 0, 0.092, 0, 0.33675, 0)
+material_override = ExtResource("2_okrm3")
+mesh = SubResource("SphereMesh_6q5m1")
+
+[node name="Shin" type="MeshInstance3D" parent="Art/LegHindR" unique_id=104778570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13639, 0)
+material_override = ExtResource("2_okrm3")
+mesh = SubResource("BoxMesh_qeq6u")
+
+[node name="Paw" type="MeshInstance3D" parent="Art/LegHindR" unique_id=1343823382]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.035, -0.0138)
+material_override = ExtResource("3_dg8mw")
+mesh = SubResource("BoxMesh_in5a8")
+
+[node name="Tail" type="Node3D" parent="Art" unique_id=169823308]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.423, 0.2244)
+
+[node name="Plume0" type="MeshInstance3D" parent="Art/Tail" unique_id=770794539]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.06, 0, 0.023, 0.04)
+material_override = ExtResource("2_okrm3")
+mesh = SubResource("SphereMesh_v6ixw")
+
+[node name="Plume1" type="MeshInstance3D" parent="Art/Tail" unique_id=563049100]
+transform = Transform3D(0.068384774, 0, 0, 0, 0.068384774, 0, 0, 0, 0.08206173, 0, 0.04715, 0.105)
+material_override = ExtResource("2_okrm3")
+mesh = SubResource("SphereMesh_ajdfl")
+
+[node name="Plume2" type="MeshInstance3D" parent="Art/Tail" unique_id=876030708]
+transform = Transform3D(0.076, 0, 0, 0, 0.076, 0, 0, 0, 0.0912, 0, 0.0713, 0.17)
+material_override = ExtResource("2_okrm3")
+mesh = SubResource("SphereMesh_ynlim")
+
+[node name="Plume3" type="MeshInstance3D" parent="Art/Tail" unique_id=1243211513]
+transform = Transform3D(0.068384774, 0, 0, 0, 0.068384774, 0, 0, 0, 0.08206173, 0, 0.09545, 0.235)
+material_override = ExtResource("2_okrm3")
+mesh = SubResource("SphereMesh_g4gmj")
+
+[node name="Plume4" type="MeshInstance3D" parent="Art/Tail" unique_id=39030914]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.06, 0, 0.1196, 0.3)
+material_override = ExtResource("3_dg8mw")
+mesh = SubResource("SphereMesh_asw0k")

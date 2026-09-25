@@ -1,0 +1,71 @@
+{
+ "kind": "garment",
+ "name": "Emo_Belt_Chain",
+ "object": "Emo_Belt_Chain",
+ "roles": [
+  "belt",
+  "metal"
+ ],
+ "slot": "accessory",
+ "meshes": {
+  "Emo_Belt_Chain": {
+   "texture": "textures/Emo_Belt_Chain.png",
+   "vertex_colors": null,
+   "surfaces": [
+    {
+     "index": 0,
+     "material": "TR_Emo_Belt_Chain_0",
+     "role": "belt",
+     "patterns": [
+      "leather",
+      "studs"
+     ],
+     "default_srgb": [
+      110,
+      74,
+      46
+     ]
+    },
+    {
+     "index": 1,
+     "material": "TR_Emo_Belt_Chain_1",
+     "role": "metal",
+     "patterns": [
+      "plain"
+     ],
+     "default_srgb": [
+      201,
+      162,
+      78
+     ]
+    }
+   ]
+  }
+ },
+ "blend_shapes": {
+  "Emo_Belt_Chain": [
+   "Def_Bust",
+   "Def_Hips",
+   "Def_Waist",
+   "Def_Shoulders",
+   "Def_Pecs",
+   "Def_Back",
+   "TR_Leg_Length",
+   "TR_Belly",
+   "TR_Definition",
+   "TR_Posture",
+   "Pose_Rest",
+   "SB_Sheet_M",
+   "SB_Sheet_F",
+   "TR_Chest_Width",
+   "TR_Waist_Width",
+   "TR_Hip_Width",
+   "TR_Neck",
+   "Body_Lean",
+   "Body_Stocky",
+   "Body_Athletic",
+   "Body_Bulk"
+  ]
+ },
+ "glb": "Emo_Belt_Chain.glb"
+}

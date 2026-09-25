@@ -1,0 +1,38 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/rainbow_bridge_energy.tres" id="1_lh417"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/quartz_crystal_cyan.tres" id="2_ttse5"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/quartz_crystal_magenta.tres" id="3_bh725"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_rw76o"]
+size = Vector3(4.5, 0.15, 36)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gcym1"]
+size = Vector3(4.5, 0.2, 36)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a1ipp"]
+size = Vector3(0.2, 0.8, 36)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3cbqa"]
+size = Vector3(0.2, 0.8, 36)
+
+[node name="RainbowEnergyBridge" type="StaticBody3D" unique_id=380206725]
+
+[node name="EnergyRibbonDeck" type="MeshInstance3D" parent="." unique_id=1175444193]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+material_override = ExtResource("1_lh417")
+mesh = SubResource("BoxMesh_rw76o")
+
+[node name="@CollisionShape3D@10" type="CollisionShape3D" parent="." unique_id=204992255]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+shape = SubResource("BoxShape3D_gcym1")
+
+[node name="RailLeft" type="MeshInstance3D" parent="." unique_id=1296889079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, 0.4, 0)
+material_override = ExtResource("2_ttse5")
+mesh = SubResource("BoxMesh_a1ipp")
+
+[node name="RailRight" type="MeshInstance3D" parent="." unique_id=115361325]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.4, 0)
+material_override = ExtResource("3_bh725")
+mesh = SubResource("BoxMesh_3cbqa")

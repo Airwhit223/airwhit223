@@ -1,0 +1,78 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/ancient_city_wall.tres" id="1_88b0t"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/bioluminescent_teal_turf.tres" id="2_wov0r"]
+[ext_resource type="Material" path="res://world/sky_island_planet/materials/quartz_crystal_cyan.tres" id="3_i064y"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7aq43"]
+top_radius = 5.6
+bottom_radius = 6.0
+height = 0.8
+radial_segments = 8
+rings = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_pq51w"]
+height = 0.8
+radius = 5.8
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ldxph"]
+top_radius = 5.2
+bottom_radius = 5.2
+height = 0.2
+radial_segments = 16
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8hfju"]
+top_radius = 0.8
+bottom_radius = 1.2
+height = 3.2
+radial_segments = 8
+rings = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_tan5w"]
+radius = 1.1
+height = 2.2
+radial_segments = 24
+rings = 12
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7jp7o"]
+height = 3.0
+radius = 7.0
+
+[node name="ResonanceHealingFountain" type="StaticBody3D" unique_id=558663402]
+
+[node name="OuterPoolRim" type="MeshInstance3D" parent="." unique_id=1829413320]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+material_override = ExtResource("1_88b0t")
+mesh = SubResource("CylinderMesh_7aq43")
+
+[node name="@CollisionShape3D@18" type="CollisionShape3D" parent="." unique_id=1049886867]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("CylinderShape3D_pq51w")
+
+[node name="HealingWaterPool" type="MeshInstance3D" parent="." unique_id=1833690960]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+material_override = ExtResource("2_wov0r")
+mesh = SubResource("CylinderMesh_ldxph")
+
+[node name="CenterSpire" type="MeshInstance3D" parent="." unique_id=517502795]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+material_override = ExtResource("1_88b0t")
+mesh = SubResource("CylinderMesh_8hfju")
+
+[node name="FountainResonanceOrb" type="MeshInstance3D" parent="." unique_id=298185303]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2, 0)
+material_override = ExtResource("3_i064y")
+mesh = SubResource("SphereMesh_tan5w")
+
+[node name="FountainGlow" type="OmniLight3D" parent="." unique_id=1224343564]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+light_color = Color(0.2, 0.95, 0.85, 1)
+light_energy = 3.2
+omni_range = 12.0
+
+[node name="HealingFountainArea" type="Area3D" parent="." unique_id=1160557382]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="@CollisionShape3D@19" type="CollisionShape3D" parent="HealingFountainArea" unique_id=278062959]
+shape = SubResource("CylinderShape3D_7jp7o")

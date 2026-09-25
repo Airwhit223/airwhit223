@@ -1,0 +1,93 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://player/vehicles/speed_bike.gd" id="1_55617"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/cream.tres" id="2_3ryth"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/neon_cyan.tres" id="3_uu71d"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/iron.tres" id="4_q83n0"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/steel.tres" id="5_0lijx"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/lamp_glow.tres" id="6_p1joq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ifp6y"]
+size = Vector3(0.55, 0.65, 1.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pdmxh"]
+size = Vector3(0.57, 0.15, 1.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mju2m"]
+size = Vector3(0.45, 0.12, 0.65)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_x2klx"]
+top_radius = 0.38
+bottom_radius = 0.38
+height = 0.22
+radial_segments = 14
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8gm47"]
+top_radius = 0.38
+bottom_radius = 0.38
+height = 0.26
+radial_segments = 14
+rings = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_bcur3"]
+size = Vector3(0.85, 0.06, 0.06)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_d50ej"]
+top_radius = 0.14
+bottom_radius = 0.14
+height = 0.1
+radial_segments = 14
+rings = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8vqh5"]
+size = Vector3(0.8, 1.1, 2.1)
+
+[node name="SpeedBike" type="CharacterBody3D" unique_id=406422481]
+script = ExtResource("1_55617")
+
+[node name="Frame" type="MeshInstance3D" parent="." unique_id=236018921]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 0)
+material_override = ExtResource("2_3ryth")
+mesh = SubResource("BoxMesh_ifp6y")
+
+[node name="AccentStrip" type="MeshInstance3D" parent="." unique_id=155798438]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+material_override = ExtResource("3_uu71d")
+mesh = SubResource("BoxMesh_pdmxh")
+
+[node name="Seat" type="MeshInstance3D" parent="." unique_id=1091583320]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0.2)
+material_override = ExtResource("4_q83n0")
+mesh = SubResource("BoxMesh_mju2m")
+
+[node name="FrontWheel" type="MeshInstance3D" parent="." unique_id=193822573]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.38, -0.85)
+material_override = ExtResource("4_q83n0")
+mesh = SubResource("CylinderMesh_x2klx")
+
+[node name="RearWheel" type="MeshInstance3D" parent="." unique_id=1564532754]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.38, 0.85)
+material_override = ExtResource("4_q83n0")
+mesh = SubResource("CylinderMesh_8gm47")
+
+[node name="Handlebars" type="MeshInstance3D" parent="." unique_id=426514565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, -0.55)
+material_override = ExtResource("5_0lijx")
+mesh = SubResource("BoxMesh_bcur3")
+
+[node name="Headlamp" type="MeshInstance3D" parent="." unique_id=162175017]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.85, -0.95)
+material_override = ExtResource("6_p1joq")
+mesh = SubResource("CylinderMesh_d50ej")
+
+[node name="HeadlampBeam" type="SpotLight3D" parent="." unique_id=1680309790]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.85, -1)
+light_color = Color(1, 0.95, 0.8, 1)
+light_energy = 3.5
+spot_range = 28.0
+spot_angle = 38.0
+
+[node name="@CollisionShape3D@4" type="CollisionShape3D" parent="." unique_id=674040090]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 0)
+shape = SubResource("BoxShape3D_8vqh5")

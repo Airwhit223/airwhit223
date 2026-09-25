@@ -1,0 +1,12 @@
+{
+ "part": "garment",
+ "name": "TR_Crossbody_Bag",
+ "collapsed_keys": {
+  "TR_Crossbody_Bag": 11
+ },
+ "baked": {
+  "TR_Crossbody_Bag": 9.1
+ },
+ "glb_mb": 0.06,
+ "seconds": 9.2
+}

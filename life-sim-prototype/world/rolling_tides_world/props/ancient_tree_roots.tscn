@@ -1,0 +1,53 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/dark_timber.tres" id="1_uiblv"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/mossy_stone.tres" id="2_k326b"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8qd36"]
+top_radius = 1.8
+bottom_radius = 3.2
+height = 14.0
+radial_segments = 10
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qbb1w"]
+top_radius = 1.4
+bottom_radius = 2.6
+height = 12.0
+radial_segments = 10
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tjnv3"]
+top_radius = 1.2
+bottom_radius = 2.4
+height = 10.0
+radial_segments = 10
+rings = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_wewmw"]
+radius = 2.2
+height = 4.4
+radial_segments = 16
+rings = 8
+
+[node name="AncientRoots" type="StaticBody3D" unique_id=2105002682]
+
+[node name="Root1" type="MeshInstance3D" parent="." unique_id=809876864]
+transform = Transform3D(0.91004497, 0.25035238, 0.33036608, -0.16773126, 0.9512512, -0.25881904, -0.3790571, 0.18012425, 0.90767336, 0, 6, 0)
+material_override = ExtResource("1_uiblv")
+mesh = SubResource("CylinderMesh_8qd36")
+
+[node name="Root2" type="MeshInstance3D" parent="." unique_id=2119029918]
+transform = Transform3D(0.74046636, -0.40150237, 0.53898555, 0.24321035, 0.90767336, 0.34202012, -0.6265447, -0.12216751, 0.76975113, 4, 5, 2)
+material_override = ExtResource("1_uiblv")
+mesh = SubResource("CylinderMesh_qbb1w")
+
+[node name="Root3" type="MeshInstance3D" parent="." unique_id=224945543]
+transform = Transform3D(0.9450841, 0.22758093, -0.23456971, -0.3099755, 0.8516507, -0.42261827, 0.103591606, 0.47212067, 0.87542605, -3.5, 4.5, -1.5)
+material_override = ExtResource("1_uiblv")
+mesh = SubResource("CylinderMesh_tjnv3")
+
+[node name="RootMossBurl" type="MeshInstance3D" parent="." unique_id=822632257]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 3, 0.5)
+material_override = ExtResource("2_k326b")
+mesh = SubResource("SphereMesh_wewmw")

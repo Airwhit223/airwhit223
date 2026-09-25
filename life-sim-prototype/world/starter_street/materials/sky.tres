@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://world/shaders/toon_sky.gdshader" id="1_ywrk6"]
+
+[resource]
+shader = ExtResource("1_ywrk6")
+shader_parameter/horizon_color = Color(1, 0.816, 0.502, 1)
+shader_parameter/zenith_color = Color(0.376, 0.565, 0.753, 1)
+shader_parameter/ground_color = Color(0.55, 0.62, 0.45, 1)
+shader_parameter/cloud_color = Color(1, 0.93, 0.85, 1)
+shader_parameter/cloud_shadow = Color(0.93, 0.74, 0.7, 1)
+shader_parameter/ink_color = Color(0.3, 0.22, 0.26, 1)
+shader_parameter/sun_color = Color(1, 0.95, 0.8, 1)
+shader_parameter/cloud_cover = 0.42
+shader_parameter/stars = 0.0
+shader_parameter/haze = 0.45

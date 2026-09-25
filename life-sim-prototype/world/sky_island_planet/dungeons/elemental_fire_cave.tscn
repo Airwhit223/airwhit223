@@ -1,0 +1,116 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://world/sky_island_planet/dungeons/elemental_fire_cave.gd" id="1_cave"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/anubis_black.tres" id="2_obsidian"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/fire_ember.tres" id="3_magma"]
+[ext_resource type="Material" path="res://world/rolling_tides_world/materials/pyramid_limestone.tres" id="4_stone"]
+[ext_resource type="PackedScene" path="res://world/sky_island_planet/dungeons/boss_ignis_colossus.tscn" id="5_boss"]
+[ext_resource type="PackedScene" path="res://world/dungeons/relic_chest.tscn" id="6_chest"]
+[ext_resource type="PackedScene" path="res://world/dungeons/elemental_brazier.tscn" id="7_brazier"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_floor"]
+size = Vector3(36, 1, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
+size = Vector3(36, 1, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wall_side"]
+size = Vector3(1.5, 12, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wall_side"]
+size = Vector3(1.5, 12, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wall_end"]
+size = Vector3(36, 12, 1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wall_end"]
+size = Vector3(36, 12, 1.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lava_river"]
+size = Vector3(12, 0.4, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lava_zone"]
+size = Vector3(12, 2.5, 30)
+
+[node name="ElementalFireCave" type="Node3D" unique_id=556677881]
+script = ExtResource("1_cave")
+
+[node name="CaveStructure" type="StaticBody3D" parent="." unique_id=556677882]
+
+[node name="CaveFloor" type="MeshInstance3D" parent="CaveStructure" unique_id=556677883]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = ExtResource("2_obsidian")
+mesh = SubResource("BoxMesh_floor")
+
+[node name="CollisionFloor" type="CollisionShape3D" parent="CaveStructure" unique_id=556677884]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_floor")
+
+[node name="WallWest" type="MeshInstance3D" parent="CaveStructure" unique_id=556677885]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 6, 0)
+material_override = ExtResource("2_obsidian")
+mesh = SubResource("BoxMesh_wall_side")
+
+[node name="CollisionWallWest" type="CollisionShape3D" parent="CaveStructure" unique_id=556677886]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 6, 0)
+shape = SubResource("BoxShape3D_wall_side")
+
+[node name="WallEast" type="MeshInstance3D" parent="CaveStructure" unique_id=556677887]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 6, 0)
+material_override = ExtResource("2_obsidian")
+mesh = SubResource("BoxMesh_wall_side")
+
+[node name="CollisionWallEast" type="CollisionShape3D" parent="CaveStructure" unique_id=556677888]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 6, 0)
+shape = SubResource("BoxShape3D_wall_side")
+
+[node name="WallNorthBack" type="MeshInstance3D" parent="CaveStructure" unique_id=556677889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, -30)
+material_override = ExtResource("2_obsidian")
+mesh = SubResource("BoxMesh_wall_end")
+
+[node name="CollisionWallNorth" type="CollisionShape3D" parent="CaveStructure" unique_id=556677890]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, -30)
+shape = SubResource("BoxShape3D_wall_end")
+
+[node name="Ceiling" type="MeshInstance3D" parent="CaveStructure" unique_id=556677891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.5, 0)
+material_override = ExtResource("2_obsidian")
+mesh = SubResource("BoxMesh_floor")
+
+[node name="CollisionCeiling" type="CollisionShape3D" parent="CaveStructure" unique_id=556677892]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.5, 0)
+shape = SubResource("BoxShape3D_floor")
+
+[node name="LavaRiverMesh" type="MeshInstance3D" parent="." unique_id=556677893]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 5)
+material_override = ExtResource("3_magma")
+mesh = SubResource("BoxMesh_lava_river")
+
+[node name="HazardLavaZone" type="Area3D" parent="." unique_id=556677894]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0, 5)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HazardLavaZone" unique_id=556677895]
+shape = SubResource("BoxShape3D_lava_zone")
+
+[node name="LavaAmbientLight" type="OmniLight3D" parent="HazardLavaZone" unique_id=556677896]
+light_color = Color(1.0, 0.4, 0.1, 1)
+light_energy = 3.2
+omni_range = 22.0
+
+[node name="BossIgnisColossus" parent="." unique_id=556677897 instance=ExtResource("5_boss")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18)
+
+[node name="BossRewardChest" parent="." unique_id=556677898 instance=ExtResource("6_chest")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25)
+
+[node name="Brazier1" parent="." unique_id=556677899 instance=ExtResource("7_brazier")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -10)
+
+[node name="Brazier2" parent="." unique_id=556677900 instance=ExtResource("7_brazier")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -10)
+
+[node name="EntranceSpawn" type="Marker3D" parent="." unique_id=556677901]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 25)

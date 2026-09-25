@@ -1,0 +1,106 @@
+{
+ "character": "Theo",
+ "apply": {
+  "character": "Theo",
+  "faction": "artisan",
+  "growth": 0.0,
+  "state": "fresh",
+  "hair": "TR_Hair",
+  "beard": null
+ },
+ "hair_states": {
+  "Hair_fresh": 6702,
+  "Hair_needs_maintenance": 6816,
+  "Hair_overgrown": 6852
+ },
+ "beard": {},
+ "collapsed_keys": {
+  "Blush": 12,
+  "Body_Base": 11,
+  "Brow_L": 68,
+  "Brow_R": 68,
+  "DQ8_Neck_Shadow": 23,
+  "Ear_Ink": 0,
+  "Eye_L": 95,
+  "Eye_R": 95,
+  "Hair_fresh": 0,
+  "Hair_needs_maintenance": 0,
+  "Hair_overgrown": 0,
+  "Head_Base": 23,
+  "Mechanic_Cargo_Pants": 11,
+  "Mouth": 56,
+  "Nose_Bridge": 12,
+  "Nose_Tip": 12,
+  "Shirt_Casual_01": 11,
+  "Shoes_Sneaker_01": 11,
+  "TR_Crossbody_Bag": 11,
+  "TR_Glasses": 0,
+  "TR_Headphones": 11,
+  "TR_Hooded_Jacket": 11
+ },
+ "baked": {
+  "Body_Base": {
+   "texture": "textures/Body_Base.png",
+   "seconds": 29.7
+  },
+  "Ear_Ink": {
+   "texture": "textures/Ear_Ink.png",
+   "seconds": 0.5
+  },
+  "Head_Base": {
+   "texture": "textures/Head_Base.png",
+   "seconds": 37.8
+  },
+  "Mechanic_Cargo_Pants": {
+   "texture": "textures/Mechanic_Cargo_Pants.png",
+   "seconds": 33.9
+  },
+  "Shirt_Casual_01": {
+   "texture": "textures/Shirt_Casual_01.png",
+   "seconds": 38.2
+  },
+  "Shoes_Sneaker_01": {
+   "texture": "textures/Shoes_Sneaker_01.png",
+   "seconds": 28.2
+  },
+  "TR_Crossbody_Bag": {
+   "texture": "textures/TR_Crossbody_Bag.png",
+   "seconds": 71.8
+  },
+  "TR_Glasses": {
+   "texture": "textures/TR_Glasses.png",
+   "seconds": 28.8
+  },
+  "TR_Headphones": {
+   "texture": "textures/TR_Headphones.png",
+   "seconds": 47.2
+  },
+  "TR_Hooded_Jacket": {
+   "texture": "textures/TR_Hooded_Jacket.png",
+   "seconds": 32.9
+  },
+  "Hair_fresh": {
+   "vertex_colors": "TR_Paint",
+   "seconds": 6.9
+  },
+  "Hair_needs_maintenance": {
+   "vertex_colors": "TR_Paint",
+   "seconds": 6.2
+  },
+  "Hair_overgrown": {
+   "vertex_colors": "TR_Paint",
+   "seconds": 4.6
+  }
+ },
+ "skin_vertex_color_meshes": [
+  "Eye_L",
+  "Eye_R"
+ ],
+ "head_warp": [
+  "Hair_fresh",
+  "Hair_needs_maintenance",
+  "Hair_overgrown"
+ ],
+ "glb_mb": 12.46,
+ "seconds": 368.6
+}
