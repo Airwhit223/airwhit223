@@ -30,7 +30,7 @@ TAN = srgb(0.78, 0.55, 0.37)
 # Jackal head: a longer, narrower wolf muzzle and tall pointed ears.
 bf.HEADS["jackal"] = dict(bf.HEADS["wolf"])
 bf.HEADS["jackal"].update(
-    blobs=[("e", (0, -0.05, 0.12), (0.88, 0.95, 0.88)),
+    blobs=[("e", (0, 0.07, 0.12), (0.88, 0.82, 0.88)),
            *[("e", c, (0.4, 0.4, 0.4)) for c in bf.mirror(0.5, 0.25, -0.35)],
            ("c", (0, 0.45, -0.15), (0, 1.65, -0.36), 0.36, 0.2),
            ("e", (0, 0.95, -0.5), (0.24, 0.6, 0.14)),
