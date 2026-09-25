@@ -20,7 +20,7 @@ SRC, OUT = sys.argv[-2], sys.argv[-1]
 os.makedirs(OUT, exist_ok=True)
 FAMILIES = {
     "beastfolk": [("Canid", "wolf", (0.42, 0.40, 0.42)), ("Feline", "cat", (0.85, 0.55, 0.28)),
-                  ("Ursine", "bear", (0.42, 0.27, 0.16))],
+                  ("Ursine", "bear", (0.42, 0.27, 0.16)), ("Lagomorph", "rabbit", (0.80, 0.74, 0.66))],
     "draconic": [("Saurian", "lizard", (0.42, 0.58, 0.30)), ("Saurian", "dragon_horned", (0.24, 0.36, 0.30)),
                  ("Saurian", "dragon_crested", (0.55, 0.20, 0.32)), ("Gecko", "gecko", (0.92, 0.72, 0.35)),
                  ("Gecko", "chameleon", (0.35, 0.72, 0.58)), ("Gecko", "dragon_winglet", (0.82, 0.62, 0.30))],
@@ -111,7 +111,7 @@ sun.rotation_euler = (math.radians(50), 0, math.radians(-35))
 sc.collection.objects.link(sun)
 cam = bpy.data.objects.new("Cam", bpy.data.cameras.new("Cam"))
 cam.data.type = "ORTHO"
-cam.data.ortho_scale = 0.62
+cam.data.ortho_scale = 0.70
 sc.collection.objects.link(cam)
 sc.camera = cam
 sil = mat("PV_Sil", (0, 0, 0), emit=True)
@@ -140,7 +140,7 @@ def apply(t, lineage, b):
 
 
 def shot(path, view, silhouette):
-    c = Vector((0, -0.05, 1.63))
+    c = Vector((0, -0.05, 1.66))
     cam.location = c + (Vector((3, 0, 0)) if view == "side" else Vector((2.0, -2.2, 0.35)))
     cam.rotation_euler = (c - cam.location).to_track_quat("-Z", "Y").to_euler()
     bpy.context.view_layer.material_override = sil if silhouette else None

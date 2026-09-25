@@ -81,10 +81,9 @@ Also render the b = 0.25 strip in color and check the faces are still clearly hu
 
 ## Status
 
-Every skull type except Lagomorph is in `characters/beast_skulls/`, with part sets for each lineage
+Every skull type in the table above is in `characters/beast_skulls/`, with part sets for each lineage
 (ears, noses, mouths, horns, crests, spines, casque, fin-ears, gills, antlers, cephalic fins).
-There is one silhouette sheet and one color sheet per family. Only the rabbit skull is still to
-do.
+There is one silhouette sheet and one color sheet per family.
 
 ## Build order
 

@@ -9,7 +9,7 @@ in color, at b = 0, 0.25, 0.5 and 1.
 
 | Family | Silhouettes | Color |
 |---|---|---|
-| Beastfolk: wolf, cat, bear | [silhouette_beastfolk.png](silhouette_beastfolk.png) | [color_beastfolk.png](color_beastfolk.png) |
+| Beastfolk: wolf, cat, bear, rabbit | [silhouette_beastfolk.png](silhouette_beastfolk.png) | [color_beastfolk.png](color_beastfolk.png) |
 | Draconic: lizard, horned, crested, gecko, chameleon, winglet | [silhouette_draconic.png](silhouette_draconic.png) | [color_draconic.png](color_draconic.png) |
 | Aquatic: shark, fish, eel, coral, octopus, manta | [silhouette_aquatic.png](silhouette_aquatic.png) | [color_aquatic.png](color_aquatic.png) |
 
@@ -28,7 +28,7 @@ Add `ROWS=shark,bear` in front of the command to render only some lineages.
 ## New shape keys
 
 On `Head_Base` and every face decal (eyes, brows, mouth, nose, ear ink, AE_*):
-`TR_Skull_<Type>_Mid/Full` for Canid, Feline, Ursine, Saurian, Gecko, Shark, Aquatic, Cephalo and
+`TR_Skull_<Type>_Mid/Full` for Canid, Feline, Ursine, Lagomorph, Saurian, Gecko, Shark, Aquatic, Cephalo and
 Manta.
 All the existing keys (expressions, `TR_Chin`, `Pose_Rest`, body shapes) are left alone.
 
@@ -41,6 +41,9 @@ All the existing keys (expressions, `TR_Chin`, `Pose_Rest`, body shapes) are lef
 - **Shark**: the forehead runs into a pointed rostrum over an underslung mouth, the chin tucks back,
   the throat fills in so the head runs into the neck, and the eyes sit on the sides.
 - **Ursine** (bear): round, wider skull, a short broad blunt snout, puffed cheeks and small eyes.
+- **Lagomorph** (rabbit, hare): round head, and a soft blunt muzzle that the forehead slopes into
+  with no stop (unlike the cat's flat face). Puffy cheeks, a small receding chin, and eyes set
+  wide and turned a little to the sides.
 - **Gecko** (gecko, chameleon, winglet dragon): wide round head with a flat face and almost no
   snout, receding chin, flattened crown, and big eyes that look out to the sides.
 
@@ -65,9 +68,11 @@ Parts are skinned to `DEF-head`:
   carries its type's skull keys, so it slides from the human nose out to the snout tip. The human
   nose decals shrink away in those keys.
   The bear gets a bigger pad and the gecko smaller nostrils.
-- `TR_Beast_Ears_<Type>`: tall wolf ears, wide cat ears, or small round bear ears. Lizards, sharks
+- `TR_Beast_Ears_<Type>`: tall wolf ears, wide cat ears, small round bear ears, or long rabbit ears. Lizards, sharks
   and geckos have none. The human ears tuck into the skull as the slider goes up.
 - `TR_Beast_Mouth_Shark` + `TR_Beast_Teeth_Shark`: a grin with a row of teeth under the rostrum.
+- `TR_Beast_Nose_Lagomorph`, `TR_Beast_MouthStem_Lagomorph`, `TR_Beast_Mouth_Lagomorph`: a small
+  pink nose over a Y-shaped mouth.
 - `TR_Beast_Mouth_Gecko`: the big smile that wraps round to the cheeks.
 - `TR_Beast_Gills_Shark`: three slits on each side of the jaw. They show from the hybrid stage,
   like the fish girl in the aquatic sheet.
@@ -102,7 +107,7 @@ type. `parts_visible(lineage, b)` returns which part sets to show for that linea
 
 ## Not done yet
 
-- Fox's narrower snout and the Lagomorph (rabbit) skull.
+- Fox's narrower snout.
 - Fish and eel look almost the same as a human in black silhouette. That's intended (the sea folk
   stay human-shaped), so they are told apart by fins and color.
 - The manta's cephalic fins are round tubes; flat, leaf-shaped lobes would read better.

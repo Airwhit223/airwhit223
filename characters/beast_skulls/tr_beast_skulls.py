@@ -96,6 +96,17 @@ SKULLS = {
                      jaw_short=0.95, nose_flat=0.020, lip_flat=0.018, eye_follow=0.35, eye_yaw=36,
                      throat=0.024, skull_wide=0.012, taper_jaw=True, brow_scale=0.75),
     },
+    "Lagomorph": {  # rabbit, hare: round head, soft blunt muzzle the forehead slopes into, puffy cheeks,
+                    # small receding chin, eyes set wide and a little to the sides; long ears are a part
+        "Mid": dict(snout_len=0.028, band=(1.47, 1.50, 1.62, 1.70), axis_z=1.560, taper_w=0.22,
+                    taper_h=0.20, drop=0.003, cheek=(0.016, 1.555), chin_back=0.016, crown_flat=0.0,
+                    brow=0.0, ear_shrink=0.7, eye=(0.008, 0.002, 0.004, 1.08),
+                    jaw_short=0.55, nose_flat=0.012, lip_flat=0.006, eye_yaw=6, skull_wide=0.006),
+        "Full": dict(snout_len=0.058, band=(1.47, 1.50, 1.63, 1.72), axis_z=1.560, taper_w=0.36,
+                     taper_h=0.30, drop=0.006, cheek=(0.030, 1.555), chin_back=0.030, crown_flat=0.0,
+                     brow=0.0, ear_shrink=1.0, eye=(0.016, 0.006, 0.006, 1.15),
+                     jaw_short=0.75, nose_flat=0.018, lip_flat=0.008, eye_yaw=14, skull_wide=0.012),
+    },
     "Ursine": {  # bear: round wide skull, short broad blunt snout, small eyes, round ears (part)
         "Mid": dict(snout_len=0.035, band=(1.44, 1.49, 1.600, 1.650), axis_z=1.550, taper_w=0.15,
                     taper_h=0.15, drop=0.004, cheek=(0.012, 1.56), chin_back=0.0, crown_flat=0.0,
@@ -165,6 +176,7 @@ LINEAGE_SKULL = {
     "octopus": "Cephalo", "squid": "Cephalo",
     "manta": "Manta", "ray": "Manta",
     "bear": "Ursine",
+    "rabbit": "Lagomorph", "hare": "Lagomorph",
     "gecko": "Gecko", "chameleon": "Gecko", "dragon_winglet": "Gecko",
 }
 
@@ -375,6 +387,7 @@ LINEAGE_PARTS = {
     "wolf": ("ears", "nose"), "dog": ("ears", "nose"), "fox": ("ears", "nose"),
     "cat": ("ears", "nose"), "lion": ("ears", "nose"), "tiger": ("ears", "nose"),
     "bear": ("ears", "nose"),
+    "rabbit": ("ears", "nose", "mouth"), "hare": ("ears", "nose", "mouth"),
     "lizard": ("nose", "spines"), "crocodile": ("nose",),
     "dragon_horned": ("nose", "horns"), "dragon_crested": ("nose", "crest"),
     "dragon_smooth": ("nose", "horns_small"),
@@ -440,13 +453,18 @@ def _ellipsoid(center, radii, seg=16, ring=10):
     return verts, faces
 
 
-def _ear(base, tip_up, width, depth, lean_out, lean_back, cup=0.35, seg=10, round_tip=False):
+def _ear(base, tip_up, width, depth, lean_out, lean_back, cup=0.35, seg=10, round_tip=False, long=False):
     """A curved, cupped triangular ear. base: centre of the root on the skull (right side, x>0)."""
     verts, faces = [], []
     rows = 8
     for r in range(rows + 1):
         t = r / rows
-        half = width * 0.5 * (math.sqrt(max(0.0, 1 - t * t)) if round_tip else (1 - t) ** 0.85)
+        if long:  # rabbit: narrow root, widest in the middle, rounded tip
+            half = width * 0.5 * math.sin(math.pi * (0.2 + 0.8 * t)) ** 0.7
+        elif round_tip:
+            half = width * 0.5 * math.sqrt(max(0.0, 1 - t * t))
+        else:
+            half = width * 0.5 * (1 - t) ** 0.85
         centre = base + Vector((lean_out * t, lean_back * t * t, tip_up * t))
         for s in range(seg + 1):
             u = s / seg * 2 - 1  # -1..1 across the ear
@@ -739,6 +757,19 @@ def make_parts(t, arm, head, fur=(0.55, 0.42, 0.32), inner=(0.93, 0.72, 0.70)):
         v1, f1 = _ellipsoid(rest_tip + Vector((0.010, 0.000, 0.010)), (0.006 * k, 0.009 * k, 0.004 * k), 10, 6)
         v2, f2 = _ellipsoid(rest_tip + Vector((-0.010, 0.000, 0.010)), (0.006 * k, 0.009 * k, 0.004 * k), 10, 6)
         nose = _mesh_from(f"TR_Beast_Nose_{t}", v1 + v2, f1 + [tuple(i + len(v1) for i in q) for q in f2], dark)
+    elif t == "Lagomorph":
+        # small pink oval nose, a Y-shaped mouth under it, and long upright ears
+        v, f = _ellipsoid(rest_tip + Vector((0, 0.003, 0.0)), (0.011, 0.007, 0.008), 12, 8)
+        nose = _mesh_from(f"TR_Beast_Nose_{t}", v, f, pink)
+        stem = [_rest_front(head, 0.0, 1.574 - 0.004 * i, r=0.006) for i in range(7)]
+        out["mouth"].append(_keyed_sheet(f"TR_Beast_MouthStem_{t}", t,
+                                         [[(a, _out(a) + Vector((-0.0015, 0, 0))) for a in stem],
+                                          [(a, _out(a) + Vector((0.0015, 0, 0))) for a in stem]],
+                                         dark, (Vector((0, -0.145, 1.535)), 0.3)))
+        m, _row = _mouth_line(head, t, f"TR_Beast_Mouth_{t}", 0.024, 1.548, -0.008, 0.003, dark, samples=9)
+        out["mouth"].append(m)
+        v, f = _mirror(*_ear(Vector((0.058, 0.020, 1.795)), 0.190, 0.075, 0.030, 0.035, 0.055, long=True))
+        ears = _mesh_from(f"TR_Beast_Ears_{t}", v, f, furm)
     elif t not in ("Shark", "Aquatic", "Cephalo", "Manta"):
         raise KeyError(t)
 
