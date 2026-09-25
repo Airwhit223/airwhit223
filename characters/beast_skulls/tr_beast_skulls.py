@@ -49,6 +49,7 @@ from mathutils import Vector
 #                 sides of the skull while the snout grows past them); default 1
 #   skull_wide    pushes the sides of the skull out (bears, geckos)
 #   throat        fills the angle under the jaw forward so the head runs into the neck (sharks)
+#   dome          raises and widens the back of the skull into a bulb (octopus)
 #   brow_scale    size of the brow decals (reptiles and sharks get slimmer brows); default 1
 #   taper_jaw     True: the lower jaw also skips the snout taper, so an underslung jaw stays put
 # ---------------------------------------------------------------------------------------------
@@ -117,6 +118,40 @@ SKULLS = {
                      jaw_short=0.0, nose_flat=0.020, lip_flat=0.016, eye_follow=0.6, eye_yaw=20,
                      skull_wide=0.020, brow_scale=0.55),
     },
+    "Aquatic": {  # fish, eel, coral: stays human-shaped. Smooth, bald, flat nose, wider eyes; fins are parts
+        "Mid": dict(snout_len=0.0, band=(1.44, 1.49, 1.60, 1.65), axis_z=1.550, taper_w=0.0,
+                    taper_h=0.0, drop=0.0, cheek=(0.0, 1.56), chin_back=0.004, crown_flat=0.0,
+                    brow=0.0, ear_shrink=1.0, eye=(0.004, 0.0, 0.002, 1.06),
+                    jaw_short=0.0, nose_flat=0.008, lip_flat=0.004, brow_scale=0.85),
+        "Full": dict(snout_len=0.0, band=(1.44, 1.49, 1.60, 1.65), axis_z=1.550, taper_w=0.0,
+                     taper_h=0.0, drop=0.0, cheek=(-0.006, 1.56), chin_back=0.010, crown_flat=0.0,
+                     brow=0.0, ear_shrink=1.0, eye=(0.010, 0.002, 0.004, 1.15),
+                     jaw_short=0.0, nose_flat=0.016, lip_flat=0.008, brow_scale=0.6),
+    },
+    "Cephalo": {  # octopus, squid: tall bulb cranium, small face set low, no nose
+        "Mid": dict(snout_len=0.0, band=(1.44, 1.49, 1.60, 1.65), axis_z=1.550, taper_w=0.0,
+                    taper_h=0.0, drop=0.0, cheek=(0.0, 1.56), chin_back=0.012, crown_flat=0.0,
+                    brow=0.0, ear_shrink=1.0, eye=(0.006, 0.0, -0.006, 1.12),
+                    jaw_short=0.0, nose_flat=0.016, lip_flat=0.006, dome=0.045, skull_wide=0.010,
+                    brow_scale=0.8),
+        "Full": dict(snout_len=0.0, band=(1.44, 1.49, 1.60, 1.65), axis_z=1.550, taper_w=0.0,
+                     taper_h=0.0, drop=0.0, cheek=(0.0, 1.56), chin_back=0.020, crown_flat=0.0,
+                     brow=0.0, ear_shrink=1.0, eye=(0.010, 0.0, -0.012, 1.25),
+                     jaw_short=0.0, nose_flat=0.024, lip_flat=0.010, dome=0.095, skull_wide=0.018,
+                     brow_scale=0.6),
+    },
+    "Manta": {  # manta, ray: flat wide head, eyes out at the edges, cephalic fins (part)
+        "Mid": dict(snout_len=0.010, band=(1.44, 1.49, 1.62, 1.68), axis_z=1.560, taper_w=0.0,
+                    taper_h=0.0, drop=0.0, cheek=(0.0, 1.56), chin_back=0.006, crown_flat=0.30,
+                    brow=0.0, ear_shrink=1.0, eye=(0.028, 0.020, 0.0, 0.95),
+                    jaw_short=0.0, nose_flat=0.014, lip_flat=0.006, eye_yaw=20, skull_wide=0.030,
+                    brow_scale=0.8),
+        "Full": dict(snout_len=0.015, band=(1.44, 1.49, 1.62, 1.68), axis_z=1.560, taper_w=0.0,
+                     taper_h=0.0, drop=0.0, cheek=(0.0, 1.56), chin_back=0.010, crown_flat=0.55,
+                     brow=0.0, ear_shrink=1.0, eye=(0.055, 0.040, 0.004, 0.90),
+                     jaw_short=0.0, nose_flat=0.022, lip_flat=0.010, eye_yaw=40, skull_wide=0.070,
+                     brow_scale=0.6),
+    },
 }
 
 # Lineage -> skull type. Lineages not yet sculpted fall back to the closest built type.
@@ -124,7 +159,11 @@ LINEAGE_SKULL = {
     "wolf": "Canid", "dog": "Canid", "fox": "Canid",
     "cat": "Feline", "lion": "Feline", "tiger": "Feline",
     "lizard": "Saurian", "crocodile": "Saurian", "dragon_horned": "Saurian", "dragon_crested": "Saurian",
+    "dragon_smooth": "Saurian",
     "shark": "Shark",
+    "fish": "Aquatic", "eel": "Aquatic", "coral": "Aquatic",
+    "octopus": "Cephalo", "squid": "Cephalo",
+    "manta": "Manta", "ray": "Manta",
     "bear": "Ursine",
     "gecko": "Gecko", "chameleon": "Gecko", "dragon_winglet": "Gecko",
 }
@@ -192,6 +231,13 @@ def displace(p, s):
         g = _gauss(p, Vector((side * 0.072, -0.15, 1.695)), 0.035)
         d.y -= s["brow"] * g
         d.z += s["brow"] * 0.4 * g
+
+    # bulb cranium: the back and top of the skull swell up and out
+    if s.get("dome"):
+        g = _smooth(1.58, 1.86, p.z)
+        d.z += s["dome"] * 0.8 * g
+        d.y += s["dome"] * 0.9 * _gauss(p, Vector((0.0, 0.14, 1.74)), 0.12)
+        d.x += p.x * s["dome"] * 1.6 * g
 
     # wider skull sides
     if s.get("skull_wide"):
@@ -324,10 +370,32 @@ def beast_values(lineage, b):
     return vals
 
 
+# Which part sets each lineage wears (make_parts builds every set a skull type offers).
+LINEAGE_PARTS = {
+    "wolf": ("ears", "nose"), "dog": ("ears", "nose"), "fox": ("ears", "nose"),
+    "cat": ("ears", "nose"), "lion": ("ears", "nose"), "tiger": ("ears", "nose"),
+    "bear": ("ears", "nose"),
+    "lizard": ("nose", "spines"), "crocodile": ("nose",),
+    "dragon_horned": ("nose", "horns"), "dragon_crested": ("nose", "crest"),
+    "dragon_smooth": ("nose", "horns_small"),
+    "gecko": ("nose", "mouth"), "chameleon": ("nose", "mouth", "casque"),
+    "dragon_winglet": ("nose", "mouth", "nubs"),
+    "shark": ("mouth", "gills"),
+    "fish": ("fins", "gills"), "eel": ("fins_small", "gills"), "coral": ("antlers", "fins_small"),
+    "octopus": (), "squid": (),
+    "manta": ("mouth", "cephalic"), "ray": ("mouth", "cephalic"),
+}
+# Slider value each part set appears at. Hybrid traits (ears, horns, fins, gills, antlers) show at
+# 0.2 on an otherwise human head; face parts wait for the skull to turn.
+PART_FROM = {"ears": 0.2, "gills": 0.2, "horns": 0.2, "horns_small": 0.2, "nubs": 0.2, "fins": 0.2,
+             "fins_small": 0.2, "antlers": 0.2, "crest": 0.2, "spines": 0.3, "casque": 0.3,
+             "nose": 0.3, "mouth": 0.3, "cephalic": 0.3}
+
+
 def parts_visible(lineage, b):
-    """Which part sets show at slider b. Ears and gills from hybrid up; nose/mouth once the skull turns."""
-    return {"ears": b >= 0.2, "gills": b >= 0.2, "nose": b >= 0.3, "mouth": b >= 0.3,
-            "casque": lineage == "chameleon" and b >= 0.3}
+    """{part set: shown?} for a lineage at slider b."""
+    wear = LINEAGE_PARTS.get(lineage, ())
+    return {k: (k in wear and b >= v) for k, v in PART_FROM.items()}
 
 
 # ---------------------------------------------------------------------------------------------
@@ -489,6 +557,95 @@ def _keyed_sheet(name, t, rows, mat, rest_shrink=None):
     return obj
 
 
+def _rest_topx(head, x, y, r=0.010):
+    """Top of the skull at (x, y)."""
+    near = [v.co for v in head.data.vertices if abs(v.co.x - x) < r and abs(v.co.y - y) < r and v.co.z > 1.6]
+    return max(near, key=lambda p: p.z).copy()
+
+
+def _tube(path, radii, sides=8):
+    """Tapered tube along path (list of Vectors). A radius of 0 closes the tip to a point."""
+    verts, faces = [], []
+    for i, p in enumerate(path):
+        tang = (path[min(i + 1, len(path) - 1)] - path[max(i - 1, 0)]).normalized()
+        up = Vector((0, 0, 1)) if abs(tang.z) < 0.9 else Vector((1, 0, 0))
+        n = tang.cross(up).normalized()
+        b = tang.cross(n).normalized()
+        for k in range(sides):
+            a = 2 * math.pi * k / sides
+            verts.append(p + (n * math.cos(a) + b * math.sin(a)) * radii[i])
+    for i in range(len(path) - 1):
+        for k in range(sides):
+            a, c = i * sides + k, i * sides + (k + 1) % sides
+            faces.append((a, c, c + sides, a + sides))
+    return verts, faces
+
+
+def _curve(base, fn, n=9):
+    return [base + fn(i / (n - 1)) for i in range(n)]
+
+
+def _keyed_rigid(name, t, groups, mat, grow=(0.7, 0.85, 1.0)):
+    """Parts that ride the skull without bending (horns, spikes, antlers, cephalic fins).
+
+    groups: list of (verts, faces, pivot). Each group moves with its pivot's skull displacement and
+    scales about it: grow = (rest, Mid, Full), so horns get bigger as the slider goes up.
+    """
+    verts, faces, pivots = [], [], []
+    for v, f, pv in groups:
+        off = len(verts)
+        verts += v
+        faces += [tuple(i + off for i in q) for q in f]
+        pivots += [pv] * len(v)
+    rest = [pv + (p - pv) * grow[0] for p, pv in zip(verts, pivots)]
+    obj = _mesh_from(name, rest, faces, mat)
+    obj.shape_key_add(name="Basis", from_mix=False)
+    for stage, g in (("Mid", grow[1]), ("Full", grow[2])):
+        st = SKULLS[t][stage]
+        kb = obj.shape_key_add(name=f"TR_Skull_{t}_{stage}", from_mix=False)
+        for i, (p, pv) in enumerate(zip(verts, pivots)):
+            kb.data[i].co = pv + displace(pv, st) + (p - pv) * g
+    return obj
+
+
+def _both_sides(fn):
+    """fn(side) -> (verts, faces, pivot) for one side; returns groups for both."""
+    return [fn(1.0), fn(-1.0)]
+
+
+def _horn(head, side, x, y, length, rise, back, r0, curl=0.0):
+    """A horn rooted on the skull top at (side*x, y): up, then sweeping back, tapering to a point."""
+    b = _rest_topx(head, side * x, y) - Vector((0, 0, 0.004))
+    path = _curve(b, lambda t: Vector((side * 0.15 * length * t, back * length * t,
+                                       rise * length * t - curl * length * t * t)))
+    radii = [r0 * (1 - t) ** 0.9 for t in [i / (len(path) - 1) for i in range(len(path))]]
+    v, f = _tube(path, radii)
+    return v, f, b
+
+
+def _spike(anchor, direction, length, r0, bend=Vector((0, 0, 0))):
+    path = _curve(anchor, lambda t: direction * length * t + bend * length * t * t, 5)
+    radii = [r0 * (1 - i / 4) for i in range(5)]
+    v, f = _tube(path, radii, sides=6)
+    return v, f, anchor
+
+
+def _fin_ear(head, t, name, side, length, mat, rays=9):
+    """Webbed fin fanning back from where the human ear was, with a scalloped edge."""
+    root, mid, edge = [], [], []
+    for j in range(rays):
+        u = j / (rays - 1)
+        a = _rest_side(head, 0.020, 1.735 - 0.12 * u)
+        a = Vector((side * a.x, a.y, a.z))
+        th = math.radians(55 - 95 * u)  # top rays sweep up-back, bottom rays down-back
+        d = Vector((side * 0.85, math.cos(th), math.sin(th))).normalized()
+        L = length * (1.0 if j % 2 == 0 else 0.72) * (0.75 + 0.25 * math.sin(math.pi * u))
+        root.append((a, d * 0.002))
+        mid.append((a, d * L * 0.5))
+        edge.append((a, d * L))
+    return _keyed_sheet(name, t, [root, mid, edge], mat)
+
+
 def _out(a, amount=0.0025):
     """Offset that lifts a point off the skin, away from the head centre."""
     return (a - Vector((0.0, 0.0, 1.62))).normalized() * amount
@@ -548,7 +705,10 @@ def make_parts(t, arm, head, fur=(0.55, 0.42, 0.32), inner=(0.93, 0.72, 0.70)):
     pink = _mat("Part_NosePink", (0.88, 0.50, 0.55))
     white = _mat("Part_Teeth", (0.95, 0.94, 0.90))
     furm = _mat(f"Part_Fur_{t}", fur)
-    out = {"ears": [], "nose": [], "mouth": [], "gills": [], "casque": []}
+    horn = _mat("Part_Horn", (0.86, 0.80, 0.66))
+    crest = _mat(f"Part_Crest_{t}", tuple(c * 0.7 for c in fur))
+    coral = _mat("Part_Coral", (0.96, 0.52, 0.48))
+    out = {k: [] for k in PART_FROM}
     rest_tip = Vector((0.0, -0.182, 1.585))
     nose = ears = None
 
@@ -579,8 +739,70 @@ def make_parts(t, arm, head, fur=(0.55, 0.42, 0.32), inner=(0.93, 0.72, 0.70)):
         v1, f1 = _ellipsoid(rest_tip + Vector((0.010, 0.000, 0.010)), (0.006 * k, 0.009 * k, 0.004 * k), 10, 6)
         v2, f2 = _ellipsoid(rest_tip + Vector((-0.010, 0.000, 0.010)), (0.006 * k, 0.009 * k, 0.004 * k), 10, 6)
         nose = _mesh_from(f"TR_Beast_Nose_{t}", v1 + v2, f1 + [tuple(i + len(v1) for i in q) for q in f2], dark)
-    elif t != "Shark":
+    elif t not in ("Shark", "Aquatic", "Cephalo", "Manta"):
         raise KeyError(t)
+
+    if t == "Saurian":
+        # horned dragon: long horns rising and sweeping back; smooth-scale dragon: short ones
+        out["horns"].append(_keyed_rigid(f"TR_Beast_Horns_{t}", t, _both_sides(
+            lambda sd: _horn(head, sd, 0.062, 0.015, 0.29, 0.50, 0.90, 0.025, curl=0.40)), horn))
+        out["horns_small"].append(_keyed_rigid(f"TR_Beast_HornsSmall_{t}", t, _both_sides(
+            lambda sd: _horn(head, sd, 0.070, 0.010, 0.08, 0.55, 0.80, 0.012)), horn))
+        # crested dragon: a fan of scale spikes over the back of the skull
+        groups = []
+        for row_x in (-0.055, 0.0, 0.055):
+            for k in range(6):
+                y = -0.03 + 0.035 * k
+                a = _rest_topx(head, row_x, y) - Vector((0, 0, 0.003))
+                n = (a - Vector((0, 0.02, 1.62))).normalized()
+                d = (n * 0.55 + Vector((0, 0.75, 0.30))).normalized()
+                L = (0.045 + 0.055 * k / 5) * (1.0 if row_x == 0 else 0.8)
+                groups.append(_spike(a, d, L, 0.013, bend=Vector((0, 0.3, 0.2))))
+        out["crest"].append(_keyed_rigid(f"TR_Beast_Crest_{t}", t, groups, crest, grow=(0.6, 0.85, 1.0)))
+        # lizard: a low row of spines down the centre line
+        groups = []
+        for k in range(8):
+            y = -0.07 + 0.03 * k
+            a = _rest_topx(head, 0.0, y) - Vector((0, 0, 0.002))
+            n = (a - Vector((0, 0.02, 1.62))).normalized()
+            groups.append(_spike(a, (n + Vector((0, 0.5, 0))).normalized(), 0.022 + 0.006 * math.sin(k), 0.008))
+        out["spines"].append(_keyed_rigid(f"TR_Beast_Spines_{t}", t, groups, crest, grow=(0.5, 0.8, 1.0)))
+    if t == "Gecko":
+        # winglet dragon: two short horn nubs
+        out["nubs"].append(_keyed_rigid(f"TR_Beast_Nubs_{t}", t, _both_sides(
+            lambda sd: _horn(head, sd, 0.065, -0.020, 0.055, 0.8, 0.5, 0.013)), horn))
+    if t == "Aquatic":
+        out["fins"] += [_fin_ear(head, t, f"TR_Beast_Fin_{t}_{n}", sd, 0.085, crest)
+                        for sd, n in ((1.0, "R"), (-1.0, "L"))]
+        out["fins_small"] += [_fin_ear(head, t, f"TR_Beast_FinSmall_{t}_{n}", sd, 0.045, crest, rays=7)
+                              for sd, n in ((1.0, "R"), (-1.0, "L"))]
+        v, f = _gill_slits(head, dark)
+        out["gills"].append(_mesh_from(f"TR_Beast_Gills_{t}", v, f, dark))
+
+        def antler(sd):
+            b = _rest_topx(head, sd * 0.065, 0.000) - Vector((0, 0, 0.004))
+            main = _curve(b, lambda q: Vector((sd * 0.045 * q, 0.012 * q, 0.10 * q)))
+            br1 = _curve(main[3], lambda q: Vector((sd * 0.045 * q, -0.010 * q, 0.035 * q)), 5)
+            br2 = _curve(main[6], lambda q: Vector((-sd * 0.012 * q, 0.030 * q, 0.035 * q)), 5)
+            v, f = [], []
+            for path, r0 in ((main, 0.011), (br1, 0.007), (br2, 0.006)):
+                tv, tf = _tube(path, [r0 * (1 - 0.6 * i / (len(path) - 1)) for i in range(len(path))])
+                f += [tuple(i + len(v) for i in q) for q in tf]
+                v += tv
+            return v, f, b
+        out["antlers"].append(_keyed_rigid(f"TR_Beast_Antlers_{t}", t, _both_sides(antler), coral,
+                                           grow=(0.9, 1.0, 1.1)))
+    if t == "Manta":
+        m, _row = _mouth_line(head, t, f"TR_Beast_Mouth_{t}", 0.095, 1.522, 0.004, 0.005, dark)
+        out["mouth"].append(m)
+
+        def cephalic(sd):
+            b = _rest_front(head, sd * 0.078, 1.535)
+            path = _curve(b, lambda q: Vector((sd * 0.010 * q, -0.050 * q, -0.020 * q - 0.035 * q * q)))
+            v, f = _tube(path, [0.013 * (1 - 0.7 * i / (len(path) - 1)) for i in range(len(path))])
+            return v, f, b
+        out["cephalic"].append(_keyed_rigid(f"TR_Beast_Cephalic_{t}", t, _both_sides(cephalic), crest,
+                                            grow=(0.4, 0.8, 1.0)))
 
     if t == "Shark":
         # wide grin under the rostrum, with a row of teeth, and gill slits on the jaw

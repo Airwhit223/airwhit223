@@ -81,9 +81,10 @@ Also render the b = 0.25 strip in color and check the faces are still clearly hu
 
 ## Status
 
-Canid, Feline, Saurian, Shark, Ursine and Gecko (plus the chameleon casque) are in
-`characters/beast_skulls/` with silhouette and color sheets. They pass the silhouette check at
-b = 0.5 and 1.0. Still to do: Lagomorph, Manta, Cephalo and Aquatic.
+Every skull type except Lagomorph is in `characters/beast_skulls/`, with part sets for each lineage
+(ears, noses, mouths, horns, crests, spines, casque, fin-ears, gills, antlers, cephalic fins).
+There is one silhouette sheet and one color sheet per family. Only the rabbit skull is still to
+do.
 
 ## Build order
 

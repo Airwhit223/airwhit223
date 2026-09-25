@@ -4,8 +4,14 @@ Separate head shapes for each skull type, replacing the one shared `TR_Muzzle`. 
 on the Toriyama kit base head (`toriyama_kit/base/M/M.glb`, the same head F uses). The plan is in
 `docs/BEAST_HEADS_FIX.md`.
 
-![silhouettes](silhouette_side.png)
-![color](color_34.png)
+One sheet per family: black side silhouettes (the "can you tell them apart" check) and a 3/4 view
+in color, at b = 0, 0.25, 0.5 and 1.
+
+| Family | Silhouettes | Color |
+|---|---|---|
+| Beastfolk: wolf, cat, bear | [silhouette_beastfolk.png](silhouette_beastfolk.png) | [color_beastfolk.png](color_beastfolk.png) |
+| Draconic: lizard, horned, crested, gecko, chameleon, winglet | [silhouette_draconic.png](silhouette_draconic.png) | [color_draconic.png](color_draconic.png) |
+| Aquatic: shark, fish, eel, coral, octopus, manta | [silhouette_aquatic.png](silhouette_aquatic.png) | [color_aquatic.png](color_aquatic.png) |
 
 ## Files
 
@@ -22,7 +28,8 @@ Add `ROWS=shark,bear` in front of the command to render only some lineages.
 ## New shape keys
 
 On `Head_Base` and every face decal (eyes, brows, mouth, nose, ear ink, AE_*):
-`TR_Skull_<Type>_Mid/Full` for Canid, Feline, Saurian, Shark, Ursine and Gecko.
+`TR_Skull_<Type>_Mid/Full` for Canid, Feline, Ursine, Saurian, Gecko, Shark, Aquatic, Cephalo and
+Manta.
 All the existing keys (expressions, `TR_Chin`, `Pose_Rest`, body shapes) are left alone.
 
 - **Canid** (wolf, dog, fox): long tapered snout, a clear stop under the eyes, the nose pad sits
@@ -37,7 +44,15 @@ All the existing keys (expressions, `TR_Chin`, `Pose_Rest`, body shapes) are lef
 - **Gecko** (gecko, chameleon, winglet dragon): wide round head with a flat face and almost no
   snout, receding chin, flattened crown, and big eyes that look out to the sides.
 
-Reptiles and sharks get slimmer brow decals, so their faces don't read as human.
+- **Aquatic** (fish, eel, coral): stays human-shaped by design, as in the aquatic reference sheet.
+  It is smooth and bald, with a flatter nose, wider eyes and a small chin. Fins, gills and antlers
+  do the rest.
+- **Cephalo** (octopus, squid): the back and top of the skull swell into a big round bulb, with a
+  small face set low and no nose.
+- **Manta** (manta, ray): a flat, wide head with the crown pressed down, eyes out at the edges and
+  turned sideways, plus cephalic fins.
+
+Reptiles, sharks and sea folk get slimmer brow decals, so their faces don't read as human.
 
 Eyes and brows move as rigid pieces, so the painted eyes never smear, and they snap onto the
 reshaped skin.
@@ -56,8 +71,24 @@ Parts are skinned to `DEF-head`:
 - `TR_Beast_Mouth_Gecko`: the big smile that wraps round to the cheeks.
 - `TR_Beast_Gills_Shark`: three slits on each side of the jaw. They show from the hybrid stage,
   like the fish girl in the aquatic sheet.
-- `TR_Beast_Casque_Gecko`: the chameleon crest along the top of the head. It only shows for the
-  `chameleon` lineage.
+- `TR_Beast_Casque_Gecko`: the chameleon crest along the top of the head.
+- `TR_Beast_Horns_Saurian`: big horns rising and sweeping back (horned dragon). They show from the
+  hybrid stage, like the dragon-hybrids in the reference, and grow with the slider.
+- `TR_Beast_HornsSmall_Saurian`: short horns (smooth-scale dragon).
+- `TR_Beast_Crest_Saurian`: a fan of scale spikes over the back of the skull (crested dragon).
+- `TR_Beast_Spines_Saurian`: a low row of spines down the centre of the head (lizard).
+- `TR_Beast_Nubs_Gecko`: two short horn nubs (winglet dragon).
+- `TR_Beast_Fin_Aquatic_L/R`, `TR_Beast_FinSmall_Aquatic_L/R`: webbed fin-ears with a scalloped
+  edge where the human ears were (fish gets the big pair; eel and coral get the small pair).
+- `TR_Beast_Gills_Aquatic`: gill slits for fish and eel.
+- `TR_Beast_Antlers_Aquatic`: branching coral antlers.
+- `TR_Beast_Mouth_Manta`, `TR_Beast_Cephalic_Manta`: a wide flat mouth, with the two fin lobes
+  curling down at its corners.
+
+Which lineage wears which part lives in `LINEAGE_PARTS`. The slider value each part appears at
+lives in `PART_FROM`: hybrid traits (ears, horns, crest, fins, gills, antlers) at 0.2, and face
+parts (nose, mouth, spines, casque, cephalic fins) at 0.3. Horns, spikes, antlers and cephalic
+fins stay rigid and ride the reshaped skull, so they never bend with it.
 
 The mouth, teeth and casque are laid on the head surface and carry the skull keys, so they stay on
 the skin as it reshapes.
@@ -67,13 +98,15 @@ the skin as it reshapes.
 For each head mesh, set the values from `beast_values(lineage, b)`:
 `mid = clamp((b - .25) / .25)`, `full = clamp((b - .5) / .5)`,
 `TR_Skull_<Type>_Mid = mid * (1 - full)`, `TR_Skull_<Type>_Full = full`, and 0 for every other
-type. `parts_visible(lineage, b)` says which part sets to show: ears and gills from b ≥ 0.2,
-nose, mouth and the chameleon casque from b ≥ 0.3.
+type. `parts_visible(lineage, b)` returns which part sets to show for that lineage.
 
 ## Not done yet
 
-- Fox's narrower snout; the Lagomorph, Manta, Cephalo and Aquatic skulls; horns, dragon crests
-  and fins.
+- Fox's narrower snout and the Lagomorph (rabbit) skull.
+- Fish and eel look almost the same as a human in black silhouette. That's intended (the sea folk
+  stay human-shaped), so they are told apart by fins and color.
+- The manta's cephalic fins are round tubes; flat, leaf-shaped lobes would read better.
+- The dragons' wings, tails and fins on the body.
 - Fur and scale materials. The sheet colors are flat preview colors.
 - A mouth line for the wolf, cat, lizard and bear. The shark and gecko have one; the others
   still carry the human mouth decal out to the snout tip.

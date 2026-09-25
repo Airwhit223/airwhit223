@@ -2,8 +2,9 @@
 
     python3 render_skulls.py <kit base .glb> <out dir>      (needs `pip install bpy pillow`)
 
-Writes silhouette_side.png (black side profiles, the "can you tell them apart" test),
-color_34.png (3/4 view in color), a .blend and a .glb with the keys and parts.
+Writes silhouette_<family>.png (black side profiles, the "can you tell them apart" test) and
+color_<family>.png (3/4 view in color) for beastfolk, draconic and aquatic, plus a .blend and a
+.glb with the keys and parts.
 """
 import math
 import os
@@ -17,10 +18,17 @@ import tr_beast_skulls as bs  # noqa: E402
 
 SRC, OUT = sys.argv[-2], sys.argv[-1]
 os.makedirs(OUT, exist_ok=True)
-TYPES = [("Canid", "wolf", (0.42, 0.40, 0.42)), ("Feline", "cat", (0.85, 0.55, 0.28)),
-         ("Saurian", "lizard", (0.42, 0.58, 0.30)), ("Shark", "shark", (0.40, 0.50, 0.62)),
-         ("Ursine", "bear", (0.42, 0.27, 0.16)), ("Gecko", "gecko", (0.92, 0.72, 0.35)),
-         ("Gecko", "chameleon", (0.35, 0.72, 0.58))]
+FAMILIES = {
+    "beastfolk": [("Canid", "wolf", (0.42, 0.40, 0.42)), ("Feline", "cat", (0.85, 0.55, 0.28)),
+                  ("Ursine", "bear", (0.42, 0.27, 0.16))],
+    "draconic": [("Saurian", "lizard", (0.42, 0.58, 0.30)), ("Saurian", "dragon_horned", (0.24, 0.36, 0.30)),
+                 ("Saurian", "dragon_crested", (0.55, 0.20, 0.32)), ("Gecko", "gecko", (0.92, 0.72, 0.35)),
+                 ("Gecko", "chameleon", (0.35, 0.72, 0.58)), ("Gecko", "dragon_winglet", (0.82, 0.62, 0.30))],
+    "aquatic": [("Shark", "shark", (0.40, 0.50, 0.62)), ("Aquatic", "fish", (0.50, 0.80, 0.78)),
+                ("Aquatic", "eel", (0.12, 0.20, 0.30)), ("Aquatic", "coral", (0.95, 0.62, 0.55)),
+                ("Cephalo", "octopus", (0.58, 0.45, 0.78)), ("Manta", "manta", (0.30, 0.33, 0.40))],
+}
+TYPES = [r for rows in FAMILIES.values() for r in rows]
 ONLY = os.environ.get("ROWS")  # e.g. ROWS=shark,bear to render just those lineages
 ROWS = [r for r in TYPES if not ONLY or r[1] in ONLY.split(",")]
 STAGES = [0.0, 0.25, 0.5, 1.0]
@@ -125,6 +133,10 @@ def apply(t, lineage, b):
     fur = dict((ln, c) for _, ln, c in TYPES).get(lineage, SKIN)
     k = max(0.0, min(1.0, (b - 0.25) / 0.75)) if t else 0.0
     skin.node_tree.nodes[1].inputs[0].default_value = (*[s + (f - s) * k for s, f in zip(SKIN, fur)], 1)
+    for name, c in ((f"Part_Fur_{t}", fur), (f"Part_Crest_{t}", tuple(x * 0.7 for x in fur))):
+        m = bpy.data.materials.get(name)
+        if m:
+            m.node_tree.nodes["Principled BSDF"].inputs["Base Color"].default_value = (*c, 1)
 
 
 def shot(path, view, silhouette):
@@ -160,17 +172,22 @@ try:
     font = ImageFont.truetype("DejaVuSans-Bold.ttf", 22)
 except OSError:
     font = ImageFont.load_default()
-for view, name in (("side", "silhouette_side.png"), ("q", "color_34.png")):
+for (view, prefix), (family, frows) in [(v, f) for v in (("side", "silhouette"), ("q", "color"))
+                                        for f in FAMILIES.items()]:
+    frows = [r for r in frows if r in ROWS]
+    if not frows:
+        continue
+    name = f"{prefix}_{family}.png"
     W = H = 420
-    sheet = Image.new("RGB", (160 + W * len(STAGES), 50 + H * len(ROWS)), "white")
+    sheet = Image.new("RGB", (220 + W * len(STAGES), 50 + H * len(frows)), "white")
     d = ImageDraw.Draw(sheet)
     for j, b in enumerate(STAGES):
         label = {0.0: "b=0  human", 0.25: "b=0.25  hybrid", 0.5: "b=0.5  mid", 1.0: "b=1  full"}[b]
-        d.text((160 + j * W + 20, 14), label, fill="black", font=font)
-    for i, (t, lineage, _) in enumerate(ROWS):
+        d.text((220 + j * W + 20, 14), label, fill="black", font=font)
+    for i, (t, lineage, _) in enumerate(frows):
         d.text((12, 50 + i * H + H // 2 - 24), t, fill="black", font=font)
         d.text((12, 50 + i * H + H // 2 + 4), lineage, fill="gray", font=font)
         for j, b in enumerate(STAGES):
-            sheet.paste(Image.open(tiles[(lineage, b, view)]).convert("RGB"), (160 + j * W, 50 + i * H))
+            sheet.paste(Image.open(tiles[(lineage, b, view)]).convert("RGB"), (220 + j * W, 50 + i * H))
     sheet.save(os.path.join(OUT, name))
 print("done")
