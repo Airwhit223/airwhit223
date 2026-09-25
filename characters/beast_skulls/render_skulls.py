@@ -18,7 +18,11 @@ import tr_beast_skulls as bs  # noqa: E402
 SRC, OUT = sys.argv[-2], sys.argv[-1]
 os.makedirs(OUT, exist_ok=True)
 TYPES = [("Canid", "wolf", (0.42, 0.40, 0.42)), ("Feline", "cat", (0.85, 0.55, 0.28)),
-         ("Saurian", "lizard", (0.42, 0.58, 0.30))]
+         ("Saurian", "lizard", (0.42, 0.58, 0.30)), ("Shark", "shark", (0.40, 0.50, 0.62)),
+         ("Ursine", "bear", (0.42, 0.27, 0.16)), ("Gecko", "gecko", (0.92, 0.72, 0.35)),
+         ("Gecko", "chameleon", (0.35, 0.72, 0.58))]
+ONLY = os.environ.get("ROWS")  # e.g. ROWS=shark,bear to render just those lineages
+ROWS = [r for r in TYPES if not ONLY or r[1] in ONLY.split(",")]
 STAGES = [0.0, 0.25, 0.5, 1.0]
 SKIN = (0.85, 0.62, 0.48)
 
@@ -53,7 +57,10 @@ for o in meshes:
                 k.value = 1.0
 
 bs.add_skull_keys(head_objs)
-parts = {t: bs.make_parts(t, arm, head, fur=fur) for t, _, fur in TYPES}
+parts = {}
+for t, _, fur in TYPES:
+    if t not in parts:
+        parts[t] = bs.make_parts(t, arm, head, fur=fur)
 bpy.ops.wm.save_as_mainfile(filepath=os.path.join(OUT, "beast_skulls_M.blend"))
 bpy.ops.export_scene.gltf(filepath=os.path.join(OUT, "beast_skulls_M.glb"), export_morph=True, export_skins=True)
 
@@ -115,7 +122,7 @@ def apply(t, lineage, b):
             for o in objs:
                 o.hide_render = not (tt == t and show.get(name))
     # animal end: the skin turns to the lineage's fur/scale color from mid up
-    fur = dict((a, c) for a, _, c in TYPES).get(t, SKIN)
+    fur = dict((ln, c) for _, ln, c in TYPES).get(lineage, SKIN)
     k = max(0.0, min(1.0, (b - 0.25) / 0.75)) if t else 0.0
     skin.node_tree.nodes[1].inputs[0].default_value = (*[s + (f - s) * k for s, f in zip(SKIN, fur)], 1)
 
@@ -137,13 +144,13 @@ def shot(path, view, silhouette):
 
 
 tiles = {}
-for t, lineage, _ in TYPES:
+for t, lineage, _ in ROWS:
     for b in STAGES:
         apply(t, lineage, b)
         for view, s in (("side", True), ("q", False)):
-            p = os.path.join(OUT, "tiles", f"{t}_{b:.2f}_{view}.png")
+            p = os.path.join(OUT, "tiles", f"{lineage}_{b:.2f}_{view}.png")
             shot(p, view, s)
-            tiles[(t, b, view)] = p
+            tiles[(lineage, b, view)] = p
 apply(None, None, 0)
 
 # --- contact sheets --------------------------------------------------------------------------
@@ -155,14 +162,15 @@ except OSError:
     font = ImageFont.load_default()
 for view, name in (("side", "silhouette_side.png"), ("q", "color_34.png")):
     W = H = 420
-    sheet = Image.new("RGB", (160 + W * len(STAGES), 50 + H * len(TYPES)), "white")
+    sheet = Image.new("RGB", (160 + W * len(STAGES), 50 + H * len(ROWS)), "white")
     d = ImageDraw.Draw(sheet)
     for j, b in enumerate(STAGES):
         label = {0.0: "b=0  human", 0.25: "b=0.25  hybrid", 0.5: "b=0.5  mid", 1.0: "b=1  full"}[b]
         d.text((160 + j * W + 20, 14), label, fill="black", font=font)
-    for i, (t, lineage, _) in enumerate(TYPES):
-        d.text((12, 50 + i * H + H // 2 - 12), t, fill="black", font=font)
+    for i, (t, lineage, _) in enumerate(ROWS):
+        d.text((12, 50 + i * H + H // 2 - 24), t, fill="black", font=font)
+        d.text((12, 50 + i * H + H // 2 + 4), lineage, fill="gray", font=font)
         for j, b in enumerate(STAGES):
-            sheet.paste(Image.open(tiles[(t, b, view)]).convert("RGB"), (160 + j * W, 50 + i * H))
+            sheet.paste(Image.open(tiles[(lineage, b, view)]).convert("RGB"), (160 + j * W, 50 + i * H))
     sheet.save(os.path.join(OUT, name))
 print("done")

@@ -81,8 +81,9 @@ Also render the b = 0.25 strip in color and check the faces are still clearly hu
 
 ## Status
 
-Step 1 is done: Canid, Feline and Saurian are in `characters/beast_skulls/` with silhouette and color
-sheets. They pass the silhouette check at b = 0.5 and 1.0.
+Canid, Feline, Saurian, Shark, Ursine and Gecko (plus the chameleon casque) are in
+`characters/beast_skulls/` with silhouette and color sheets. They pass the silhouette check at
+b = 0.5 and 1.0. Still to do: Lagomorph, Manta, Cephalo and Aquatic.
 
 ## Build order
 

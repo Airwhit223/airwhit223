@@ -47,6 +47,10 @@ from mathutils import Vector
 #   eye_yaw       degrees the eye decals turn outward (reptile eyes look sideways)
 #   eye_follow    how much of the face's forward move the eyes take (reptile eyes stay back on the
 #                 sides of the skull while the snout grows past them); default 1
+#   skull_wide    pushes the sides of the skull out (bears, geckos)
+#   throat        fills the angle under the jaw forward so the head runs into the neck (sharks)
+#   brow_scale    size of the brow decals (reptiles and sharks get slimmer brows); default 1
+#   taper_jaw     True: the lower jaw also skips the snout taper, so an underslung jaw stays put
 # ---------------------------------------------------------------------------------------------
 SKULLS = {
     "Canid": {  # wolf, dog, fox (fox: parts + a narrower taper later)
@@ -73,11 +77,45 @@ SKULLS = {
         "Mid": dict(snout_len=0.080, band=(1.43, 1.48, 1.68, 1.79), axis_z=1.555, taper_w=0.22,
                     taper_h=0.30, drop=0.0, cheek=(0.0, 1.56), chin_back=0.0, crown_flat=0.25,
                     brow=0.010, ear_shrink=0.8, eye=(0.008, 0.006, 0.004, 0.95),
-                    jaw_short=0.10, nose_flat=0.012, lip_flat=0.010, eye_follow=0.45, eye_yaw=16),
+                    jaw_short=0.10, nose_flat=0.012, lip_flat=0.010, eye_follow=0.45, eye_yaw=16, brow_scale=0.85),
         "Full": dict(snout_len=0.175, band=(1.43, 1.48, 1.70, 1.82), axis_z=1.555, taper_w=0.36,
                      taper_h=0.52, drop=0.0, cheek=(0.0, 1.56), chin_back=0.0, crown_flat=0.45,
                      brow=0.018, ear_shrink=1.0, eye=(0.014, 0.012, 0.010, 0.85),
-                     jaw_short=0.12, nose_flat=0.020, lip_flat=0.016, eye_follow=0.30, eye_yaw=24),
+                     jaw_short=0.12, nose_flat=0.020, lip_flat=0.016, eye_follow=0.30, eye_yaw=24, brow_scale=0.7),
+    },
+    "Shark": {  # pointed rostrum over an underslung mouth, eyes on the sides, head runs into the neck
+        "Mid": dict(snout_len=0.070, band=(1.47, 1.51, 1.70, 1.80), axis_z=1.585, taper_w=0.45,
+                    taper_h=0.40, drop=0.0, cheek=(0.0, 1.56), chin_back=0.018, crown_flat=0.12,
+                    brow=0.004, ear_shrink=1.0, eye=(0.010, 0.008, 0.0, 0.92),
+                    jaw_short=0.85, nose_flat=0.012, lip_flat=0.012, eye_follow=0.5, eye_yaw=18,
+                    throat=0.012, skull_wide=0.006, taper_jaw=True, brow_scale=0.85),
+        "Full": dict(snout_len=0.140, band=(1.48, 1.52, 1.72, 1.84), axis_z=1.590, taper_w=0.70,
+                     taper_h=0.62, drop=0.0, cheek=(0.0, 1.56), chin_back=0.040, crown_flat=0.28,
+                     brow=0.006, ear_shrink=1.0, eye=(0.020, 0.018, 0.0, 0.80),
+                     jaw_short=0.95, nose_flat=0.020, lip_flat=0.018, eye_follow=0.35, eye_yaw=36,
+                     throat=0.024, skull_wide=0.012, taper_jaw=True, brow_scale=0.75),
+    },
+    "Ursine": {  # bear: round wide skull, short broad blunt snout, small eyes, round ears (part)
+        "Mid": dict(snout_len=0.035, band=(1.44, 1.49, 1.600, 1.650), axis_z=1.550, taper_w=0.15,
+                    taper_h=0.15, drop=0.004, cheek=(0.012, 1.56), chin_back=0.0, crown_flat=0.0,
+                    brow=0.004, ear_shrink=0.7, eye=(0.006, 0.0, 0.004, 0.92),
+                    jaw_short=0.30, nose_flat=0.008, lip_flat=0.004, skull_wide=0.008),
+        "Full": dict(snout_len=0.085, band=(1.44, 1.49, 1.605, 1.660), axis_z=1.550, taper_w=0.28,
+                     taper_h=0.25, drop=0.008, cheek=(0.026, 1.57), chin_back=0.010, crown_flat=0.0,
+                     brow=0.008, ear_shrink=1.0, eye=(0.012, 0.004, 0.006, 0.78),
+                     jaw_short=0.35, nose_flat=0.014, lip_flat=0.008, skull_wide=0.018),
+    },
+    "Gecko": {  # gecko, chameleon, winglet dragon: wide round head, huge smile, no snout, big side eyes
+        "Mid": dict(snout_len=0.020, band=(1.44, 1.49, 1.66, 1.74), axis_z=1.560, taper_w=0.05,
+                    taper_h=0.12, drop=0.0, cheek=(0.018, 1.53), chin_back=0.0, crown_flat=0.15,
+                    brow=0.003, ear_shrink=1.0, eye=(0.012, 0.004, 0.006, 1.15),
+                    jaw_short=0.0, nose_flat=0.014, lip_flat=0.010, eye_follow=0.8, eye_yaw=12,
+                    skull_wide=0.012, brow_scale=0.75),
+        "Full": dict(snout_len=0.045, band=(1.44, 1.49, 1.68, 1.78), axis_z=1.560, taper_w=0.12,
+                     taper_h=0.25, drop=0.0, cheek=(0.035, 1.53), chin_back=0.0, crown_flat=0.30,
+                     brow=0.006, ear_shrink=1.0, eye=(0.024, 0.010, 0.012, 1.35),
+                     jaw_short=0.0, nose_flat=0.020, lip_flat=0.016, eye_follow=0.6, eye_yaw=20,
+                     skull_wide=0.020, brow_scale=0.55),
     },
 }
 
@@ -86,6 +124,9 @@ LINEAGE_SKULL = {
     "wolf": "Canid", "dog": "Canid", "fox": "Canid",
     "cat": "Feline", "lion": "Feline", "tiger": "Feline",
     "lizard": "Saurian", "crocodile": "Saurian", "dragon_horned": "Saurian", "dragon_crested": "Saurian",
+    "shark": "Shark",
+    "bear": "Ursine",
+    "gecko": "Gecko", "chameleon": "Gecko", "dragon_winglet": "Gecko",
 }
 
 # Rigid decals: moved as one piece (per side) so the painted eyes never smear.
@@ -126,8 +167,9 @@ def displace(p, s):
     # Below the snout axis the lower jaw comes forward less.
     jaw = 1.0 - s["jaw_short"] * _smooth(s["axis_z"], s["axis_z"] - 0.06, p.z)
     d.y -= s["snout_len"] * w * jaw
-    d.x -= p.x * s["taper_w"] * w
-    d.z -= (p.z - s["axis_z"]) * s["taper_h"] * w
+    tw = w * jaw if s.get("taper_jaw") else w
+    d.x -= p.x * s["taper_w"] * tw
+    d.z -= (p.z - s["axis_z"]) * s["taper_h"] * tw
     d.z -= s["drop"] * w * w
 
     # cheeks: sideways puff in a soft ball on each side of the muzzle
@@ -150,6 +192,17 @@ def displace(p, s):
         g = _gauss(p, Vector((side * 0.072, -0.15, 1.695)), 0.035)
         d.y -= s["brow"] * g
         d.z += s["brow"] * 0.4 * g
+
+    # wider skull sides
+    if s.get("skull_wide"):
+        side = 1.0 if p.x >= 0 else -1.0
+        g = _smooth(0.03, 0.12, abs(p.x)) * math.exp(-((p.z - 1.62) / 0.10) ** 2) * (1.0 - _smooth(0.08, 0.14, p.y))
+        d.x += side * s["skull_wide"] * g
+
+    # fill under the jaw so the head runs into the neck
+    if s.get("throat"):
+        g = _smooth(1.415, 1.46, p.z) * (1.0 - _smooth(1.49, 1.52, p.z)) * _smooth(0.0, 0.05, -p.y)
+        d.y -= s["throat"] * g
 
     # tuck the human ears into the skull
     if s["ear_shrink"] and abs(p.x) > EAR_X - 0.01:
@@ -206,6 +259,8 @@ def _key_coords(obj, s, surface=None):
         out = list(basis)
         is_eye = name.startswith(EYE_PREFIXES)
         scale = s["eye"][3] if is_eye else 1.0
+        if name.startswith(("Brow_", "AE_Brow")):
+            scale *= s.get("brow_scale", 1.0)
         if name == "Ear_Ink":  # human ear lines go with the human ear
             scale = max(0.0, 1.0 - s["ear_shrink"])
         if name.startswith("Nose_"):  # the lineage nose part takes over
@@ -270,8 +325,9 @@ def beast_values(lineage, b):
 
 
 def parts_visible(lineage, b):
-    """Which part sets show at slider b. Ears/tail from hybrid up; nose once the skull turns."""
-    return {"ears": b >= 0.2, "nose": b >= 0.3}
+    """Which part sets show at slider b. Ears and gills from hybrid up; nose/mouth once the skull turns."""
+    return {"ears": b >= 0.2, "gills": b >= 0.2, "nose": b >= 0.3, "mouth": b >= 0.3,
+            "casque": lineage == "chameleon" and b >= 0.3}
 
 
 # ---------------------------------------------------------------------------------------------
@@ -316,13 +372,13 @@ def _ellipsoid(center, radii, seg=16, ring=10):
     return verts, faces
 
 
-def _ear(base, tip_up, width, depth, lean_out, lean_back, cup=0.35, seg=10):
+def _ear(base, tip_up, width, depth, lean_out, lean_back, cup=0.35, seg=10, round_tip=False):
     """A curved, cupped triangular ear. base: centre of the root on the skull (right side, x>0)."""
     verts, faces = [], []
     rows = 8
     for r in range(rows + 1):
         t = r / rows
-        half = width * 0.5 * (1 - t) ** 0.85
+        half = width * 0.5 * (math.sqrt(max(0.0, 1 - t * t)) if round_tip else (1 - t) ** 0.85)
         centre = base + Vector((lean_out * t, lean_back * t * t, tip_up * t))
         for s in range(seg + 1):
             u = s / seg * 2 - 1  # -1..1 across the ear
@@ -385,21 +441,128 @@ def _keyed_part(obj, head, t, rest_tip):
         obj.data.vertices[i].co = co
 
 
+def _rest_front(head, x, z, r=0.010):
+    """Frontmost rest-space point on the head near (x, z)."""
+    near = [v.co for v in head.data.vertices if abs(v.co.x - x) < r and abs(v.co.z - z) < r and v.co.y < 0]
+    return min(near, key=lambda p: p.y).copy()
+
+
+def _rest_top(head, y, r=0.010):
+    """Top of the skull on the centre line at depth y."""
+    near = [v.co for v in head.data.vertices if abs(v.co.x) < r and abs(v.co.y - y) < r and v.co.z > 1.6]
+    return max(near, key=lambda p: p.z).copy()
+
+
+def _rest_side(head, y, z, r=0.010):
+    """Outermost rest-space point on the right side of the head near (y, z)."""
+    near = [v.co for v in head.data.vertices if abs(v.co.y - y) < r and abs(v.co.z - z) < r and v.co.x > 0]
+    return max(near, key=lambda p: p.x).copy()
+
+
+def _keyed_sheet(name, t, rows, mat, rest_shrink=None):
+    """A grid part whose points are (anchor on the rest head, offset). Each skull stage moves every
+    anchor with displace(), so the part stays glued to the reshaped skin.
+
+    rows: list of rows, each a list of (anchor Vector, offset Vector). Faces join neighbouring rows.
+    rest_shrink: (centre, factor) to shrink the basis (the part is hidden at rest anyway).
+    """
+    verts = [a + o for row in rows for a, o in row]
+    n = len(rows[0])
+    faces = [(r * n + i, r * n + i + 1, (r + 1) * n + i + 1, (r + 1) * n + i)
+             for r in range(len(rows) - 1) for i in range(n - 1)]
+    obj = _mesh_from(name, verts, faces, mat)
+    obj.shape_key_add(name="Basis", from_mix=False)
+    for stage in ("Mid", "Full"):
+        st = SKULLS[t][stage]
+        kb = obj.shape_key_add(name=f"TR_Skull_{t}_{stage}", from_mix=False)
+        i = 0
+        for row in rows:
+            for a, o in row:
+                kb.data[i].co = a + displace(a, st) + o
+                i += 1
+    if rest_shrink:
+        c, k = rest_shrink
+        for i, p in enumerate(verts):
+            co = c + (p - c) * k
+            obj.data.shape_keys.reference_key.data[i].co = co
+            obj.data.vertices[i].co = co
+    return obj
+
+
+def _out(a, amount=0.0025):
+    """Offset that lifts a point off the skin, away from the head centre."""
+    return (a - Vector((0.0, 0.0, 1.62))).normalized() * amount
+
+
+def _mouth_line(head, t, name, half_w, z0, curve, width, mat, samples=15):
+    """A dark mouth ribbon on the face surface along z = z0 + curve * (x / half_w)^2."""
+    top, bot = [], []
+    for i in range(samples):
+        x = -half_w + 2 * half_w * i / (samples - 1)
+        a = _rest_front(head, x, z0 + curve * (x / half_w) ** 2)
+        top.append((a, _out(a)))
+        bot.append((a, _out(a) + Vector((0, 0, -width))))
+    return _keyed_sheet(name, t, [top, bot], mat, (Vector((0, -0.145, 1.535)), 0.3)), top
+
+
+def _teeth(head, t, name, row, size, mat):
+    """Small triangles hanging from a mouth line (row of anchors, as returned by _mouth_line)."""
+    verts_rows = []
+    objs = []
+    tri_rows = [[], []]
+    for i in range(0, len(row) - 1):
+        a0, o0 = row[i]
+        a1, o1 = row[i + 1]
+        mid = (a0 + a1) * 0.5
+        tri_rows[0] += [(a0, o0 * 1.3), (a1, o1 * 1.3)]
+        tri_rows[1] += [(mid, (o0 + o1) * 0.65 + Vector((0, 0, -size))), (mid, (o0 + o1) * 0.65 + Vector((0, 0, -size)))]
+    # quads with a collapsed bottom edge = triangles; drop the faces between neighbouring teeth
+    obj = _keyed_sheet(name, t, tri_rows, mat, (Vector((0, -0.145, 1.535)), 0.3))
+    me = obj.data
+    import bmesh
+    bm = bmesh.new()
+    bm.from_mesh(me)
+    bm.faces.ensure_lookup_table()
+    bmesh.ops.delete(bm, geom=[f for i, f in enumerate(bm.faces) if i % 2 == 1], context="FACES")
+    bm.to_mesh(me)
+    bm.free()
+    return obj
+
+
+def _gill_slits(head, mat):
+    """Three slits on each side of the jaw, behind the mouth. Static: the neck doesn't reshape."""
+    verts, faces = [], []
+    for k, y in enumerate((-0.035, -0.012, 0.011)):
+        z0, z1 = 1.485, 1.545 - 0.006 * k
+        a0, a1 = _rest_side(head, y, z0), _rest_side(head, y, z1)
+        b = len(verts)
+        for a in (a0, a1):
+            verts += [a + Vector((0.002, -0.003, 0)), a + Vector((0.002, 0.003, 0))]
+        faces.append((b, b + 1, b + 3, b + 2))
+    return _mirror(verts, faces)
+
+
 def make_parts(t, arm, head, fur=(0.55, 0.42, 0.32), inner=(0.93, 0.72, 0.70)):
     """Build the part meshes for skull type t. Returns {part_set: [objects]}."""
     dark = _mat("Part_NosePad", (0.04, 0.035, 0.035))
     pink = _mat("Part_NosePink", (0.88, 0.50, 0.55))
+    white = _mat("Part_Teeth", (0.95, 0.94, 0.90))
     furm = _mat(f"Part_Fur_{t}", fur)
-    out = {"ears": [], "nose": []}
+    out = {"ears": [], "nose": [], "mouth": [], "gills": [], "casque": []}
     rest_tip = Vector((0.0, -0.182, 1.585))
+    nose = ears = None
 
-    if t == "Canid":
-        v, f = _ellipsoid(rest_tip + Vector((0, -0.008, 0.006)), (0.022, 0.016, 0.015))
+    if t in ("Canid", "Ursine"):
+        big = 1.0 if t == "Canid" else 1.35
+        v, f = _ellipsoid(rest_tip + Vector((0, -0.008, 0.006)), (0.022 * big, 0.016 * big, 0.015 * big))
         # flatten the underside into a pad with a centre groove
         v = [Vector((p.x, p.y, p.z - 0.004 * math.exp(-(p.x / 0.004) ** 2) * (p.z < rest_tip.z)))
              for p in v]
         nose = _mesh_from(f"TR_Beast_Nose_{t}", v, f, dark)
-        v, f = _mirror(*_ear(Vector((0.092, 0.015, 1.780)), 0.110, 0.130, 0.030, 0.028, 0.030))
+        if t == "Canid":
+            v, f = _mirror(*_ear(Vector((0.092, 0.015, 1.780)), 0.110, 0.130, 0.030, 0.028, 0.030))
+        else:  # small round bear ears, set wide on the crown
+            v, f = _mirror(*_ear(Vector((0.100, 0.025, 1.790)), 0.075, 0.095, 0.030, 0.022, 0.010, round_tip=True))
         ears = _mesh_from(f"TR_Beast_Ears_{t}", v, f, furm)
     elif t == "Feline":
         # small inverted-triangle nose
@@ -410,19 +573,39 @@ def make_parts(t, arm, head, fur=(0.55, 0.42, 0.32), inner=(0.93, 0.72, 0.70)):
         nose = _mesh_from(f"TR_Beast_Nose_{t}", v, f, pink)
         v, f = _mirror(*_ear(Vector((0.098, 0.005, 1.775)), 0.095, 0.145, 0.030, 0.030, 0.012))
         ears = _mesh_from(f"TR_Beast_Ears_{t}", v, f, furm)
-    elif t == "Saurian":
+    elif t in ("Saurian", "Gecko"):
         # two nostril bumps on top of the snout, no external ears
-        v1, f1 = _ellipsoid(rest_tip + Vector((0.010, 0.000, 0.010)), (0.006, 0.009, 0.004), 10, 6)
-        v2, f2 = _ellipsoid(rest_tip + Vector((-0.010, 0.000, 0.010)), (0.006, 0.009, 0.004), 10, 6)
+        k = 1.0 if t == "Saurian" else 0.7
+        v1, f1 = _ellipsoid(rest_tip + Vector((0.010, 0.000, 0.010)), (0.006 * k, 0.009 * k, 0.004 * k), 10, 6)
+        v2, f2 = _ellipsoid(rest_tip + Vector((-0.010, 0.000, 0.010)), (0.006 * k, 0.009 * k, 0.004 * k), 10, 6)
         nose = _mesh_from(f"TR_Beast_Nose_{t}", v1 + v2, f1 + [tuple(i + len(v1) for i in q) for q in f2], dark)
-        ears = None
-    else:
+    elif t != "Shark":
         raise KeyError(t)
 
-    _keyed_part(nose, head, t, rest_tip)
-    out["nose"].append(nose)
+    if t == "Shark":
+        # wide grin under the rostrum, with a row of teeth, and gill slits on the jaw
+        m, row = _mouth_line(head, t, f"TR_Beast_Mouth_{t}", 0.105, 1.515, 0.030, 0.006, dark)
+        out["mouth"] += [m, _teeth(head, t, f"TR_Beast_Teeth_{t}", row, 0.011, white)]
+        v, f = _gill_slits(head, dark)
+        out["gills"].append(_mesh_from(f"TR_Beast_Gills_{t}", v, f, dark))
+    if t == "Gecko":
+        # the big gecko smile wraps round to the cheeks
+        m, _row = _mouth_line(head, t, f"TR_Beast_Mouth_{t}", 0.125, 1.528, 0.028, 0.004, dark)
+        out["mouth"].append(m)
+        # chameleon casque: a crest sheet along the top centre line, riding the flattened crown
+        base = [_rest_top(head, y) for y in [-0.10 + 0.25 * i / 12 for i in range(13)]]
+        prof = [math.sin(math.pi * min(1.0, i / 12 * 1.15)) for i in range(13)]
+        rows = [[(a, Vector((0, 0, -0.004))) for a in base],
+                [(a, Vector((0, 0.012 * h, 0.075 * h))) for a, h in zip(base, prof)]]
+        out["casque"].append(_keyed_sheet(f"TR_Beast_Casque_{t}", t, rows, furm,
+                                          (Vector((0, 0.03, 1.84)), 0.4)))
+
+    if nose:
+        _keyed_part(nose, head, t, rest_tip)
+        out["nose"].append(nose)
     if ears:
         out["ears"].append(ears)
-    for o in out["nose"] + out["ears"]:
-        _skin_to_head(o, arm)
+    for objs in out.values():
+        for o in objs:
+            _skin_to_head(o, arm)
     return out
