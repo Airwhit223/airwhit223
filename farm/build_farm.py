@@ -1,5 +1,5 @@
-"""Builds stylized, rigged farm animals: cow, sheep and chicken, each with
-two coats. Same style, pipeline and idle animation as the pets.
+"""Builds stylized, rigged farm animals: cow, sheep, horse and chicken, in
+several coats. Same style, pipeline and idle animation as the pets.
 
 Run with Blender 5.x:
     blender --background --python farm/build_farm.py [name ...]
@@ -293,9 +293,152 @@ def make_chicken_color(c):
 
 
 # --------------------------------------------------------------------------
+# Horse: withers at about 1.5 m before the Dragon Quest squash (about 1.25 m after).
+# --------------------------------------------------------------------------
+
+NECK_A, NECK_B, NECK_RA, NECK_RB = Vector((0, 0.66, 1.34)), Vector((0, 0.96, 1.8)), 0.22, 0.15
+
+
+def mane_tufts():
+    """Spiky tufts along the neck crest, sweeping back, plus a forelock."""
+    axis = (NECK_B - NECK_A).normalized()
+    back = Vector((0, -axis.z, axis.y))  # up-and-back, perpendicular to the neck
+    out = []
+    for i in range(9):
+        t = i / 8
+        centre = NECK_A.lerp(NECK_B, t)
+        r = NECK_RA + (NECK_RB - NECK_RA) * t
+        base = centre + back * (r * 0.8)
+        tip = base + back * 0.1 + Vector((0, -0.09, -0.02))
+        out.append(tuft(tuple(base), tuple(tip), 0.05 - 0.012 * t))
+    out.append(capsule(tuple(NECK_A + back * (NECK_RA * 0.85)), tuple(NECK_B + back * (NECK_RB * 0.85)),
+                       0.06, 0.045))  # mane ridge
+    out.append(tuft((0, 1.02, 1.93), (0, 1.12, 1.86), 0.045))  # forelock
+    out.append(tuft((0.03, 1.0, 1.93), (0.06, 1.1, 1.84), 0.035, mirror=True))
+    return out
+
+
+def near_mane(co):
+    p = Vector(co)
+    axis = NECK_B - NECK_A
+    t = (p - NECK_A).dot(axis) / axis.length_squared
+    if not -0.05 < t < 1.1:
+        return False
+    centre = NECK_A + axis * t
+    r = NECK_RA + (NECK_RB - NECK_RA) * t
+    back = Vector((0, -axis.normalized().z, axis.normalized().y))
+    d = p - centre
+    return r * 0.75 < d.length < r + 0.2 and d.normalized().dot(back) > 0.55
+
+
+HORSE_SHAPES = [
+    ellipsoid((0, 0.0, 1.2), (0.34, 0.74, 0.34)),        # barrel
+    ellipsoid((0, 0.0, 1.06), (0.31, 0.6, 0.3)),         # belly
+    ellipsoid((0, -0.55, 1.26), (0.34, 0.32, 0.33)),     # rump
+    ellipsoid((0, 0.52, 1.22), (0.32, 0.3, 0.35)),       # chest
+    capsule(tuple(NECK_A), tuple(NECK_B), NECK_RA, NECK_RB),   # neck
+    ellipsoid((0, 1.0, 1.86), (0.16, 0.15, 0.15)),       # forehead
+    capsule((0, 1.0, 1.82), (0, 1.24, 1.64), 0.14, 0.115),  # face
+    ellipsoid((0, 1.27, 1.6), (0.12, 0.12, 0.11)),       # muzzle
+    ellipsoid((0, 1.2, 1.54), (0.08, 0.1, 0.06)),        # chin
+    capsule((0.18, 0.55, 1.0), (0.18, 0.56, 0.12), 0.11, 0.075, mirror=True),    # front leg
+    hoof((0.18, 0.57, 0.05), (0.09, 0.1, 0.06)),
+    capsule((0.18, -0.55, 1.05), (0.18, -0.6, 0.12), 0.14, 0.075, mirror=True),  # back leg
+    hoof((0.18, -0.6, 0.05), (0.09, 0.1, 0.06)),
+    *chain([(0, -0.8, 1.4), (0, -0.92, 1.28), (0, -0.98, 1.02), (0, -0.99, 0.78), (0, -0.97, 0.58)],
+           [0.06, 0.08, 0.09, 0.085, 0.06]),             # tail
+    tuft((0, -0.97, 0.62), (0, -0.98, 0.48), 0.05),
+    tuft((0.03, -0.97, 0.64), (0.06, -0.97, 0.5), 0.04, mirror=True),
+    *mane_tufts(),
+    ear((0.07, 0.95, 1.95), (0.1, 0.93, 2.12), 0.06, 0.035),
+]
+
+HORSE_SKELETON = [
+    ("pelvis", None, (0, -0.55, 1.26)),
+    ("spine", "pelvis", (0, 0.0, 1.24)),
+    ("chest", "spine", (0, 0.52, 1.26)),
+    ("neck", "chest", (0, 0.96, 1.84)),
+    ("head", "neck", (0, 1.12, 1.76)),
+    ("jaw", "head", (0, 1.3, 1.56)),
+    ("ear.{s}", "head", (0.1, 0.93, 2.12)),
+    ("upper_arm.{s}", "chest", (0.17, 0.55, 0.6)),
+    ("forearm.{s}", "upper_arm.{s}", (0.17, 0.56, 0.1)),
+    ("front_paw.{s}", "forearm.{s}", (0.17, 0.63, 0.03)),
+    ("thigh.{s}", "pelvis", (0.17, -0.58, 0.62)),
+    ("shin.{s}", "thigh.{s}", (0.17, -0.61, 0.1)),
+    ("back_paw.{s}", "shin.{s}", (0.17, -0.53, 0.03)),
+    ("tail_1", "pelvis", (0, -0.86, 1.36)),
+    ("tail_2", "tail_1", (0, -0.94, 1.22)),
+    ("tail_3", "tail_2", (0, -0.98, 1.02)),
+    ("tail_4", "tail_3", (0, -0.99, 0.8)),
+    ("tail_5", "tail_4", (0, -0.97, 0.56)),
+]
+
+HORSE_COATS = {
+    "horse_bay": dict(base=srgb(0.56, 0.3, 0.14), mane=srgb(0.1, 0.08, 0.08), points=srgb(0.13, 0.1, 0.09),
+                      muzzle=srgb(0.3, 0.2, 0.16), blaze=None, socks=None, patches=None,
+                      hoof=srgb(0.2, 0.17, 0.15)),
+    "horse_chestnut": dict(base=srgb(0.78, 0.42, 0.16), mane=srgb(0.97, 0.84, 0.58), points=None,
+                           muzzle=srgb(0.55, 0.36, 0.28), blaze=srgb(0.98, 0.97, 0.94),
+                           socks=srgb(0.98, 0.97, 0.94), patches=None, hoof=srgb(0.45, 0.38, 0.3)),
+    "horse_white": dict(base=srgb(0.96, 0.95, 0.93), mane=srgb(0.86, 0.86, 0.9), points=None,
+                        muzzle=srgb(0.75, 0.66, 0.66), blaze=None, socks=None, patches=None,
+                        hoof=srgb(0.5, 0.46, 0.42)),
+    "horse_black": dict(base=srgb(0.13, 0.12, 0.13), mane=srgb(0.06, 0.05, 0.06), points=None,
+                        muzzle=srgb(0.2, 0.18, 0.18), blaze=srgb(0.98, 0.97, 0.94),
+                        socks=srgb(0.98, 0.97, 0.94), patches=None, hoof=srgb(0.15, 0.13, 0.13)),
+    "horse_pinto": dict(base=srgb(0.97, 0.96, 0.93), mane=srgb(0.35, 0.2, 0.12), points=None,
+                        muzzle=srgb(0.72, 0.6, 0.58), blaze=None, socks=None, patches=srgb(0.56, 0.3, 0.14),
+                        hoof=srgb(0.45, 0.38, 0.3)),
+}
+
+
+def make_horse_color(c):
+    def color(co, n):
+        x, y, z = co
+        ax = abs(x)
+        if z < 0.11 and (abs(y - 0.57) < 0.12 or abs(y + 0.6) < 0.12):
+            return c["hoof"]
+        if y < -0.86 and z < 1.42:
+            return c["mane"]  # tail
+        forelock = any(near(co, p, 0.04) for p in ((0, 1.06, 1.9), (0, 1.11, 1.86), (0.045, 1.06, 1.88),
+                                                   (-0.045, 1.06, 1.88)))
+        if near_mane(co) or forelock:
+            return c["mane"]  # mane and forelock
+        if ax > 0.05 and y > 0.88 and z > 1.95:  # ears
+            return c["points"] or c["base"]
+        if y > 1.2 and z < 1.7:
+            return c["muzzle"]
+        if c["blaze"] and y > 1.0 and ax < 0.04 and n.y > 0.25 and z > 1.62:
+            return c["blaze"]
+        if z < 0.32:
+            return c["socks"] or c["points"] or c["base"]
+        if c["points"] and z < 0.5 and ax > 0.1:
+            return c["points"]
+        if c["patches"]:
+            blotches = (((0.3, 0.2, 1.25), 0.24), ((-0.3, -0.3, 1.2), 0.26), ((0.2, -0.6, 1.35), 0.2),
+                        ((0, 0.85, 1.6), 0.2), ((-0.2, 0.45, 1.0), 0.18))
+            if any(near(co, p, r) for p, r in blotches):
+                return c["patches"]
+        return c["base"]
+    return color
+
+
+def horse_face():
+    parts = []
+    for s in (1, -1):
+        p = surface_point(s * 0.05, 1.6)
+        parts.append(add_sphere("nostril", p + Vector((0, -0.006, 0)), 0.02, srgb(0.1, 0.07, 0.07),
+                                scale=(0.8, 0.5, 1.3)))
+    return parts
+
+
+# --------------------------------------------------------------------------
 
 COW_REMAP = dq_remap(belly=0.62, legs=0.55, head_center=(0, 1.0, 1.2), head_scale=1.4, head_from=0.7, head_to=0.86)
 SHEEP_REMAP = dq_remap(belly=0.38, legs=0.55, head_center=(0, 0.6, 0.78), head_scale=1.4, head_from=0.44, head_to=0.54)
+HORSE_REMAP = dq_remap(belly=0.9, legs=0.58, head_center=(0, 1.1, 1.78), head_scale=1.45, head_from=0.88,
+                       head_to=1.0)
 CHICKEN_REMAP = dq_remap(belly=0.13, legs=0.7, head_center=(0, 0.13, 0.45), head_scale=1.35,
                          head_from=0.35, head_to=0.41, axis=2)
 
@@ -310,6 +453,11 @@ for coat, c in SHEEP_COATS.items():
                     dict(x=0.05, z=0.78, radius=0.033, sink=0.004, tall=1.25, pupil_w=1.0, iris=c["iris"],
                          style="dq"),
                     0.3, None, coat == "sheep", SHEEP_REMAP))
+for coat, c in HORSE_COATS.items():
+    ANIMALS.append((coat, HORSE_SHAPES, HORSE_SKELETON, make_horse_color(c),
+                    dict(x=0.08, z=1.9, radius=0.045, sink=0.006, tall=1.25, pupil_w=1.0, iris=None,
+                         style="dq"),
+                    0.35, horse_face, coat == "horse_bay", HORSE_REMAP))
 for coat, c in CHICKEN_COATS.items():
     ANIMALS.append((coat, CHICKEN_SHAPES, CHICKEN_SKELETON, make_chicken_color(c),
                     dict(x=0.04, z=0.458, radius=0.019, sink=0.002, tall=1.25, pupil_w=1.0, iris=c["iris"],
