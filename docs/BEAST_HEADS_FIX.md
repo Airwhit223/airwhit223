@@ -79,6 +79,11 @@ b = 0.5. Someone who hasn't seen the labels should be able to name each one. If 
 current wolf, cat and shark, for example), that skull type needs more sculpting before anything else ships.
 Also render the b = 0.25 strip in color and check the faces are still clearly human.
 
+## Status
+
+Step 1 is done: Canid, Feline and Saurian are in `characters/beast_skulls/` with silhouette and color
+sheets. They pass the silhouette check at b = 0.5 and 1.0.
+
 ## Build order
 
 1. Sculpt `Canid`, `Feline` and `Saurian` `_Mid` and `_Full`, and add the per-lineage nose parts. Run the
