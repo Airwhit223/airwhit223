@@ -20,6 +20,7 @@ from base_character import (  # noqa: E402
     sandal_straps, select_only, set_weights, skirt_weights, srgb,
 )
 import build_beastfolk as bf  # noqa: E402
+from build_pets import face_plus_z  # noqa: E402
 
 GOLD, GOLD_DARK, TURQUOISE = bf.GOLD, bf.GOLD_DARK, bf.TURQUOISE
 BRONZE = srgb(0.78, 0.58, 0.3)
@@ -127,6 +128,7 @@ def finish(name, body, rig, parts, weights_from_body, rigid):
     body.data.materials.clear()
     body.data.materials.append(make_material(name))
     bpy.ops.wm.save_as_mainfile(filepath=os.path.join(HERE, name + ".blend"))
+    face_plus_z()
     bpy.ops.export_scene.gltf(filepath=os.path.join(HERE, name + ".glb"), export_format="GLB",
                               export_vertex_color="MATERIAL")
     print(f"{name}: {sum(len(p.vertices) - 2 for p in body.data.polygons)} triangles")

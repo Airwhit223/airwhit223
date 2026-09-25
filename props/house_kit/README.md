@@ -31,33 +31,34 @@ striped wallpaper, a chair rail and baseboards.
 
 ## How the pieces fit (Godot coordinates, y up)
 
-Each wall runs along its local X from -1 to +1 with its outside toward local
--Z and its bottom at y = 0. Put wall centers on the grid lines between
-cells:
+Every piece faces **+Z** like the rest of the art: a wall's outside (siding)
+is toward its local +Z, it runs along local X from -1 to +1, and its bottom
+is at y = 0. For a 4 x 4 m house centered on the origin with the front at +Z:
 
-- Front wall (outside toward -Z): rotation 0, e.g. at (x, 0, -2).
-- Back wall: rotation 180 at (x, 0, +2).
-- Left wall (outside toward -X): rotation 90 at (-2, 0, z).
-- Right wall: rotation -90 at (+2, 0, z).
-- `corner_post` at each outside corner, e.g. (-2, 0, -2).
-- Floors at the cell centers, e.g. (-1, 0, -1).
-- Doors: origin is the hinge. In a `wall_door` at (x, 0, z) with rotation r,
-  put the door at the wall's local x = -0.53 with the same rotation, and
-  rotate it negative (toward the inside) to open it.
-- Upper storey: stack walls at y = 3.
+| Piece | Rotation (y) | Position |
+|-------|--------------|----------|
+| front walls | 0 | (-1, 0, 2) and (1, 0, 2) |
+| back walls | 180 | (-1, 0, -2) and (1, 0, -2) |
+| left walls (outside toward -X) | -90 | (-2, 0, 1) and (-2, 0, -1) |
+| right walls (outside toward +X) | 90 | (2, 0, 1) and (2, 0, -1) |
+| `corner_post` | 0 | each corner, e.g. (-2, 0, 2) |
+| floors | 0 | cell centers, e.g. (-1, 0, 1) |
+| `door_front` in a `wall_door` at (wx, 0, wz), rotation r | r | the wall's local x = +0.53 (for the front wall at (-1, 0, 2): (-0.47, 0, 2)) |
+| `roof_slope`, front half | 0 | (x, 3, 1) for x = -1, 1 |
+| `roof_slope`, back half | 180 | (x, 3, -1) |
+| `roof_eave` | 0 / 180 | (x, 3, 2) / (x, 3, -2) |
+| `roof_ridge` | 0 | (x, 4.155, 0) |
+| gables on the left wall | -90 | `gable_*_r` at (-2, 3, 1), `gable_*_l` at (-2, 3, -1) |
+| gables on the right wall | 90 | `gable_*_l` at (2, 3, 1), `gable_*_r` at (2, 3, -1) |
 
-Roof for a house 4 m deep with the ridge running along X at z = 0:
-
-- `roof_slope` rotation 0 at (x, 3, -1) and rotation 180 at (x, 3, +1)
-  (the low edge sits on the wall line, the high edge meets at the ridge).
-- `roof_eave` rotation 0 at (x, 3, -2) and rotation 180 at (x, 3, +2).
-- `roof_ridge` at (x, 4.155, 0).
-- Gables on the side walls at y = 3: left wall (rotation 90) gets
-  `gable_*_l` at z = -1 and `gable_*_r` at z = +1; right wall (rotation -90)
-  gets `gable_*_r` at z = -1 and `gable_*_l` at z = +1.
-
-For deeper houses chain more `roof_slope` cells up the slope: each cell
-starts 1.155 m higher and 2 m further in.
+- Doors swing from their hinge: rotate them **negative** around y to open
+  inward (e.g. -70).
+- `gable_*_l` has its tall edge at local +X, `gable_*_r` at local -X; pick
+  the one whose tall edge meets the ridge.
+- A roof slope's low edge is at its local +Z (on the wall line) and it rises
+  1.155 m toward local -Z. For deeper houses chain more slope cells: each
+  starts 1.155 m higher and 2 m further in.
+- Upper storeys: stack walls at y = 3, 6, ...
 
 Rugs and furniture go on top of the floor at y = 0.022.
 

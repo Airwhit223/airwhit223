@@ -18,6 +18,7 @@ from base_character import (  # noqa: E402
     Matrix, Vector, add_capsule, add_ellipsoid, apply_modifiers, bmesh, bpy, join, make_material, new_object, paint,
     remesh_and_smooth, reset_scene, select_only, srgb, tube,
 )
+from build_pets import face_plus_z  # noqa: E402
 
 GOLD = srgb(0.93, 0.74, 0.3)
 GOLD_DARK = srgb(0.68, 0.48, 0.16)
@@ -75,6 +76,7 @@ def export(name, parts):
     body.data.materials.clear()
     body.data.materials.append(make_material(name))
     body.name = name
+    face_plus_z()
     bpy.ops.export_scene.gltf(filepath=os.path.join(HERE, name + ".glb"), export_format="GLB",
                               export_vertex_color="MATERIAL")
     print(f"{name}: {sum(len(p.vertices) - 2 for p in body.data.polygons)} triangles")

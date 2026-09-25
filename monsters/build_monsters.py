@@ -174,7 +174,7 @@ def seg_dist(p, a, b):
 
 
 def skin(obj, rig, bones=None, rigid=None):
-    """Nearest-bone weights (two nearest blended) among `bones`, or one rigid bone."""
+    """Nearest-bone weights (three nearest blended) among `bones`, or one rigid bone."""
     obj.vertex_groups.clear()
     if rigid:
         vg = obj.vertex_groups.new(name=rigid)
@@ -184,8 +184,8 @@ def skin(obj, rig, bones=None, rigid=None):
             if b.name != "root" and (bones is None or b.name in bones)]
     groups = {}
     for v in obj.data.vertices:
-        d = sorted((seg_dist(v.co, a, b), n) for n, a, b in segs)[:2]
-        ws = [(n, 1.0 / (dist + 0.004) ** 4) for dist, n in d]
+        d = sorted((seg_dist(v.co, a, b), n) for n, a, b in segs)[:3]
+        ws = [(n, 1.0 / (dist + 0.01) ** 3) for dist, n in d]
         total = sum(w for _, w in ws)
         for n, w in ws:
             if n not in groups:
@@ -393,7 +393,7 @@ def goblin(coat_name):
                               0.03, 0.03) for dx, dy, dz in ((0.06, 0, 0.02), (-0.06, 0.02, 0.01), (0, 0.07, 0.03),
                                                               (0.01, 0.02, 0.07), (0.02, -0.05, 0.04))],
                      faces=2500)
-    paint(club, lambda co, n: WHITE if 0.085 < (Vector(co) - Vector((0.335, 0.38, 0.52))).length < 0.2 else
+    paint(club, lambda co, n: WHITE if 0.105 < (Vector(co) - Vector((0.335, 0.38, 0.52))).length < 0.2 else
           (WOOD if co[1] < 0.3 else WOOD_DARK))
     rig = make_rig(coat_name, GOBLIN_BONES)
     body_bones = None

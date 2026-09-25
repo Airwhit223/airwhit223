@@ -1,0 +1,9 @@
+; Minimal Godot 4.7 project used only to render asset previews (tools/preview/render.sh).
+config_version=5
+
+[application]
+config/name="Asset Preview"
+run/main_scene="res://preview.tscn"
+
+[rendering]
+renderer/rendering_method="forward_plus"

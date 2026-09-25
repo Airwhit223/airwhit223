@@ -7,7 +7,7 @@ or with the bpy pip module (Python 3.13):
     python props/build_house_kit.py [name ...]
 
 Every piece is its own .glb in props/house_kit/. Walls run along X from
--1 to +1 m, 0.2 m thick, with the outside face toward +Y (-Z in Godot) and
+-1 to +1 m, 0.2 m thick, with the outside face toward +Z in Godot (modeled toward +Y, turned at export) and
 the bottom at z = 0. Wall colors come in three schemes (cream, pink, blue).
 """
 import math
@@ -20,6 +20,7 @@ import build_farm_props as fp  # noqa: E402
 from build_farm_props import (  # noqa: E402
     Matrix, Vector, bpy, cyl, join, make_material, rbox, reset_scene, srgb, strip, xf,
 )
+from build_pets import face_plus_z  # noqa: E402
 
 OUT = os.path.join(HERE, "house_kit")
 os.makedirs(OUT, exist_ok=True)
@@ -177,7 +178,8 @@ def corner_post():
 
 def door(front):
     """1.06 x 2.16 m door; origin at the hinge edge (bottom), swings from x = 0 to +x.
-    Place at x = -0.53 in a wall_door piece."""
+    Place at x = -0.53 in a wall_door piece (modeling frame; that is x = +0.53 in
+    Godot once face_plus_z() has turned the export)."""
     w, h = 1.06, 2.16
     color = RED if front else TRIM
     parts = [rbox("slab", (w / 2, 0, h / 2), (w, 0.05, h), color, bevel=0.012)]
@@ -285,7 +287,8 @@ def roof_ridge():
 
 def gable(scheme, side):
     """Triangular gable-end infill for one 2 m roof cell: the tall edge (1.155 m) is at
-    x = -side (so _l is tall at -X, _r at +X, in the piece's own frame). Sits on a
+    x = -side (so _l is tall at -X, _r at +X in the modeling frame, which become
+    +X / -X in Godot after the export turn). Sits on a
     wall at z = 3. They are mirror pairs so the siding always stays on the outside."""
     c = SCHEMES[scheme]
     tall = -side
@@ -336,6 +339,7 @@ def export(name, parts):
     body.name = name
     body.data.materials.clear()
     body.data.materials.append(make_material(name))
+    face_plus_z()
     bpy.ops.export_scene.gltf(filepath=os.path.join(OUT, name + ".glb"), export_format="GLB",
                               export_vertex_color="MATERIAL")
     print(f"{name}: {sum(len(p.vertices) - 2 for p in body.data.polygons)} triangles")

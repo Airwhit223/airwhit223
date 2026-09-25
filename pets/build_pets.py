@@ -10,7 +10,8 @@ this script. Each animal is sculpted from simple blobs (SHAPES), fused into
 one mesh, painted with vertex colors (the *_color functions), then rigged
 (SKELETON) with automatic weights. Tweak the tables and re-run.
 
-Models face +Y in Blender, which becomes -Z (forward) in Godot.
+Models are built facing +Y in Blender and turned at export (face_plus_z) so the
+.glb faces +Z, Godot's model front.
 """
 import math
 import os
@@ -328,6 +329,39 @@ def coon_color(co, n, COON_BASE, COON_STRIPE, COON_CREAM, COON_NOSE, COON_INNER_
 # --------------------------------------------------------------------------
 # Building
 # --------------------------------------------------------------------------
+
+# --------------------------------------------------------------------------
+# Export facing
+# --------------------------------------------------------------------------
+
+FACE_FLIP = Matrix.Rotation(math.pi, 4, "Z")
+
+
+def face_plus_z():
+    """Turns everything in the scene 180 degrees about Z, baked into the mesh and
+    bone data, right before export. Models are built facing +Y in Blender; after
+    this they face -Y, which glTF/Godot read as +Z (Godot's MODEL_FRONT, and what
+    Mixamo and retargeting expect). Safe to call twice: the scene is only turned once."""
+    scene = bpy.context.scene
+    if scene.get("faced_plus_z"):
+        return
+    scene["faced_plus_z"] = True
+    if bpy.context.object and bpy.context.object.mode != "OBJECT":
+        bpy.ops.object.mode_set(mode="OBJECT")
+    objs = [o for o in scene.objects if o.type in ("MESH", "ARMATURE")]
+    worlds = {o.name: o.matrix_world.copy() for o in objs}
+    for o in objs:
+        m = FACE_FLIP @ worlds[o.name]
+        if o.type == "MESH":
+            o.data.transform(m, shape_keys=True)
+        else:
+            o.data.transform(m)
+        if o.type == "MESH":
+            o.data.update()
+    for o in objs:
+        o.matrix_parent_inverse = Matrix.Identity(4)
+        o.matrix_basis = Matrix.Identity(4)
+
 
 def reset_scene():
     bpy.ops.wm.read_factory_settings(use_empty=True)
@@ -684,6 +718,7 @@ def build(name, shapes, skeleton, color_fn, eye, tail_amount, face=None, remap=N
 
     if save_blend:
         bpy.ops.wm.save_as_mainfile(filepath=os.path.join(OUT_DIR, name + ".blend"))
+    face_plus_z()
     bpy.ops.export_scene.gltf(
         filepath=os.path.join(OUT_DIR, name + ".glb"),
         export_format="GLB",

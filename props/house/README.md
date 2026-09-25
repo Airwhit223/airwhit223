@@ -2,7 +2,7 @@
 
 Chunky, rounded shapes (Dragon Quest) with bright flat colors and thick
 outlines (Simpsons), like the farm and restaurant props. Real-world scale in
-meters, origin at the bottom center, front facing -Z in Godot. Built by
+meters, origin at the bottom center, front facing +Z in Godot. Built by
 `../build_house_props.py`.
 
 ![kitchen](preview_kitchen.png)

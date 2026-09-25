@@ -11,7 +11,7 @@ bracers, strapped sandals, long black hair with gold streaks) follows the
 character art. The skeleton uses Godot's humanoid bone names so Mixamo or
 other humanoid animations can be retargeted onto it.
 
-Faces +Y in Blender (-Z forward in Godot). +X is her right side.
+Modeled facing +Y in Blender (+X is her right side); face_plus_z() turns her at export so the .glb faces +Z in Godot.
 """
 import math
 import os
@@ -27,6 +27,7 @@ from build_pets import (  # noqa: E402
     add_capsule, add_ellipsoid, apply_modifiers, join, make_material, paint,
     remesh_and_smooth, reset_scene, srgb,
 )
+from build_pets import face_plus_z  # noqa: E402
 
 NAME = "egyptian_queen"
 
@@ -613,6 +614,7 @@ def main():
     body.data.materials.append(make_material(NAME))
 
     bpy.ops.wm.save_as_mainfile(filepath=os.path.join(HERE, NAME + ".blend"))
+    face_plus_z()
     bpy.ops.export_scene.gltf(
         filepath=os.path.join(HERE, NAME + ".glb"),
         export_format="GLB",

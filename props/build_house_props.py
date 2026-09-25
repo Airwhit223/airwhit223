@@ -7,7 +7,7 @@ or with the bpy pip module (Python 3.13):
     python props/build_house_props.py [name ...]
 
 Every prop is its own .glb in props/house/, real-world scale in meters,
-origin at the bottom center, front facing +Y in Blender (-Z in Godot).
+origin at the bottom center, front facing +Z in Godot (modeled facing +Y, turned at export).
 Colors are vertex colors. Props with a display keep it as a separate mesh
 named "screen" so a game can put a ViewportTexture or video on it.
 
@@ -25,6 +25,7 @@ import build_farm_props as fp  # noqa: E402
 from build_farm_props import (  # noqa: E402
     Matrix, Vector, blobs, bpy, cyl, join, lathe, make_material, prism, rbox, reset_scene, srgb, strip, tube, xf,
 )
+from build_pets import face_plus_z  # noqa: E402
 
 OUT = os.path.join(HERE, "house")
 os.makedirs(OUT, exist_ok=True)
@@ -122,6 +123,7 @@ def export(name, parts):
         s.data.materials.append(make_material(name + "_screen"))
         s.parent = body
         tris += sum(len(p.vertices) - 2 for p in s.data.polygons)
+    face_plus_z()
     bpy.ops.export_scene.gltf(filepath=os.path.join(OUT, name + ".glb"), export_format="GLB",
                               export_vertex_color="MATERIAL")
     print(f"{name}: {tris} triangles")

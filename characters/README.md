@@ -23,7 +23,7 @@ hoodie / grey pants / dark shoes version. About 45k triangles each.
 
 How it's made (`base_character.py`, reusable for any new character):
 
-- The Meshy base is scaled to 1.78 m, centered, turned to face -Z in Godot
+- The Meshy base is scaled to 1.78 m, centered, turned to face +Z in Godot
   and smoothed. Its mitten hands are replaced with anime hands.
 - Joint positions come from the mesh itself (the arms are traced from the
   fingertips), and the body is skinned automatically.
@@ -95,7 +95,7 @@ the head, standing in an A-pose like the base-body sheet.
 1. Copy the `characters/` folder into your project (the toon outline
    material lives in `pets/pet_toon.tres`, so copy that too).
 2. Drag `egyptian_queen.glb` into a scene and set `pet_toon.tres` as the
-   mesh's material override for the cartoon look. She faces -Z.
+   mesh's material override for the cartoon look. She faces +Z.
 
 ## Animations (Mixamo or any humanoid set)
 

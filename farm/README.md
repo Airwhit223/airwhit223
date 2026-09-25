@@ -30,7 +30,7 @@ head bob), like the pets.
 
 Copy the `farm/` folder into your project, set `farm/dq_toon.tres` (thicker
 outline for the Dragon Quest look) as the material override, and
-set the `idle` animation to loop in the import settings. They face -Z.
+set the `idle` animation to loop in the import settings. They face +Z (Godot's model front).
 
 ## Rebuilding
 

@@ -2,7 +2,7 @@
 
 Chunky shapes, flat bright colors, thick outlines, to match the farm
 animals in `../../farm/`. Real-world scale in meters, origin at the bottom
-center, front facing -Z in Godot. Built by `../build_farm_props.py`.
+center, front facing +Z in Godot. Built by `../build_farm_props.py`.
 
 ![barnyard](preview_barnyard.png)
 ![coop](preview_coop.png)
@@ -22,7 +22,7 @@ center, front facing -Z in Godot. Built by `../build_farm_props.py`.
 | File | Notes |
 |------|-------|
 | `barn.glb` | 8 x 10 m red gambrel barn, 7 m to the ridge, open 3.4 x 3.6 m doorway at the front, hayloft door, weather vane, dirt floor |
-| `barn_door.glb` | one sliding door, 1.75 x 3.6 m. Closed: place at x = -0.87 and +0.87, y = 0, z = -5.22 (Godot) and slide along X to open |
+| `barn_door.glb` | one sliding door, 1.75 x 3.6 m. Closed: place at x = -0.87 and +0.87, y = 0, z = +5.22 on the barn (its doorway faces +Z) and slide along X to open |
 | `stall_divider.glb` | wall between stalls, 3 m long (runs front to back), 1.7 m tall |
 | `stall_gate.glb` | 1.2 m stall door; origin at the hinge, swings open from there |
 

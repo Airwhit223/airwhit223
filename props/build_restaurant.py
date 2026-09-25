@@ -6,7 +6,7 @@ or with the bpy pip module (Python 3.13):
     python props/build_restaurant.py [name ...]
 
 Every prop is its own .glb in props/restaurant/, real-world scale in meters,
-origin at the bottom center, front facing +Y in Blender (-Z in Godot).
+origin at the bottom center, front facing +Z in Godot (modeled facing +Y, turned at export).
 Food parts are separate so they can be stacked, cooked and served one by one.
 """
 import math
@@ -20,6 +20,7 @@ from base_character import (  # noqa: E402
     Matrix, Vector, add_capsule, add_ellipsoid, apply_modifiers, bmesh, bpy, join, make_material, new_object,
     paint, remesh_and_smooth, reset_scene, select_only, srgb, tube,
 )
+from build_pets import face_plus_z  # noqa: E402
 
 OUT = os.path.join(HERE, "restaurant")
 os.makedirs(OUT, exist_ok=True)
@@ -178,6 +179,7 @@ def export(name, parts):
     body.name = name
     body.data.materials.clear()
     body.data.materials.append(make_material(name))
+    face_plus_z()
     bpy.ops.export_scene.gltf(filepath=os.path.join(OUT, name + ".glb"), export_format="GLB",
                               export_vertex_color="MATERIAL")
     print(f"{name}: {sum(len(p.vertices) - 2 for p in body.data.polygons)} triangles")

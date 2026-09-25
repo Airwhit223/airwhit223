@@ -23,6 +23,7 @@ from build_pets import (  # noqa: E402,F401
     add_capsule, add_ellipsoid, apply_modifiers, join, make_material, paint,
     remesh_and_smooth, reset_scene, srgb,
 )
+from build_pets import face_plus_z  # noqa: E402
 
 DARK = srgb(0.07, 0.05, 0.06)
 WHITE = srgb(0.97, 0.96, 0.95)
@@ -616,6 +617,7 @@ def export(name, body, rig, out_dir):
     body.data.materials.clear()
     body.data.materials.append(make_material(name))
     bpy.ops.wm.save_as_mainfile(filepath=os.path.join(out_dir, name + ".blend"))
+    face_plus_z()
     bpy.ops.export_scene.gltf(
         filepath=os.path.join(out_dir, name + ".glb"),
         export_format="GLB",

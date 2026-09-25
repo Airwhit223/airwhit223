@@ -27,6 +27,7 @@ from base_character import (  # noqa: E402
     select_only, set_weights, skirt_weights, srgb, tube,
 )
 from build_pets import add_ear  # noqa: E402
+from build_pets import face_plus_z  # noqa: E402
 
 OUT = HERE
 BASES = {
@@ -131,7 +132,7 @@ def inner_ear(lc, base, tip, width):
 # smooth curve from the back of the head down to the collar instead of a second bump.
 NECK = [("c", (0, 0.1, -0.3), (0, 0.35, -1.0), 0.58, 0.52),
         ("c", (0, -0.3, 0.05), (0, 0.1, -0.95), 0.5, 0.48),  # nape: skull back slopes into the neck
-        ("e", (0, 0.35, -1.05), (0.62, 0.52, 0.35))]
+        ("e", (0, 0.28, -1.05), (0.64, 0.6, 0.36))]
 
 
 HEADS = {
@@ -710,6 +711,7 @@ def build_customizable(sex):
             o.data.materials.append(mat)
     name = "beastfolk_" + sex
     bpy.ops.wm.save_as_mainfile(filepath=os.path.join(OUT, name + ".blend"))
+    face_plus_z()
     bpy.ops.export_scene.gltf(filepath=os.path.join(OUT, name + ".glb"), export_format="GLB",
                               export_vertex_color="MATERIAL")
     tris = sum(sum(len(p.vertices) - 2 for p in o.data.polygons) for o in [body] + parts if o.type == "MESH")
@@ -861,6 +863,7 @@ def build_npc(kind):
     body.data.materials.append(make_material("npc_" + kind))
     name = "npc_shark" if kind == "shark" else "npc_wolf_egypt"
     bpy.ops.wm.save_as_mainfile(filepath=os.path.join(OUT, name + ".blend"))
+    face_plus_z()
     bpy.ops.export_scene.gltf(filepath=os.path.join(OUT, name + ".glb"), export_format="GLB",
                               export_vertex_color="MATERIAL")
     tris = sum(len(p.vertices) - 2 for p in body.data.polygons)

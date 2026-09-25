@@ -1,2 +1,6 @@
 *.blend1
 __pycache__/
+.build_logs/
+tools/preview/assets/
+tools/preview/.godot/
+*.import

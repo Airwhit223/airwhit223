@@ -1,7 +1,7 @@
 # Restaurant props (cartoony, Simpsons-style)
 
 Bright flat colors, chunky rounded shapes, thick outlines. Real-world scale in
-meters, origin at the bottom center, front facing -Z in Godot. Built by
+meters, origin at the bottom center, front facing +Z in Godot. Built by
 `../build_restaurant.py`.
 
 ![burger parts](preview_food1.png)

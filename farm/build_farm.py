@@ -6,7 +6,7 @@ Run with Blender 5.x:
 or with the bpy pip module (Python 3.13):
     python farm/build_farm.py [name ...]
 
-Models face +Y in Blender (-Z forward in Godot).
+Modeled facing +Y in Blender; exported facing +Z in Godot (see face_plus_z in build_pets.py).
 """
 import math
 import os
